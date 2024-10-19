@@ -81,8 +81,10 @@
 *                                              CYPRESS
 *********************************************************************************************************
 */
-
-
+#include "cyfitter.h"   // Generated source, contains pin definitions
+#include "cytypes.h"            // Contains standard data types used across PSoC projects
+#include "cyapicallbacks.h"
+#include "cypins.h"
 /*
 *********************************************************************************************************
 *                                              PROBE

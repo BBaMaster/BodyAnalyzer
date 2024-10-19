@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccP5ynDI.s 			page 1
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccdaXsLk.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccP5ynDI.s 			page 1
   28:Generated_Source\PSoC5/DMA_SPI_dma.c **** * The following defines are available in Cyfitter.h
   29:Generated_Source\PSoC5/DMA_SPI_dma.c **** * 
   30:Generated_Source\PSoC5/DMA_SPI_dma.c **** * 
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccP5ynDI.s 			page 2
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccdaXsLk.s 			page 2
 
 
   31:Generated_Source\PSoC5/DMA_SPI_dma.c **** * 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccP5ynDI.s 			page 1
   85:Generated_Source\PSoC5/DMA_SPI_dma.c **** *   UpperSrcAddress.
   86:Generated_Source\PSoC5/DMA_SPI_dma.c **** *       
   87:Generated_Source\PSoC5/DMA_SPI_dma.c **** *       
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccP5ynDI.s 			page 3
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccdaXsLk.s 			page 3
 
 
   88:Generated_Source\PSoC5/DMA_SPI_dma.c **** *   UpperDestAddress.
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccP5ynDI.s 			page 1
  109:Generated_Source\PSoC5/DMA_SPI_dma.c ****                                   (uint8)DMA_SPI__TERMIN_SEL);
  110:Generated_Source\PSoC5/DMA_SPI_dma.c **** 
  111:Generated_Source\PSoC5/DMA_SPI_dma.c ****     /* Set the extended address for the transfers */
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccP5ynDI.s 			page 4
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccdaXsLk.s 			page 4
 
 
  112:Generated_Source\PSoC5/DMA_SPI_dma.c ****     (void)CyDmaChSetExtendedAddress(DMA_SPI_DmaHandle, UpperSrcAddress, UpperDestAddress);
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccP5ynDI.s 			page 1
  134:Generated_Source\PSoC5/DMA_SPI_dma.c **** *
  135:Generated_Source\PSoC5/DMA_SPI_dma.c **** *******************************************************************/
  136:Generated_Source\PSoC5/DMA_SPI_dma.c **** void DMA_SPI_DmaRelease(void) 
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccP5ynDI.s 			page 5
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccdaXsLk.s 			page 5
 
 
  137:Generated_Source\PSoC5/DMA_SPI_dma.c **** {
@@ -286,7 +286,7 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccP5ynDI.s 			page 1
  132 000c 6F000000 		.4byte	.LASF24
  133 0010 0C       		.byte	0xc
  134 0011 20010000 		.4byte	.LASF25
- 135 0015 CD010000 		.4byte	.LASF26
+ 135 0015 4C010000 		.4byte	.LASF26
  136 0019 00000000 		.4byte	.Ldebug_ranges0+0
  137 001d 00000000 		.4byte	0
  138 0021 00000000 		.4byte	.Ldebug_line0
@@ -297,22 +297,22 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccP5ynDI.s 			page 1
  143 002c 03       		.uleb128 0x3
  144 002d 04       		.byte	0x4
  145 002e 07       		.byte	0x7
- 146 002f 4C010000 		.4byte	.LASF0
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccP5ynDI.s 			page 6
+ 146 002f 86010000 		.4byte	.LASF0
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccdaXsLk.s 			page 6
 
 
  147 0033 03       		.uleb128 0x3
  148 0034 08       		.byte	0x8
  149 0035 05       		.byte	0x5
- 150 0036 8A010000 		.4byte	.LASF1
+ 150 0036 C4010000 		.4byte	.LASF1
  151 003a 03       		.uleb128 0x3
  152 003b 08       		.byte	0x8
  153 003c 04       		.byte	0x4
- 154 003d 26020000 		.4byte	.LASF2
+ 154 003d 2D020000 		.4byte	.LASF2
  155 0041 03       		.uleb128 0x3
  156 0042 01       		.byte	0x1
  157 0043 06       		.byte	0x6
- 158 0044 32020000 		.4byte	.LASF3
+ 158 0044 39020000 		.4byte	.LASF3
  159 0048 03       		.uleb128 0x3
  160 0049 01       		.byte	0x1
  161 004a 08       		.byte	0x8
@@ -320,7 +320,7 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccP5ynDI.s 			page 1
  163 004f 03       		.uleb128 0x3
  164 0050 02       		.byte	0x2
  165 0051 05       		.byte	0x5
- 166 0052 00020000 		.4byte	.LASF5
+ 166 0052 07020000 		.4byte	.LASF5
  167 0056 03       		.uleb128 0x3
  168 0057 02       		.byte	0x2
  169 0058 07       		.byte	0x7
@@ -328,7 +328,7 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccP5ynDI.s 			page 1
  171 005d 03       		.uleb128 0x3
  172 005e 04       		.byte	0x4
  173 005f 05       		.byte	0x5
- 174 0060 1D020000 		.4byte	.LASF7
+ 174 0060 24020000 		.4byte	.LASF7
  175 0064 03       		.uleb128 0x3
  176 0065 04       		.byte	0x4
  177 0066 07       		.byte	0x7
@@ -336,15 +336,15 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccP5ynDI.s 			page 1
  179 006b 03       		.uleb128 0x3
  180 006c 08       		.byte	0x8
  181 006d 07       		.byte	0x7
- 182 006e 59010000 		.4byte	.LASF9
+ 182 006e 93010000 		.4byte	.LASF9
  183 0072 03       		.uleb128 0x3
  184 0073 04       		.byte	0x4
  185 0074 07       		.byte	0x7
- 186 0075 81010000 		.4byte	.LASF10
+ 186 0075 BB010000 		.4byte	.LASF10
  187 0079 03       		.uleb128 0x3
  188 007a 01       		.byte	0x1
  189 007b 08       		.byte	0x8
- 190 007c B2010000 		.4byte	.LASF11
+ 190 007c EC010000 		.4byte	.LASF11
  191 0080 04       		.uleb128 0x4
  192 0081 1A010000 		.4byte	.LASF12
  193 0085 02       		.byte	0x2
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccP5ynDI.s 			page 1
  201 0098 03       		.uleb128 0x3
  202 0099 04       		.byte	0x4
  203 009a 04       		.byte	0x4
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccP5ynDI.s 			page 7
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccdaXsLk.s 			page 7
 
 
  204 009b 5B000000 		.4byte	.LASF14
@@ -367,7 +367,7 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccP5ynDI.s 			page 1
  207 00a1 04       		.byte	0x4
  208 00a2 54000000 		.4byte	.LASF15
  209 00a6 05       		.uleb128 0x5
- 210 00a7 B7010000 		.4byte	.LASF27
+ 210 00a7 F1010000 		.4byte	.LASF27
  211 00ab 01       		.byte	0x1
  212 00ac 61       		.byte	0x61
  213 00ad 80000000 		.4byte	0x80
@@ -395,7 +395,7 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccP5ynDI.s 			page 1
  235 00e4 8C000000 		.4byte	0x8c
  236 00e8 42000000 		.4byte	.LLST2
  237 00ec 06       		.uleb128 0x6
- 238 00ed 70010000 		.4byte	.LASF19
+ 238 00ed AA010000 		.4byte	.LASF19
  239 00f1 01       		.byte	0x1
  240 00f2 61       		.byte	0x61
  241 00f3 8C000000 		.4byte	0x8c
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccP5ynDI.s 			page 1
  258 0113 08       		.uleb128 0x8
  259 0114 02       		.uleb128 0x2
  260 0115 7D       		.byte	0x7d
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccP5ynDI.s 			page 8
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccdaXsLk.s 			page 8
 
 
  261 0116 00       		.sleb128 0
@@ -459,7 +459,7 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccP5ynDI.s 			page 1
  296 0148 00       		.byte	0
  297 0149 00       		.byte	0
  298 014a 0A       		.uleb128 0xa
- 299 014b 0A020000 		.4byte	.LASF28
+ 299 014b 11020000 		.4byte	.LASF28
  300 014f 01       		.byte	0x1
  301 0150 88       		.byte	0x88
  302 0151 00000000 		.4byte	.LFB1
@@ -478,18 +478,18 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccP5ynDI.s 			page 1
  315 0170 80000000 		.4byte	0x80
  316 0174 05       		.uleb128 0x5
  317 0175 03       		.byte	0x3
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccP5ynDI.s 			page 9
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccdaXsLk.s 			page 9
 
 
  318 0176 00000000 		.4byte	DMA_SPI_DmaHandle
  319 017a 0D       		.uleb128 0xd
- 320 017b 4D020000 		.4byte	.LASF20
- 321 017f 4D020000 		.4byte	.LASF20
+ 320 017b 54020000 		.4byte	.LASF20
+ 321 017f 54020000 		.4byte	.LASF20
  322 0183 03       		.byte	0x3
  323 0184 33       		.byte	0x33
  324 0185 0D       		.uleb128 0xd
- 325 0186 98010000 		.4byte	.LASF21
- 326 018a 98010000 		.4byte	.LASF21
+ 325 0186 D2010000 		.4byte	.LASF21
+ 326 018a D2010000 		.4byte	.LASF21
  327 018e 03       		.byte	0x3
  328 018f 2D       		.byte	0x2d
  329 0190 0D       		.uleb128 0xd
@@ -498,8 +498,8 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccP5ynDI.s 			page 1
  332 0199 03       		.byte	0x3
  333 019a 2C       		.byte	0x2c
  334 019b 0D       		.uleb128 0xd
- 335 019c 3E020000 		.4byte	.LASF23
- 336 01a0 3E020000 		.4byte	.LASF23
+ 335 019c 45020000 		.4byte	.LASF23
+ 336 01a0 45020000 		.4byte	.LASF23
  337 01a4 03       		.byte	0x3
  338 01a5 2A       		.byte	0x2a
  339 01a6 00       		.byte	0
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccP5ynDI.s 			page 1
  372 001e 03       		.uleb128 0x3
  373 001f 24       		.uleb128 0x24
  374 0020 00       		.byte	0
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccP5ynDI.s 			page 10
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccdaXsLk.s 			page 10
 
 
  375 0021 0B       		.uleb128 0xb
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccP5ynDI.s 			page 1
  429 0058 0B       		.uleb128 0xb
  430 0059 3B       		.uleb128 0x3b
  431 005a 0B       		.uleb128 0xb
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccP5ynDI.s 			page 11
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccdaXsLk.s 			page 11
 
 
  432 005b 49       		.uleb128 0x49
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccP5ynDI.s 			page 1
  486 0098 9742     		.uleb128 0x2117
  487 009a 19       		.uleb128 0x19
  488 009b 01       		.uleb128 0x1
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccP5ynDI.s 			page 12
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccdaXsLk.s 			page 12
 
 
  489 009c 13       		.uleb128 0x13
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccP5ynDI.s 			page 1
  543 000b 1A000000 		.4byte	.LVL4
  544 000f 3C000000 		.4byte	.LFE0
  545 0013 0400     		.2byte	0x4
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccP5ynDI.s 			page 13
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccdaXsLk.s 			page 13
 
 
  546 0015 F3       		.byte	0xf3
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccP5ynDI.s 			page 1
  600 000c 0000     		.2byte	0
  601 000e 0000     		.2byte	0
  602 0010 00000000 		.4byte	.LFB0
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccP5ynDI.s 			page 14
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccdaXsLk.s 			page 14
 
 
  603 0014 3C000000 		.4byte	.LFE0-.LFB0
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccP5ynDI.s 			page 1
  634 0061 756E7369 		.ascii	"unsigned char\000"
  634      676E6564 
  634      20636861 
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccP5ynDI.s 			page 15
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccdaXsLk.s 			page 15
 
 
  634      7200
@@ -880,89 +880,91 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccP5ynDI.s 			page 1
  647              	.LASF13:
  648 0145 75696E74 		.ascii	"uint16\000"
  648      313600
- 649              	.LASF0:
- 650 014c 756E7369 		.ascii	"unsigned int\000"
- 650      676E6564 
- 650      20696E74 
- 650      00
- 651              	.LASF9:
- 652 0159 6C6F6E67 		.ascii	"long long unsigned int\000"
- 652      206C6F6E 
- 652      6720756E 
- 652      7369676E 
- 652      65642069 
- 653              	.LASF19:
- 654 0170 55707065 		.ascii	"UpperDestAddress\000"
- 654      72446573 
- 654      74416464 
- 654      72657373 
- 654      00
- 655              	.LASF10:
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccP5ynDI.s 			page 16
+ 649              	.LASF26:
+ 650 014c 433A5C55 		.ascii	"C:\\Users\\Chronikle\\Downloads\\UniOld\\esw_uCOS3_"
+ 650      73657273 
+ 650      5C436872 
+ 650      6F6E696B 
+ 650      6C655C44 
+ 651 017a 63796B69 		.ascii	"cykit.cydsn\000"
+ 651      742E6379 
+ 651      64736E00 
+ 652              	.LASF0:
+ 653 0186 756E7369 		.ascii	"unsigned int\000"
+ 653      676E6564 
+ 653      20696E74 
+ 653      00
+ 654              	.LASF9:
+ 655 0193 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 655      206C6F6E 
+ 655      6720756E 
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccdaXsLk.s 			page 16
 
 
- 656 0181 73697A65 		.ascii	"sizetype\000"
- 656      74797065 
- 656      00
- 657              	.LASF1:
- 658 018a 6C6F6E67 		.ascii	"long long int\000"
- 658      206C6F6E 
- 658      6720696E 
- 658      7400
- 659              	.LASF21:
- 660 0198 4379446D 		.ascii	"CyDmaChSetExtendedAddress\000"
- 660      61436853 
- 660      65744578 
- 660      74656E64 
- 660      65644164 
- 661              	.LASF11:
- 662 01b2 63686172 		.ascii	"char\000"
- 662      00
- 663              	.LASF27:
- 664 01b7 444D415F 		.ascii	"DMA_SPI_DmaInitialize\000"
- 664      5350495F 
- 664      446D6149 
- 664      6E697469 
- 664      616C697A 
- 665              	.LASF26:
- 666 01cd 433A5C55 		.ascii	"C:\\Users\\Chronikle\\Downloads\\esw_uCOS3_cykit.cy"
- 666      73657273 
- 666      5C436872 
- 666      6F6E696B 
- 666      6C655C44 
- 667 01fc 64736E00 		.ascii	"dsn\000"
+ 655      7369676E 
+ 655      65642069 
+ 656              	.LASF19:
+ 657 01aa 55707065 		.ascii	"UpperDestAddress\000"
+ 657      72446573 
+ 657      74416464 
+ 657      72657373 
+ 657      00
+ 658              	.LASF10:
+ 659 01bb 73697A65 		.ascii	"sizetype\000"
+ 659      74797065 
+ 659      00
+ 660              	.LASF1:
+ 661 01c4 6C6F6E67 		.ascii	"long long int\000"
+ 661      206C6F6E 
+ 661      6720696E 
+ 661      7400
+ 662              	.LASF21:
+ 663 01d2 4379446D 		.ascii	"CyDmaChSetExtendedAddress\000"
+ 663      61436853 
+ 663      65744578 
+ 663      74656E64 
+ 663      65644164 
+ 664              	.LASF11:
+ 665 01ec 63686172 		.ascii	"char\000"
+ 665      00
+ 666              	.LASF27:
+ 667 01f1 444D415F 		.ascii	"DMA_SPI_DmaInitialize\000"
+ 667      5350495F 
+ 667      446D6149 
+ 667      6E697469 
+ 667      616C697A 
  668              	.LASF5:
- 669 0200 73686F72 		.ascii	"short int\000"
+ 669 0207 73686F72 		.ascii	"short int\000"
  669      7420696E 
  669      7400
  670              	.LASF28:
- 671 020a 444D415F 		.ascii	"DMA_SPI_DmaRelease\000"
+ 671 0211 444D415F 		.ascii	"DMA_SPI_DmaRelease\000"
  671      5350495F 
  671      446D6152 
  671      656C6561 
  671      736500
  672              	.LASF7:
- 673 021d 6C6F6E67 		.ascii	"long int\000"
+ 673 0224 6C6F6E67 		.ascii	"long int\000"
  673      20696E74 
  673      00
  674              	.LASF2:
- 675 0226 6C6F6E67 		.ascii	"long double\000"
+ 675 022d 6C6F6E67 		.ascii	"long double\000"
  675      20646F75 
  675      626C6500 
  676              	.LASF3:
- 677 0232 7369676E 		.ascii	"signed char\000"
+ 677 0239 7369676E 		.ascii	"signed char\000"
  677      65642063 
  677      68617200 
  678              	.LASF23:
- 679 023e 4379446D 		.ascii	"CyDmaChDisable\000"
+ 679 0245 4379446D 		.ascii	"CyDmaChDisable\000"
  679      61436844 
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccdaXsLk.s 			page 17
+
+
  679      69736162 
  679      6C6500
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccP5ynDI.s 			page 17
-
-
  680              	.LASF20:
- 681 024d 4379446D 		.ascii	"CyDmaChSetConfiguration\000"
+ 681 0254 4379446D 		.ascii	"CyDmaChSetConfiguration\000"
  681      61436853 
  681      6574436F 
  681      6E666967 

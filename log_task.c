@@ -135,10 +135,9 @@ static void Log_Task(void *p_arg)
 }
 
 /* Write a message to the log queue with a given severity level and optional error code */
-void Log_Write(CPU_INT08U level, const CPU_CHAR *msg, CPU_INT32U err_code)
-{
+void Log_Write(CPU_INT08U level, const CPU_CHAR *msg, ...) {
     if (!(level & LOG_ALLOWED_LEVELS)) {
-        return;  /* Skip logging if the message type is not allowed */
+        return;  // Skip logging if the message type is not allowed
     }
 
     OS_ERR os_err;
@@ -155,13 +154,11 @@ void Log_Write(CPU_INT08U level, const CPU_CHAR *msg, CPU_INT32U err_code)
     /* Set the log message level */
     log_msg->level = level;
 
-    /* Format the message */
-    if (err_code != 0) {
-        snprintf(formatted_msg, LOG_MSG_SIZE, "%s (Error Code: %u)", msg, err_code);  // Print error code as unsigned integer
-    } else {
-        strncpy(formatted_msg, msg, LOG_MSG_SIZE - 1);
-        formatted_msg[LOG_MSG_SIZE - 1] = '\0';  /* Ensure null termination */
-    }
+    /* Format the message with variable arguments */
+    va_list args;
+    va_start(args, msg);
+    vsnprintf(formatted_msg, LOG_MSG_SIZE, msg, args);  // Use vsnprintf for variable argument formatting
+    va_end(args);
 
     strncpy(log_msg->msg, formatted_msg, LOG_MSG_SIZE - 1);
     log_msg->msg[LOG_MSG_SIZE - 1] = '\0';  /* Ensure null termination */

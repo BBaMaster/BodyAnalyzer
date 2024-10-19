@@ -76,6 +76,16 @@
   <file name="C:\Users\Chronikle\Downloads\UniOld\esw_uCOS3_cykit.cydsn\codegentemp\Pin_Red_Led.h" value="HEADER;;;;;Pin_Red_Led" />
   <file name="C:\Users\Chronikle\Downloads\UniOld\esw_uCOS3_cykit.cydsn\codegentemp\DMA_SPI_dma.c" value="SOURCE_C;CortexM3;;;;DMA_SPI" />
   <file name="C:\Users\Chronikle\Downloads\UniOld\esw_uCOS3_cykit.cydsn\codegentemp\DMA_SPI_dma.h" value="HEADER;;;;;DMA_SPI" />
+  <file name="C:\Users\Chronikle\Downloads\UniOld\esw_uCOS3_cykit.cydsn\codegentemp\I2C_INTR_aliases.h" value="HEADER;;;;;I2C_INTR" />
+  <file name="C:\Users\Chronikle\Downloads\UniOld\esw_uCOS3_cykit.cydsn\codegentemp\I2C_INTR.c" value="SOURCE_C;CortexM3;;;;I2C_INTR" />
+  <file name="C:\Users\Chronikle\Downloads\UniOld\esw_uCOS3_cykit.cydsn\codegentemp\I2C_INTR.h" value="HEADER;;;;;I2C_INTR" />
+  <file name="C:\Users\Chronikle\Downloads\UniOld\esw_uCOS3_cykit.cydsn\codegentemp\I2C_DataReady.c" value="SOURCE_C;CortexM3;;;;I2C_DataReady" />
+  <file name="C:\Users\Chronikle\Downloads\UniOld\esw_uCOS3_cykit.cydsn\codegentemp\I2C_DataReady.h" value="HEADER;;;;;I2C_DataReady" />
+  <file name="C:\Users\Chronikle\Downloads\UniOld\esw_uCOS3_cykit.cydsn\codegentemp\Timer_1.c" value="SOURCE_C;CortexM3;;;;Timer_1" />
+  <file name="C:\Users\Chronikle\Downloads\UniOld\esw_uCOS3_cykit.cydsn\codegentemp\Timer_1.h" value="HEADER;;;;;Timer_1" />
+  <file name="C:\Users\Chronikle\Downloads\UniOld\esw_uCOS3_cykit.cydsn\codegentemp\Timer_1_PM.c" value="SOURCE_C;CortexM3;;;;Timer_1" />
+  <file name="C:\Users\Chronikle\Downloads\UniOld\esw_uCOS3_cykit.cydsn\codegentemp\Timer_ISR.c" value="SOURCE_C;CortexM3;;;;Timer_ISR" />
+  <file name="C:\Users\Chronikle\Downloads\UniOld\esw_uCOS3_cykit.cydsn\codegentemp\Timer_ISR.h" value="HEADER;;;;;Timer_ISR" />
   <file name="C:\Users\Chronikle\Downloads\UniOld\esw_uCOS3_cykit.cydsn\codegentemp\UART_1_IntClock.c" value="SOURCE_C;CortexM3;;;;UART_1_IntClock" />
   <file name="C:\Users\Chronikle\Downloads\UniOld\esw_uCOS3_cykit.cydsn\codegentemp\UART_1_IntClock.h" value="HEADER;;;;;UART_1_IntClock" />
   <file name="C:\Users\Chronikle\Downloads\UniOld\esw_uCOS3_cykit.cydsn\codegentemp\SPIM_1_IntClock.c" value="SOURCE_C;CortexM3;;;;SPIM_1_IntClock" />

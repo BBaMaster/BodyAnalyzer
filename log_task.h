@@ -25,7 +25,7 @@ extern OS_SEM LogTaskSem;
 #define MESSAGE_SIZE ALIGN_TO_WORD_SIZE(sizeof(LOG_MSG))
 
 /* Maximum number of messages in the log queue */
-#define LOG_QUEUE_SIZE  50u
+#define LOG_QUEUE_SIZE  100u
 
 /* Maximum number of log messages in the memory pool */
 #define MESSAGE_POOL_SIZE 84u
@@ -42,6 +42,6 @@ extern CPU_STK Log_TaskStk[APP_CFG_TASK_LOG_STK_SIZE];
 
 /* Function Prototypes */
 void Log_Init(void);  // Initializes the log task (creates the task, not memory pool/queue)
-void Log_Write(CPU_INT08U level, const CPU_CHAR *msg, CPU_INT32U err_code);  // Write log message
+void Log_Write(CPU_INT08U level, const CPU_CHAR *msg, ...);
 
 #endif /* LOG_TASK_H */

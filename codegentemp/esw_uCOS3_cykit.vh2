@@ -2,7 +2,7 @@
 --	Conversion of esw_uCOS3_cykit.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Sat Oct 19 02:10:09 2024
+--	Sat Oct 19 21:40:58 2024
 --
 
 USE cypress.cypress.all;
@@ -575,6 +575,21 @@ SIGNAL tmpIO_0__Pin_Red_Led_net_0 : bit;
 TERMINAL tmpSIOVREF__Pin_Red_Led_net_0 : bit;
 SIGNAL tmpINTERRUPT_0__Pin_Red_Led_net_0 : bit;
 SIGNAL Net_123 : bit;
+SIGNAL tmpOE__I2C_INTR_net_0 : bit;
+SIGNAL Net_145 : bit;
+SIGNAL tmpIO_0__I2C_INTR_net_0 : bit;
+TERMINAL tmpSIOVREF__I2C_INTR_net_0 : bit;
+SIGNAL Net_146 : bit;
+SIGNAL Net_10 : bit;
+SIGNAL Net_12 : bit;
+SIGNAL \Timer_1:Net_260\ : bit;
+SIGNAL \Timer_1:Net_266\ : bit;
+SIGNAL \Timer_1:Net_51\ : bit;
+SIGNAL \Timer_1:Net_261\ : bit;
+SIGNAL \Timer_1:Net_57\ : bit;
+SIGNAL Net_161 : bit;
+SIGNAL Net_162 : bit;
+SIGNAL \Timer_1:Net_102\ : bit;
 SIGNAL \UART_1:BUART:reset_reg\\D\ : bit;
 SIGNAL \UART_1:BUART:txn\\D\ : bit;
 SIGNAL \UART_1:BUART:tx_state_1\\D\ : bit;
@@ -2280,6 +2295,104 @@ DMA_SPI:cy_dma_v1_0
 	PORT MAP(drq=>zero,
 		trq=>zero,
 		nrq=>Net_123);
+I2C_INTR:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"27512e2a-3ade-420d-b5e7-cc552974ccf7",
+		drive_mode=>"001",
+		ibuf_enabled=>"1",
+		init_dr_st=>"0",
+		input_sync=>"0",
+		input_clk_en=>'0',
+		input_sync_mode=>"0",
+		intr_mode=>"10",
+		invert_in_clock=>'0',
+		invert_in_clock_en=>'0',
+		invert_in_reset=>'0',
+		invert_out_clock=>'0',
+		invert_out_clock_en=>'0',
+		invert_out_reset=>'0',
+		io_voltage=>"",
+		layout_mode=>"CONTIGUOUS",
+		output_conn=>"0",
+		output_sync=>"0",
+		output_clk_en=>'0',
+		output_mode=>"0",
+		output_reset=>'0',
+		output_clock_mode=>"0",
+		oe_sync=>"0",
+		oe_conn=>"0",
+		oe_reset=>'0',
+		pin_aliases=>"",
+		pin_mode=>"I",
+		por_state=>4,
+		sio_group_cnt=>0,
+		sio_hifreq=>"00000000",
+		sio_hyst=>"1",
+		sio_ibuf=>"00000000",
+		sio_info=>"00",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		sio_vohsel=>"00000000",
+		slew_rate=>"0",
+		spanning=>'0',
+		sw_only=>'0',
+		vtrip=>"00",
+		width=>1,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"0",
+		pa_in_clock=>-1,
+		pa_in_clock_en=>-1,
+		pa_in_reset=>-1,
+		pa_out_clock=>-1,
+		pa_out_clock_en=>-1,
+		pa_out_reset=>-1,
+		ovt_needed=>"0",
+		ovt_slew_control=>"00",
+		ovt_hyst_trim=>"0",
+		input_buffer_sel=>"00")
+	PORT MAP(oe=>(one),
+		y=>(zero),
+		fb=>Net_145,
+		analog=>(open),
+		io=>(tmpIO_0__I2C_INTR_net_0),
+		siovref=>(tmpSIOVREF__I2C_INTR_net_0),
+		annotation=>(open),
+		in_clock=>zero,
+		in_clock_en=>one,
+		in_reset=>zero,
+		out_clock=>zero,
+		out_clock_en=>one,
+		out_reset=>zero,
+		interrupt=>Net_146);
+I2C_DataReady:cy_isr_v1_0
+	GENERIC MAP(int_type=>"10",
+		is_nmi=>'0')
+	PORT MAP(int_signal=>Net_146);
+timer_clock:cy_clock_v1_0
+	GENERIC MAP(cy_registers=>"",
+		id=>"c0fb34bd-1044-4931-9788-16b01ce89812",
+		source_clock_id=>"75C2148C-3656-4d8a-846D-0CAE99AB6FF7",
+		divisor=>0,
+		period=>"0",
+		is_direct=>'1',
+		is_digital=>'1')
+	PORT MAP(clock_out=>Net_10,
+		dig_domain_out=>open);
+\Timer_1:TimerHW\:cy_psoc3_timer_v1_0
+	GENERIC MAP(cy_registers=>"")
+	PORT MAP(clock=>Net_10,
+		kill=>zero,
+		enable=>one,
+		capture=>zero,
+		timer_reset=>zero,
+		tc=>Net_162,
+		compare=>\Timer_1:Net_261\,
+		interrupt=>\Timer_1:Net_57\);
+Timer_ISR:cy_isr_v1_0
+	GENERIC MAP(int_type=>"10",
+		is_nmi=>'0')
+	PORT MAP(int_signal=>Net_162);
 \UART_1:BUART:reset_reg\:cy_dff
 	PORT MAP(d=>zero,
 		clk=>\UART_1:BUART:clock_op\,

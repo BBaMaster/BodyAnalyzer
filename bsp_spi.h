@@ -8,8 +8,8 @@
 #define SPI_BUFFER_SIZE 16
 
 /* Function Prototypes */
-void SPI_Read(void);          // Function to start SPI read with DMA
-void SPI_Write(CPU_INT08U* data, CPU_INT16U size);  // Function to write data over SPI
+static int8_t bsp_spi_read(uint8_t *reg_addr, uint8_t *data, uint32_t len);
+static int8_t bsp_spi_write(uint8_t *reg_addr, const uint8_t *data, uint32_t len);
 void SPI_Task(void *p_arg);   // SPI Task function
 
 #endif /* BSP_SPI_H */

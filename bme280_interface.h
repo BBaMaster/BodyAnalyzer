@@ -10,4 +10,6 @@
  * ========================================
 */
 #include <bme280/bme280.h>
+#include "bsp_spi.h"
+#include "log_task.h"
 /* [] END OF FILE */

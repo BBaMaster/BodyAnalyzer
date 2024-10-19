@@ -76,21 +76,30 @@ void SPI_Task(void *p_arg) {
 *                                         SPI Read
 *********************************************************************************************************
 */
+// SPI Read Function
+static int8_t bsp_spi_read(uint8_t *reg_addr, uint8_t *data, uint32_t len) {
+    // Pull CS low to select the BME280
+    SPIM_1_WriteTxData(*reg_addr | 0x80); // Send register address with read flag
 
-void SPI_Read(void) {
-    
+    // Read data
+    for (uint32_t i = 0; i < len; i++) {
+        data[i] = SPIM_1_ReadRxData(); // Read data from RX buffer
+    }
 
-    /* Log the read operation */
-    Log_Write(LOG_LEVEL_INFO, "SPI Read Started", 0);
+    // Pull CS high to deselect the BME280
+    return 0; // Return success
 }
 
-/*
-*********************************************************************************************************
-*                                         SPI Write
-*********************************************************************************************************
-*/
+// SPI Write Function
+static int8_t bsp_spi_write(uint8_t *reg_addr, const uint8_t *data, uint32_t len) {
+    // Pull CS low to select the BME280
+    SPIM_1_WriteTxData(*reg_addr & 0x7F); // Send register address without read flag
 
-void SPI_Write(CPU_INT08U* data, CPU_INT16U size) {
-    
-    /* Implementation for SPI Write - To be defined based on actual project needs */
+    // Write data
+    for (uint32_t i = 0; i < len; i++) {
+        SPIM_1_WriteTxData(data[i]); // Write data to TX buffer
+    }
+
+    // Pull CS high to deselect the BME280
+    return 0; // Return success
 }
