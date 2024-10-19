@@ -1,0 +1,7 @@
+--------------- Rebuild Started: 10/19/2024 03:20:47 Project: max30102_interface.c, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/max30102_interface.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c max30102_interface.c -o .\CortexM3\ARM_GCC_541\Debug\max30102_interface.o
+In file included from max30102_interface.c:2:0:
+bsp_i2c.h:19:13: warning: 'I2C_Task' declared 'static' but never defined [-Wunused-function]
+ static void I2C_Task(void *p_arg);
+             ^
+--------------- Rebuild Succeeded: 10/19/2024 03:20:47 ---------------
