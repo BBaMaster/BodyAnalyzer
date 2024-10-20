@@ -42,8 +42,8 @@
 /* Internal interrupt handling */
 #define SPIM_1_TX_BUFFER_SIZE             (4u)
 #define SPIM_1_RX_BUFFER_SIZE             (4u)
-#define SPIM_1_INTERNAL_TX_INT_ENABLED    (1u)
-#define SPIM_1_INTERNAL_RX_INT_ENABLED    (1u)
+#define SPIM_1_INTERNAL_TX_INT_ENABLED    (0u)
+#define SPIM_1_INTERNAL_RX_INT_ENABLED    (0u)
 
 #define SPIM_1_SINGLE_REG_SIZE            (8u)
 #define SPIM_1_USE_SECOND_DATAPATH        (SPIM_1_DATA_WIDTH > SPIM_1_SINGLE_REG_SIZE)

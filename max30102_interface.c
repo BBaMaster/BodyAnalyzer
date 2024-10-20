@@ -8,12 +8,12 @@
 
 /* Dummy I2C init and deinit */
 static uint8_t bsp_i2c_init(void) { 
-    Log_Write(LOG_LEVEL_DEBUG, "I2C init", 0);
+    Log_Write(LOG_LEVEL_I2C, "I2C init", 0);
     return 0;  /* Return success */
 }
 
 static uint8_t bsp_i2c_deinit(void) { 
-    Log_Write(LOG_LEVEL_DEBUG, "I2C deinit", 0);
+    Log_Write(LOG_LEVEL_I2C, "I2C deinit", 0);
     return 0;  /* Return success */
 }
 
@@ -90,7 +90,7 @@ uint8_t max30102_sensor_init(max30102_handle_t* max30102_handle) {
         return res;
     }
 
-    Log_Write(LOG_LEVEL_DEBUG, "Configuring FIFO sample averaging...\r\n", 0);
+    Log_Write(LOG_LEVEL_MAX30102, "Configuring FIFO sample averaging...\r\n", 0);
     res = max30102_set_fifo_sample_averaging(max30102_handle, MAX30102_SAMPLE_AVERAGING_16); // Change to desired averaging level
     if (res != 0) {
         Log_Write(LOG_LEVEL_ERROR, "Failed to configure FIFO sample averaging", res);

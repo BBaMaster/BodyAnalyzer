@@ -33,25 +33,22 @@ static void Log_PrintErrorWithCode(const char *msg, OS_ERR err_code)
 static const char* Log_LevelToString(CPU_INT08U level)
 {
     switch (level) {
-        case LOG_LEVEL_INFO:    return "INFO";
-        case LOG_LEVEL_WARNING: return "WARNING";
-        case LOG_LEVEL_ERROR:   return "ERROR";
-        case LOG_LEVEL_DEBUG:   return "DEBUG";
-        default:                return "UNKNOWN";
+        case LOG_LEVEL_NONE:              return "NONE";
+        case LOG_LEVEL_INFO:              return "INFO";
+        case LOG_LEVEL_WARNING:           return "WARNING";
+        case LOG_LEVEL_ERROR:             return "ERROR";
+        case LOG_LEVEL_DEBUG:             return "DEBUG";
+        case LOG_LEVEL_SPI:               return "SPI LOGGING";
+        case LOG_LEVEL_I2C:               return "I2C LOGGING";
+        case LOG_LEVEL_MAX30102:          return "MAX30102 LOGGING";
+        case LOG_LEVEL_BME280:             return "BME280 LOGGING";
+        default:                          return "UNKNOWN";
     }
 }
 
 /* Function to create the Log Task */
 void Log_Init(void) {
     OS_ERR os_err;
-
-    /* Print stack size and message sizes */
-    char size_buffer[100];
-    snprintf(size_buffer, sizeof(size_buffer), 
-             "LOG_MSG size: %u bytes, Memory Pool Block size: %u bytes, Total Pool Size: %u blocks", 
-             sizeof(LOG_MSG), MESSAGE_SIZE, MESSAGE_POOL_SIZE);
-    UART_1_PutString(size_buffer);
-    UART_1_PutString("\r\n");
 
     /* Create the log task, but leave the initialization to the task itself */
     OSTaskCreate((OS_TCB     *)&Log_Task_TCB,
@@ -68,10 +65,8 @@ void Log_Init(void) {
                  (OS_OPT      )(OS_OPT_TASK_STK_CHK | OS_OPT_TASK_STK_CLR),
                  (OS_ERR     *)&os_err);
 
-    if (os_err == OS_ERR_NONE) {
-        UART_1_PutString("Log task created successfully.\r\n");
-    } else {
-        Log_PrintErrorWithCode("Error: Failed to create log task", os_err);
+
+    if (os_err != OS_ERR_NONE) { Log_PrintErrorWithCode("Error: Failed to create log task", os_err);
     }
 }
 
@@ -85,16 +80,11 @@ static void Log_Task(void *p_arg)
 
     (void)p_arg;
 
-    /* Print message about pool and queue creation */
-    UART_1_PutString("Log task is creating the memory pool and queue.\r\n");
-
     /* Memory pool creation in the task */
     OSMemCreate(&MsgMemPool, "Log Message Pool", (void *)MsgMemPoolStorage, MESSAGE_POOL_SIZE, MESSAGE_SIZE, &os_err);
     if (os_err != OS_ERR_NONE) {
         Log_PrintErrorWithCode("Error: Failed to create log message pool", os_err);
         return;
-    } else {
-        UART_1_PutString("Log message pool created successfully.\r\n");
     }
     
     /* Queue creation in the task */
@@ -102,8 +92,6 @@ static void Log_Task(void *p_arg)
     if (os_err != OS_ERR_NONE) {
         Log_PrintErrorWithCode("Error: Failed to create log queue", os_err);
         return;
-    } else {
-        UART_1_PutString("Log queue created successfully.\r\n");
     }
     OSSemPost(&LogTaskSem, OS_OPT_POST_1, &os_err);
     
@@ -136,14 +124,15 @@ static void Log_Task(void *p_arg)
 
 /* Write a message to the log queue with a given severity level and optional error code */
 void Log_Write(CPU_INT08U level, const CPU_CHAR *msg, ...) {
-    if (!(level & LOG_ALLOWED_LEVELS)) {
-        return;  // Skip logging if the message type is not allowed
+    // Check if the log level is valid and allowed
+    if (!(level & LOG_ALLOWED_LEVELS) || (level == LOG_LEVEL_NONE)) {
+        return;  // Skip logging if the message type is not allowed or is NONE
     }
 
     OS_ERR os_err;
     LOG_MSG *log_msg;
     CPU_CHAR formatted_msg[LOG_MSG_SIZE];
-
+       
     /* Allocate memory for the log message */
     log_msg = (LOG_MSG *)OSMemGet(&MsgMemPool, &os_err);
     if (os_err != OS_ERR_NONE) {
@@ -153,7 +142,9 @@ void Log_Write(CPU_INT08U level, const CPU_CHAR *msg, ...) {
 
     /* Set the log message level */
     log_msg->level = level;
-
+    if (!(level & LOG_ALLOWED_LEVELS) || level == LOG_LEVEL_NONE) {
+    return;  // Skip logging if the message type is not allowed
+    }
     /* Format the message with variable arguments */
     va_list args;
     va_start(args, msg);
@@ -162,7 +153,10 @@ void Log_Write(CPU_INT08U level, const CPU_CHAR *msg, ...) {
 
     strncpy(log_msg->msg, formatted_msg, LOG_MSG_SIZE - 1);
     log_msg->msg[LOG_MSG_SIZE - 1] = '\0';  /* Ensure null termination */
-
+    log_msg->level = level;
+    if (!(level & LOG_ALLOWED_LEVELS) || level == LOG_LEVEL_NONE) {
+    return;  // Skip logging if the message type is not allowed
+    }
     /* Post the message to the queue */
     OSQPost(&Log_Queue, (void *)log_msg, sizeof(LOG_MSG), OS_OPT_POST_FIFO, &os_err);
 

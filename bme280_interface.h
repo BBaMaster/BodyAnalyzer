@@ -12,4 +12,7 @@
 #include <bme280/bme280.h>
 #include "bsp_spi.h"
 #include "log_task.h"
+
+void BME280_Init(struct bme280_dev* dev);
+
 /* [] END OF FILE */

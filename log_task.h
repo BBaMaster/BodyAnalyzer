@@ -3,6 +3,7 @@
 
 #include <includes.h>
 
+
 /* Logging levels as bitmask */
 #define LOG_LEVEL_NONE        0x00  /* No logging */
 #define LOG_LEVEL_INFO        0x01  /* Informational messages */
@@ -10,10 +11,17 @@
 #define LOG_LEVEL_ERROR       0x04  /* Error messages */
 #define LOG_LEVEL_DEBUG       0x08  /* Debug messages */
 
+/* Module-specific log levels */
+#define LOG_LEVEL_SPI         0x10  /* SPI module logging */
+#define LOG_LEVEL_I2C         0x20  /* I2C module logging */
+#define LOG_LEVEL_MAX30102    0x40  /* MAX30102 sensor logging */
+#define LOG_LEVEL_BME280      0x50  /* MAX30102 sensor logging */
 /* Default allowed logging levels (set to all levels by default) */
 #ifndef LOG_ALLOWED_LEVELS
-#define LOG_ALLOWED_LEVELS    (LOG_LEVEL_INFO | LOG_LEVEL_WARNING | LOG_LEVEL_ERROR | LOG_LEVEL_DEBUG)
+#define LOG_ALLOWED_LEVELS    (LOG_LEVEL_INFO | LOG_LEVEL_WARNING | LOG_LEVEL_ERROR | LOG_LEVEL_DEBUG | LOG_LEVEL_SPI)
 #endif
+
+
 extern OS_SEM LogTaskSem;
 /* Maximum size of a single log message (in characters) */
 #define LOG_MSG_SIZE  80u

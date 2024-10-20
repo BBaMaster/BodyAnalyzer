@@ -1,5 +1,5 @@
 -- Project:   esw_uCOS3_cykit
--- Generated: 10/19/2024 21:40:58
+-- Generated: 10/20/2024 18:19:40
 -- PSoC Creator  4.4
 
 ENTITY esw_uCOS3_cykit IS
@@ -48,8 +48,6 @@ ARCHITECTURE __DEFAULT__ OF esw_uCOS3_cykit IS
     SIGNAL MISO_1(0)__PA : bit;
     SIGNAL MOSI_1(0)__PA : bit;
     SIGNAL Net_123 : bit;
-    SIGNAL Net_137 : bit;
-    SIGNAL Net_139 : bit;
     SIGNAL Net_146 : bit;
     SIGNAL Net_162 : bit;
     SIGNAL Net_19 : bit;
@@ -223,11 +221,11 @@ ARCHITECTURE __DEFAULT__ OF esw_uCOS3_cykit IS
     ATTRIBUTE lib_model OF \UART_1:BUART:pollcount_0\ : LABEL IS "macrocell27";
     ATTRIBUTE lib_model OF \UART_1:BUART:rx_status_3\ : LABEL IS "macrocell28";
     ATTRIBUTE lib_model OF \UART_1:BUART:rx_last\ : LABEL IS "macrocell29";
-    ATTRIBUTE lib_model OF Net_29 : LABEL IS "macrocell30";
-    ATTRIBUTE lib_model OF Net_23 : LABEL IS "macrocell31";
-    ATTRIBUTE lib_model OF \SPIM_1:BSPIM:state_2\ : LABEL IS "macrocell32";
-    ATTRIBUTE lib_model OF \SPIM_1:BSPIM:state_1\ : LABEL IS "macrocell33";
-    ATTRIBUTE lib_model OF \SPIM_1:BSPIM:state_0\ : LABEL IS "macrocell34";
+    ATTRIBUTE lib_model OF Net_23 : LABEL IS "macrocell30";
+    ATTRIBUTE lib_model OF \SPIM_1:BSPIM:state_2\ : LABEL IS "macrocell31";
+    ATTRIBUTE lib_model OF \SPIM_1:BSPIM:state_1\ : LABEL IS "macrocell32";
+    ATTRIBUTE lib_model OF \SPIM_1:BSPIM:state_0\ : LABEL IS "macrocell33";
+    ATTRIBUTE lib_model OF Net_29 : LABEL IS "macrocell34";
     ATTRIBUTE lib_model OF \SPIM_1:BSPIM:load_cond\ : LABEL IS "macrocell35";
     ATTRIBUTE lib_model OF \SPIM_1:BSPIM:ld_ident\ : LABEL IS "macrocell36";
     ATTRIBUTE lib_model OF \SPIM_1:BSPIM:cnt_enable\ : LABEL IS "macrocell37";
@@ -887,7 +885,7 @@ BEGIN
             oe_sync => "0",
             output_clk_en => 0,
             output_clock_mode => "0",
-            output_conn => "1",
+            output_conn => "0",
             output_mode => "0",
             output_reset => 0,
             output_sync => "0",
@@ -941,12 +939,10 @@ BEGIN
             oe_sync_mode => 0,
             logicalport => "CS_1",
             logicalport_pin_id => 0,
-            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000101")
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000001")
         PORT MAP(
             pa_out => CS_1(0)__PA,
             oe => open,
-            pin_input => Net_29,
-            pad_out => CS_1(0)_PAD,
             pad_in => CS_1(0)_PAD,
             in_clock => open,
             in_clock_en => '1',
@@ -2308,14 +2304,6 @@ BEGIN
             status_0 => open,
             interrupt => Net_42);
 
-    \SPIM_1:RxInternalInterrupt\:interrupt
-        GENERIC MAP(
-            int_type => "10",
-            is_nmi => 0)
-        PORT MAP(
-            interrupt => Net_137,
-            clock => ClockBlock_BUS_CLK);
-
     \SPIM_1:BSPIM:BitCounter\:count7cell
         GENERIC MAP(
             cy_alt_mode => 0,
@@ -2353,8 +2341,7 @@ BEGIN
             status_3 => \SPIM_1:BSPIM:load_rx_data\,
             status_2 => \SPIM_1:BSPIM:tx_status_2\,
             status_1 => \SPIM_1:BSPIM:tx_status_1\,
-            status_0 => \SPIM_1:BSPIM:tx_status_0\,
-            interrupt => Net_139);
+            status_0 => \SPIM_1:BSPIM:tx_status_0\);
 
     \SPIM_1:BSPIM:RxStsReg\:statusicell
         GENERIC MAP(
@@ -2371,8 +2358,7 @@ BEGIN
             status_3 => open,
             status_2 => open,
             status_1 => open,
-            status_0 => open,
-            interrupt => Net_137);
+            status_0 => open);
 
     \SPIM_1:BSPIM:sR8:Dp:u0\:datapathcell
         GENERIC MAP(
@@ -2414,14 +2400,6 @@ BEGIN
             f1_bus_stat_comb => \SPIM_1:BSPIM:rx_status_5\,
             f1_blk_stat_comb => \SPIM_1:BSPIM:rx_status_4\,
             busclk => ClockBlock_BUS_CLK);
-
-    \SPIM_1:TxInternalInterrupt\:interrupt
-        GENERIC MAP(
-            int_type => "10",
-            is_nmi => 0)
-        PORT MAP(
-            interrupt => Net_139,
-            clock => ClockBlock_BUS_CLK);
 
     \I2C_1:I2C_IRQ\:interrupt
         GENERIC MAP(
@@ -2743,20 +2721,6 @@ BEGIN
             clock_0 => \UART_1:Net_9\,
             main_0 => Net_7);
 
-    Net_29:macrocell
-        GENERIC MAP(
-            eqn_main => "(!main_0 * !main_1 * main_2) + (!main_0 * main_1 * !main_2 * !main_3) + (!main_0 * main_2 * main_3) + (!main_1 * !main_2 * main_3)",
-            regmode => 1,
-            clk_inv => '0',
-            clken_mode => 1)
-        PORT MAP(
-            q => Net_29,
-            clock_0 => \SPIM_1:Net_276\,
-            main_0 => Net_29,
-            main_1 => \SPIM_1:BSPIM:state_2\,
-            main_2 => \SPIM_1:BSPIM:state_1\,
-            main_3 => \SPIM_1:BSPIM:state_0\);
-
     Net_23:macrocell
         GENERIC MAP(
             eqn_main => "(!main_0 * !main_1 * main_3) + (!main_1 * !main_2 * !main_3) + (!main_1 * !main_3 * !main_5 * !main_6 * !main_7 * main_8 * !main_9 * !main_10) + (main_1 * !main_2 * main_3) + (main_1 * main_2 * !main_3) + (main_1 * !main_4) + (!main_3 * !main_4)",
@@ -2831,6 +2795,20 @@ BEGIN
             main_1 => \SPIM_1:BSPIM:state_1\,
             main_2 => \SPIM_1:BSPIM:state_0\,
             main_3 => \SPIM_1:BSPIM:tx_status_1\);
+
+    Net_29:macrocell
+        GENERIC MAP(
+            eqn_main => "(!main_0 * !main_1 * main_2) + (!main_0 * main_1 * !main_3) + (main_0 * !main_1 * !main_2 * !main_3) + (main_1 * main_2 * !main_3)",
+            regmode => 1,
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            q => Net_29,
+            clock_0 => \SPIM_1:Net_276\,
+            main_0 => \SPIM_1:BSPIM:state_2\,
+            main_1 => \SPIM_1:BSPIM:state_1\,
+            main_2 => \SPIM_1:BSPIM:state_0\,
+            main_3 => Net_29);
 
     \SPIM_1:BSPIM:load_cond\:macrocell
         GENERIC MAP(

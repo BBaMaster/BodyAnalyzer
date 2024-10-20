@@ -2,7 +2,7 @@
 --	Conversion of esw_uCOS3_cykit.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Sat Oct 19 21:40:58 2024
+--	Sun Oct 20 18:19:40 2024
 --
 
 USE cypress.cypress.all;
@@ -367,14 +367,12 @@ SIGNAL Net_15 : bit;
 TERMINAL tmpSIOVREF__Pin_1_net_0 : bit;
 SIGNAL tmpINTERRUPT_0__Pin_1_net_0 : bit;
 SIGNAL tmpOE__CS_1_net_0 : bit;
-SIGNAL Net_29 : bit;
 SIGNAL tmpFB_0__CS_1_net_0 : bit;
 SIGNAL tmpIO_0__CS_1_net_0 : bit;
 TERMINAL tmpSIOVREF__CS_1_net_0 : bit;
 SIGNAL tmpINTERRUPT_0__CS_1_net_0 : bit;
 SIGNAL \SPIM_1:Net_276\ : bit;
 SIGNAL \SPIM_1:Net_288\ : bit;
-SIGNAL Net_137 : bit;
 SIGNAL \SPIM_1:BSPIM:clk_fin\ : bit;
 SIGNAL \SPIM_1:BSPIM:load_rx_data\ : bit;
 SIGNAL \SPIM_1:BSPIM:dpcounter_one\ : bit;
@@ -392,6 +390,7 @@ SIGNAL \SPIM_1:BSPIM:state_2\ : bit;
 SIGNAL \SPIM_1:BSPIM:state_1\ : bit;
 SIGNAL \SPIM_1:BSPIM:state_0\ : bit;
 SIGNAL \SPIM_1:BSPIM:mosi_from_dp\ : bit;
+SIGNAL Net_29 : bit;
 SIGNAL \SPIM_1:BSPIM:mosi_hs_reg\ : bit;
 SIGNAL \SPIM_1:BSPIM:mosi_cpha_1\ : bit;
 SIGNAL \SPIM_1:BSPIM:pre_mosi\ : bit;
@@ -440,6 +439,7 @@ SIGNAL \SPIM_1:BSPIM:count_6\ : bit;
 SIGNAL \SPIM_1:BSPIM:count_5\ : bit;
 SIGNAL \SPIM_1:BSPIM:cnt_tc\ : bit;
 SIGNAL Net_139 : bit;
+SIGNAL Net_137 : bit;
 SIGNAL \SPIM_1:BSPIM:sR8:Dp:ce0\ : bit;
 ATTRIBUTE port_state_att of \SPIM_1:BSPIM:sR8:Dp:ce0\:SIGNAL IS 2;
 SIGNAL \SPIM_1:BSPIM:sR8:Dp:cl0\ : bit;
@@ -619,12 +619,12 @@ SIGNAL \UART_1:BUART:rx_break_status\\D\ : bit;
 SIGNAL \UART_1:BUART:rx_address_detected\\D\ : bit;
 SIGNAL \UART_1:BUART:rx_last\\D\ : bit;
 SIGNAL \UART_1:BUART:rx_parity_bit\\D\ : bit;
-SIGNAL Net_29D : bit;
 SIGNAL \SPIM_1:BSPIM:so_send_reg\\D\ : bit;
 SIGNAL \SPIM_1:BSPIM:mosi_reg\\D\ : bit;
 SIGNAL \SPIM_1:BSPIM:state_2\\D\ : bit;
 SIGNAL \SPIM_1:BSPIM:state_1\\D\ : bit;
 SIGNAL \SPIM_1:BSPIM:state_0\\D\ : bit;
+SIGNAL Net_29D : bit;
 SIGNAL \SPIM_1:BSPIM:mosi_pre_reg\\D\ : bit;
 SIGNAL \SPIM_1:BSPIM:load_cond\\D\ : bit;
 SIGNAL \SPIM_1:BSPIM:dpcounter_one_reg\\D\ : bit;
@@ -787,7 +787,7 @@ Net_29D <= ((not \SPIM_1:BSPIM:state_0\ and Net_29)
 	OR (not \SPIM_1:BSPIM:state_1\ and \SPIM_1:BSPIM:state_2\ and \SPIM_1:BSPIM:state_0\)
 	OR (not \SPIM_1:BSPIM:state_2\ and not \SPIM_1:BSPIM:state_1\ and not \SPIM_1:BSPIM:state_0\)
 	OR (not \SPIM_1:BSPIM:state_0\ and \SPIM_1:BSPIM:state_2\ and \SPIM_1:BSPIM:state_1\)
-	OR (Net_29 and \SPIM_1:BSPIM:state_1\));
+	OR (\SPIM_1:BSPIM:state_1\ and Net_29));
 
 \SPIM_1:BSPIM:cnt_enable\\D\ <= ((not \SPIM_1:BSPIM:state_1\ and not \SPIM_1:BSPIM:state_0\ and \SPIM_1:BSPIM:state_2\ and \SPIM_1:BSPIM:cnt_enable\)
 	OR (not \SPIM_1:BSPIM:state_2\ and \SPIM_1:BSPIM:state_1\ and \SPIM_1:BSPIM:state_0\)
@@ -1357,7 +1357,7 @@ CS_1:cy_psoc3_pins_v1_10
 		invert_out_reset=>'0',
 		io_voltage=>"",
 		layout_mode=>"CONTIGUOUS",
-		output_conn=>"1",
+		output_conn=>"0",
 		output_sync=>"0",
 		output_clk_en=>'0',
 		output_mode=>"0",
@@ -1397,7 +1397,7 @@ CS_1:cy_psoc3_pins_v1_10
 		ovt_hyst_trim=>"0",
 		input_buffer_sel=>"00")
 	PORT MAP(oe=>(one),
-		y=>Net_29,
+		y=>(zero),
 		fb=>(tmpFB_0__CS_1_net_0),
 		analog=>(open),
 		io=>(tmpIO_0__CS_1_net_0),
@@ -1420,10 +1420,6 @@ CS_1:cy_psoc3_pins_v1_10
 		is_digital=>'1')
 	PORT MAP(clock_out=>\SPIM_1:Net_276\,
 		dig_domain_out=>open);
-\SPIM_1:RxInternalInterrupt\:cy_isr_v1_0
-	GENERIC MAP(int_type=>"10",
-		is_nmi=>'0')
-	PORT MAP(int_signal=>Net_137);
 \SPIM_1:BSPIM:ClkEn\:cy_psoc3_udb_clock_enable_v1_0
 	GENERIC MAP(sync_mode=>'1')
 	PORT MAP(clock_in=>\SPIM_1:Net_276\,
@@ -1546,10 +1542,6 @@ CS_1:cy_psoc3_pins_v1_10
 		pi=>(zero, zero, zero, zero,
 			zero, zero, zero, zero),
 		po=>open);
-\SPIM_1:TxInternalInterrupt\:cy_isr_v1_0
-	GENERIC MAP(int_type=>"10",
-		is_nmi=>'0')
-	PORT MAP(int_signal=>Net_139);
 SCLK_1:cy_psoc3_pins_v1_10
 	GENERIC MAP(id=>"83b2fde2-60ad-45b6-9e5c-cb3baa6e3f9a",
 		drive_mode=>"110",
@@ -2509,10 +2501,6 @@ Net_38:cy_dff
 	PORT MAP(d=>\UART_1:BUART:rx_parity_bit\,
 		clk=>\UART_1:BUART:clock_op\,
 		q=>\UART_1:BUART:rx_parity_bit\);
-Net_29:cy_dff
-	PORT MAP(d=>Net_29D,
-		clk=>\SPIM_1:BSPIM:clk_fin\,
-		q=>Net_29);
 \SPIM_1:BSPIM:so_send_reg\:cy_dff
 	PORT MAP(d=>zero,
 		clk=>\SPIM_1:BSPIM:clk_fin\,
@@ -2533,6 +2521,10 @@ Net_29:cy_dff
 	PORT MAP(d=>\SPIM_1:BSPIM:state_0\\D\,
 		clk=>\SPIM_1:BSPIM:clk_fin\,
 		q=>\SPIM_1:BSPIM:state_0\);
+Net_29:cy_dff
+	PORT MAP(d=>Net_29D,
+		clk=>\SPIM_1:BSPIM:clk_fin\,
+		q=>Net_29);
 \SPIM_1:BSPIM:mosi_pre_reg\:cy_dff
 	PORT MAP(d=>zero,
 		clk=>\SPIM_1:BSPIM:clk_fin\,

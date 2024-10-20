@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="esw_uCOS3_cykit-000\esw_uCOS3_cykit\SensorLibs\max30102\max30102_interface.c">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="esw_uCOS3_cykit-000\esw_uCOS3_cykit\TopDesign">
 <ExpandedNodeIds>
 <v>esw_uCOS3_cykit-000</v>
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit</v>
@@ -118,9 +118,35 @@
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Generated_Source</v>
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Generated_Source\PSoC5</v>
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Generated_Source\PSoC5\CS_1</v>
-<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Generated_Source\PSoC5\Timer_ISR</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Generated_Source\PSoC5\MISO_1</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Generated_Source\PSoC5\SCL_1</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Generated_Source\PSoC5\SPIM_1</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
+<v>esw_uCOS3_cykit-000</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\TopDesign</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\esw_uCOS3_cykit.cydwr</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\esw_uCOS3_cykit.cydwr\Pins</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\esw_uCOS3_cykit.cydwr\Analog</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\esw_uCOS3_cykit.cydwr\Clocks</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\esw_uCOS3_cykit.cydwr\Interrupts</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\esw_uCOS3_cykit.cydwr\DMA</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\esw_uCOS3_cykit.cydwr\System</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\esw_uCOS3_cykit.cydwr\Directives</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\esw_uCOS3_cykit.cydwr\Flash Security</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\esw_uCOS3_cykit.cydwr\EEPROM</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\BSP</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\BSP\OS</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\BSP\bsp.c</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\BSP\bsp.h</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\BSP\bsp_gpio.c</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\BSP\bsp_gpio.h</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\BSP\bsp_i2c.c</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\BSP\bsp_i2c.h</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\BSP\bsp_psoc.h</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\BSP\bsp_spi.c</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\BSP\bsp_spi.h</v>
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\BSP\bsp_uart.c</v>
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\BSP\bsp_uart.h</v>
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\BSP\cpu_bsp.c</v>
@@ -129,30 +155,6 @@
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Header Files\cpu_cfg.h</v>
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Header Files\cyapicallbacks.h</v>
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Header Files\device.h</v>
-<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Header Files\includes.h</v>
-<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Header Files\log_task.h</v>
-<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Header Files\os_app_hooks.h</v>
-<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Header Files\os_cfg.h</v>
-<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Header Files\os_cfg_app.h</v>
-<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\SensorLibs</v>
-<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\SensorLibs\bme280</v>
-<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\SensorLibs\bme280\bme280.c</v>
-<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\SensorLibs\bme280\bme280.h</v>
-<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\SensorLibs\bme280\bme280_defs.h</v>
-<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\SensorLibs\bme280\bme280_interface.c</v>
-<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\SensorLibs\bme280\bme280_interface.h</v>
-<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\SensorLibs\max30102</v>
-<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\SensorLibs\max30102\driver_max30102.c</v>
-<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\SensorLibs\max30102\driver_max30102.h</v>
-<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\SensorLibs\max30102\max30102_interface.c</v>
-<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\SensorLibs\max30102\max30102_interface.h</v>
-<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Source Files</v>
-<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Source Files\app.c</v>
-<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Source Files\log_task.c</v>
-<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Source Files\os_app_hooks.c</v>
-<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\uC-CPU</v>
-<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\uC-LIB</v>
-<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\uCOS-III</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -359,15 +361,17 @@
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
 <OpenDocs>
-<name v=".\max30102_interface.c" />
-<name v=".\max30102_interface.h" />
-<name v=".\SensorLib\max30102\driver_max30102.c" />
-<name v=".\APP\app.c" />
-<name v=".\log_task.h" />
+<name v=".\bme280_interface.c" />
+<name v=".\bsp_spi.c" />
 <name v=".\log_task.c" />
+<name v=".\log_task.h" />
+<name v=".\esw_uCOS3_cykit.cydwr" />
+<name v=".\APP\app.c" />
+<name v=".\TopDesign\TopDesign.cysch" />
 <name v=".\bsp_i2c.c" />
-<name v=".\APP\app_cfg.h" />
-<name v=".\SensorLib\max30102\driver_max30102.h" />
+<name v=".\bsp_spi.h" />
+<name v=".\Generated_Source\PSoC5\SPIM_1_PVT.h" />
+<name v=".\Generated_Source\PSoC5\SPIM_1.c" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -375,7 +379,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1991, 612" SelectedTabbedMdiWindow="ea8a0814-07f8-4d62-be77-e6af747b1b99"><DocumentWindow Key="C:\Users\Chronikle\Downloads\UniOld\esw_uCOS3_cykit.cydsn\max30102_interface.c" Guid="ea8a0814-07f8-4d62-be77-e6af747b1b99" /><DocumentWindow Key="C:\Users\Chronikle\Downloads\UniOld\esw_uCOS3_cykit.cydsn\max30102_interface.h" Guid="c80f3cc3-6dc0-4cde-8c78-1cd88bad5eae" /><DocumentWindow Key="C:\Users\Chronikle\Downloads\UniOld\esw_uCOS3_cykit.cydsn\SensorLib\max30102\driver_max30102.c" Guid="b89ff054-b760-436a-9cb5-5cf2534b9fce" /><DocumentWindow Key="C:\Users\Chronikle\Downloads\UniOld\esw_uCOS3_cykit.cydsn\APP\app.c" Guid="ad3e5c90-3336-401d-84af-dc91aec30c51" /><DocumentWindow Key="C:\Users\Chronikle\Downloads\UniOld\esw_uCOS3_cykit.cydsn\log_task.h" Guid="fb6a663f-8d15-4c63-b875-b7fc401e0baa" /><DocumentWindow Key="C:\Users\Chronikle\Downloads\UniOld\esw_uCOS3_cykit.cydsn\log_task.c" Guid="38d38b2f-ee8a-47f5-8ba9-553514f578e7" /><DocumentWindow Key="C:\Users\Chronikle\Downloads\UniOld\esw_uCOS3_cykit.cydsn\bsp_i2c.c" Guid="b6feea66-ac98-4406-a58f-e5ec7ae64154" /><DocumentWindow Key="C:\Users\Chronikle\Downloads\UniOld\esw_uCOS3_cykit.cydsn\APP\app_cfg.h" Guid="c8c05555-50bb-42f9-a669-e0f51946226a" /><DocumentWindow Key="C:\Users\Chronikle\Downloads\UniOld\esw_uCOS3_cykit.cydsn\SensorLib\max30102\driver_max30102.h" Guid="6cd85e2c-b6f2-441e-ac83-6d7b667ea27a" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1548, 612" SelectedTabbedMdiWindow="4a687899-bf24-4478-9e42-8906bfc0760b"><DocumentWindow Key="C:\Users\Chronikle\Downloads\UniOld\esw_uCOS3_cykit.cydsn\bme280_interface.c" Guid="fb6c1e2d-6f58-4820-b9cf-6815504dc382" /><DocumentWindow Key="C:\Users\Chronikle\Downloads\UniOld\esw_uCOS3_cykit.cydsn\bsp_spi.c" Guid="1ac74403-5615-43a5-bdfa-13921f8bd270" /><DocumentWindow Key="C:\Users\Chronikle\Downloads\UniOld\esw_uCOS3_cykit.cydsn\log_task.c" Guid="558416ff-74bc-4209-b2ac-005c1496cbff" /><DocumentWindow Key="C:\Users\Chronikle\Downloads\UniOld\esw_uCOS3_cykit.cydsn\log_task.h" Guid="f77ab4a3-24a1-445a-908d-350e61d0a5b0" /><DocumentWindow Key="C:\Users\Chronikle\Downloads\UniOld\esw_uCOS3_cykit.cydsn\esw_uCOS3_cykit.cydwr" Guid="48a3657d-863a-45ab-8e3f-1f84244a28d6" /><DocumentWindow Key="C:\Users\Chronikle\Downloads\UniOld\esw_uCOS3_cykit.cydsn\APP\app.c" Guid="7b82e7eb-79e5-4282-b2d1-f03881707abf" /><DocumentWindow Key="C:\Users\Chronikle\Downloads\UniOld\esw_uCOS3_cykit.cydsn\TopDesign\TopDesign.cysch" Guid="4a687899-bf24-4478-9e42-8906bfc0760b" /><DocumentWindow Key="C:\Users\Chronikle\Downloads\UniOld\esw_uCOS3_cykit.cydsn\bsp_i2c.c" Guid="691bdb15-ffa1-4639-a66e-be0e0405dfd3" /><DocumentWindow Key="C:\Users\Chronikle\Downloads\UniOld\esw_uCOS3_cykit.cydsn\bsp_spi.h" Guid="77d7826a-79e6-47d0-831f-825f529f5bd8" /><DocumentWindow Key="C:\Users\Chronikle\Downloads\UniOld\esw_uCOS3_cykit.cydsn\Generated_Source\PSoC5\SPIM_1_PVT.h" Guid="67287ea0-2e83-4537-a38c-a17d963ea363" /><DocumentWindow Key="C:\Users\Chronikle\Downloads\UniOld\esw_uCOS3_cykit.cydsn\Generated_Source\PSoC5\SPIM_1.c" Guid="db78a5f4-b0b2-4ea3-bed9-51950e45887f" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

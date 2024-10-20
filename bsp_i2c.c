@@ -1,6 +1,5 @@
 #include "bsp_i2c.h"
 
-
 /* I2C Buffer */
 CPU_INT08U i2c_rx_buffer[I2C_BUFFER_SIZE];
 CPU_INT32S heart_rate_history[MAX_HISTORY_SIZE] = {0}; // Circular buffer for heart rate history
@@ -20,7 +19,6 @@ CPU_INT32S IR_AC_Signal_Previous = INITIAL_IR_AC_SIGNAL_PREVIOUS; // Previous AC
 CPU_INT32S ir_avg_reg = INITIAL_IR_AVG_REG; // Running average of DC component
 CPU_INT32S heart_rate_sum = INITIAL_HEART_RATE_SUM; // Running sum for moving average
 CPU_INT32U heart_rate_index = INITIAL_HEART_RATE_INDEX; // Current index for circular buffer
-
 
 /* FIR Coefficients for Low Pass Filter */
 static const CPU_INT16U FIRCoeffs[FIR_COEFF_SIZE] = {172, 321, 579, 927, 1360, 1858, 2390, 2916, 3391, 3768, 4012, 4096};
@@ -43,7 +41,7 @@ CY_ISR(Timer_ISR) {
 */
 void I2C_Init(void) {
     OS_ERR os_err;
-    Log_Write(LOG_LEVEL_DEBUG, "I2C Init: Creating I2C task", 0);
+    Log_Write(LOG_LEVEL_I2C, "I2C Init: Creating I2C task", 0);
 
     /* Create the I2C task */
     OSTaskCreate((OS_TCB *)&I2C_Task_TCB,
@@ -61,7 +59,7 @@ void I2C_Init(void) {
                  (OS_ERR *)&os_err);
 
     if (os_err == OS_ERR_NONE) {
-        Log_Write(LOG_LEVEL_INFO, "I2C Task created successfully", 0);
+        Log_Write(LOG_LEVEL_I2C, "I2C Task created successfully", 0);
     } else {
         Log_Write(LOG_LEVEL_ERROR, "Error: I2C Task creation failed", os_err);
     }
@@ -83,15 +81,15 @@ static void I2C_Task(void *p_arg) {
     CPU_INT32U raw_red = 0, raw_ir = 0; // Raw readings from the sensor
     CPU_INT08U data_len = 2;  // Number of samples to read
 
-    Log_Write(LOG_LEVEL_DEBUG, "I2C Task: Starting I2C hardware initialization", 0);
+    Log_Write(LOG_LEVEL_I2C, "I2C Task: Starting I2C hardware initialization", 0);
 
     // Initialize I2C hardware
     I2C_1_Start();
-    Log_Write(LOG_LEVEL_INFO, "I2C Task: I2C hardware started", 0);
+    Log_Write(LOG_LEVEL_I2C, "I2C Task: I2C hardware started", 0);
     
     // Initialize the MAX30102 sensor
     if (max30102_sensor_init(&max30102_handle) != 0) {
-        UART_1_PutString("Failed to initialize MAX30102 sensor\n");
+        Log_Write(LOG_LEVEL_ERROR, "Failed to initialize MAX30102 sensor", 0);
         return;  // Exit if sensor initialization fails
     }
 
@@ -131,10 +129,10 @@ static void I2C_Task(void *p_arg) {
                                 heart_rate_sum += heart_rate_bpm; // Update running sum
                                 heart_rate_index = (heart_rate_index + 1) % MAX_HISTORY_SIZE; // Circular index
 
-                                // Calculate and print average heart rate
+                                // Calculate and log average heart rate
                                 CPU_INT32S average_heart_rate = heart_rate_sum / MAX_HISTORY_SIZE;
-                                CPU_INT08U hr_buffer[HR_BUFFER_SIZE];
-                                Log_Write(LOG_LEVEL_DEBUG, "Average Heart Rate: %d BPM\n", average_heart_rate);
+                                Log_Write(LOG_LEVEL_I2C, "Average Heart Rate: %d BPM", average_heart_rate);
+                                
                                 /*
                                 !
                                 !
@@ -146,6 +144,7 @@ static void I2C_Task(void *p_arg) {
                                 !
                                 !
                                 */
+
                                 // Adjust adaptive threshold based on average heart rate
                                 adaptive_threshold = average_heart_rate * 100;
                             }
@@ -159,15 +158,14 @@ static void I2C_Task(void *p_arg) {
                     IR_AC_Signal_Previous = 0;
                 }
             } else {
-                UART_1_PutString("Failed to read from MAX30102\n");
                 Log_Write(LOG_LEVEL_ERROR, "Failed to read from MAX30102", res);
             }
         } else {
-            UART_1_PutString("No new samples available to read\n");
-            Log_Write(LOG_LEVEL_WARNING, "No new samples available to read", 0);
+            Log_Write(LOG_LEVEL_I2C, "No new samples available to read", 0);
         }
     }
 }
+
 /* Average DC Estimator */
 CPU_INT16S averageDCEstimator(CPU_INT32S *p, CPU_INT32U x) {
     *p += ((((CPU_INT32S)x << 15) - *p) >> 4); // Update the running average with new sample
@@ -186,6 +184,7 @@ CPU_INT16S lowPassFIRFilter(CPU_INT16S din) {
     // Apply the FIR filter coefficients to the circular buffer
     z += mul16(FIRCoeffs[FIR_COEFF_SIZE - 1], cbuf[(offset - FIR_COEFF_SIZE + 1) & (CIRCULAR_BUFFER_SIZE - 1)]);
     
+    // Calculate the filtered output by summing up the products
     // Calculate the filtered output by summing up the products
     for (CPU_INT08U i = 0; i < FIR_COEFF_SIZE - 1; i++) {
         z += mul16(FIRCoeffs[i], cbuf[(offset - i) & (CIRCULAR_BUFFER_SIZE - 1)]);

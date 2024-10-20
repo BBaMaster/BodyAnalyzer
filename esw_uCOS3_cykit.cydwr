@@ -269,7 +269,7 @@
       <Data key="264be2d3-9481-494b-8d9c-c1905a45e9cc" value="Pin_1" />
       <Data key="528fda2f-50ac-470b-a0f3-2e552401c9e2" value="Pin_Blue_Led" />
       <Data key="3008a664-3b5f-4e62-909b-37270b037897" value="Pin_2" />
-      <Data key="27512e2a-3ade-420d-b5e7-cc552974ccf7" value="Pin_3" />
+      <Data key="27512e2a-3ade-420d-b5e7-cc552974ccf7" value="I2C_INTR" />
       <Data key="782947c9-d6a8-482b-8089-eaedea50b150" value="Ping_Blue_Led" />
       <Data key="1425177d-0d0e-4468-8bcc-e638e5509a9b" value="Rx_1" />
       <Data key="aebd1c44-8d23-413c-92af-251f5ba1ba6c" value="MISO_1" />
@@ -3457,6 +3457,7 @@
         <Data key="1" value="133735889542232231" />
       </Group>
     </Group>
+    <Group key="Unlocked Pins" />
   </Group>
   <Group key="PlaceDir">
     <Data key="count" value="0" />

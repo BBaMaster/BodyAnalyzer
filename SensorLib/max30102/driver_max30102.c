@@ -101,7 +101,6 @@ uint8_t max30102_init(max30102_handle_t *handle)
         handle->debug_print("max30102: handle is null.\n");
         return 2;
     }
-    handle->debug_print("max30102: Initializing...\n");
 
     if (handle->debug_print == NULL) {
         handle->debug_print("max30102: debug_print is null.\n");
@@ -138,76 +137,60 @@ uint8_t max30102_init(max30102_handle_t *handle)
         return 3;
     }
 
-    handle->debug_print("max30102: Initializing I2C...\n");
     if (handle->iic_init() != 0) {
         handle->debug_print("max30102: I2C initialization failed.\n");
         return 1;
     }
-    handle->debug_print("max30102: I2C initialization succeeded.\n");
-    handle->debug_print("max30102: Reading Part ID...\n");
     res = handle->iic_read(MAX30102_ADDRESS, MAX30102_REG_PART_ID, &part_id, 1);
     if (res != 0) {
         handle->debug_print("max30102: Failed to read Part ID.\n");
         handle->iic_deinit();
         return 4;
     }
-    handle->debug_print("max30102: Part ID read successfully. Value: 0x%X\n", part_id);
-
     if (part_id != 0x15) {
         handle->debug_print("max30102: Incorrect Part ID. Expected 0x15 but got 0x%X.\n", part_id);
         handle->iic_deinit();
         return 4;
     }
-    handle->debug_print("max30102: Correct Part ID detected.\n");
-
-    handle->debug_print("max30102: Reading Mode Config...\n");
     res = handle->iic_read(MAX30102_ADDRESS, MAX30102_REG_MODE_CONFIG, &prev, 1);
     if (res != 0) {
         handle->debug_print("max30102: Failed to read Mode Config.\n");
         handle->iic_deinit();
         return 5;
     }
-    handle->debug_print("max30102: Mode Config read successfully. Value: 0x%X\n", prev);
 
     prev &= ~(1 << 6);
     prev |= 1 << 6;
-    handle->debug_print("max30102: Writing Mode Config with reset (bit 6 set)...\n");
     res = handle->iic_write(MAX30102_ADDRESS, MAX30102_REG_MODE_CONFIG, &prev, 1);
     if (res != 0) {
         handle->debug_print("max30102: Failed to write Mode Config.\n");
         handle->iic_deinit();
         return 5;
     }
-    handle->debug_print("max30102: Mode Config written successfully. Initiating reset...\n");
 
     handle->delay_ms(10);
-    handle->debug_print("max30102: Delay of 10ms after reset command.\n");
 
-    handle->debug_print("max30102: Reading Mode Config again to confirm reset...\n");
     res = handle->iic_read(MAX30102_ADDRESS, MAX30102_REG_MODE_CONFIG, &prev, 1);
     if (res != 0) {
         handle->debug_print("max30102: Failed to read Mode Config after reset.\n");
         handle->iic_deinit();
         return 5;
     }
-    handle->debug_print("max30102: Mode Config after reset: 0x%X\n", prev);
+
 
     if ((prev & (1 << 6)) != 0) {
         handle->debug_print("max30102: Reset failed. Bit 6 is still set.\n");
         handle->iic_deinit();
         return 5;
     }
-    handle->debug_print("max30102: Reset successful. Bit 6 cleared.\n");
 
     prev = 0;
-    handle->debug_print("max30102: Clearing FIFO pointers...\n");
     res = handle->iic_write(MAX30102_ADDRESS, MAX30102_REG_FIFO_READ_POINTER, &prev, 1);
     if (res != 0) {
         handle->debug_print("max30102: Failed to write FIFO Read Pointer.\n");
         handle->iic_deinit();
         return 6;
     }
-    handle->debug_print("max30102: FIFO Read Pointer cleared.\n");
 
     res = handle->iic_write(MAX30102_ADDRESS, MAX30102_REG_FIFO_WRITE_POINTER, &prev, 1);
     if (res != 0) {
@@ -215,7 +198,6 @@ uint8_t max30102_init(max30102_handle_t *handle)
         handle->iic_deinit();
         return 6;
     }
-    handle->debug_print("max30102: FIFO Write Pointer cleared.\n");
 
     res = handle->iic_write(MAX30102_ADDRESS, MAX30102_REG_OVERFLOW_COUNTER, &prev, 1);
     if (res != 0) {
@@ -223,7 +205,6 @@ uint8_t max30102_init(max30102_handle_t *handle)
         handle->iic_deinit();
         return 6;
     }
-    handle->debug_print("max30102: Overflow Counter cleared.\n");
 
     handle->inited = 1;
     handle->debug_print("max30102: Sensor initialized successfully.\n");
