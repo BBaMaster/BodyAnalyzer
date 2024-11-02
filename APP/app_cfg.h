@@ -61,10 +61,10 @@
 
 #define  APP_CFG_TASK_START_STK_SIZE                    256u
 #define  APP_CFG_TASK_LED_STK_SIZE                      64u
-#define  APP_CFG_TASK_BUTTON_STK_SIZE                   64u
+#define  APP_CFG_TASK_BUT_STK_SIZE                      64u
 #define  APP_CFG_TASK_LOG_STK_SIZE                      512u
 #define  APP_CFG_TASK_I2C_STK_SIZE                      512u   // Stack size for I2C Task
-#define  APP_CFG_TASK_SPI_STK_SIZE                      512u   // Stack size for I2C Task
+#define  APP_CFG_TASK_SPI_STK_SIZE                      512u   // Stack size for SPI Task
 /*
 *********************************************************************************************************
 *                                          TASK STACK SIZES LIMIT
