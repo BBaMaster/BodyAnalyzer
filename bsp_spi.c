@@ -64,7 +64,7 @@ void SPI_Task(void *p_arg) {
     Log_Write(LOG_LEVEL_INFO, "SPI using hardware FIFO for RX");
     #endif
     Log_Write(LOG_LEVEL_SPI, "Initializing BME280 sensor...", 0);
-    read_bme280_calibration_data();
+    //read_bme280_calibration_data();
     read_bme280_chip_id2();
     
     while (DEF_TRUE) {
@@ -150,9 +150,9 @@ int8_t bsp_spi_read(uint8_t reg_addr, uint8_t *data, uint32_t len) {
         while (!(SPIM_1_ReadTxStatus() & SPIM_1_STS_TX_FIFO_NOT_FULL)) {
             // Wait until TX FIFO is not full
         }
+        
         Log_Write(LOG_LEVEL_SPI, "Sending dummy byte (0xFF) to generate clock pulses");
         SPIM_1_WriteTxData(0xFF);
-
         // Wait for RX FIFO to receive the response
         while (!(SPIM_1_ReadRxStatus() & SPIM_1_STS_RX_FIFO_NOT_EMPTY)) {
             // Wait for RX FIFO to contain data
@@ -195,19 +195,19 @@ int8_t read_bme280_chip_id2() {
     
     // Soft reset the BME280 first
     uint8_t reset_cmd = 0xB6;
-    bsp_spi_write(0xE0, &reset_cmd, 1);  // Soft reset the sensor
-    Delay_MS(5);  // Delay for sensor reset
+//    bsp_spi_write(0xE0, &reset_cmd, 1);  // Soft reset the sensor
+//    Delay_MS(5);  // Delay for sensor reset
 
     // Read the Chip ID from register 0xD0
-    if (bsp_spi_read(0xD0, &chip_id, 1) != BME280_INTF_RET_SUCCESS) {
+    if (bsp_spi_read(0x50, &chip_id, 1) != BME280_INTF_RET_SUCCESS) {
         Log_Write(LOG_LEVEL_ERROR, "Failed to read BME280 chip ID");
         return -1;
     }
     
     Log_Write(LOG_LEVEL_INFO, "BME280 Chip ID: 0x%02X", chip_id);
     
-    if (chip_id != 0x60) {
-        Log_Write(LOG_LEVEL_ERROR, "Invalid BME280 Chip ID: Expected 0x60, got 0x%02X", chip_id);
+    if (chip_id != 0x61) {
+        Log_Write(LOG_LEVEL_ERROR, "Invalid BME280 Chip ID: Expected 0x61, got 0x%02X", chip_id);
         return -4;  // Error code for invalid chip ID
     }
     

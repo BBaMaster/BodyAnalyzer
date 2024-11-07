@@ -1,3 +1,3 @@
-# Component constraints for C:\Users\Chronikle\Downloads\UniOld\esw_uCOS3_cykit.cydsn\TopDesign\TopDesign.cysch
-# Project: C:\Users\Chronikle\Downloads\UniOld\esw_uCOS3_cykit.cydsn\esw_uCOS3_cykit.cyprj
-# Date: Sun, 20 Oct 2024 16:19:39 GMT
+# Component constraints for C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\TopDesign\TopDesign.cysch
+# Project: C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\esw_uCOS3_cykit.cyprj
+# Date: Thu, 07 Nov 2024 15:29:17 GMT

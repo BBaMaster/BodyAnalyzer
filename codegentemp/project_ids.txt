@@ -1,6 +1,7 @@
-C:\Users\Chronikle\Downloads\UniOld\esw_uCOS3_cykit.cydsn\esw_uCOS3_cykit.cyprj|43b63554-ee2b-4264-9e08-6e7d3a957e25
-C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|f46d2540-6205-4cf4-bf22-992405d7b8c4
-C:\Users\Chronikle\Documents\PSoC Creator\4.4\Downloads ( 4.4).cylib\Downloads ( 4.4).cyprj|59b8f99b-4b1c-4d61-b2a1-e0d8cc5644ad
-C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|42982f7a-94ce-4699-a7c0-1d32119a9fa1
-C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|a951ce01-2182-42d6-9411-32bce6bd3368
-C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|8ea888de-fd02-43e0-a4f4-4f3d760527fa
+C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\esw_uCOS3_cykit.cyprj|351c026a-0f41-41c1-802e-4c441b7c0e3b
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|41d84031-2cd6-4031-b731-04e2613f618a
+C:\Users\bernh\OneDrive\Dokumente\PSoC Creator\4.4\Downloads ( 4.4).cylib\Downloads ( 4.4).cyprj|86ad46d0-d063-4733-bc36-abf0321cec3d
+C:\Users\bernh\OneDrive\Dokumente\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|a6ede123-d86f-4952-b378-f4635dd18788
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|72cd2ae5-49c0-4928-b982-487666251eae
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|80deff26-7dc9-4986-9fae-6145e8f403f1
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|d807f618-924f-4654-8945-a4b03f409e02
