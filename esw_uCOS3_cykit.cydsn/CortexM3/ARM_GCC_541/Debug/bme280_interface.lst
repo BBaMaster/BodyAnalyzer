@@ -1,0 +1,1362 @@
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccRjEvrB.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"bme280_interface.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.BME280_Init,"ax",%progbits
+  20              		.align	2
+  21              		.global	BME280_Init
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	BME280_Init, %function
+  25              	BME280_Init:
+  26              	.LFB64:
+  27              		.file 1 "bme280_interface.c"
+   1:bme280_interface.c **** #include <stdio.h>
+   2:bme280_interface.c **** #include "bme280/bme280.h" // Include BME280 header
+   3:bme280_interface.c **** #include "bsp_spi.h"  // Include your SPI BSP for read/write functions
+   4:bme280_interface.c **** #include <log_task.h>
+   5:bme280_interface.c **** 
+   6:bme280_interface.c **** 
+   7:bme280_interface.c **** void BME280_Init(struct bme280_dev* dev) {
+  28              		.loc 1 7 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              	.LVL0:
+  33 0000 10B5     		push	{r4, lr}
+  34              		.cfi_def_cfa_offset 8
+  35              		.cfi_offset 4, -8
+  36              		.cfi_offset 14, -4
+  37 0002 0446     		mov	r4, r0
+   8:bme280_interface.c ****     // Configure the device structure for SPI
+   9:bme280_interface.c ****     dev->chip_id = BME280_CHIP_ID; // Set chip ID for identification
+  38              		.loc 1 9 0
+  39 0004 6022     		movs	r2, #96
+  40 0006 0270     		strb	r2, [r0]
+  10:bme280_interface.c ****     dev->intf = BME280_SPI_INTF; // Set interface to SPI
+  41              		.loc 1 10 0
+  42 0008 0023     		movs	r3, #0
+  43 000a 4370     		strb	r3, [r0, #1]
+  11:bme280_interface.c ****     dev->read = bsp_spi_read; // Assign the SPI read function
+  44              		.loc 1 11 0
+  45 000c 0C4B     		ldr	r3, .L5
+  46 000e C360     		str	r3, [r0, #12]
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccRjEvrB.s 			page 2
+
+
+  12:bme280_interface.c ****     dev->write = bsp_spi_write; // Assign the SPI write function
+  47              		.loc 1 12 0
+  48 0010 0C4B     		ldr	r3, .L5+4
+  49 0012 0361     		str	r3, [r0, #16]
+  13:bme280_interface.c ****     dev->delay_us = Delay_MS; // Assign the delay function
+  50              		.loc 1 13 0
+  51 0014 0C4B     		ldr	r3, .L5+8
+  52 0016 4361     		str	r3, [r0, #20]
+  14:bme280_interface.c **** 
+  15:bme280_interface.c ****     // Log the device configuration
+  16:bme280_interface.c ****     Log_Write(LOG_LEVEL_BME280, "Configuring BME280: Chip ID = %d, Interface = SPI", dev->chip_id);
+  53              		.loc 1 16 0
+  54 0018 0C49     		ldr	r1, .L5+12
+  55 001a 5020     		movs	r0, #80
+  56              	.LVL1:
+  57 001c FFF7FEFF 		bl	Log_Write
+  58              	.LVL2:
+  17:bme280_interface.c **** 
+  18:bme280_interface.c ****     // Initialize the BME280 sensor
+  19:bme280_interface.c ****     int8_t result = bme280_init(dev);  // Pass dev directly, not &dev
+  59              		.loc 1 19 0
+  60 0020 2046     		mov	r0, r4
+  61 0022 FFF7FEFF 		bl	bme280_init
+  62              	.LVL3:
+  20:bme280_interface.c ****     if (result != BME280_OK) {
+  63              		.loc 1 20 0
+  64 0026 28B1     		cbz	r0, .L2
+  65 0028 0246     		mov	r2, r0
+  21:bme280_interface.c ****         Log_Write(LOG_LEVEL_ERROR, "Failed to initialize BME280: %d", result);
+  66              		.loc 1 21 0
+  67 002a 0949     		ldr	r1, .L5+16
+  68 002c 0420     		movs	r0, #4
+  69              	.LVL4:
+  70 002e FFF7FEFF 		bl	Log_Write
+  71              	.LVL5:
+  72 0032 10BD     		pop	{r4, pc}
+  73              	.LVL6:
+  74              	.L2:
+  22:bme280_interface.c ****     } else {
+  23:bme280_interface.c ****         Log_Write(LOG_LEVEL_INFO, "BME280 initialized successfully", 0);
+  75              		.loc 1 23 0
+  76 0034 0022     		movs	r2, #0
+  77 0036 0749     		ldr	r1, .L5+20
+  78 0038 0120     		movs	r0, #1
+  79              	.LVL7:
+  80 003a FFF7FEFF 		bl	Log_Write
+  81              	.LVL8:
+  82 003e 10BD     		pop	{r4, pc}
+  83              	.LVL9:
+  84              	.L6:
+  85              		.align	2
+  86              	.L5:
+  87 0040 00000000 		.word	bsp_spi_read
+  88 0044 00000000 		.word	bsp_spi_write
+  89 0048 00000000 		.word	Delay_MS
+  90 004c 00000000 		.word	.LC0
+  91 0050 34000000 		.word	.LC1
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccRjEvrB.s 			page 3
+
+
+  92 0054 54000000 		.word	.LC2
+  93              		.cfi_endproc
+  94              	.LFE64:
+  95              		.size	BME280_Init, .-BME280_Init
+  96              		.section	.rodata.str1.4,"aMS",%progbits,1
+  97              		.align	2
+  98              	.LC0:
+  99 0000 436F6E66 		.ascii	"Configuring BME280: Chip ID = %d, Interface = SPI\000"
+  99      69677572 
+  99      696E6720 
+  99      424D4532 
+  99      38303A20 
+ 100 0032 0000     		.space	2
+ 101              	.LC1:
+ 102 0034 4661696C 		.ascii	"Failed to initialize BME280: %d\000"
+ 102      65642074 
+ 102      6F20696E 
+ 102      69746961 
+ 102      6C697A65 
+ 103              	.LC2:
+ 104 0054 424D4532 		.ascii	"BME280 initialized successfully\000"
+ 104      38302069 
+ 104      6E697469 
+ 104      616C697A 
+ 104      65642073 
+ 105              		.text
+ 106              	.Letext0:
+ 107              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 108              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4.
+ 109              		.file 4 ".\\SensorLib/bme280/bme280_defs.h"
+ 110              		.file 5 "./log_task.h"
+ 111              		.file 6 ".\\SensorLib/bme280/bme280.h"
+ 112              		.file 7 "Generated_Source\\PSoC5/core_cm3.h"
+ 113              		.section	.debug_info,"",%progbits
+ 114              	.Ldebug_info0:
+ 115 0000 0E040000 		.4byte	0x40e
+ 116 0004 0400     		.2byte	0x4
+ 117 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 118 000a 04       		.byte	0x4
+ 119 000b 01       		.uleb128 0x1
+ 120 000c 9A020000 		.4byte	.LASF62
+ 121 0010 0C       		.byte	0xc
+ 122 0011 95000000 		.4byte	.LASF63
+ 123 0015 28030000 		.4byte	.LASF64
+ 124 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 125 001d 00000000 		.4byte	0
+ 126 0021 00000000 		.4byte	.Ldebug_line0
+ 127 0025 02       		.uleb128 0x2
+ 128 0026 F6010000 		.4byte	.LASF0
+ 129 002a 02       		.byte	0x2
+ 130 002b 1B       		.byte	0x1b
+ 131 002c 30000000 		.4byte	0x30
+ 132 0030 03       		.uleb128 0x3
+ 133 0031 01       		.byte	0x1
+ 134 0032 06       		.byte	0x6
+ 135 0033 03010000 		.4byte	.LASF2
+ 136 0037 02       		.uleb128 0x2
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccRjEvrB.s 			page 4
+
+
+ 137 0038 60010000 		.4byte	.LASF1
+ 138 003c 02       		.byte	0x2
+ 139 003d 1D       		.byte	0x1d
+ 140 003e 42000000 		.4byte	0x42
+ 141 0042 03       		.uleb128 0x3
+ 142 0043 01       		.byte	0x1
+ 143 0044 08       		.byte	0x8
+ 144 0045 82010000 		.4byte	.LASF3
+ 145 0049 02       		.uleb128 0x2
+ 146 004a 83020000 		.4byte	.LASF4
+ 147 004e 02       		.byte	0x2
+ 148 004f 29       		.byte	0x29
+ 149 0050 54000000 		.4byte	0x54
+ 150 0054 03       		.uleb128 0x3
+ 151 0055 02       		.byte	0x2
+ 152 0056 05       		.byte	0x5
+ 153 0057 24000000 		.4byte	.LASF5
+ 154 005b 02       		.uleb128 0x2
+ 155 005c B1000000 		.4byte	.LASF6
+ 156 0060 02       		.byte	0x2
+ 157 0061 2B       		.byte	0x2b
+ 158 0062 66000000 		.4byte	0x66
+ 159 0066 03       		.uleb128 0x3
+ 160 0067 02       		.byte	0x2
+ 161 0068 07       		.byte	0x7
+ 162 0069 D7010000 		.4byte	.LASF7
+ 163 006d 02       		.uleb128 0x2
+ 164 006e 79020000 		.4byte	.LASF8
+ 165 0072 02       		.byte	0x2
+ 166 0073 3F       		.byte	0x3f
+ 167 0074 78000000 		.4byte	0x78
+ 168 0078 03       		.uleb128 0x3
+ 169 0079 04       		.byte	0x4
+ 170 007a 05       		.byte	0x5
+ 171 007b 50010000 		.4byte	.LASF9
+ 172 007f 02       		.uleb128 0x2
+ 173 0080 8A000000 		.4byte	.LASF10
+ 174 0084 02       		.byte	0x2
+ 175 0085 41       		.byte	0x41
+ 176 0086 8A000000 		.4byte	0x8a
+ 177 008a 03       		.uleb128 0x3
+ 178 008b 04       		.byte	0x4
+ 179 008c 07       		.byte	0x7
+ 180 008d 4D020000 		.4byte	.LASF11
+ 181 0091 03       		.uleb128 0x3
+ 182 0092 08       		.byte	0x8
+ 183 0093 05       		.byte	0x5
+ 184 0094 30010000 		.4byte	.LASF12
+ 185 0098 03       		.uleb128 0x3
+ 186 0099 08       		.byte	0x8
+ 187 009a 07       		.byte	0x7
+ 188 009b A1010000 		.4byte	.LASF13
+ 189 009f 04       		.uleb128 0x4
+ 190 00a0 04       		.byte	0x4
+ 191 00a1 05       		.byte	0x5
+ 192 00a2 696E7400 		.ascii	"int\000"
+ 193 00a6 03       		.uleb128 0x3
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccRjEvrB.s 			page 5
+
+
+ 194 00a7 04       		.byte	0x4
+ 195 00a8 07       		.byte	0x7
+ 196 00a9 C1010000 		.4byte	.LASF14
+ 197 00ad 03       		.uleb128 0x3
+ 198 00ae 08       		.byte	0x8
+ 199 00af 04       		.byte	0x4
+ 200 00b0 76010000 		.4byte	.LASF15
+ 201 00b4 05       		.uleb128 0x5
+ 202 00b5 04       		.byte	0x4
+ 203 00b6 03       		.uleb128 0x3
+ 204 00b7 04       		.byte	0x4
+ 205 00b8 07       		.byte	0x7
+ 206 00b9 45000000 		.4byte	.LASF16
+ 207 00bd 03       		.uleb128 0x3
+ 208 00be 01       		.byte	0x1
+ 209 00bf 08       		.byte	0x8
+ 210 00c0 FF010000 		.4byte	.LASF17
+ 211 00c4 02       		.uleb128 0x2
+ 212 00c5 1D000000 		.4byte	.LASF18
+ 213 00c9 03       		.byte	0x3
+ 214 00ca 14       		.byte	0x14
+ 215 00cb 25000000 		.4byte	0x25
+ 216 00cf 02       		.uleb128 0x2
+ 217 00d0 BC000000 		.4byte	.LASF19
+ 218 00d4 03       		.byte	0x3
+ 219 00d5 18       		.byte	0x18
+ 220 00d6 37000000 		.4byte	0x37
+ 221 00da 02       		.uleb128 0x2
+ 222 00db 33020000 		.4byte	.LASF20
+ 223 00df 03       		.byte	0x3
+ 224 00e0 20       		.byte	0x20
+ 225 00e1 49000000 		.4byte	0x49
+ 226 00e5 02       		.uleb128 0x2
+ 227 00e6 CE010000 		.4byte	.LASF21
+ 228 00ea 03       		.byte	0x3
+ 229 00eb 24       		.byte	0x24
+ 230 00ec 5B000000 		.4byte	0x5b
+ 231 00f0 02       		.uleb128 0x2
+ 232 00f1 2B020000 		.4byte	.LASF22
+ 233 00f5 03       		.byte	0x3
+ 234 00f6 2C       		.byte	0x2c
+ 235 00f7 6D000000 		.4byte	0x6d
+ 236 00fb 02       		.uleb128 0x2
+ 237 00fc B8010000 		.4byte	.LASF23
+ 238 0100 03       		.byte	0x3
+ 239 0101 30       		.byte	0x30
+ 240 0102 7F000000 		.4byte	0x7f
+ 241 0106 06       		.uleb128 0x6
+ 242 0107 90010000 		.4byte	.LASF65
+ 243 010b 01       		.byte	0x1
+ 244 010c 42000000 		.4byte	0x42
+ 245 0110 04       		.byte	0x4
+ 246 0111 0901     		.2byte	0x109
+ 247 0113 24010000 		.4byte	0x124
+ 248 0117 07       		.uleb128 0x7
+ 249 0118 7A000000 		.4byte	.LASF24
+ 250 011c 00       		.byte	0
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccRjEvrB.s 			page 6
+
+
+ 251 011d 07       		.uleb128 0x7
+ 252 011e 6A000000 		.4byte	.LASF25
+ 253 0122 01       		.byte	0x1
+ 254 0123 00       		.byte	0
+ 255 0124 08       		.uleb128 0x8
+ 256 0125 18020000 		.4byte	.LASF26
+ 257 0129 04       		.byte	0x4
+ 258 012a 2201     		.2byte	0x122
+ 259 012c 30010000 		.4byte	0x130
+ 260 0130 09       		.uleb128 0x9
+ 261 0131 04       		.byte	0x4
+ 262 0132 36010000 		.4byte	0x136
+ 263 0136 0A       		.uleb128 0xa
+ 264 0137 C4000000 		.4byte	0xc4
+ 265 013b 54010000 		.4byte	0x154
+ 266 013f 0B       		.uleb128 0xb
+ 267 0140 CF000000 		.4byte	0xcf
+ 268 0144 0B       		.uleb128 0xb
+ 269 0145 54010000 		.4byte	0x154
+ 270 0149 0B       		.uleb128 0xb
+ 271 014a FB000000 		.4byte	0xfb
+ 272 014e 0B       		.uleb128 0xb
+ 273 014f B4000000 		.4byte	0xb4
+ 274 0153 00       		.byte	0
+ 275 0154 09       		.uleb128 0x9
+ 276 0155 04       		.byte	0x4
+ 277 0156 CF000000 		.4byte	0xcf
+ 278 015a 08       		.uleb128 0x8
+ 279 015b 04020000 		.4byte	.LASF27
+ 280 015f 04       		.byte	0x4
+ 281 0160 3301     		.2byte	0x133
+ 282 0162 66010000 		.4byte	0x166
+ 283 0166 09       		.uleb128 0x9
+ 284 0167 04       		.byte	0x4
+ 285 0168 6C010000 		.4byte	0x16c
+ 286 016c 0A       		.uleb128 0xa
+ 287 016d C4000000 		.4byte	0xc4
+ 288 0171 8A010000 		.4byte	0x18a
+ 289 0175 0B       		.uleb128 0xb
+ 290 0176 CF000000 		.4byte	0xcf
+ 291 017a 0B       		.uleb128 0xb
+ 292 017b 8A010000 		.4byte	0x18a
+ 293 017f 0B       		.uleb128 0xb
+ 294 0180 FB000000 		.4byte	0xfb
+ 295 0184 0B       		.uleb128 0xb
+ 296 0185 B4000000 		.4byte	0xb4
+ 297 0189 00       		.byte	0
+ 298 018a 09       		.uleb128 0x9
+ 299 018b 04       		.byte	0x4
+ 300 018c 90010000 		.4byte	0x190
+ 301 0190 0C       		.uleb128 0xc
+ 302 0191 CF000000 		.4byte	0xcf
+ 303 0195 08       		.uleb128 0x8
+ 304 0196 2E000000 		.4byte	.LASF28
+ 305 019a 04       		.byte	0x4
+ 306 019b 3F01     		.2byte	0x13f
+ 307 019d A1010000 		.4byte	0x1a1
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccRjEvrB.s 			page 7
+
+
+ 308 01a1 09       		.uleb128 0x9
+ 309 01a2 04       		.byte	0x4
+ 310 01a3 A7010000 		.4byte	0x1a7
+ 311 01a7 0D       		.uleb128 0xd
+ 312 01a8 B7010000 		.4byte	0x1b7
+ 313 01ac 0B       		.uleb128 0xb
+ 314 01ad FB000000 		.4byte	0xfb
+ 315 01b1 0B       		.uleb128 0xb
+ 316 01b2 B4000000 		.4byte	0xb4
+ 317 01b6 00       		.byte	0
+ 318 01b7 0E       		.uleb128 0xe
+ 319 01b8 3B020000 		.4byte	.LASF49
+ 320 01bc 28       		.byte	0x28
+ 321 01bd 04       		.byte	0x4
+ 322 01be 4801     		.2byte	0x148
+ 323 01c0 BC020000 		.4byte	0x2bc
+ 324 01c4 0F       		.uleb128 0xf
+ 325 01c5 0F010000 		.4byte	.LASF29
+ 326 01c9 04       		.byte	0x4
+ 327 01ca 4B01     		.2byte	0x14b
+ 328 01cc E5000000 		.4byte	0xe5
+ 329 01d0 00       		.byte	0
+ 330 01d1 0F       		.uleb128 0xf
+ 331 01d2 16010000 		.4byte	.LASF30
+ 332 01d6 04       		.byte	0x4
+ 333 01d7 4E01     		.2byte	0x14e
+ 334 01d9 DA000000 		.4byte	0xda
+ 335 01dd 02       		.byte	0x2
+ 336 01de 0F       		.uleb128 0xf
+ 337 01df 1D010000 		.4byte	.LASF31
+ 338 01e3 04       		.byte	0x4
+ 339 01e4 5101     		.2byte	0x151
+ 340 01e6 DA000000 		.4byte	0xda
+ 341 01ea 04       		.byte	0x4
+ 342 01eb 0F       		.uleb128 0xf
+ 343 01ec C4000000 		.4byte	.LASF32
+ 344 01f0 04       		.byte	0x4
+ 345 01f1 5401     		.2byte	0x154
+ 346 01f3 E5000000 		.4byte	0xe5
+ 347 01f7 06       		.byte	0x6
+ 348 01f8 0F       		.uleb128 0xf
+ 349 01f9 CB000000 		.4byte	.LASF33
+ 350 01fd 04       		.byte	0x4
+ 351 01fe 5701     		.2byte	0x157
+ 352 0200 DA000000 		.4byte	0xda
+ 353 0204 08       		.byte	0x8
+ 354 0205 0F       		.uleb128 0xf
+ 355 0206 D2000000 		.4byte	.LASF34
+ 356 020a 04       		.byte	0x4
+ 357 020b 5A01     		.2byte	0x15a
+ 358 020d DA000000 		.4byte	0xda
+ 359 0211 0A       		.byte	0xa
+ 360 0212 0F       		.uleb128 0xf
+ 361 0213 D9000000 		.4byte	.LASF35
+ 362 0217 04       		.byte	0x4
+ 363 0218 5D01     		.2byte	0x15d
+ 364 021a DA000000 		.4byte	0xda
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccRjEvrB.s 			page 8
+
+
+ 365 021e 0C       		.byte	0xc
+ 366 021f 0F       		.uleb128 0xf
+ 367 0220 E0000000 		.4byte	.LASF36
+ 368 0224 04       		.byte	0x4
+ 369 0225 6001     		.2byte	0x160
+ 370 0227 DA000000 		.4byte	0xda
+ 371 022b 0E       		.byte	0xe
+ 372 022c 0F       		.uleb128 0xf
+ 373 022d E7000000 		.4byte	.LASF37
+ 374 0231 04       		.byte	0x4
+ 375 0232 6301     		.2byte	0x163
+ 376 0234 DA000000 		.4byte	0xda
+ 377 0238 10       		.byte	0x10
+ 378 0239 0F       		.uleb128 0xf
+ 379 023a EE000000 		.4byte	.LASF38
+ 380 023e 04       		.byte	0x4
+ 381 023f 6601     		.2byte	0x166
+ 382 0241 DA000000 		.4byte	0xda
+ 383 0245 12       		.byte	0x12
+ 384 0246 0F       		.uleb128 0xf
+ 385 0247 F5000000 		.4byte	.LASF39
+ 386 024b 04       		.byte	0x4
+ 387 024c 6901     		.2byte	0x169
+ 388 024e DA000000 		.4byte	0xda
+ 389 0252 14       		.byte	0x14
+ 390 0253 0F       		.uleb128 0xf
+ 391 0254 FC000000 		.4byte	.LASF40
+ 392 0258 04       		.byte	0x4
+ 393 0259 6C01     		.2byte	0x16c
+ 394 025b DA000000 		.4byte	0xda
+ 395 025f 16       		.byte	0x16
+ 396 0260 0F       		.uleb128 0xf
+ 397 0261 29010000 		.4byte	.LASF41
+ 398 0265 04       		.byte	0x4
+ 399 0266 6F01     		.2byte	0x16f
+ 400 0268 CF000000 		.4byte	0xcf
+ 401 026c 18       		.byte	0x18
+ 402 026d 0F       		.uleb128 0xf
+ 403 026e 3E010000 		.4byte	.LASF42
+ 404 0272 04       		.byte	0x4
+ 405 0273 7201     		.2byte	0x172
+ 406 0275 DA000000 		.4byte	0xda
+ 407 0279 1A       		.byte	0x1a
+ 408 027a 0F       		.uleb128 0xf
+ 409 027b 4E000000 		.4byte	.LASF43
+ 410 027f 04       		.byte	0x4
+ 411 0280 7501     		.2byte	0x175
+ 412 0282 CF000000 		.4byte	0xcf
+ 413 0286 1C       		.byte	0x1c
+ 414 0287 0F       		.uleb128 0xf
+ 415 0288 55000000 		.4byte	.LASF44
+ 416 028c 04       		.byte	0x4
+ 417 028d 7801     		.2byte	0x178
+ 418 028f DA000000 		.4byte	0xda
+ 419 0293 1E       		.byte	0x1e
+ 420 0294 0F       		.uleb128 0xf
+ 421 0295 5C000000 		.4byte	.LASF45
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccRjEvrB.s 			page 9
+
+
+ 422 0299 04       		.byte	0x4
+ 423 029a 7B01     		.2byte	0x17b
+ 424 029c DA000000 		.4byte	0xda
+ 425 02a0 20       		.byte	0x20
+ 426 02a1 0F       		.uleb128 0xf
+ 427 02a2 63000000 		.4byte	.LASF46
+ 428 02a6 04       		.byte	0x4
+ 429 02a7 7E01     		.2byte	0x17e
+ 430 02a9 C4000000 		.4byte	0xc4
+ 431 02ad 22       		.byte	0x22
+ 432 02ae 0F       		.uleb128 0xf
+ 433 02af 59010000 		.4byte	.LASF47
+ 434 02b3 04       		.byte	0x4
+ 435 02b4 8101     		.2byte	0x181
+ 436 02b6 F0000000 		.4byte	0xf0
+ 437 02ba 24       		.byte	0x24
+ 438 02bb 00       		.byte	0
+ 439 02bc 03       		.uleb128 0x3
+ 440 02bd 08       		.byte	0x8
+ 441 02be 04       		.byte	0x4
+ 442 02bf 5F020000 		.4byte	.LASF48
+ 443 02c3 0E       		.uleb128 0xe
+ 444 02c4 66020000 		.4byte	.LASF50
+ 445 02c8 40       		.byte	0x40
+ 446 02c9 04       		.byte	0x4
+ 447 02ca CB01     		.2byte	0x1cb
+ 448 02cc 39030000 		.4byte	0x339
+ 449 02d0 0F       		.uleb128 0xf
+ 450 02d1 71020000 		.4byte	.LASF51
+ 451 02d5 04       		.byte	0x4
+ 452 02d6 CE01     		.2byte	0x1ce
+ 453 02d8 CF000000 		.4byte	0xcf
+ 454 02dc 00       		.byte	0
+ 455 02dd 0F       		.uleb128 0xf
+ 456 02de 9C010000 		.4byte	.LASF52
+ 457 02e2 04       		.byte	0x4
+ 458 02e3 D401     		.2byte	0x1d4
+ 459 02e5 06010000 		.4byte	0x106
+ 460 02e9 01       		.byte	0x1
+ 461 02ea 0F       		.uleb128 0xf
+ 462 02eb 79030000 		.4byte	.LASF53
+ 463 02ef 04       		.byte	0x4
+ 464 02f0 DC01     		.2byte	0x1dc
+ 465 02f2 B4000000 		.4byte	0xb4
+ 466 02f6 04       		.byte	0x4
+ 467 02f7 0F       		.uleb128 0xf
+ 468 02f8 6F030000 		.4byte	.LASF54
+ 469 02fc 04       		.byte	0x4
+ 470 02fd DF01     		.2byte	0x1df
+ 471 02ff C4000000 		.4byte	0xc4
+ 472 0303 08       		.byte	0x8
+ 473 0304 0F       		.uleb128 0xf
+ 474 0305 24010000 		.4byte	.LASF55
+ 475 0309 04       		.byte	0x4
+ 476 030a E201     		.2byte	0x1e2
+ 477 030c 24010000 		.4byte	0x124
+ 478 0310 0C       		.byte	0xc
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccRjEvrB.s 			page 10
+
+
+ 479 0311 0F       		.uleb128 0xf
+ 480 0312 17000000 		.4byte	.LASF56
+ 481 0316 04       		.byte	0x4
+ 482 0317 E501     		.2byte	0x1e5
+ 483 0319 5A010000 		.4byte	0x15a
+ 484 031d 10       		.byte	0x10
+ 485 031e 0F       		.uleb128 0xf
+ 486 031f A8000000 		.4byte	.LASF57
+ 487 0323 04       		.byte	0x4
+ 488 0324 E801     		.2byte	0x1e8
+ 489 0326 95010000 		.4byte	0x195
+ 490 032a 14       		.byte	0x14
+ 491 032b 0F       		.uleb128 0xf
+ 492 032c 45010000 		.4byte	.LASF58
+ 493 0330 04       		.byte	0x4
+ 494 0331 EB01     		.2byte	0x1eb
+ 495 0333 B7010000 		.4byte	0x1b7
+ 496 0337 18       		.byte	0x18
+ 497 0338 00       		.byte	0
+ 498 0339 03       		.uleb128 0x3
+ 499 033a 04       		.byte	0x4
+ 500 033b 04       		.byte	0x4
+ 501 033c 11000000 		.4byte	.LASF59
+ 502 0340 10       		.uleb128 0x10
+ 503 0341 6A010000 		.4byte	.LASF66
+ 504 0345 01       		.byte	0x1
+ 505 0346 07       		.byte	0x7
+ 506 0347 00000000 		.4byte	.LFB64
+ 507 034b 58000000 		.4byte	.LFE64-.LFB64
+ 508 034f 01       		.uleb128 0x1
+ 509 0350 9C       		.byte	0x9c
+ 510 0351 E4030000 		.4byte	0x3e4
+ 511 0355 11       		.uleb128 0x11
+ 512 0356 64657600 		.ascii	"dev\000"
+ 513 035a 01       		.byte	0x1
+ 514 035b 07       		.byte	0x7
+ 515 035c E4030000 		.4byte	0x3e4
+ 516 0360 00000000 		.4byte	.LLST0
+ 517 0364 12       		.uleb128 0x12
+ 518 0365 0A000000 		.4byte	.LASF67
+ 519 0369 01       		.byte	0x1
+ 520 036a 13       		.byte	0x13
+ 521 036b C4000000 		.4byte	0xc4
+ 522 036f 2C000000 		.4byte	.LLST1
+ 523 0373 13       		.uleb128 0x13
+ 524 0374 20000000 		.4byte	.LVL2
+ 525 0378 FB030000 		.4byte	0x3fb
+ 526 037c 96030000 		.4byte	0x396
+ 527 0380 14       		.uleb128 0x14
+ 528 0381 01       		.uleb128 0x1
+ 529 0382 50       		.byte	0x50
+ 530 0383 02       		.uleb128 0x2
+ 531 0384 08       		.byte	0x8
+ 532 0385 50       		.byte	0x50
+ 533 0386 14       		.uleb128 0x14
+ 534 0387 01       		.uleb128 0x1
+ 535 0388 51       		.byte	0x51
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccRjEvrB.s 			page 11
+
+
+ 536 0389 05       		.uleb128 0x5
+ 537 038a 03       		.byte	0x3
+ 538 038b 00000000 		.4byte	.LC0
+ 539 038f 14       		.uleb128 0x14
+ 540 0390 01       		.uleb128 0x1
+ 541 0391 52       		.byte	0x52
+ 542 0392 02       		.uleb128 0x2
+ 543 0393 08       		.byte	0x8
+ 544 0394 60       		.byte	0x60
+ 545 0395 00       		.byte	0
+ 546 0396 13       		.uleb128 0x13
+ 547 0397 26000000 		.4byte	.LVL3
+ 548 039b 06040000 		.4byte	0x406
+ 549 039f AA030000 		.4byte	0x3aa
+ 550 03a3 14       		.uleb128 0x14
+ 551 03a4 01       		.uleb128 0x1
+ 552 03a5 50       		.byte	0x50
+ 553 03a6 02       		.uleb128 0x2
+ 554 03a7 74       		.byte	0x74
+ 555 03a8 00       		.sleb128 0
+ 556 03a9 00       		.byte	0
+ 557 03aa 13       		.uleb128 0x13
+ 558 03ab 32000000 		.4byte	.LVL5
+ 559 03af FB030000 		.4byte	0x3fb
+ 560 03b3 C6030000 		.4byte	0x3c6
+ 561 03b7 14       		.uleb128 0x14
+ 562 03b8 01       		.uleb128 0x1
+ 563 03b9 50       		.byte	0x50
+ 564 03ba 01       		.uleb128 0x1
+ 565 03bb 34       		.byte	0x34
+ 566 03bc 14       		.uleb128 0x14
+ 567 03bd 01       		.uleb128 0x1
+ 568 03be 51       		.byte	0x51
+ 569 03bf 05       		.uleb128 0x5
+ 570 03c0 03       		.byte	0x3
+ 571 03c1 34000000 		.4byte	.LC1
+ 572 03c5 00       		.byte	0
+ 573 03c6 15       		.uleb128 0x15
+ 574 03c7 3E000000 		.4byte	.LVL8
+ 575 03cb FB030000 		.4byte	0x3fb
+ 576 03cf 14       		.uleb128 0x14
+ 577 03d0 01       		.uleb128 0x1
+ 578 03d1 50       		.byte	0x50
+ 579 03d2 01       		.uleb128 0x1
+ 580 03d3 31       		.byte	0x31
+ 581 03d4 14       		.uleb128 0x14
+ 582 03d5 01       		.uleb128 0x1
+ 583 03d6 51       		.byte	0x51
+ 584 03d7 05       		.uleb128 0x5
+ 585 03d8 03       		.byte	0x3
+ 586 03d9 54000000 		.4byte	.LC2
+ 587 03dd 14       		.uleb128 0x14
+ 588 03de 01       		.uleb128 0x1
+ 589 03df 52       		.byte	0x52
+ 590 03e0 01       		.uleb128 0x1
+ 591 03e1 30       		.byte	0x30
+ 592 03e2 00       		.byte	0
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccRjEvrB.s 			page 12
+
+
+ 593 03e3 00       		.byte	0
+ 594 03e4 09       		.uleb128 0x9
+ 595 03e5 04       		.byte	0x4
+ 596 03e6 C3020000 		.4byte	0x2c3
+ 597 03ea 16       		.uleb128 0x16
+ 598 03eb 8D020000 		.4byte	.LASF68
+ 599 03ef 07       		.byte	0x7
+ 600 03f0 1207     		.2byte	0x712
+ 601 03f2 F6030000 		.4byte	0x3f6
+ 602 03f6 17       		.uleb128 0x17
+ 603 03f7 F0000000 		.4byte	0xf0
+ 604 03fb 18       		.uleb128 0x18
+ 605 03fc 00000000 		.4byte	.LASF60
+ 606 0400 00000000 		.4byte	.LASF60
+ 607 0404 05       		.byte	0x5
+ 608 0405 35       		.byte	0x35
+ 609 0406 18       		.uleb128 0x18
+ 610 0407 EA010000 		.4byte	.LASF61
+ 611 040b EA010000 		.4byte	.LASF61
+ 612 040f 06       		.byte	0x6
+ 613 0410 55       		.byte	0x55
+ 614 0411 00       		.byte	0
+ 615              		.section	.debug_abbrev,"",%progbits
+ 616              	.Ldebug_abbrev0:
+ 617 0000 01       		.uleb128 0x1
+ 618 0001 11       		.uleb128 0x11
+ 619 0002 01       		.byte	0x1
+ 620 0003 25       		.uleb128 0x25
+ 621 0004 0E       		.uleb128 0xe
+ 622 0005 13       		.uleb128 0x13
+ 623 0006 0B       		.uleb128 0xb
+ 624 0007 03       		.uleb128 0x3
+ 625 0008 0E       		.uleb128 0xe
+ 626 0009 1B       		.uleb128 0x1b
+ 627 000a 0E       		.uleb128 0xe
+ 628 000b 55       		.uleb128 0x55
+ 629 000c 17       		.uleb128 0x17
+ 630 000d 11       		.uleb128 0x11
+ 631 000e 01       		.uleb128 0x1
+ 632 000f 10       		.uleb128 0x10
+ 633 0010 17       		.uleb128 0x17
+ 634 0011 00       		.byte	0
+ 635 0012 00       		.byte	0
+ 636 0013 02       		.uleb128 0x2
+ 637 0014 16       		.uleb128 0x16
+ 638 0015 00       		.byte	0
+ 639 0016 03       		.uleb128 0x3
+ 640 0017 0E       		.uleb128 0xe
+ 641 0018 3A       		.uleb128 0x3a
+ 642 0019 0B       		.uleb128 0xb
+ 643 001a 3B       		.uleb128 0x3b
+ 644 001b 0B       		.uleb128 0xb
+ 645 001c 49       		.uleb128 0x49
+ 646 001d 13       		.uleb128 0x13
+ 647 001e 00       		.byte	0
+ 648 001f 00       		.byte	0
+ 649 0020 03       		.uleb128 0x3
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccRjEvrB.s 			page 13
+
+
+ 650 0021 24       		.uleb128 0x24
+ 651 0022 00       		.byte	0
+ 652 0023 0B       		.uleb128 0xb
+ 653 0024 0B       		.uleb128 0xb
+ 654 0025 3E       		.uleb128 0x3e
+ 655 0026 0B       		.uleb128 0xb
+ 656 0027 03       		.uleb128 0x3
+ 657 0028 0E       		.uleb128 0xe
+ 658 0029 00       		.byte	0
+ 659 002a 00       		.byte	0
+ 660 002b 04       		.uleb128 0x4
+ 661 002c 24       		.uleb128 0x24
+ 662 002d 00       		.byte	0
+ 663 002e 0B       		.uleb128 0xb
+ 664 002f 0B       		.uleb128 0xb
+ 665 0030 3E       		.uleb128 0x3e
+ 666 0031 0B       		.uleb128 0xb
+ 667 0032 03       		.uleb128 0x3
+ 668 0033 08       		.uleb128 0x8
+ 669 0034 00       		.byte	0
+ 670 0035 00       		.byte	0
+ 671 0036 05       		.uleb128 0x5
+ 672 0037 0F       		.uleb128 0xf
+ 673 0038 00       		.byte	0
+ 674 0039 0B       		.uleb128 0xb
+ 675 003a 0B       		.uleb128 0xb
+ 676 003b 00       		.byte	0
+ 677 003c 00       		.byte	0
+ 678 003d 06       		.uleb128 0x6
+ 679 003e 04       		.uleb128 0x4
+ 680 003f 01       		.byte	0x1
+ 681 0040 03       		.uleb128 0x3
+ 682 0041 0E       		.uleb128 0xe
+ 683 0042 0B       		.uleb128 0xb
+ 684 0043 0B       		.uleb128 0xb
+ 685 0044 49       		.uleb128 0x49
+ 686 0045 13       		.uleb128 0x13
+ 687 0046 3A       		.uleb128 0x3a
+ 688 0047 0B       		.uleb128 0xb
+ 689 0048 3B       		.uleb128 0x3b
+ 690 0049 05       		.uleb128 0x5
+ 691 004a 01       		.uleb128 0x1
+ 692 004b 13       		.uleb128 0x13
+ 693 004c 00       		.byte	0
+ 694 004d 00       		.byte	0
+ 695 004e 07       		.uleb128 0x7
+ 696 004f 28       		.uleb128 0x28
+ 697 0050 00       		.byte	0
+ 698 0051 03       		.uleb128 0x3
+ 699 0052 0E       		.uleb128 0xe
+ 700 0053 1C       		.uleb128 0x1c
+ 701 0054 0B       		.uleb128 0xb
+ 702 0055 00       		.byte	0
+ 703 0056 00       		.byte	0
+ 704 0057 08       		.uleb128 0x8
+ 705 0058 16       		.uleb128 0x16
+ 706 0059 00       		.byte	0
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccRjEvrB.s 			page 14
+
+
+ 707 005a 03       		.uleb128 0x3
+ 708 005b 0E       		.uleb128 0xe
+ 709 005c 3A       		.uleb128 0x3a
+ 710 005d 0B       		.uleb128 0xb
+ 711 005e 3B       		.uleb128 0x3b
+ 712 005f 05       		.uleb128 0x5
+ 713 0060 49       		.uleb128 0x49
+ 714 0061 13       		.uleb128 0x13
+ 715 0062 00       		.byte	0
+ 716 0063 00       		.byte	0
+ 717 0064 09       		.uleb128 0x9
+ 718 0065 0F       		.uleb128 0xf
+ 719 0066 00       		.byte	0
+ 720 0067 0B       		.uleb128 0xb
+ 721 0068 0B       		.uleb128 0xb
+ 722 0069 49       		.uleb128 0x49
+ 723 006a 13       		.uleb128 0x13
+ 724 006b 00       		.byte	0
+ 725 006c 00       		.byte	0
+ 726 006d 0A       		.uleb128 0xa
+ 727 006e 15       		.uleb128 0x15
+ 728 006f 01       		.byte	0x1
+ 729 0070 27       		.uleb128 0x27
+ 730 0071 19       		.uleb128 0x19
+ 731 0072 49       		.uleb128 0x49
+ 732 0073 13       		.uleb128 0x13
+ 733 0074 01       		.uleb128 0x1
+ 734 0075 13       		.uleb128 0x13
+ 735 0076 00       		.byte	0
+ 736 0077 00       		.byte	0
+ 737 0078 0B       		.uleb128 0xb
+ 738 0079 05       		.uleb128 0x5
+ 739 007a 00       		.byte	0
+ 740 007b 49       		.uleb128 0x49
+ 741 007c 13       		.uleb128 0x13
+ 742 007d 00       		.byte	0
+ 743 007e 00       		.byte	0
+ 744 007f 0C       		.uleb128 0xc
+ 745 0080 26       		.uleb128 0x26
+ 746 0081 00       		.byte	0
+ 747 0082 49       		.uleb128 0x49
+ 748 0083 13       		.uleb128 0x13
+ 749 0084 00       		.byte	0
+ 750 0085 00       		.byte	0
+ 751 0086 0D       		.uleb128 0xd
+ 752 0087 15       		.uleb128 0x15
+ 753 0088 01       		.byte	0x1
+ 754 0089 27       		.uleb128 0x27
+ 755 008a 19       		.uleb128 0x19
+ 756 008b 01       		.uleb128 0x1
+ 757 008c 13       		.uleb128 0x13
+ 758 008d 00       		.byte	0
+ 759 008e 00       		.byte	0
+ 760 008f 0E       		.uleb128 0xe
+ 761 0090 13       		.uleb128 0x13
+ 762 0091 01       		.byte	0x1
+ 763 0092 03       		.uleb128 0x3
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccRjEvrB.s 			page 15
+
+
+ 764 0093 0E       		.uleb128 0xe
+ 765 0094 0B       		.uleb128 0xb
+ 766 0095 0B       		.uleb128 0xb
+ 767 0096 3A       		.uleb128 0x3a
+ 768 0097 0B       		.uleb128 0xb
+ 769 0098 3B       		.uleb128 0x3b
+ 770 0099 05       		.uleb128 0x5
+ 771 009a 01       		.uleb128 0x1
+ 772 009b 13       		.uleb128 0x13
+ 773 009c 00       		.byte	0
+ 774 009d 00       		.byte	0
+ 775 009e 0F       		.uleb128 0xf
+ 776 009f 0D       		.uleb128 0xd
+ 777 00a0 00       		.byte	0
+ 778 00a1 03       		.uleb128 0x3
+ 779 00a2 0E       		.uleb128 0xe
+ 780 00a3 3A       		.uleb128 0x3a
+ 781 00a4 0B       		.uleb128 0xb
+ 782 00a5 3B       		.uleb128 0x3b
+ 783 00a6 05       		.uleb128 0x5
+ 784 00a7 49       		.uleb128 0x49
+ 785 00a8 13       		.uleb128 0x13
+ 786 00a9 38       		.uleb128 0x38
+ 787 00aa 0B       		.uleb128 0xb
+ 788 00ab 00       		.byte	0
+ 789 00ac 00       		.byte	0
+ 790 00ad 10       		.uleb128 0x10
+ 791 00ae 2E       		.uleb128 0x2e
+ 792 00af 01       		.byte	0x1
+ 793 00b0 3F       		.uleb128 0x3f
+ 794 00b1 19       		.uleb128 0x19
+ 795 00b2 03       		.uleb128 0x3
+ 796 00b3 0E       		.uleb128 0xe
+ 797 00b4 3A       		.uleb128 0x3a
+ 798 00b5 0B       		.uleb128 0xb
+ 799 00b6 3B       		.uleb128 0x3b
+ 800 00b7 0B       		.uleb128 0xb
+ 801 00b8 27       		.uleb128 0x27
+ 802 00b9 19       		.uleb128 0x19
+ 803 00ba 11       		.uleb128 0x11
+ 804 00bb 01       		.uleb128 0x1
+ 805 00bc 12       		.uleb128 0x12
+ 806 00bd 06       		.uleb128 0x6
+ 807 00be 40       		.uleb128 0x40
+ 808 00bf 18       		.uleb128 0x18
+ 809 00c0 9742     		.uleb128 0x2117
+ 810 00c2 19       		.uleb128 0x19
+ 811 00c3 01       		.uleb128 0x1
+ 812 00c4 13       		.uleb128 0x13
+ 813 00c5 00       		.byte	0
+ 814 00c6 00       		.byte	0
+ 815 00c7 11       		.uleb128 0x11
+ 816 00c8 05       		.uleb128 0x5
+ 817 00c9 00       		.byte	0
+ 818 00ca 03       		.uleb128 0x3
+ 819 00cb 08       		.uleb128 0x8
+ 820 00cc 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccRjEvrB.s 			page 16
+
+
+ 821 00cd 0B       		.uleb128 0xb
+ 822 00ce 3B       		.uleb128 0x3b
+ 823 00cf 0B       		.uleb128 0xb
+ 824 00d0 49       		.uleb128 0x49
+ 825 00d1 13       		.uleb128 0x13
+ 826 00d2 02       		.uleb128 0x2
+ 827 00d3 17       		.uleb128 0x17
+ 828 00d4 00       		.byte	0
+ 829 00d5 00       		.byte	0
+ 830 00d6 12       		.uleb128 0x12
+ 831 00d7 34       		.uleb128 0x34
+ 832 00d8 00       		.byte	0
+ 833 00d9 03       		.uleb128 0x3
+ 834 00da 0E       		.uleb128 0xe
+ 835 00db 3A       		.uleb128 0x3a
+ 836 00dc 0B       		.uleb128 0xb
+ 837 00dd 3B       		.uleb128 0x3b
+ 838 00de 0B       		.uleb128 0xb
+ 839 00df 49       		.uleb128 0x49
+ 840 00e0 13       		.uleb128 0x13
+ 841 00e1 02       		.uleb128 0x2
+ 842 00e2 17       		.uleb128 0x17
+ 843 00e3 00       		.byte	0
+ 844 00e4 00       		.byte	0
+ 845 00e5 13       		.uleb128 0x13
+ 846 00e6 898201   		.uleb128 0x4109
+ 847 00e9 01       		.byte	0x1
+ 848 00ea 11       		.uleb128 0x11
+ 849 00eb 01       		.uleb128 0x1
+ 850 00ec 31       		.uleb128 0x31
+ 851 00ed 13       		.uleb128 0x13
+ 852 00ee 01       		.uleb128 0x1
+ 853 00ef 13       		.uleb128 0x13
+ 854 00f0 00       		.byte	0
+ 855 00f1 00       		.byte	0
+ 856 00f2 14       		.uleb128 0x14
+ 857 00f3 8A8201   		.uleb128 0x410a
+ 858 00f6 00       		.byte	0
+ 859 00f7 02       		.uleb128 0x2
+ 860 00f8 18       		.uleb128 0x18
+ 861 00f9 9142     		.uleb128 0x2111
+ 862 00fb 18       		.uleb128 0x18
+ 863 00fc 00       		.byte	0
+ 864 00fd 00       		.byte	0
+ 865 00fe 15       		.uleb128 0x15
+ 866 00ff 898201   		.uleb128 0x4109
+ 867 0102 01       		.byte	0x1
+ 868 0103 11       		.uleb128 0x11
+ 869 0104 01       		.uleb128 0x1
+ 870 0105 31       		.uleb128 0x31
+ 871 0106 13       		.uleb128 0x13
+ 872 0107 00       		.byte	0
+ 873 0108 00       		.byte	0
+ 874 0109 16       		.uleb128 0x16
+ 875 010a 34       		.uleb128 0x34
+ 876 010b 00       		.byte	0
+ 877 010c 03       		.uleb128 0x3
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccRjEvrB.s 			page 17
+
+
+ 878 010d 0E       		.uleb128 0xe
+ 879 010e 3A       		.uleb128 0x3a
+ 880 010f 0B       		.uleb128 0xb
+ 881 0110 3B       		.uleb128 0x3b
+ 882 0111 05       		.uleb128 0x5
+ 883 0112 49       		.uleb128 0x49
+ 884 0113 13       		.uleb128 0x13
+ 885 0114 3F       		.uleb128 0x3f
+ 886 0115 19       		.uleb128 0x19
+ 887 0116 3C       		.uleb128 0x3c
+ 888 0117 19       		.uleb128 0x19
+ 889 0118 00       		.byte	0
+ 890 0119 00       		.byte	0
+ 891 011a 17       		.uleb128 0x17
+ 892 011b 35       		.uleb128 0x35
+ 893 011c 00       		.byte	0
+ 894 011d 49       		.uleb128 0x49
+ 895 011e 13       		.uleb128 0x13
+ 896 011f 00       		.byte	0
+ 897 0120 00       		.byte	0
+ 898 0121 18       		.uleb128 0x18
+ 899 0122 2E       		.uleb128 0x2e
+ 900 0123 00       		.byte	0
+ 901 0124 3F       		.uleb128 0x3f
+ 902 0125 19       		.uleb128 0x19
+ 903 0126 3C       		.uleb128 0x3c
+ 904 0127 19       		.uleb128 0x19
+ 905 0128 6E       		.uleb128 0x6e
+ 906 0129 0E       		.uleb128 0xe
+ 907 012a 03       		.uleb128 0x3
+ 908 012b 0E       		.uleb128 0xe
+ 909 012c 3A       		.uleb128 0x3a
+ 910 012d 0B       		.uleb128 0xb
+ 911 012e 3B       		.uleb128 0x3b
+ 912 012f 0B       		.uleb128 0xb
+ 913 0130 00       		.byte	0
+ 914 0131 00       		.byte	0
+ 915 0132 00       		.byte	0
+ 916              		.section	.debug_loc,"",%progbits
+ 917              	.Ldebug_loc0:
+ 918              	.LLST0:
+ 919 0000 00000000 		.4byte	.LVL0
+ 920 0004 1C000000 		.4byte	.LVL1
+ 921 0008 0100     		.2byte	0x1
+ 922 000a 50       		.byte	0x50
+ 923 000b 1C000000 		.4byte	.LVL1
+ 924 000f 40000000 		.4byte	.LVL9
+ 925 0013 0100     		.2byte	0x1
+ 926 0015 54       		.byte	0x54
+ 927 0016 40000000 		.4byte	.LVL9
+ 928 001a 58000000 		.4byte	.LFE64
+ 929 001e 0400     		.2byte	0x4
+ 930 0020 F3       		.byte	0xf3
+ 931 0021 01       		.uleb128 0x1
+ 932 0022 50       		.byte	0x50
+ 933 0023 9F       		.byte	0x9f
+ 934 0024 00000000 		.4byte	0
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccRjEvrB.s 			page 18
+
+
+ 935 0028 00000000 		.4byte	0
+ 936              	.LLST1:
+ 937 002c 26000000 		.4byte	.LVL3
+ 938 0030 2E000000 		.4byte	.LVL4
+ 939 0034 0100     		.2byte	0x1
+ 940 0036 50       		.byte	0x50
+ 941 0037 34000000 		.4byte	.LVL6
+ 942 003b 3A000000 		.4byte	.LVL7
+ 943 003f 0100     		.2byte	0x1
+ 944 0041 50       		.byte	0x50
+ 945 0042 00000000 		.4byte	0
+ 946 0046 00000000 		.4byte	0
+ 947              		.section	.debug_aranges,"",%progbits
+ 948 0000 1C000000 		.4byte	0x1c
+ 949 0004 0200     		.2byte	0x2
+ 950 0006 00000000 		.4byte	.Ldebug_info0
+ 951 000a 04       		.byte	0x4
+ 952 000b 00       		.byte	0
+ 953 000c 0000     		.2byte	0
+ 954 000e 0000     		.2byte	0
+ 955 0010 00000000 		.4byte	.LFB64
+ 956 0014 58000000 		.4byte	.LFE64-.LFB64
+ 957 0018 00000000 		.4byte	0
+ 958 001c 00000000 		.4byte	0
+ 959              		.section	.debug_ranges,"",%progbits
+ 960              	.Ldebug_ranges0:
+ 961 0000 00000000 		.4byte	.LFB64
+ 962 0004 58000000 		.4byte	.LFE64
+ 963 0008 00000000 		.4byte	0
+ 964 000c 00000000 		.4byte	0
+ 965              		.section	.debug_line,"",%progbits
+ 966              	.Ldebug_line0:
+ 967 0000 A8010000 		.section	.debug_str,"MS",%progbits,1
+ 967      02008B01 
+ 967      00000201 
+ 967      FB0E0D00 
+ 967      01010101 
+ 968              	.LASF60:
+ 969 0000 4C6F675F 		.ascii	"Log_Write\000"
+ 969      57726974 
+ 969      6500
+ 970              	.LASF67:
+ 971 000a 72657375 		.ascii	"result\000"
+ 971      6C7400
+ 972              	.LASF59:
+ 973 0011 666C6F61 		.ascii	"float\000"
+ 973      7400
+ 974              	.LASF56:
+ 975 0017 77726974 		.ascii	"write\000"
+ 975      6500
+ 976              	.LASF18:
+ 977 001d 696E7438 		.ascii	"int8_t\000"
+ 977      5F7400
+ 978              	.LASF5:
+ 979 0024 73686F72 		.ascii	"short int\000"
+ 979      7420696E 
+ 979      7400
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccRjEvrB.s 			page 19
+
+
+ 980              	.LASF28:
+ 981 002e 626D6532 		.ascii	"bme280_delay_us_fptr_t\000"
+ 981      38305F64 
+ 981      656C6179 
+ 981      5F75735F 
+ 981      66707472 
+ 982              	.LASF16:
+ 983 0045 73697A65 		.ascii	"sizetype\000"
+ 983      74797065 
+ 983      00
+ 984              	.LASF43:
+ 985 004e 6469675F 		.ascii	"dig_h3\000"
+ 985      683300
+ 986              	.LASF44:
+ 987 0055 6469675F 		.ascii	"dig_h4\000"
+ 987      683400
+ 988              	.LASF45:
+ 989 005c 6469675F 		.ascii	"dig_h5\000"
+ 989      683500
+ 990              	.LASF46:
+ 991 0063 6469675F 		.ascii	"dig_h6\000"
+ 991      683600
+ 992              	.LASF25:
+ 993 006a 424D4532 		.ascii	"BME280_I2C_INTF\000"
+ 993      38305F49 
+ 993      32435F49 
+ 993      4E544600 
+ 994              	.LASF24:
+ 995 007a 424D4532 		.ascii	"BME280_SPI_INTF\000"
+ 995      38305F53 
+ 995      50495F49 
+ 995      4E544600 
+ 996              	.LASF10:
+ 997 008a 5F5F7569 		.ascii	"__uint32_t\000"
+ 997      6E743332 
+ 997      5F7400
+ 998              	.LASF63:
+ 999 0095 626D6532 		.ascii	"bme280_interface.c\000"
+ 999      38305F69 
+ 999      6E746572 
+ 999      66616365 
+ 999      2E6300
+ 1000              	.LASF57:
+ 1001 00a8 64656C61 		.ascii	"delay_us\000"
+ 1001      795F7573 
+ 1001      00
+ 1002              	.LASF6:
+ 1003 00b1 5F5F7569 		.ascii	"__uint16_t\000"
+ 1003      6E743136 
+ 1003      5F7400
+ 1004              	.LASF19:
+ 1005 00bc 75696E74 		.ascii	"uint8_t\000"
+ 1005      385F7400 
+ 1006              	.LASF32:
+ 1007 00c4 6469675F 		.ascii	"dig_p1\000"
+ 1007      703100
+ 1008              	.LASF33:
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccRjEvrB.s 			page 20
+
+
+ 1009 00cb 6469675F 		.ascii	"dig_p2\000"
+ 1009      703200
+ 1010              	.LASF34:
+ 1011 00d2 6469675F 		.ascii	"dig_p3\000"
+ 1011      703300
+ 1012              	.LASF35:
+ 1013 00d9 6469675F 		.ascii	"dig_p4\000"
+ 1013      703400
+ 1014              	.LASF36:
+ 1015 00e0 6469675F 		.ascii	"dig_p5\000"
+ 1015      703500
+ 1016              	.LASF37:
+ 1017 00e7 6469675F 		.ascii	"dig_p6\000"
+ 1017      703600
+ 1018              	.LASF38:
+ 1019 00ee 6469675F 		.ascii	"dig_p7\000"
+ 1019      703700
+ 1020              	.LASF39:
+ 1021 00f5 6469675F 		.ascii	"dig_p8\000"
+ 1021      703800
+ 1022              	.LASF40:
+ 1023 00fc 6469675F 		.ascii	"dig_p9\000"
+ 1023      703900
+ 1024              	.LASF2:
+ 1025 0103 7369676E 		.ascii	"signed char\000"
+ 1025      65642063 
+ 1025      68617200 
+ 1026              	.LASF29:
+ 1027 010f 6469675F 		.ascii	"dig_t1\000"
+ 1027      743100
+ 1028              	.LASF30:
+ 1029 0116 6469675F 		.ascii	"dig_t2\000"
+ 1029      743200
+ 1030              	.LASF31:
+ 1031 011d 6469675F 		.ascii	"dig_t3\000"
+ 1031      743300
+ 1032              	.LASF55:
+ 1033 0124 72656164 		.ascii	"read\000"
+ 1033      00
+ 1034              	.LASF41:
+ 1035 0129 6469675F 		.ascii	"dig_h1\000"
+ 1035      683100
+ 1036              	.LASF12:
+ 1037 0130 6C6F6E67 		.ascii	"long long int\000"
+ 1037      206C6F6E 
+ 1037      6720696E 
+ 1037      7400
+ 1038              	.LASF42:
+ 1039 013e 6469675F 		.ascii	"dig_h2\000"
+ 1039      683200
+ 1040              	.LASF58:
+ 1041 0145 63616C69 		.ascii	"calib_data\000"
+ 1041      625F6461 
+ 1041      746100
+ 1042              	.LASF9:
+ 1043 0150 6C6F6E67 		.ascii	"long int\000"
+ 1043      20696E74 
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccRjEvrB.s 			page 21
+
+
+ 1043      00
+ 1044              	.LASF47:
+ 1045 0159 745F6669 		.ascii	"t_fine\000"
+ 1045      6E6500
+ 1046              	.LASF1:
+ 1047 0160 5F5F7569 		.ascii	"__uint8_t\000"
+ 1047      6E74385F 
+ 1047      7400
+ 1048              	.LASF66:
+ 1049 016a 424D4532 		.ascii	"BME280_Init\000"
+ 1049      38305F49 
+ 1049      6E697400 
+ 1050              	.LASF15:
+ 1051 0176 6C6F6E67 		.ascii	"long double\000"
+ 1051      20646F75 
+ 1051      626C6500 
+ 1052              	.LASF3:
+ 1053 0182 756E7369 		.ascii	"unsigned char\000"
+ 1053      676E6564 
+ 1053      20636861 
+ 1053      7200
+ 1054              	.LASF65:
+ 1055 0190 626D6532 		.ascii	"bme280_intf\000"
+ 1055      38305F69 
+ 1055      6E746600 
+ 1056              	.LASF52:
+ 1057 019c 696E7466 		.ascii	"intf\000"
+ 1057      00
+ 1058              	.LASF13:
+ 1059 01a1 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1059      206C6F6E 
+ 1059      6720756E 
+ 1059      7369676E 
+ 1059      65642069 
+ 1060              	.LASF23:
+ 1061 01b8 75696E74 		.ascii	"uint32_t\000"
+ 1061      33325F74 
+ 1061      00
+ 1062              	.LASF14:
+ 1063 01c1 756E7369 		.ascii	"unsigned int\000"
+ 1063      676E6564 
+ 1063      20696E74 
+ 1063      00
+ 1064              	.LASF21:
+ 1065 01ce 75696E74 		.ascii	"uint16_t\000"
+ 1065      31365F74 
+ 1065      00
+ 1066              	.LASF7:
+ 1067 01d7 73686F72 		.ascii	"short unsigned int\000"
+ 1067      7420756E 
+ 1067      7369676E 
+ 1067      65642069 
+ 1067      6E7400
+ 1068              	.LASF61:
+ 1069 01ea 626D6532 		.ascii	"bme280_init\000"
+ 1069      38305F69 
+ 1069      6E697400 
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccRjEvrB.s 			page 22
+
+
+ 1070              	.LASF0:
+ 1071 01f6 5F5F696E 		.ascii	"__int8_t\000"
+ 1071      74385F74 
+ 1071      00
+ 1072              	.LASF17:
+ 1073 01ff 63686172 		.ascii	"char\000"
+ 1073      00
+ 1074              	.LASF27:
+ 1075 0204 626D6532 		.ascii	"bme280_write_fptr_t\000"
+ 1075      38305F77 
+ 1075      72697465 
+ 1075      5F667074 
+ 1075      725F7400 
+ 1076              	.LASF26:
+ 1077 0218 626D6532 		.ascii	"bme280_read_fptr_t\000"
+ 1077      38305F72 
+ 1077      6561645F 
+ 1077      66707472 
+ 1077      5F7400
+ 1078              	.LASF22:
+ 1079 022b 696E7433 		.ascii	"int32_t\000"
+ 1079      325F7400 
+ 1080              	.LASF20:
+ 1081 0233 696E7431 		.ascii	"int16_t\000"
+ 1081      365F7400 
+ 1082              	.LASF49:
+ 1083 023b 626D6532 		.ascii	"bme280_calib_data\000"
+ 1083      38305F63 
+ 1083      616C6962 
+ 1083      5F646174 
+ 1083      6100
+ 1084              	.LASF11:
+ 1085 024d 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1085      20756E73 
+ 1085      69676E65 
+ 1085      6420696E 
+ 1085      7400
+ 1086              	.LASF48:
+ 1087 025f 646F7562 		.ascii	"double\000"
+ 1087      6C6500
+ 1088              	.LASF50:
+ 1089 0266 626D6532 		.ascii	"bme280_dev\000"
+ 1089      38305F64 
+ 1089      657600
+ 1090              	.LASF51:
+ 1091 0271 63686970 		.ascii	"chip_id\000"
+ 1091      5F696400 
+ 1092              	.LASF8:
+ 1093 0279 5F5F696E 		.ascii	"__int32_t\000"
+ 1093      7433325F 
+ 1093      7400
+ 1094              	.LASF4:
+ 1095 0283 5F5F696E 		.ascii	"__int16_t\000"
+ 1095      7431365F 
+ 1095      7400
+ 1096              	.LASF68:
+ 1097 028d 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccRjEvrB.s 			page 23
+
+
+ 1097      52784275 
+ 1097      66666572 
+ 1097      00
+ 1098              	.LASF62:
+ 1099 029a 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1099      43313120 
+ 1099      352E342E 
+ 1099      31203230 
+ 1099      31363036 
+ 1100 02cd 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1100      20726576 
+ 1100      6973696F 
+ 1100      6E203233 
+ 1100      37373135 
+ 1101 0300 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1101      66756E63 
+ 1101      74696F6E 
+ 1101      2D736563 
+ 1101      74696F6E 
+ 1102              	.LASF64:
+ 1103 0328 433A5C55 		.ascii	"C:\\Users\\Chronikle\\Documents\\GitHub\\BodyAnalyz"
+ 1103      73657273 
+ 1103      5C436872 
+ 1103      6F6E696B 
+ 1103      6C655C44 
+ 1104 0356 65725C65 		.ascii	"er\\esw_uCOS3_cykit.cydsn\000"
+ 1104      73775F75 
+ 1104      434F5333 
+ 1104      5F63796B 
+ 1104      69742E63 
+ 1105              	.LASF54:
+ 1106 036f 696E7466 		.ascii	"intf_rslt\000"
+ 1106      5F72736C 
+ 1106      7400
+ 1107              	.LASF53:
+ 1108 0379 696E7466 		.ascii	"intf_ptr\000"
+ 1108      5F707472 
+ 1108      00
+ 1109              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

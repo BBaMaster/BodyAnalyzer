@@ -1,0 +1,6 @@
+C:\Users\Chronikle\Documents\GitHub\BodyAnalyzer\esw_uCOS3_cykit.cydsn\esw_uCOS3_cykit.cyprj|f130748e-cd45-4d84-be48-4bdb806fe81d
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|f36e1021-a25a-40f8-a9da-5a464279427c
+C:\Users\Chronikle\Documents\PSoC Creator\4.4\Downloads ( 4.4).cylib\Downloads ( 4.4).cyprj|3ddf8674-98c6-4475-a0e4-9a5279ffcc42
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|e87b67e2-98f8-4faa-ab00-3c8a1ac504d5
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|05ba1240-cbe2-41f9-a746-f9bdb1470ef4
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|c2edd401-26bf-48be-be0a-fb137da96b0c
