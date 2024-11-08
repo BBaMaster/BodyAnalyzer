@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
   29:log_task.c    ****     UART_1_PutString("\r\n");
   30:log_task.c    **** }
   31:log_task.c    **** 
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 2
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 2
 
 
   32:log_task.c    **** /* Helper function to convert log level to string */
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
   73              	.LVL5:
   74 0036 7047     		bx	lr
   75              	.LVL6:
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 3
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 3
 
 
   76              	.L3:
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  121 0054 00000000 		.word	.LC0
  122 0058 10000000 		.word	.LC2
  123 005c 18000000 		.word	.LC3
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 4
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 4
 
 
  124 0060 20000000 		.word	.LC4
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  173 0020 5DF804FB 		ldr	pc, [sp], #4
  174              	.L20:
  175              		.align	2
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 5
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 5
 
 
  176              	.L19:
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
   78:log_task.c    ****     CPU_TS ts;
   79:log_task.c    ****     LOG_MSG *p_msg;
   80:log_task.c    **** 
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 6
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 6
 
 
   81:log_task.c    ****     (void)p_arg;
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  238              		.loc 1 96 0
  239 0042 0DF10E02 		add	r2, sp, #14
  240 0046 0021     		movs	r1, #0
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 7
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 7
 
 
  241 0048 2248     		ldr	r0, .L29+28
@@ -394,7 +394,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  261              		.loc 1 106 0
  262 006c 0078     		ldrb	r0, [r0]	@ zero_extendqisi2
  263              	.LVL35:
- 264 006e 10F01F0F 		tst	r0, #31
+ 264 006e 10F02F0F 		tst	r0, #47
  265 0072 ECD0     		beq	.L25
  107:log_task.c    ****                 /* Print the log level followed by the message */
  108:log_task.c    ****                 UART_1_PutString(Log_LevelToString(p_msg->level));
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  280 0088 1448     		ldr	r0, .L29+36
  281 008a FFF7FEFF 		bl	UART_1_PutString
  282              	.LVL40:
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 8
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 8
 
 
  112:log_task.c    **** 
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  325 00dc 80000000 		.word	.LC11
  326 00e0 F8000000 		.word	.LC17
  327 00e4 28010000 		.word	.LC18
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 9
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 9
 
 
  328              		.cfi_endproc
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
   71:log_task.c    **** 
  378              		.loc 1 71 0 is_stmt 1
  379 003e 0DB0     		add	sp, sp, #52
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 10
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 10
 
 
  380              		.cfi_def_cfa_offset 4
@@ -587,7 +587,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  127:log_task.c    ****     // Check if the log level is valid and allowed
  128:log_task.c    ****     if (!(level & LOG_ALLOWED_LEVELS) || (level == LOG_LEVEL_NONE)) {
  420              		.loc 1 128 0
- 421 0006 10F01F05 		ands	r5, r0, #31
+ 421 0006 10F02F05 		ands	r5, r0, #47
  422 000a 48D0     		beq	.L36
  423              		.loc 1 128 0 is_stmt 0 discriminator 1
  424 000c 0028     		cmp	r0, #0
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  131:log_task.c    **** 
  132:log_task.c    ****     OS_ERR os_err;
  133:log_task.c    ****     LOG_MSG *log_msg;
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 11
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 11
 
 
  134:log_task.c    ****     CPU_CHAR formatted_msg[LOG_MSG_SIZE];
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  463              	.LVL57:
  152:log_task.c    ****     va_end(args);
  153:log_task.c    **** 
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 12
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 12
 
 
  154:log_task.c    ****     strncpy(log_msg->msg, formatted_msg, LOG_MSG_SIZE - 1);
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  167:log_task.c    ****     } else if (os_err != OS_ERR_NONE) {
  505              		.loc 1 167 0
  506 008a 41B1     		cbz	r1, .L36
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 13
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 13
 
 
  168:log_task.c    ****         Log_PrintErrorWithCode("Error: Failed to post message to log queue", os_err);
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  556              	.LC1:
  557 0008 494E464F 		.ascii	"INFO\000"
  557      00
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 14
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 14
 
 
  558 000d 000000   		.space	3
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  588      723A2046 
  588      61696C65 
  588      6420746F 
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 15
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 15
 
 
  588      20637265 
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  614      20697320 
  615 01d9 000000   		.space	3
  616              	.LC23:
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 16
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 16
 
 
  617 01dc 4572726F 		.ascii	"Error: Failed to post message to log queue\000"
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  667 004e 02       		.byte	0x2
  668 004f 62       		.byte	0x62
  669 0050 25000000 		.4byte	0x25
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 17
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 17
 
 
  670 0054 06       		.uleb128 0x6
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  724 00b4 01       		.byte	0x1
  725 00b5 08       		.byte	0x8
  726 00b6 E3050000 		.4byte	.LASF14
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 18
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 18
 
 
  727 00ba 08       		.uleb128 0x8
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  781 012c D9       		.byte	0xd9
  782 012d FF000000 		.4byte	0xff
  783 0131 02       		.uleb128 0x2
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 19
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 19
 
 
  784 0132 9C0B0000 		.4byte	.LASF24
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  838 01aa 02       		.uleb128 0x2
  839 01ab 430B0000 		.4byte	.LASF35
  840 01af 07       		.byte	0x7
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 20
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 20
 
 
  841 01b0 42       		.byte	0x42
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  895 0229 0D       		.uleb128 0xd
  896 022a 820A0000 		.4byte	.LASF45
  897 022e 00       		.byte	0
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 21
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 21
 
 
  898 022f 0E       		.uleb128 0xe
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  952 02ad 0E       		.uleb128 0xe
  953 02ae 34130000 		.4byte	.LASF64
  954 02b2 5246     		.2byte	0x4652
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 22
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 22
 
 
  955 02b4 0E       		.uleb128 0xe
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  1009 0332 0E       		.uleb128 0xe
  1010 0333 28020000 		.4byte	.LASF83
  1011 0337 C256     		.2byte	0x56c2
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 23
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 23
 
 
  1012 0339 0E       		.uleb128 0xe
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  1066 03b7 0E       		.uleb128 0xe
  1067 03b8 D5090000 		.4byte	.LASF102
  1068 03bc AA61     		.2byte	0x61aa
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 24
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 24
 
 
  1069 03be 0E       		.uleb128 0xe
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  1123 043c 0E       		.uleb128 0xe
  1124 043d 320F0000 		.4byte	.LASF121
  1125 0441 7969     		.2byte	0x6979
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 25
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 25
 
 
  1126 0443 0E       		.uleb128 0xe
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  1180 04c1 0E       		.uleb128 0xe
  1181 04c2 830B0000 		.4byte	.LASF140
  1182 04c6 316E     		.2byte	0x6e31
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 26
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 26
 
 
  1183 04c8 0E       		.uleb128 0xe
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  1237 0546 0E       		.uleb128 0xe
  1238 0547 D8020000 		.4byte	.LASF159
  1239 054b 5A71     		.2byte	0x715a
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 27
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 27
 
 
  1240 054d 0E       		.uleb128 0xe
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  1294 05cb 0E       		.uleb128 0xe
  1295 05cc BD070000 		.4byte	.LASF178
  1296 05d0 7872     		.2byte	0x7278
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 28
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 28
 
 
  1297 05d2 0E       		.uleb128 0xe
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  1351 0650 0E       		.uleb128 0xe
  1352 0651 0D060000 		.4byte	.LASF197
  1353 0655 4873     		.2byte	0x7348
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 29
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 29
 
 
  1354 0657 0E       		.uleb128 0xe
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  1408 06d0 A7100000 		.4byte	.LASF212
  1409 06d4 08       		.byte	0x8
  1410 06d5 2E03     		.2byte	0x32e
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 30
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 30
 
 
  1411 06d7 040D0000 		.4byte	0xd04
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  1465 074c 100D0000 		.4byte	0xd10
  1466 0750 00       		.byte	0
  1467 0751 11       		.uleb128 0x11
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 31
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 31
 
 
  1468 0752 CF000000 		.4byte	.LASF222
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  1522 07c7 D80D0000 		.4byte	.LASF231
  1523 07cb 08       		.byte	0x8
  1524 07cc 5803     		.2byte	0x358
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 32
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 32
 
 
  1525 07ce 94010000 		.4byte	0x194
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  1579 0843 79070000 		.4byte	0x779
  1580 0847 20       		.byte	0x20
  1581 0848 00       		.byte	0
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 33
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 33
 
 
  1582 0849 0F       		.uleb128 0xf
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  1636 08be 545300   		.ascii	"TS\000"
  1637 08c1 08       		.byte	0x8
  1638 08c2 A103     		.2byte	0x3a1
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 34
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 34
 
 
  1639 08c4 47010000 		.4byte	0x147
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  1693 093c 14       		.byte	0x14
  1694 093d 11       		.uleb128 0x11
  1695 093e 45080000 		.4byte	.LASF247
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 35
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 35
 
 
  1696 0942 08       		.byte	0x8
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  1750 09b7 08       		.byte	0x8
  1751 09b8 C903     		.2byte	0x3c9
  1752 09ba F7010000 		.4byte	0x1f7
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 36
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 36
 
 
  1753 09be 36       		.byte	0x36
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  1807 0a32 50       		.byte	0x50
  1808 0a33 11       		.uleb128 0x11
  1809 0a34 8E0A0000 		.4byte	.LASF263
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 37
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 37
 
 
  1810 0a38 08       		.byte	0x8
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  1864 0aad 08       		.byte	0x8
  1865 0aae EF03     		.2byte	0x3ef
  1866 0ab0 73010000 		.4byte	0x173
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 38
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 38
 
 
  1867 0ab4 84       		.byte	0x84
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  1921 0b29 A0       		.byte	0xa0
  1922 0b2a 11       		.uleb128 0x11
  1923 0b2b 370B0000 		.4byte	.LASF279
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 39
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 39
 
 
  1924 0b2f 08       		.byte	0x8
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  1978 0ba4 08       		.byte	0x8
  1979 0ba5 1F04     		.2byte	0x41f
  1980 0ba7 F20C0000 		.4byte	0xcf2
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 40
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 40
 
 
  1981 0bab 00       		.byte	0
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  2035 0c20 10       		.byte	0x10
  2036 0c21 11       		.uleb128 0x11
  2037 0c22 E0130000 		.4byte	.LASF291
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 41
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 41
 
 
  2038 0c26 08       		.byte	0x8
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  2092 0c9b 20       		.byte	0x20
  2093 0c9c 08       		.byte	0x8
  2094 0c9d FF02     		.2byte	0x2ff
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 42
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 42
 
 
  2095 0c9f F20C0000 		.4byte	0xcf2
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  2149 0d11 04       		.byte	0x4
  2150 0d12 2B070000 		.4byte	0x72b
  2151 0d16 08       		.uleb128 0x8
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 43
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 43
 
 
  2152 0d17 04       		.byte	0x4
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  2206 0d89 7C000000 		.4byte	.LFE65-.LFB65
  2207 0d8d 01       		.uleb128 0x1
  2208 0d8e 9C       		.byte	0x9c
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 44
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 44
 
 
  2209 0d8f A30D0000 		.4byte	0xda3
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  2263 0e00 01       		.uleb128 0x1
  2264 0e01 52       		.byte	0x52
  2265 0e02 05       		.uleb128 0x5
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 45
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 45
 
 
  2266 0e03 03       		.byte	0x3
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  2320 0e6d 1C       		.uleb128 0x1c
  2321 0e6e 590D0000 		.4byte	.LASF307
  2322 0e72 01       		.byte	0x1
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 46
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 46
 
 
  2323 0e73 4C       		.byte	0x4c
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  2377 0ed2 54       		.byte	0x54
  2378 0ed3 1E       		.uleb128 0x1e
  2379 0ed4 02       		.uleb128 0x2
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 47
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 47
 
 
  2380 0ed5 7D       		.byte	0x7d
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  2434 0f26 40000000 		.4byte	.LVL31
  2435 0f2a A30D0000 		.4byte	0xda3
  2436 0f2e 3C0F0000 		.4byte	0xf3c
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 48
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 48
 
 
  2437 0f32 1E       		.uleb128 0x1e
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  2491 0f83 74       		.sleb128 -12
  2492 0f84 1E       		.uleb128 0x1e
  2493 0f85 02       		.uleb128 0x2
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 49
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 49
 
 
  2494 0f86 7D       		.byte	0x7d
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  2548 0fec 64130000 		.4byte	0x1364
  2549 0ff0 0A100000 		.4byte	0x100a
  2550 0ff4 1E       		.uleb128 0x1e
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 50
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 50
 
 
  2551 0ff5 01       		.uleb128 0x1
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  2605 1055 01       		.byte	0x1
  2606 1056 33       		.byte	0x33
  2607 1057 90060000 		.4byte	0x690
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 51
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 51
 
 
  2608 105b 02       		.uleb128 0x2
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  2662 10a6 03       		.uleb128 0x3
  2663 10a7 0A       		.byte	0xa
  2664 10a8 0002     		.2byte	0x200
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 52
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 52
 
 
  2665 10aa 1E       		.uleb128 0x1e
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  2719 10f8 01       		.byte	0x1
  2720 10f9 7E       		.byte	0x7e
  2721 10fa E9000000 		.4byte	0xe9
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 53
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 53
 
 
  2722 10fe A4010000 		.4byte	.LLST5
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  2776 1166 91       		.byte	0x91
  2777 1167 46       		.sleb128 -58
  2778 1168 00       		.byte	0
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 54
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 54
 
 
  2779 1169 1D       		.uleb128 0x1d
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  2833 11be 03       		.uleb128 0x3
  2834 11bf 91       		.byte	0x91
  2835 11c0 F47E     		.sleb128 -140
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 55
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 55
 
 
  2836 11c2 1E       		.uleb128 0x1e
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  2890 1210 88000000 		.4byte	.LVL61
  2891 1214 64130000 		.4byte	0x1364
  2892 1218 32120000 		.4byte	0x1232
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 56
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 56
 
 
  2893 121c 1E       		.uleb128 0x1e
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  2947 126a 04       		.byte	0x4
  2948 126b 6F120000 		.4byte	0x126f
  2949 126f 09       		.uleb128 0x9
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 57
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 57
 
 
  2950 1270 DE000000 		.4byte	0xde
@@ -3367,7 +3367,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  2953 1279 01       		.byte	0x1
  2954 127a 06       		.byte	0x6
  2955 127b E9000000 		.4byte	0xe9
- 2956 127f 1F       		.byte	0x1f
+ 2956 127f 2F       		.byte	0x2f
  2957 1280 27       		.uleb128 0x27
  2958 1281 9A030000 		.4byte	.LASF316
  2959 1285 0B       		.byte	0xb
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  3004 12e7 5D050000 		.4byte	.LASF321
  3005 12eb 01       		.byte	0x1
  3006 12ec 11       		.byte	0x11
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 58
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 58
 
 
  3007 12ed 9C060000 		.4byte	0x69c
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  3061 1369 1A140000 		.4byte	.LASF329
  3062 136d 08       		.byte	0x8
  3063 136e 9605     		.2byte	0x596
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 59
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 59
 
 
  3064 1370 2C       		.uleb128 0x2c
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  3118 001a 3B       		.uleb128 0x3b
  3119 001b 0B       		.uleb128 0xb
  3120 001c 49       		.uleb128 0x49
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 60
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 60
 
 
  3121 001d 13       		.uleb128 0x13
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  3175 0053 3E       		.uleb128 0x3e
  3176 0054 0B       		.uleb128 0xb
  3177 0055 03       		.uleb128 0x3
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 61
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 61
 
 
  3178 0056 08       		.uleb128 0x8
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  3232 008c 00       		.byte	0
  3233 008d 03       		.uleb128 0x3
  3234 008e 0E       		.uleb128 0xe
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 62
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 62
 
 
  3235 008f 1C       		.uleb128 0x1c
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  3289 00c5 00       		.byte	0
  3290 00c6 00       		.byte	0
  3291 00c7 12       		.uleb128 0x12
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 63
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 63
 
 
  3292 00c8 0D       		.uleb128 0xd
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  3346 00fe 49       		.uleb128 0x49
  3347 00ff 13       		.uleb128 0x13
  3348 0100 38       		.uleb128 0x38
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 64
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 64
 
 
  3349 0101 0B       		.uleb128 0xb
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  3403 0138 02       		.uleb128 0x2
  3404 0139 17       		.uleb128 0x17
  3405 013a 00       		.byte	0
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 65
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 65
 
 
  3406 013b 00       		.byte	0
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  3460 0172 1D       		.uleb128 0x1d
  3461 0173 898201   		.uleb128 0x4109
  3462 0176 01       		.byte	0x1
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 66
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 66
 
 
  3463 0177 11       		.uleb128 0x11
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  3517 01b2 00       		.byte	0
  3518 01b3 00       		.byte	0
  3519 01b4 22       		.uleb128 0x22
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 67
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 67
 
 
  3520 01b5 898201   		.uleb128 0x4109
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  3574 01ee 34       		.uleb128 0x34
  3575 01ef 00       		.byte	0
  3576 01f0 03       		.uleb128 0x3
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 68
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 68
 
 
  3577 01f1 0E       		.uleb128 0xe
@@ -4078,7 +4078,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  3631 0227 00       		.byte	0
  3632 0228 49       		.uleb128 0x49
  3633 0229 13       		.uleb128 0x13
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 69
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 69
 
 
  3634 022a 2F       		.uleb128 0x2f
@@ -4138,7 +4138,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  3688 001d 32000000 		.4byte	.LVL3
  3689 0021 0100     		.2byte	0x1
  3690 0023 50       		.byte	0x50
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 70
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 70
 
 
  3691 0024 32000000 		.4byte	.LVL3
@@ -4198,7 +4198,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  3745 00a0 50       		.byte	0x50
  3746 00a1 46000000 		.4byte	.LVL13
  3747 00a5 48000000 		.4byte	.LVL14
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 71
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 71
 
 
  3748 00a9 0400     		.2byte	0x4
@@ -4258,7 +4258,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  3802 0124 50       		.byte	0x50
  3803 0125 9F       		.byte	0x9f
  3804 0126 00000000 		.4byte	0
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 72
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 72
 
 
  3805 012a 00000000 		.4byte	0
@@ -4318,7 +4318,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  3859 01b3 BC000000 		.4byte	.LFE68
  3860 01b7 0400     		.2byte	0x4
  3861 01b9 F3       		.byte	0xf3
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 73
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 73
 
 
  3862 01ba 01       		.uleb128 0x1
@@ -4378,7 +4378,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  3916 0020 00000000 		.4byte	.LFB68
  3917 0024 BC000000 		.4byte	.LFE68
  3918 0028 00000000 		.4byte	0
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 74
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 74
 
 
  3919 002c 00000000 		.4byte	0
@@ -4438,7 +4438,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  3942 00a0 4F535F54 		.ascii	"OS_TCB\000"
  3942      434200
  3943              	.LASF195:
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 75
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 75
 
 
  3944 00a7 4F535F45 		.ascii	"OS_ERR_TMR_PRIO_INVALID\000"
@@ -4498,7 +4498,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  3968      4C535F49 
  3968      445F494E 
  3968      56414C49 
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 76
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 76
 
 
  3969              	.LASF319:
@@ -4558,7 +4558,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  3991              	.LASF287:
  3992 020c 6F735F70 		.ascii	"os_pend_data\000"
  3992      656E645F 
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 77
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 77
 
 
  3992      64617461 
@@ -4618,7 +4618,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  4014      43484544 
  4014      5F4C4F43 
  4014      4B454400 
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 78
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 78
 
 
  4015              	.LASF288:
@@ -4678,7 +4678,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  4036      697A6500 
  4037              	.LASF26:
  4038 03c3 4350555F 		.ascii	"CPU_TS\000"
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 79
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 79
 
 
  4038      545300
@@ -4738,7 +4738,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  4065              	.LASF73:
  4066 0448 4F535F45 		.ascii	"OS_ERR_M\000"
  4066      52525F4D 
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 80
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 80
 
 
  4066      00
@@ -4798,7 +4798,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  4094 04c6 4F535F45 		.ascii	"OS_ERR_TIME_ZERO_DLY\000"
  4094      52525F54 
  4094      494D455F 
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 81
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 81
 
 
  4094      5A45524F 
@@ -4858,7 +4858,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  4118      52525F53 
  4118      54415445 
  4118      5F494E56 
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 82
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 82
 
 
  4118      414C4944 
@@ -4918,7 +4918,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  4142      52656D61 
  4142      696E00
  4143              	.LASF313:
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 83
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 83
 
 
  4144 0634 666F726D 		.ascii	"formatted_msg\000"
@@ -4978,7 +4978,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  4164      494E5641 
  4165              	.LASF152:
  4166 06e6 4F535F45 		.ascii	"OS_ERR_TASK_NOT_SUSPENDED\000"
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 84
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 84
 
 
  4166      52525F54 
@@ -5038,7 +5038,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  4188 07b6 4F535F52 		.ascii	"OS_REG\000"
  4188      454700
  4189              	.LASF178:
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 85
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 85
 
 
  4190 07bd 4F535F45 		.ascii	"OS_ERR_TIME_INVALID_HOURS\000"
@@ -5098,7 +5098,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  4210      575F4354 
  4210      5200
  4211              	.LASF286:
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 86
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 86
 
 
  4212 088f 4F535F50 		.ascii	"OS_PEND_DATA\000"
@@ -5158,7 +5158,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  4232      7468436F 
  4233              	.LASF194:
  4234 094a 4F535F45 		.ascii	"OS_ERR_TMR_NON_AVAIL\000"
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 87
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 87
 
 
  4234      52525F54 
@@ -5218,7 +5218,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  4256 09f0 4F535F45 		.ascii	"OS_ERR_TASK_STK_CHK_ISR\000"
  4256      52525F54 
  4256      41534B5F 
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 88
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 88
 
 
  4256      53544B5F 
@@ -5278,7 +5278,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  4282 0aa1 466C6167 		.ascii	"FlagsOpt\000"
  4282      734F7074 
  4282      00
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 89
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 89
 
 
  4283              	.LASF9:
@@ -5338,7 +5338,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  4306      4E475F43 
  4306      545200
  4307              	.LASF133:
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 90
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 90
 
 
  4308 0b52 4F535F45 		.ascii	"OS_ERR_STAT_PRIO_INVALID\000"
@@ -5398,7 +5398,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  4332 0bfc 4F535F45 		.ascii	"OS_ERR_TMR_INVALID_DLY\000"
  4332      52525F54 
  4332      4D525F49 
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 91
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 91
 
 
  4332      4E56414C 
@@ -5458,7 +5458,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  4358 0caf 4F535F45 		.ascii	"OS_ERR_NAME\000"
  4358      52525F4E 
  4358      414D4500 
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 92
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 92
 
 
  4359              	.LASF243:
@@ -5518,7 +5518,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  4382      72696E67 
  4382      00
  4383              	.LASF307:
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 93
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 93
 
 
  4384 0d59 6F735F65 		.ascii	"os_err\000"
@@ -5578,7 +5578,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  4406      44454C00 
  4407              	.LASF79:
  4408 0e13 4F535F45 		.ascii	"OS_ERR_MEM_INVALID_P_BLK\000"
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 94
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 94
 
 
  4408      52525F4D 
@@ -5638,7 +5638,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  4426      4D455F50 
  4427              	.LASF311:
  4428 0edf 4C6F675F 		.ascii	"Log_Write\000"
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 95
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 95
 
 
  4428      57726974 
@@ -5698,7 +5698,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  4450 0f9a 4F535F45 		.ascii	"OS_ERR_TMR_ISR\000"
  4450      52525F54 
  4450      4D525F49 
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 96
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 96
 
 
  4450      535200
@@ -5758,7 +5758,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  4472      534700
  4473              	.LASF221:
  4474 1067 4E657874 		.ascii	"NextPtr\000"
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 97
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 97
 
 
  4474      50747200 
@@ -5818,7 +5818,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  4502      545F4953 
  4503              	.LASF148:
  4504 1103 4F535F45 		.ascii	"OS_ERR_TASK_INVALID\000"
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 98
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 98
 
 
  4504      52525F54 
@@ -5878,7 +5878,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  4527              	.LASF249:
  4528 11ac 53746B42 		.ascii	"StkBasePtr\000"
  4528      61736550 
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 99
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 99
 
 
  4528      747200
@@ -5938,7 +5938,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  4552      5F524F42 
  4552      494E5F44 
  4553              	.LASF172:
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 100
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 100
 
 
  4554 126a 4F535F45 		.ascii	"OS_ERR_TICK_STK_INVALID\000"
@@ -5998,7 +5998,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  4572 1328 4F535F45 		.ascii	"OS_ERR_PRIO\000"
  4572      52525F50 
  4572      52494F00 
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 101
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 101
 
 
  4573              	.LASF64:
@@ -6058,7 +6058,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 1
  4596      73675074 
  4596      7200
  4597              	.LASF177:
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccSsKxZc.s 			page 102
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXHWm6P.s 			page 102
 
 
  4598 13ea 4F535F45 		.ascii	"OS_ERR_TIME_GET_ISR\000"

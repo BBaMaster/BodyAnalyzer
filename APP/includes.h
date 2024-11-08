@@ -67,6 +67,7 @@
 #include  <bsp_spi.h>
 #include  <bsp_os.h>
 #include  <bsp_i2c.h>   // Include I2C task header
+#include  <bsp_counter.h>
 /*
 *********************************************************************************************************
 *                                                 OS

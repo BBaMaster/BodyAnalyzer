@@ -5,8 +5,8 @@
   <Toolchains>
     <Toolchain Name="ARM GCC Generic" Selected="True">
       <Tool Name="prebuild" Command="" Options="" />
-      <Tool Name="assembler" Command="arm-none-eabi-as.exe" Options="-mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I. -IGenerated_Source\PSoC5 -alh=${OutputDir}/${CompileFile}.lst -g -W" />
-      <Tool Name="compiler" Command="arm-none-eabi-gcc.exe" Options="-mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og" />
+      <Tool Name="assembler" Command="arm-none-eabi-as.exe" Options="-mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -alh=${OutputDir}/${CompileFile}.lst -g -W" />
+      <Tool Name="compiler" Command="arm-none-eabi-gcc.exe" Options="-mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\bme688 -I.\SensorLib\max30102 -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og" />
       <Tool Name="linker" Command="arm-none-eabi-gcc.exe" Options="-mcpu=cortex-m3 -mthumb -L Generated_Source\PSoC5 -Wl,-Map,${OutputDir}/${ProjectShortName}.map -T Generated_Source\PSoC5\cm3gcc.ld -specs=nano.specs -Wl,--gc-sections -g -ffunction-sections -Og -ffat-lto-objects" />
       <Tool Name="postbuild" Command="" Options="" />
     </Toolchain>
@@ -52,10 +52,10 @@
           <File BuildType="BUILD" Toolchain="">bsp_uart.h</File>
           <File BuildType="BUILD" Toolchain="">bsp_gpio.c</File>
           <File BuildType="BUILD" Toolchain="">bsp_gpio.h</File>
-          <File BuildType="BUILD" Toolchain="">bsp_spi.c</File>
-          <File BuildType="BUILD" Toolchain="">bsp_spi.h</File>
           <File BuildType="BUILD" Toolchain="">bsp_i2c.c</File>
           <File BuildType="BUILD" Toolchain="">bsp_i2c.h</File>
+          <File BuildType="BUILD" Toolchain="">bsp_counter.c</File>
+          <File BuildType="BUILD" Toolchain="">bsp_counter.h</File>
           <File BuildType="BUILD" Toolchain="">max30102_interface.c</File>
           <File BuildType="BUILD" Toolchain="">max30102_interface.h</File>
         </Files>
@@ -121,25 +121,6 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\cycodeshareimport.ld</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\cycodeshareexport.ld</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\cycodeshareimport.scat</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\MISO_1_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\MISO_1.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\MISO_1.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\MOSI_1_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\MOSI_1.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\MOSI_1.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\SCLK_1_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\SCLK_1.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\SCLK_1.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\SPIM_1.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\SPIM_1.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\SPIM_1_PM.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\SPIM_1_INT.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\SPIM_1_PVT.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\CS_1_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\CS_1.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\CS_1.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\SPIM_1_IntClock.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\SPIM_1_IntClock.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Pin_2_aliases.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Pin_2.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Pin_2.h</File>
@@ -183,6 +164,11 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Timer_1_PM.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Timer_ISR.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Timer_ISR.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Clock_1.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Clock_1.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Counter_1.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Counter_1.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Counter_1_PM.c</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn">
@@ -266,6 +252,13 @@
         <Files Root="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn">
           <File BuildType="BUILD" Toolchain="">SensorLib\max30102\driver_max30102.c</File>
           <File BuildType="BUILD" Toolchain="">SensorLib\max30102\driver_max30102.h</File>
+        </Files>
+      </Folder>
+      <Folder BuildType="STRICT" Path="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn">
+        <Files Root="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn">
+          <File BuildType="BUILD" Toolchain="">SensorLib\bme688\bme68x.c</File>
+          <File BuildType="BUILD" Toolchain="">SensorLib\bme688\bme68x.h</File>
+          <File BuildType="BUILD" Toolchain="">SensorLib\bme688\bme68x_defs.h</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\Export\ARM_GCC_Generic">

@@ -18,7 +18,7 @@
 #define LOG_LEVEL_BME280      0x80  /* BME688 sensor logging */
 /* Default allowed logging levels (set to all levels by default) */
 #ifndef LOG_ALLOWED_LEVELS
-#define LOG_ALLOWED_LEVELS    (LOG_LEVEL_INFO | LOG_LEVEL_WARNING | LOG_LEVEL_ERROR | LOG_LEVEL_DEBUG | LOG_LEVEL_SPI)
+#define LOG_ALLOWED_LEVELS    (LOG_LEVEL_INFO | LOG_LEVEL_WARNING | LOG_LEVEL_ERROR | LOG_LEVEL_DEBUG | LOG_LEVEL_I2C)
 #endif
 
 

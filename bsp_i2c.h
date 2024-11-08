@@ -11,7 +11,9 @@
 #include "I2C_1.h"
 #include "Timer_1.h"
 #include <log_task.h>
-
+#include <bme68x.h>
+  
+  
 // Threshold constants
 #define INITIAL_THRESHOLD           1500000 // Initial threshold for contact detection
 #define DEBOUNCE_TIME_MS           400      // Minimum time between heartbeats in milliseconds

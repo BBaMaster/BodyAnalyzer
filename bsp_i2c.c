@@ -33,6 +33,8 @@ volatile CPU_INT32U current_timestamp = 0;  // Variable to hold the current time
 CY_ISR(Timer_ISR) {
     current_timestamp++;  // Increment the timestamp every millisecond
 }
+bme68x_write_fptr_t bsp_i2c_write_bme(uint8_t reg_addr,const uint8_t* reg_data, uint32_t len, void* intf_ptr);
+bme68x_read_fptr_t bsp_i2c_read_bme(uint8_t reg_addr, uint8_t* reg_data, uint32_t len, void* intf_ptr);
 
 /*
 *********************************************************************************************************
@@ -69,6 +71,12 @@ void I2C_Init(void) {
     Timer_ISR_StartEx(Timer_ISR);
 }
 
+void us_Delay(uint32_t period, void *intf_ptr){
+  start_counter(period);
+  while(read_counter_value() < period);
+  Counter_1_Stop(); 
+}
+
 /*
 *********************************************************************************************************
 *                                         I2C Task Function
@@ -78,6 +86,7 @@ static void I2C_Task(void *p_arg) {
     OS_ERR os_err;
     (void)p_arg; // Prevent unused parameter warning
     max30102_handle_t max30102_handle;
+    struct bme68x_dev bme688_handle;
     CPU_INT32U raw_red = 0, raw_ir = 0; // Raw readings from the sensor
     CPU_INT08U data_len = 2;  // Number of samples to read
 
@@ -92,7 +101,18 @@ static void I2C_Task(void *p_arg) {
         Log_Write(LOG_LEVEL_ERROR, "Failed to initialize MAX30102 sensor", 0);
         return;  // Exit if sensor initialization fails
     }
-
+    
+    bme688_handle.delay_us = us_Delay;
+    bme688_handle.read = bsp_i2c_read_bme;
+    bme688_handle.write = bsp_i2c_write_bme;
+   
+    if (bme68x_init(&bme688_handle) != 0){
+        Log_Write(LOG_LEVEL_ERROR, "Failed to initialize BME688 sensor", 0);
+        return;  // Exit if sensor initialization fails
+    }
+    
+     Log_Write(LOG_LEVEL_I2C, "I2C Task: I2C hardware completed", 0);
+    
     // Main task loop
     while (DEF_TRUE) {
         max30102_bool_t samples_available = MAX30102_BOOL_FALSE;
@@ -228,6 +248,16 @@ CPU_INT08U bsp_i2c_read(CPU_INT08U addr, CPU_INT08U reg, CPU_INT08U *buf, CPU_IN
     return 0; // Success
 }
 
+/* I2C Read Function */
+bme68x_read_fptr_t bsp_i2c_read_bme(uint8_t reg_addr, uint8_t* reg_data, uint32_t len, void* intf_ptr) {
+    CPU_INT08U status;
+    if(bsp_i2c_read(0x76, reg_addr, reg_data, len) != 0){
+      Log_Write(LOG_LEVEL_ERROR, "Error Reading I2C BME", status);
+    }
+}
+
+
+
 /* I2C Write Function */
 CPU_INT08U bsp_i2c_write(CPU_INT08U addr, CPU_INT08U reg, CPU_INT08U *data, CPU_INT16U len) {
     CPU_INT08U status;
@@ -246,4 +276,11 @@ CPU_INT08U bsp_i2c_write(CPU_INT08U addr, CPU_INT08U reg, CPU_INT08U *data, CPU_
 
     I2C_1_MasterSendStop(); // End the I2C transaction
     return 0; // Success
+}
+
+bme68x_write_fptr_t bsp_i2c_write_bme(uint8_t reg_addr, const uint8_t* reg_data, uint32_t len, void* intf_ptr) {
+    CPU_INT08U status;
+    if(bsp_i2c_write(0x76, reg_addr, reg_data, len) != 0){
+      Log_Write(LOG_LEVEL_ERROR, "Error Writing I2C BME", status);
+    }
 }

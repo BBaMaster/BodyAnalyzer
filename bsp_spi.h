@@ -3,8 +3,6 @@
 
 #include <project.h>
 #include <includes.h>
-#include <bme280/bme280.h>
-#include <bme280_interface.h>
 /* Define buffer size for SPI transfers */
 #define SPI_BUFFER_SIZE 16
 

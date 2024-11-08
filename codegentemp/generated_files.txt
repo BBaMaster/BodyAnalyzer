@@ -26,23 +26,11 @@
   <file name="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\codegentemp\Pin_1_aliases.h" value="HEADER;;;;;Pin_1" />
   <file name="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\codegentemp\Pin_1.c" value="SOURCE_C;CortexM3;;;;Pin_1" />
   <file name="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\codegentemp\Pin_1.h" value="HEADER;;;;;Pin_1" />
-  <file name="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\codegentemp\CS_1_aliases.h" value="HEADER;;;;;CS_1" />
-  <file name="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\codegentemp\CS_1.c" value="SOURCE_C;CortexM3;;;;CS_1" />
-  <file name="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\codegentemp\CS_1.h" value="HEADER;;;;;CS_1" />
-  <file name="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\codegentemp\SPIM_1.c" value="SOURCE_C;CortexM3;;;;SPIM_1" />
-  <file name="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\codegentemp\SPIM_1.h" value="HEADER;;;;;SPIM_1" />
-  <file name="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\codegentemp\SPIM_1_PM.c" value="SOURCE_C;CortexM3;;;;SPIM_1" />
-  <file name="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\codegentemp\SPIM_1_INT.c" value="SOURCE_C;CortexM3;;;;SPIM_1" />
-  <file name="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\codegentemp\SPIM_1_PVT.h" value="HEADER;;;;;SPIM_1" />
-  <file name="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\codegentemp\SCLK_1_aliases.h" value="HEADER;;;;;SCLK_1" />
-  <file name="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\codegentemp\SCLK_1.c" value="SOURCE_C;CortexM3;;;;SCLK_1" />
-  <file name="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\codegentemp\SCLK_1.h" value="HEADER;;;;;SCLK_1" />
-  <file name="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\codegentemp\MOSI_1_aliases.h" value="HEADER;;;;;MOSI_1" />
-  <file name="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\codegentemp\MOSI_1.c" value="SOURCE_C;CortexM3;;;;MOSI_1" />
-  <file name="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\codegentemp\MOSI_1.h" value="HEADER;;;;;MOSI_1" />
-  <file name="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\codegentemp\MISO_1_aliases.h" value="HEADER;;;;;MISO_1" />
-  <file name="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\codegentemp\MISO_1.c" value="SOURCE_C;CortexM3;;;;MISO_1" />
-  <file name="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\codegentemp\MISO_1.h" value="HEADER;;;;;MISO_1" />
+  <file name="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\codegentemp\Clock_1.c" value="SOURCE_C;CortexM3;;;;Clock_1" />
+  <file name="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\codegentemp\Clock_1.h" value="HEADER;;;;;Clock_1" />
+  <file name="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\codegentemp\Counter_1.c" value="SOURCE_C;CortexM3;;;;Counter_1" />
+  <file name="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\codegentemp\Counter_1.h" value="HEADER;;;;;Counter_1" />
+  <file name="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\codegentemp\Counter_1_PM.c" value="SOURCE_C;CortexM3;;;;Counter_1" />
   <file name="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\codegentemp\Pin_2_aliases.h" value="HEADER;;;;;Pin_2" />
   <file name="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\codegentemp\Pin_2.c" value="SOURCE_C;CortexM3;;;;Pin_2" />
   <file name="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\codegentemp\Pin_2.h" value="HEADER;;;;;Pin_2" />
@@ -88,8 +76,6 @@
   <file name="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\codegentemp\Timer_ISR.h" value="HEADER;;;;;Timer_ISR" />
   <file name="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\codegentemp\UART_1_IntClock.c" value="SOURCE_C;CortexM3;;;;UART_1_IntClock" />
   <file name="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\codegentemp\UART_1_IntClock.h" value="HEADER;;;;;UART_1_IntClock" />
-  <file name="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\codegentemp\SPIM_1_IntClock.c" value="SOURCE_C;CortexM3;;;;SPIM_1_IntClock" />
-  <file name="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\codegentemp\SPIM_1_IntClock.h" value="HEADER;;;;;SPIM_1_IntClock" />
   <file name="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\codegentemp\cm3gcc.ld" value="LINKER_SCRIPT;;;b98f980c-3bd1-4fc7-a887-c56a20a46fdd;;cy_boot" />
   <file name="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\codegentemp\Cm3RealView.scat" value="LINKER_SCRIPT;;;fdb8e1ae-f83a-46cf-9446-1d703716f38a;;cy_boot" />
   <file name="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\codegentemp\Cm3Start.c" value="SOURCE_C;CortexM3;;;;cy_boot" />
