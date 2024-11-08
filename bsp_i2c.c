@@ -25,6 +25,7 @@ static const CPU_INT16U FIRCoeffs[FIR_COEFF_SIZE] = {172, 321, 579, 927, 1360, 1
 
 /* Function Prototypes */
 static void I2C_Task(void *p_arg);  /* I2C Task Function */
+static void initMessageQueue(); /* Initialize Message Queue */
 
 /* Timer Variables */
 volatile CPU_INT32U current_timestamp = 0;  // Variable to hold the current timestamp
@@ -32,6 +33,19 @@ volatile CPU_INT32U current_timestamp = 0;  // Variable to hold the current time
 // Timer ISR to increment timestamp
 CY_ISR(Timer_ISR) {
     current_timestamp++;  // Increment the timestamp every millisecond
+}
+
+
+static void initMessageQueue(){ // Prevent unused parameter warning){
+
+  OS_ERR   os_err;
+  
+  OSQCreate(&CommQI2C, "Message Queue to send I2C Messages", LOG_QUEUE_SIZE, &os_err);
+  if (os_err == OS_ERR_NONE) {
+        Log_Write(LOG_LEVEL_I2C, "I2C Task: I2C Message queue created successfully", 0);
+    } else {
+        Log_Write(LOG_LEVEL_ERROR, "Error: I2C Message Queue creation failed", os_err);
+   }
 }
 
 /*
@@ -80,6 +94,9 @@ static void I2C_Task(void *p_arg) {
     max30102_handle_t max30102_handle;
     CPU_INT32U raw_red = 0, raw_ir = 0; // Raw readings from the sensor
     CPU_INT08U data_len = 2;  // Number of samples to read
+
+    Log_Write(LOG_LEVEL_I2C, "I2C Task: Initialize message queue ...", 0);
+    initMessageQueue();
 
     Log_Write(LOG_LEVEL_I2C, "I2C Task: Starting I2C hardware initialization", 0);
 

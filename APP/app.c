@@ -13,6 +13,7 @@
 #include <project.h>
 #include <includes.h>
 #include "log_task.h"  /* Include the log task header */
+#include "data_processing_task.h" /* Include the data processing task header */
 /*
 *********************************************************************************************************
 *                                             LOCAL DEFINES
