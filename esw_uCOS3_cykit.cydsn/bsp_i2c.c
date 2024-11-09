@@ -4,6 +4,8 @@
 *                                         Timer ISR
 *********************************************************************************************************
 */
+OS_SEM I2C_Sem;
+
 // Timer ISR to increment timestamp
 CY_ISR(Timer_ISR) {
     current_timestamp++;
@@ -16,7 +18,8 @@ CY_ISR(Timer_ISR) {
 */
 void I2C_Init(void) {
     OS_ERR os_err;
-    
+  
+    OSSemCreate(&I2C_Sem, "I2C Semaphore", 1, &os_err);
     Log_Write(LOG_LEVEL_I2C, "Starting I2C hardware initialization", 0);
     I2C_1_Start();
     Log_Write(LOG_LEVEL_I2C, "I2C hardware started", 0);
@@ -33,12 +36,21 @@ void I2C_Init(void) {
 *********************************************************************************************************
 */
 CPU_INT08U bsp_i2c_read(CPU_INT08U addr, CPU_INT08U reg, CPU_INT08U *buf, CPU_INT16U len) {
-    CPU_INT08U status;
-
+  CPU_INT08U status;
+  OS_ERR err;
+    
+  
+    OSSemPend(&I2C_Sem, 0, OS_OPT_PEND_BLOCKING, NULL, &err); 
+    
+    if(err != 0){
+      Log_Write(LOG_LEVEL_ERROR, "I2C read Sem Pend failed :%d", err); // Log error if restart fails
+    }
+    
     // Start I2C communication in write mode to send the register address
     status = I2C_1_MasterSendStart(addr, I2C_1_WRITE_XFER_MODE);
     if (status != I2C_1_MSTR_NO_ERROR) {
         Log_Write(LOG_LEVEL_ERROR, "I2C Read Start Error", status); // Log error if start fails
+        OSSemPost(&I2C_Sem, OS_OPT_POST_1, &err);
         return 1; // Exit with error
     }
 
@@ -49,6 +61,7 @@ CPU_INT08U bsp_i2c_read(CPU_INT08U addr, CPU_INT08U reg, CPU_INT08U *buf, CPU_IN
     status = I2C_1_MasterSendRestart(addr, I2C_1_READ_XFER_MODE);
     if (status != I2C_1_MSTR_NO_ERROR) {
         Log_Write(LOG_LEVEL_ERROR, "I2C Read Restart Error", status); // Log error if restart fails
+        OSSemPost(&I2C_Sem, OS_OPT_POST_1, &err);
         return 1; // Exit with error
     }
 
@@ -60,6 +73,12 @@ CPU_INT08U bsp_i2c_read(CPU_INT08U addr, CPU_INT08U reg, CPU_INT08U *buf, CPU_IN
 
     // End the I2C transaction
     I2C_1_MasterSendStop();
+    
+    OSSemPost(&I2C_Sem, OS_OPT_POST_1, &err);
+    
+    if(err != 0){
+      Log_Write(LOG_LEVEL_ERROR, "I2C read Sem Post failed :%d", err); // Log error if restart fails
+    }
     return 0; // Success
 }
 
@@ -70,11 +89,17 @@ CPU_INT08U bsp_i2c_read(CPU_INT08U addr, CPU_INT08U reg, CPU_INT08U *buf, CPU_IN
 */
 CPU_INT08U bsp_i2c_write(CPU_INT08U addr, CPU_INT08U reg, CPU_INT08U *data, CPU_INT16U len) {
     CPU_INT08U status;
+    OS_ERR err;
 
+    OSSemPend(&I2C_Sem, 0, OS_OPT_PEND_BLOCKING, NULL, &err); 
+    if(err != 0){
+      Log_Write(LOG_LEVEL_ERROR, "I2C write Sem Pend failed :%d", err); // Log error if restart fails
+    }
     // Start I2C communication in write mode to send data to the device
     status = I2C_1_MasterSendStart(addr, I2C_1_WRITE_XFER_MODE);
     if (status != I2C_1_MSTR_NO_ERROR) {
         Log_Write(LOG_LEVEL_ERROR, "I2C Write Start Error", status); // Log error if start fails
+        OSSemPost(&I2C_Sem, OS_OPT_POST_1, &err);
         return 1; // Exit with error
     }
 
@@ -88,5 +113,10 @@ CPU_INT08U bsp_i2c_write(CPU_INT08U addr, CPU_INT08U reg, CPU_INT08U *data, CPU_
 
     // End the I2C transaction
     I2C_1_MasterSendStop();
+    
+    OSSemPost(&I2C_Sem, OS_OPT_POST_1, &err);
+    if(err != 0){
+      Log_Write(LOG_LEVEL_ERROR, "I2C write Sem Post failed :%d", err); // Log error if restart fails
+    }
     return 0; // Success
 }

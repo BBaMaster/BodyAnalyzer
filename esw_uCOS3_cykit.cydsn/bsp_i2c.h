@@ -12,6 +12,8 @@
 extern volatile CPU_INT32U current_timestamp;
 /* Buffer size for I2C transactions */
 #define I2C_BUFFER_SIZE 64u
+  
+extern OS_SEM I2C_Sem;
 
 /*
 *********************************************************************************************************

@@ -14,6 +14,7 @@
 #include <includes.h>
 #include "log_task.h"  /* Include the log task header */
 #include <heartbeatSensor.h>
+#include <environmentSensor.h>
 /*
 *********************************************************************************************************
 *                                             LOCAL DEFINES
@@ -97,6 +98,7 @@ static void App_TaskStart(void *p_arg) {
 
     I2C_Init();    /* Initializes and creates the I2C task */
     MAX30102_Init();
+    BME688_Init();
     while (DEF_TRUE) {
         /* Delay before next read */
         OSTimeDlyHMSM(0, 0, 1, 0, OS_OPT_TIME_HMSM_STRICT, &err);

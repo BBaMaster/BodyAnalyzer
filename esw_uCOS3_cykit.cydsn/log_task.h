@@ -15,10 +15,10 @@
 #define LOG_LEVEL_SPI         0x10  /* SPI module logging */
 #define LOG_LEVEL_I2C         0x20  /* I2C module logging */
 #define LOG_LEVEL_MAX30102    0x40  /* MAX30102 sensor logging */
-#define LOG_LEVEL_BME280      0x50  /* MAX30102 sensor logging */
+#define LOG_LEVEL_BME688      0x80  /* MAX30102 sensor logging */
 /* Default allowed logging levels (set to all levels by default) */
 #ifndef LOG_ALLOWED_LEVELS
-#define LOG_ALLOWED_LEVELS    (LOG_LEVEL_INFO | LOG_LEVEL_WARNING | LOG_LEVEL_ERROR | LOG_LEVEL_DEBUG | LOG_LEVEL_MAX30102 | LOG_LEVEL_I2C)
+#define LOG_ALLOWED_LEVELS    (LOG_LEVEL_INFO | LOG_LEVEL_WARNING | LOG_LEVEL_ERROR | LOG_LEVEL_DEBUG | LOG_LEVEL_BME688 | LOG_LEVEL_I2C)
 #endif
 
 

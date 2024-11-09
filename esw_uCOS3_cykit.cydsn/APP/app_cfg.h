@@ -51,7 +51,7 @@
 #define  APP_CFG_TASK_BUTTON_PRIO                       5u
 #define  APP_CFG_TASK_LOG_PRIO                          8u
 #define  APP_CFG_TASK_I2C_PRIO                          6u   // Priority for I2C Task
-#define  APP_CFG_TASK_SPI_PRIO                          6u   // Priority for I2C Task
+#define  APP_CFG_TASK_BME688_PRIO                       7u   // Priority for I2C Task
 /*
 *********************************************************************************************************
 *                                            TASK STACK SIZES
@@ -64,7 +64,7 @@
 #define  APP_CFG_TASK_BUTTON_STK_SIZE                   64u
 #define  APP_CFG_TASK_LOG_STK_SIZE                      512u
 #define  APP_CFG_TASK_MAX30102_STK_SIZE                 512u   // Stack size for MAX30102 Task
-#define  APP_CFG_TASK_SPI_STK_SIZE                      512u   // Stack size for SPI Task
+#define  APP_CFG_TASK_BME688_STK_SIZE                   512u   // Stack size for SPI Task
 /*
 *********************************************************************************************************
 *                                          TASK STACK SIZES LIMIT
@@ -86,8 +86,8 @@
 #define  APP_CFG_TASK_MAX30102_STK_SIZE_PCT_FULL             90u
 #define  APP_CFG_TASK_MAX30102_STK_SIZE_LIMIT           (APP_CFG_TASK_MAX30102_STK_SIZE  * (100u - APP_CFG_TASK_MAX30102_STK_SIZE_PCT_FULL))  / 100u
     
-#define  APP_CFG_TASK_SPI_STK_SIZE_PCT_FULL             90u
-#define  APP_CFG_TASK_SPI_STK_SIZE_LIMIT           (APP_CFG_TASK_SPI_STK_SIZE  * (100u - APP_CFG_TASK_SPI_STK_SIZE_PCT_FULL))  / 100u
+#define  APP_CFG_TASK_BME688_STK_SIZE_PCT_FULL             90u
+#define  APP_CFG_TASK_BME688_STK_SIZE_LIMIT           (APP_CFG_TASK_BME688_STK_SIZE  * (100u - APP_CFG_TASK_BME688_STK_SIZE_PCT_FULL))  / 100u
 /*
 *********************************************************************************************************
 *                                          uC/LIB CONFIGURATION
