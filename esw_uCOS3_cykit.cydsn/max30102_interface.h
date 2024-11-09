@@ -2,7 +2,7 @@
 #define MAX30102_INTERFACE_H
 
 #include <stdint.h>
-#include <max30102/driver_max30102.h>
+#include <driver_max30102.h>
 /* Function Prototypes */
 
 /**

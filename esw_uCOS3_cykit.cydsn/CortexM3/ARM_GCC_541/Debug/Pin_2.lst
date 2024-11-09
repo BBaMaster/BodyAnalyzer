@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccStTQBd.s 			page 1
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXQLpz2.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccStTQBd.s 			page 1
   28:Generated_Source\PSoC5/Pin_2.c **** *
   29:Generated_Source\PSoC5/Pin_2.c **** * \brief Writes the value to the physical port (data output register), masking
   30:Generated_Source\PSoC5/Pin_2.c **** *  and shifting the bits appropriately. 
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccStTQBd.s 			page 2
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXQLpz2.s 			page 2
 
 
   31:Generated_Source\PSoC5/Pin_2.c **** *
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccStTQBd.s 			page 1
   52              		.section	.text.Pin_2_SetDriveMode,"ax",%progbits
   53              		.align	2
   54              		.global	Pin_2_SetDriveMode
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccStTQBd.s 			page 3
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXQLpz2.s 			page 3
 
 
   55              		.thumb
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccStTQBd.s 			page 1
   76 0012 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
   77 0014 03F0F103 		and	r3, r3, #241
   78 0018 1843     		orrs	r0, r0, r3
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccStTQBd.s 			page 4
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXQLpz2.s 			page 4
 
 
   79 001a 1070     		strb	r0, [r2]
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccStTQBd.s 			page 1
  109              	.L8:
  110 000c 01510040 		.word	1073762561
  111              		.cfi_endproc
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccStTQBd.s 			page 5
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXQLpz2.s 			page 5
 
 
  112              	.LFE2:
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccStTQBd.s 			page 1
  138              	.LFE3:
  139              		.size	Pin_2_ReadDataReg, .-Pin_2_ReadDataReg
  140              		.text
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccStTQBd.s 			page 6
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXQLpz2.s 			page 6
 
 
  141              	.Letext0:
@@ -310,45 +310,45 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccStTQBd.s 			page 1
  147 0006 00000000 		.4byte	.Ldebug_abbrev0
  148 000a 04       		.byte	0x4
  149 000b 01       		.uleb128 0x1
- 150 000c 4F000000 		.4byte	.LASF20
+ 150 000c 93000000 		.4byte	.LASF20
  151 0010 0C       		.byte	0xc
- 152 0011 8B010000 		.4byte	.LASF21
- 153 0015 0E010000 		.4byte	.LASF22
+ 152 0011 88010000 		.4byte	.LASF21
+ 153 0015 17000000 		.4byte	.LASF22
  154 0019 00000000 		.4byte	.Ldebug_ranges0+0
  155 001d 00000000 		.4byte	0
  156 0021 00000000 		.4byte	.Ldebug_line0
  157 0025 02       		.uleb128 0x2
  158 0026 01       		.byte	0x1
  159 0027 06       		.byte	0x6
- 160 0028 DB010000 		.4byte	.LASF0
+ 160 0028 D8010000 		.4byte	.LASF0
  161 002c 02       		.uleb128 0x2
  162 002d 01       		.byte	0x1
  163 002e 08       		.byte	0x8
- 164 002f 41000000 		.4byte	.LASF1
+ 164 002f 85000000 		.4byte	.LASF1
  165 0033 02       		.uleb128 0x2
  166 0034 02       		.byte	0x2
  167 0035 05       		.byte	0x5
- 168 0036 C2010000 		.4byte	.LASF2
+ 168 0036 BF010000 		.4byte	.LASF2
  169 003a 02       		.uleb128 0x2
  170 003b 02       		.byte	0x2
  171 003c 07       		.byte	0x7
- 172 003d F4000000 		.4byte	.LASF3
+ 172 003d 38010000 		.4byte	.LASF3
  173 0041 02       		.uleb128 0x2
  174 0042 04       		.byte	0x4
  175 0043 05       		.byte	0x5
- 176 0044 D2010000 		.4byte	.LASF4
+ 176 0044 CF010000 		.4byte	.LASF4
  177 0048 02       		.uleb128 0x2
  178 0049 04       		.byte	0x4
  179 004a 07       		.byte	0x7
- 180 004b E2000000 		.4byte	.LASF5
+ 180 004b 26010000 		.4byte	.LASF5
  181 004f 02       		.uleb128 0x2
  182 0050 08       		.byte	0x8
  183 0051 05       		.byte	0x5
- 184 0052 AF010000 		.4byte	.LASF6
+ 184 0052 AC010000 		.4byte	.LASF6
  185 0056 02       		.uleb128 0x2
  186 0057 08       		.byte	0x8
  187 0058 07       		.byte	0x7
- 188 0059 74010000 		.4byte	.LASF7
+ 188 0059 71010000 		.4byte	.LASF7
  189 005d 03       		.uleb128 0x3
  190 005e 04       		.byte	0x4
  191 005f 05       		.byte	0x5
@@ -356,29 +356,29 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccStTQBd.s 			page 1
  193 0064 02       		.uleb128 0x2
  194 0065 04       		.byte	0x4
  195 0066 07       		.byte	0x7
- 196 0067 55010000 		.4byte	.LASF8
+ 196 0067 52010000 		.4byte	.LASF8
  197 006b 04       		.uleb128 0x4
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccStTQBd.s 			page 7
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXQLpz2.s 			page 7
 
 
- 198 006c CC010000 		.4byte	.LASF12
+ 198 006c C9010000 		.4byte	.LASF12
  199 0070 02       		.byte	0x2
  200 0071 E401     		.2byte	0x1e4
  201 0073 2C000000 		.4byte	0x2c
  202 0077 02       		.uleb128 0x2
  203 0078 04       		.byte	0x4
  204 0079 04       		.byte	0x4
- 205 007a 3B000000 		.4byte	.LASF9
+ 205 007a 7F000000 		.4byte	.LASF9
  206 007e 02       		.uleb128 0x2
  207 007f 08       		.byte	0x8
  208 0080 04       		.byte	0x4
- 209 0081 07010000 		.4byte	.LASF10
+ 209 0081 4B010000 		.4byte	.LASF10
  210 0085 02       		.uleb128 0x2
  211 0086 01       		.byte	0x1
  212 0087 08       		.byte	0x8
- 213 0088 BD010000 		.4byte	.LASF11
+ 213 0088 BA010000 		.4byte	.LASF11
  214 008c 04       		.uleb128 0x4
- 215 008d DD000000 		.4byte	.LASF13
+ 215 008d 21010000 		.4byte	.LASF13
  216 0091 02       		.byte	0x2
  217 0092 8E02     		.2byte	0x28e
  218 0094 98000000 		.4byte	0x98
@@ -394,13 +394,13 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccStTQBd.s 			page 1
  228 00ad 9C       		.byte	0x9c
  229 00ae CF000000 		.4byte	0xcf
  230 00b2 07       		.uleb128 0x7
- 231 00b3 17000000 		.4byte	.LASF16
+ 231 00b3 5B000000 		.4byte	.LASF16
  232 00b7 01       		.byte	0x1
  233 00b8 39       		.byte	0x39
  234 00b9 6B000000 		.4byte	0x6b
  235 00bd 00000000 		.4byte	.LLST0
  236 00c1 08       		.uleb128 0x8
- 237 00c2 1D000000 		.4byte	.LASF23
+ 237 00c2 61000000 		.4byte	.LASF23
  238 00c6 01       		.byte	0x1
  239 00c7 3B       		.byte	0x3b
  240 00c8 6B000000 		.4byte	0x6b
@@ -408,7 +408,7 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccStTQBd.s 			page 1
  242 00cd 53       		.byte	0x53
  243 00ce 00       		.byte	0
  244 00cf 06       		.uleb128 0x6
- 245 00d0 28000000 		.4byte	.LASF15
+ 245 00d0 6C000000 		.4byte	.LASF15
  246 00d4 01       		.byte	0x1
  247 00d5 5A       		.byte	0x5a
  248 00d6 00000000 		.4byte	.LFB1
@@ -417,8 +417,8 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccStTQBd.s 			page 1
  251 00df 9C       		.byte	0x9c
  252 00e0 F4000000 		.4byte	0xf4
  253 00e4 07       		.uleb128 0x7
- 254 00e5 AA010000 		.4byte	.LASF17
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccStTQBd.s 			page 8
+ 254 00e5 A7010000 		.4byte	.LASF17
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXQLpz2.s 			page 8
 
 
  255 00e9 01       		.byte	0x1
@@ -436,7 +436,7 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccStTQBd.s 			page 1
  267 0107 01       		.uleb128 0x1
  268 0108 9C       		.byte	0x9c
  269 0109 09       		.uleb128 0x9
- 270 010a 62010000 		.4byte	.LASF19
+ 270 010a 5F010000 		.4byte	.LASF19
  271 010e 01       		.byte	0x1
  272 010f 8E       		.byte	0x8e
  273 0110 6B000000 		.4byte	0x6b
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccStTQBd.s 			page 1
  309 001c 00       		.byte	0
  310 001d 00       		.byte	0
  311 001e 03       		.uleb128 0x3
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccStTQBd.s 			page 9
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXQLpz2.s 			page 9
 
 
  312 001f 24       		.uleb128 0x24
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccStTQBd.s 			page 1
  366 0056 00       		.byte	0
  367 0057 07       		.uleb128 0x7
  368 0058 05       		.uleb128 0x5
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccStTQBd.s 			page 10
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXQLpz2.s 			page 10
 
 
  369 0059 00       		.byte	0
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccStTQBd.s 			page 1
  423              		.section	.debug_loc,"",%progbits
  424              	.Ldebug_loc0:
  425              	.LLST0:
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccStTQBd.s 			page 11
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXQLpz2.s 			page 11
 
 
  426 0000 00000000 		.4byte	.LVL0
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccStTQBd.s 			page 1
  480 001c 10000000 		.4byte	.LFE3
  481 0020 00000000 		.4byte	0
  482 0024 00000000 		.4byte	0
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccStTQBd.s 			page 12
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXQLpz2.s 			page 12
 
 
  483              		.section	.debug_line,"",%progbits
@@ -676,125 +676,125 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccStTQBd.s 			page 1
  489 000c 50696E5F 		.ascii	"Pin_2_Read\000"
  489      325F5265 
  489      616400
- 490              	.LASF16:
- 491 0017 76616C75 		.ascii	"value\000"
- 491      6500
- 492              	.LASF23:
- 493 001d 73746174 		.ascii	"staticBits\000"
- 493      69634269 
- 493      747300
- 494              	.LASF15:
- 495 0028 50696E5F 		.ascii	"Pin_2_SetDriveMode\000"
- 495      325F5365 
- 495      74447269 
- 495      76654D6F 
- 495      646500
- 496              	.LASF9:
- 497 003b 666C6F61 		.ascii	"float\000"
- 497      7400
- 498              	.LASF1:
- 499 0041 756E7369 		.ascii	"unsigned char\000"
- 499      676E6564 
- 499      20636861 
- 499      7200
- 500              	.LASF20:
- 501 004f 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
- 501      43313120 
- 501      352E342E 
- 501      31203230 
- 501      31363036 
- 502 0082 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
- 502      20726576 
- 502      6973696F 
- 502      6E203233 
- 502      37373135 
- 503 00b5 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
- 503      66756E63 
- 503      74696F6E 
- 503      2D736563 
- 503      74696F6E 
- 504              	.LASF13:
- 505 00dd 72656738 		.ascii	"reg8\000"
- 505      00
- 506              	.LASF5:
- 507 00e2 6C6F6E67 		.ascii	"long unsigned int\000"
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccStTQBd.s 			page 13
+ 490              	.LASF22:
+ 491 0017 433A5C63 		.ascii	"C:\\cypress\\BodyAnalyzer\\esw_uCOS3_cykit.cydsn\\e"
+ 491      79707265 
+ 491      73735C42 
+ 491      6F647941 
+ 491      6E616C79 
+ 492 0046 73775F75 		.ascii	"sw_uCOS3_cykit.cydsn\000"
+ 492      434F5333 
+ 492      5F63796B 
+ 492      69742E63 
+ 492      7964736E 
+ 493              	.LASF16:
+ 494 005b 76616C75 		.ascii	"value\000"
+ 494      6500
+ 495              	.LASF23:
+ 496 0061 73746174 		.ascii	"staticBits\000"
+ 496      69634269 
+ 496      747300
+ 497              	.LASF15:
+ 498 006c 50696E5F 		.ascii	"Pin_2_SetDriveMode\000"
+ 498      325F5365 
+ 498      74447269 
+ 498      76654D6F 
+ 498      646500
+ 499              	.LASF9:
+ 500 007f 666C6F61 		.ascii	"float\000"
+ 500      7400
+ 501              	.LASF1:
+ 502 0085 756E7369 		.ascii	"unsigned char\000"
+ 502      676E6564 
+ 502      20636861 
+ 502      7200
+ 503              	.LASF20:
+ 504 0093 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 504      43313120 
+ 504      352E342E 
+ 504      31203230 
+ 504      31363036 
+ 505 00c6 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 505      20726576 
+ 505      6973696F 
+ 505      6E203233 
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXQLpz2.s 			page 13
 
 
- 507      20756E73 
- 507      69676E65 
- 507      6420696E 
- 507      7400
- 508              	.LASF3:
- 509 00f4 73686F72 		.ascii	"short unsigned int\000"
- 509      7420756E 
- 509      7369676E 
- 509      65642069 
- 509      6E7400
- 510              	.LASF10:
- 511 0107 646F7562 		.ascii	"double\000"
- 511      6C6500
- 512              	.LASF22:
- 513 010e 433A5C55 		.ascii	"C:\\Users\\Chronikle\\Documents\\GitHub\\BodyAnalyz"
- 513      73657273 
- 513      5C436872 
- 513      6F6E696B 
- 513      6C655C44 
- 514 013c 65725C65 		.ascii	"er\\esw_uCOS3_cykit.cydsn\000"
- 514      73775F75 
- 514      434F5333 
- 514      5F63796B 
- 514      69742E63 
+ 505      37373135 
+ 506 00f9 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 506      66756E63 
+ 506      74696F6E 
+ 506      2D736563 
+ 506      74696F6E 
+ 507              	.LASF13:
+ 508 0121 72656738 		.ascii	"reg8\000"
+ 508      00
+ 509              	.LASF5:
+ 510 0126 6C6F6E67 		.ascii	"long unsigned int\000"
+ 510      20756E73 
+ 510      69676E65 
+ 510      6420696E 
+ 510      7400
+ 511              	.LASF3:
+ 512 0138 73686F72 		.ascii	"short unsigned int\000"
+ 512      7420756E 
+ 512      7369676E 
+ 512      65642069 
+ 512      6E7400
+ 513              	.LASF10:
+ 514 014b 646F7562 		.ascii	"double\000"
+ 514      6C6500
  515              	.LASF8:
- 516 0155 756E7369 		.ascii	"unsigned int\000"
+ 516 0152 756E7369 		.ascii	"unsigned int\000"
  516      676E6564 
  516      20696E74 
  516      00
  517              	.LASF19:
- 518 0162 50696E5F 		.ascii	"Pin_2_ReadDataReg\000"
+ 518 015f 50696E5F 		.ascii	"Pin_2_ReadDataReg\000"
  518      325F5265 
  518      61644461 
  518      74615265 
  518      6700
  519              	.LASF7:
- 520 0174 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 520 0171 6C6F6E67 		.ascii	"long long unsigned int\000"
  520      206C6F6E 
  520      6720756E 
  520      7369676E 
  520      65642069 
  521              	.LASF21:
- 522 018b 47656E65 		.ascii	"Generated_Source\\PSoC5\\Pin_2.c\000"
+ 522 0188 47656E65 		.ascii	"Generated_Source\\PSoC5\\Pin_2.c\000"
  522      72617465 
  522      645F536F 
  522      75726365 
  522      5C50536F 
  523              	.LASF17:
- 524 01aa 6D6F6465 		.ascii	"mode\000"
+ 524 01a7 6D6F6465 		.ascii	"mode\000"
  524      00
  525              	.LASF6:
- 526 01af 6C6F6E67 		.ascii	"long long int\000"
+ 526 01ac 6C6F6E67 		.ascii	"long long int\000"
  526      206C6F6E 
  526      6720696E 
  526      7400
  527              	.LASF11:
- 528 01bd 63686172 		.ascii	"char\000"
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccStTQBd.s 			page 14
+ 528 01ba 63686172 		.ascii	"char\000"
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXQLpz2.s 			page 14
 
 
  528      00
  529              	.LASF2:
- 530 01c2 73686F72 		.ascii	"short int\000"
+ 530 01bf 73686F72 		.ascii	"short int\000"
  530      7420696E 
  530      7400
  531              	.LASF12:
- 532 01cc 75696E74 		.ascii	"uint8\000"
+ 532 01c9 75696E74 		.ascii	"uint8\000"
  532      3800
  533              	.LASF4:
- 534 01d2 6C6F6E67 		.ascii	"long int\000"
+ 534 01cf 6C6F6E67 		.ascii	"long int\000"
  534      20696E74 
  534      00
  535              	.LASF0:
- 536 01db 7369676E 		.ascii	"signed char\000"
+ 536 01d8 7369676E 		.ascii	"signed char\000"
  536      65642063 
  536      68617200 
  537              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
