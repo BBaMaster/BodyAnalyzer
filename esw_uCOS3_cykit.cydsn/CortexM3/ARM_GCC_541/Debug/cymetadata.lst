@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\cczQLWhg.s 			page 1
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccrZHSRW.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\cczQLWhg.s 			page 1
   55 001a 01       		.byte	1
   56 001b 40       		.byte	64
   57 001c 0D       		.byte	13
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\cczQLWhg.s 			page 2
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccrZHSRW.s 			page 2
 
 
   58 001d 15       		.byte	21
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\cczQLWhg.s 			page 1
  112 0053 40       		.byte	64
  113 0054 0D       		.byte	13
  114 0055 4D       		.byte	77
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\cczQLWhg.s 			page 3
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccrZHSRW.s 			page 3
 
 
  115 0056 01       		.byte	1
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\cczQLWhg.s 			page 1
  169 008c 5F       		.byte	95
  170 008d 01       		.byte	1
  171 008e 60       		.byte	96
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\cczQLWhg.s 			page 4
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccrZHSRW.s 			page 4
 
 
  172 008f 40       		.byte	64
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\cczQLWhg.s 			page 1
  226 00c5 80       		.byte	-128
  227 00c6 E8       		.byte	-24
  228 00c7 40       		.byte	64
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\cczQLWhg.s 			page 5
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccrZHSRW.s 			page 5
 
 
  229 00c8 EA       		.byte	-22
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\cczQLWhg.s 			page 1
  283 00fe 50       		.byte	80
  284 00ff 18       		.byte	24
  285 0100 5A       		.byte	90
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\cczQLWhg.s 			page 6
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccrZHSRW.s 			page 6
 
 
  286 0101 04       		.byte	4
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\cczQLWhg.s 			page 1
  340 0137 08       		.byte	8
  341 0138 B3       		.byte	-77
  342 0139 01       		.byte	1
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\cczQLWhg.s 			page 7
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccrZHSRW.s 			page 7
 
 
  343 013a B4       		.byte	-76
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\cczQLWhg.s 			page 1
  397 0170 E2       		.byte	-30
  398 0171 80       		.byte	-128
  399 0172 E4       		.byte	-28
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\cczQLWhg.s 			page 8
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccrZHSRW.s 			page 8
 
 
  400 0173 40       		.byte	64
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\cczQLWhg.s 			page 1
  454 01a9 06       		.byte	6
  455 01aa 4F       		.byte	79
  456 01ab 80       		.byte	-128
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\cczQLWhg.s 			page 9
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccrZHSRW.s 			page 9
 
 
  457 01ac 50       		.byte	80
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\cczQLWhg.s 			page 1
  511 01e2 24       		.byte	36
  512 01e3 04       		.byte	4
  513 01e4 2A       		.byte	42
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\cczQLWhg.s 			page 10
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccrZHSRW.s 			page 10
 
 
  514 01e5 02       		.byte	2
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\cczQLWhg.s 			page 1
  568 021b 04       		.byte	4
  569 021c 1F       		.byte	31
  570 021d 05       		.byte	5
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\cczQLWhg.s 			page 11
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccrZHSRW.s 			page 11
 
 
  571 021e 21       		.byte	33
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\cczQLWhg.s 			page 1
  625 0254 B7       		.byte	-73
  626 0255 08       		.byte	8
  627 0256 C0       		.byte	-64
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\cczQLWhg.s 			page 12
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccrZHSRW.s 			page 12
 
 
  628 0257 87       		.byte	-121
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\cczQLWhg.s 			page 1
  682 028d 04       		.byte	4
  683 028e 17       		.byte	23
  684 028f 0A       		.byte	10
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\cczQLWhg.s 			page 13
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccrZHSRW.s 			page 13
 
 
  685 0290 18       		.byte	24
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\cczQLWhg.s 			page 1
  739 02c6 4E       		.byte	78
  740 02c7 F0       		.byte	-16
  741 02c8 4F       		.byte	79
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\cczQLWhg.s 			page 14
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccrZHSRW.s 			page 14
 
 
  742 02c9 44       		.byte	68
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\cczQLWhg.s 			page 1
  796 02ff 03       		.byte	3
  797 0300 A0       		.byte	-96
  798 0301 DC       		.byte	-36
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\cczQLWhg.s 			page 15
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccrZHSRW.s 			page 15
 
 
  799 0302 A2       		.byte	-94
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\cczQLWhg.s 			page 1
  853 0338 D8       		.byte	-40
  854 0339 04       		.byte	4
  855 033a D9       		.byte	-39
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\cczQLWhg.s 			page 16
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccrZHSRW.s 			page 16
 
 
  856 033b 04       		.byte	4
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\cczQLWhg.s 			page 1
  910 0371 04       		.byte	4
  911 0372 1D       		.byte	29
  912 0373 80       		.byte	-128
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\cczQLWhg.s 			page 17
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccrZHSRW.s 			page 17
 
 
  913 0374 1F       		.byte	31
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\cczQLWhg.s 			page 1
  967 03aa 5A       		.byte	90
  968 03ab 04       		.byte	4
  969 03ac 5B       		.byte	91
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\cczQLWhg.s 			page 18
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccrZHSRW.s 			page 18
 
 
  970 03ad 10       		.byte	16
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\cczQLWhg.s 			page 1
  1024 03e3 0F       		.byte	15
  1025 03e4 D8       		.byte	-40
  1026 03e5 01       		.byte	1
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\cczQLWhg.s 			page 19
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccrZHSRW.s 			page 19
 
 
  1027 03e6 E0       		.byte	-32
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\cczQLWhg.s 			page 1
  1081 041c 9D       		.byte	-99
  1082 041d 80       		.byte	-128
  1083 041e A7       		.byte	-89
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\cczQLWhg.s 			page 20
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccrZHSRW.s 			page 20
 
 
  1084 041f 08       		.byte	8
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\cczQLWhg.s 			page 1
  1138 0455 20       		.byte	32
  1139 0456 7B       		.byte	123
  1140 0457 10       		.byte	16
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\cczQLWhg.s 			page 21
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccrZHSRW.s 			page 21
 
 
  1141 0458 7F       		.byte	127
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\cczQLWhg.s 			page 1
  1195 048e 00       		.byte	0
  1196 048f 00       		.byte	0
  1197 0490 00       		.byte	0
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\cczQLWhg.s 			page 22
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccrZHSRW.s 			page 22
 
 
  1198 0491 18       		.byte	24
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\cczQLWhg.s 			page 1
  1252 04c7 20       		.byte	32
  1253 04c8 00       		.byte	0
  1254 04c9 00       		.byte	0
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\cczQLWhg.s 			page 23
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccrZHSRW.s 			page 23
 
 
  1255 04ca 10       		.byte	16
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\cczQLWhg.s 			page 1
  1309 0500 00       		.byte	0
  1310 0501 00       		.byte	0
  1311 0502 00       		.byte	0
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\cczQLWhg.s 			page 24
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccrZHSRW.s 			page 24
 
 
  1312 0503 00       		.byte	0
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\cczQLWhg.s 			page 1
  1366              		.section	.cycustnvl,"a",%progbits
  1367              		.align	2
  1368              		.type	cy_meta_custnvl, %object
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\cczQLWhg.s 			page 25
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccrZHSRW.s 			page 25
 
 
  1369              		.size	cy_meta_custnvl, 4
@@ -1486,19 +1486,19 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\cczQLWhg.s 			page 1
  1407 0006 00000000 		.4byte	.Ldebug_abbrev0
  1408 000a 04       		.byte	0x4
  1409 000b 01       		.uleb128 0x1
- 1410 000c 68000000 		.4byte	.LASF17
+ 1410 000c 24000000 		.4byte	.LASF17
  1411 0010 0C       		.byte	0xc
- 1412 0011 C2010000 		.4byte	.LASF18
- 1413 0015 0A000000 		.4byte	.LASF19
+ 1412 0011 C5010000 		.4byte	.LASF18
+ 1413 0015 D7000000 		.4byte	.LASF19
  1414 0019 00000000 		.4byte	.Ldebug_line0
  1415 001d 02       		.uleb128 0x2
  1416 001e 01       		.byte	0x1
  1417 001f 06       		.byte	0x6
- 1418 0020 B6010000 		.4byte	.LASF0
+ 1418 0020 B9010000 		.4byte	.LASF0
  1419 0024 03       		.uleb128 0x3
  1420 0025 00000000 		.4byte	.LASF9
  1421 0029 01       		.byte	0x1
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\cczQLWhg.s 			page 26
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccrZHSRW.s 			page 26
 
 
  1422 002a 1D       		.byte	0x1d
@@ -1506,31 +1506,31 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\cczQLWhg.s 			page 1
  1424 002f 02       		.uleb128 0x2
  1425 0030 01       		.byte	0x1
  1426 0031 08       		.byte	0x8
- 1427 0032 5A000000 		.4byte	.LASF1
+ 1427 0032 16000000 		.4byte	.LASF1
  1428 0036 02       		.uleb128 0x2
  1429 0037 02       		.byte	0x2
  1430 0038 05       		.byte	0x5
- 1431 0039 A3010000 		.4byte	.LASF2
+ 1431 0039 A6010000 		.4byte	.LASF2
  1432 003d 02       		.uleb128 0x2
  1433 003e 02       		.byte	0x2
  1434 003f 07       		.byte	0x7
- 1435 0040 08010000 		.4byte	.LASF3
+ 1435 0040 C4000000 		.4byte	.LASF3
  1436 0044 02       		.uleb128 0x2
  1437 0045 04       		.byte	0x4
  1438 0046 05       		.byte	0x5
- 1439 0047 AD010000 		.4byte	.LASF4
+ 1439 0047 B0010000 		.4byte	.LASF4
  1440 004b 02       		.uleb128 0x2
  1441 004c 04       		.byte	0x4
  1442 004d 07       		.byte	0x7
- 1443 004e F6000000 		.4byte	.LASF5
+ 1443 004e B2000000 		.4byte	.LASF5
  1444 0052 02       		.uleb128 0x2
  1445 0053 08       		.byte	0x8
  1446 0054 05       		.byte	0x5
- 1447 0055 95010000 		.4byte	.LASF6
+ 1447 0055 98010000 		.4byte	.LASF6
  1448 0059 02       		.uleb128 0x2
  1449 005a 08       		.byte	0x8
  1450 005b 07       		.byte	0x7
- 1451 005c 4A010000 		.4byte	.LASF7
+ 1451 005c 4D010000 		.4byte	.LASF7
  1452 0060 04       		.uleb128 0x4
  1453 0061 04       		.byte	0x4
  1454 0062 05       		.byte	0x5
@@ -1538,9 +1538,9 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\cczQLWhg.s 			page 1
  1456 0067 02       		.uleb128 0x2
  1457 0068 04       		.byte	0x4
  1458 0069 07       		.byte	0x7
- 1459 006a 3D010000 		.4byte	.LASF8
+ 1459 006a 40010000 		.4byte	.LASF8
  1460 006e 03       		.uleb128 0x3
- 1461 006f 61010000 		.4byte	.LASF10
+ 1461 006f 64010000 		.4byte	.LASF10
  1462 0073 02       		.byte	0x2
  1463 0074 18       		.byte	0x18
  1464 0075 24000000 		.4byte	0x24
@@ -1554,14 +1554,14 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\cczQLWhg.s 			page 1
  1472 008a 02       		.uleb128 0x2
  1473 008b 04       		.byte	0x4
  1474 008c 07       		.byte	0x7
- 1475 008d 8C010000 		.4byte	.LASF11
+ 1475 008d 8F010000 		.4byte	.LASF11
  1476 0091 07       		.uleb128 0x7
  1477 0092 6E000000 		.4byte	0x6e
  1478 0096 08       		.uleb128 0x8
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\cczQLWhg.s 			page 27
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccrZHSRW.s 			page 27
 
 
- 1479 0097 2B010000 		.4byte	.LASF12
+ 1479 0097 2E010000 		.4byte	.LASF12
  1480 009b 03       		.byte	0x3
  1481 009c 1F       		.byte	0x1f
  1482 009d A7000000 		.4byte	0xa7
@@ -1578,7 +1578,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\cczQLWhg.s 			page 1
  1493 00ba 03       		.byte	0x3
  1494 00bb 00       		.byte	0
  1495 00bc 08       		.uleb128 0x8
- 1496 00bd 1B010000 		.4byte	.LASF13
+ 1496 00bd 1E010000 		.4byte	.LASF13
  1497 00c1 03       		.byte	0x3
  1498 00c2 D2       		.byte	0xd2
  1499 00c3 CD000000 		.4byte	0xcd
@@ -1588,7 +1588,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\cczQLWhg.s 			page 1
  1503 00cd 07       		.uleb128 0x7
  1504 00ce AC000000 		.4byte	0xac
  1505 00d2 08       		.uleb128 0x8
- 1506 00d3 7E010000 		.4byte	.LASF14
+ 1506 00d3 81010000 		.4byte	.LASF14
  1507 00d7 03       		.byte	0x3
  1508 00d8 E0       		.byte	0xe0
  1509 00d9 E3000000 		.4byte	0xe3
@@ -1605,7 +1605,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\cczQLWhg.s 			page 1
  1520 00f6 FF       		.byte	0xff
  1521 00f7 00       		.byte	0
  1522 00f8 08       		.uleb128 0x8
- 1523 00f9 69010000 		.4byte	.LASF15
+ 1523 00f9 6C010000 		.4byte	.LASF15
  1524 00fd 03       		.byte	0x3
  1525 00fe EE       		.byte	0xee
  1526 00ff 09010000 		.4byte	0x109
@@ -1618,14 +1618,14 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\cczQLWhg.s 			page 1
  1533 010f 91000000 		.4byte	0x91
  1534 0113 1E010000 		.4byte	0x11e
  1535 0117 09       		.uleb128 0x9
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\cczQLWhg.s 			page 28
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccrZHSRW.s 			page 28
 
 
  1536 0118 8A000000 		.4byte	0x8a
  1537 011c 0B       		.byte	0xb
  1538 011d 00       		.byte	0
  1539 011e 0A       		.uleb128 0xa
- 1540 011f 4E000000 		.4byte	.LASF16
+ 1540 011f 0A000000 		.4byte	.LASF16
  1541 0123 03       		.byte	0x3
  1542 0124 1B01     		.2byte	0x11b
  1543 0126 30010000 		.4byte	0x130
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\cczQLWhg.s 			page 1
  1590 0026 00       		.byte	0
  1591 0027 04       		.uleb128 0x4
  1592 0028 24       		.uleb128 0x24
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\cczQLWhg.s 			page 29
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccrZHSRW.s 			page 29
 
 
  1593 0029 00       		.byte	0
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\cczQLWhg.s 			page 1
  1647 005f 49       		.uleb128 0x49
  1648 0060 13       		.uleb128 0x13
  1649 0061 2F       		.uleb128 0x2f
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\cczQLWhg.s 			page 30
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccrZHSRW.s 			page 30
 
 
  1650 0062 0B       		.uleb128 0xb
@@ -1783,119 +1783,119 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\cczQLWhg.s 			page 1
  1685 0000 5F5F7569 		.ascii	"__uint8_t\000"
  1685      6E74385F 
  1685      7400
- 1686              	.LASF19:
- 1687 000a 433A5C63 		.ascii	"C:\\cypress\\BodyAnalyzer\\esw_uCOS3_cykit.cydsn\\e"
- 1687      79707265 
- 1687      73735C42 
- 1687      6F647941 
- 1687      6E616C79 
- 1688 0039 73775F75 		.ascii	"sw_uCOS3_cykit.cydsn\000"
- 1688      434F5333 
- 1688      5F63796B 
- 1688      69742E63 
- 1688      7964736E 
- 1689              	.LASF16:
- 1690 004e 63795F6D 		.ascii	"cy_metadata\000"
- 1690      65746164 
- 1690      61746100 
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\cczQLWhg.s 			page 31
+ 1686              	.LASF16:
+ 1687 000a 63795F6D 		.ascii	"cy_metadata\000"
+ 1687      65746164 
+ 1687      61746100 
+ 1688              	.LASF1:
+ 1689 0016 756E7369 		.ascii	"unsigned char\000"
+ 1689      676E6564 
+ 1689      20636861 
+ 1689      7200
+ 1690              	.LASF17:
+ 1691 0024 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1691      43313120 
+ 1691      352E342E 
+ 1691      31203230 
+ 1691      31363036 
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccrZHSRW.s 			page 31
 
 
- 1691              	.LASF1:
- 1692 005a 756E7369 		.ascii	"unsigned char\000"
- 1692      676E6564 
- 1692      20636861 
- 1692      7200
- 1693              	.LASF17:
- 1694 0068 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
- 1694      43313120 
- 1694      352E342E 
- 1694      31203230 
- 1694      31363036 
- 1695 009b 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
- 1695      20726576 
- 1695      6973696F 
- 1695      6E203233 
- 1695      37373135 
- 1696 00ce 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
- 1696      66756E63 
- 1696      74696F6E 
- 1696      2D736563 
- 1696      74696F6E 
- 1697              	.LASF5:
- 1698 00f6 6C6F6E67 		.ascii	"long unsigned int\000"
- 1698      20756E73 
- 1698      69676E65 
- 1698      6420696E 
- 1698      7400
- 1699              	.LASF3:
- 1700 0108 73686F72 		.ascii	"short unsigned int\000"
- 1700      7420756E 
- 1700      7369676E 
- 1700      65642069 
- 1700      6E7400
+ 1692 0057 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1692      20726576 
+ 1692      6973696F 
+ 1692      6E203233 
+ 1692      37373135 
+ 1693 008a 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1693      66756E63 
+ 1693      74696F6E 
+ 1693      2D736563 
+ 1693      74696F6E 
+ 1694              	.LASF5:
+ 1695 00b2 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1695      20756E73 
+ 1695      69676E65 
+ 1695      6420696E 
+ 1695      7400
+ 1696              	.LASF3:
+ 1697 00c4 73686F72 		.ascii	"short unsigned int\000"
+ 1697      7420756E 
+ 1697      7369676E 
+ 1697      65642069 
+ 1697      6E7400
+ 1698              	.LASF19:
+ 1699 00d7 433A5C55 		.ascii	"C:\\Users\\Chronikle\\Documents\\GitHub\\BodyAnalyz"
+ 1699      73657273 
+ 1699      5C436872 
+ 1699      6F6E696B 
+ 1699      6C655C44 
+ 1700 0105 65725C65 		.ascii	"er\\esw_uCOS3_cykit.cydsn\000"
+ 1700      73775F75 
+ 1700      434F5333 
+ 1700      5F63796B 
+ 1700      69742E63 
  1701              	.LASF13:
- 1702 011b 63795F6D 		.ascii	"cy_meta_custnvl\000"
+ 1702 011e 63795F6D 		.ascii	"cy_meta_custnvl\000"
  1702      6574615F 
  1702      63757374 
  1702      6E766C00 
  1703              	.LASF12:
- 1704 012b 63795F6D 		.ascii	"cy_meta_configecc\000"
+ 1704 012e 63795F6D 		.ascii	"cy_meta_configecc\000"
  1704      6574615F 
  1704      636F6E66 
  1704      69676563 
  1704      6300
  1705              	.LASF8:
- 1706 013d 756E7369 		.ascii	"unsigned int\000"
+ 1706 0140 756E7369 		.ascii	"unsigned int\000"
  1706      676E6564 
  1706      20696E74 
  1706      00
  1707              	.LASF7:
- 1708 014a 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1708 014d 6C6F6E67 		.ascii	"long long unsigned int\000"
  1708      206C6F6E 
  1708      6720756E 
  1708      7369676E 
  1708      65642069 
  1709              	.LASF10:
- 1710 0161 75696E74 		.ascii	"uint8_t\000"
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\cczQLWhg.s 			page 32
+ 1710 0164 75696E74 		.ascii	"uint8_t\000"
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccrZHSRW.s 			page 32
 
 
  1710      385F7400 
  1711              	.LASF15:
- 1712 0169 63795F6D 		.ascii	"cy_meta_flashprotect\000"
+ 1712 016c 63795F6D 		.ascii	"cy_meta_flashprotect\000"
  1712      6574615F 
  1712      666C6173 
  1712      6870726F 
  1712      74656374 
  1713              	.LASF14:
- 1714 017e 63795F6D 		.ascii	"cy_meta_wonvl\000"
+ 1714 0181 63795F6D 		.ascii	"cy_meta_wonvl\000"
  1714      6574615F 
  1714      776F6E76 
  1714      6C00
  1715              	.LASF11:
- 1716 018c 73697A65 		.ascii	"sizetype\000"
+ 1716 018f 73697A65 		.ascii	"sizetype\000"
  1716      74797065 
  1716      00
  1717              	.LASF6:
- 1718 0195 6C6F6E67 		.ascii	"long long int\000"
+ 1718 0198 6C6F6E67 		.ascii	"long long int\000"
  1718      206C6F6E 
  1718      6720696E 
  1718      7400
  1719              	.LASF2:
- 1720 01a3 73686F72 		.ascii	"short int\000"
+ 1720 01a6 73686F72 		.ascii	"short int\000"
  1720      7420696E 
  1720      7400
  1721              	.LASF4:
- 1722 01ad 6C6F6E67 		.ascii	"long int\000"
+ 1722 01b0 6C6F6E67 		.ascii	"long int\000"
  1722      20696E74 
  1722      00
  1723              	.LASF0:
- 1724 01b6 7369676E 		.ascii	"signed char\000"
+ 1724 01b9 7369676E 		.ascii	"signed char\000"
  1724      65642063 
  1724      68617200 
  1725              	.LASF18:
- 1726 01c2 47656E65 		.ascii	"Generated_Source\\PSoC5\\cymetadata.c\000"
+ 1726 01c5 47656E65 		.ascii	"Generated_Source\\PSoC5\\cymetadata.c\000"
  1726      72617465 
  1726      645F536F 
  1726      75726365 

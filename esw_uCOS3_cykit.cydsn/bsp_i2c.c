@@ -5,7 +5,7 @@
 *********************************************************************************************************
 */
 OS_SEM I2C_Sem;
-
+volatile CPU_INT32U current_timestamp = 0;
 // Timer ISR to increment timestamp
 CY_ISR(Timer_ISR) {
     current_timestamp++;
