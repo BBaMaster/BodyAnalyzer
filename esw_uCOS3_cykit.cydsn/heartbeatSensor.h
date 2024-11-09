@@ -8,18 +8,16 @@
 #include "log_task.h"
 
 // Threshold and Timing Constants
-#define INITIAL_THRESHOLD           1500000
+#define INITIAL_THRESHOLD           1000000
 #define DEBOUNCE_TIME_MS            400
-
+#define MIN_PEAK_INTERVAL_MS 300
 // Sizing and Filter Constants
 #define MAX_HISTORY_SIZE            20
-#define FIR_COEFF_SIZE              12
-#define CIRCULAR_BUFFER_SIZE        32
+#define FIR_COEFF_SIZE              50
+#define CIRCULAR_BUFFER_SIZE        50
 #define POLLING_DELAY_MS            38
 
 // Initial Values for Heart Rate Detection
-#define INITIAL_IR_AC_MAX           20
-#define INITIAL_IR_AC_MIN           -20
 #define INITIAL_LAST_PEAK_TIMESTAMP 0
 #define INITIAL_IR_AC_SIGNAL_CURRENT 0
 #define INITIAL_IR_AC_SIGNAL_PREVIOUS 0
@@ -27,16 +25,14 @@
 #define INITIAL_HEART_RATE_SUM      0
 #define INITIAL_HEART_RATE_INDEX    0
 
-// External variable declarations
-extern volatile CPU_INT32U current_timestamp;
-extern CPU_INT32U last_peak_timestamp;
-extern CPU_INT32S IR_AC_Max;
-extern CPU_INT32S IR_AC_Min;
-extern CPU_INT32S IR_AC_Signal_Current;
-extern CPU_INT32S IR_AC_Signal_Previous;
-extern CPU_INT32S ir_avg_reg;
-extern CPU_INT32S heart_rate_sum;
-extern CPU_INT32U heart_rate_index;
+/* FIR Coefficients for Low Pass Filter */
+static const CPU_INT16U FIRCoeffs[50] = {
+    204, 261, 320, 379, 435, 486, 527, 555, 566, 557,
+    525, 470, 391, 289, 167, 26, -128, -290, -456, -621,
+    -778, -922, -1046, -1145, -1211, -1239, -1227, -1171, -1067, -917,
+    -721, -483, -208, 88, 401, 721, 1039, 1345, 1626, 1870,
+    2069, 2211, 2288, 2295, 2226, 2077, 1847, 1535, 1144, 681
+};
 
 // Function Prototypes
 void MAX30102_Init(void);

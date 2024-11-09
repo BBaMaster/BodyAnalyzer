@@ -84,11 +84,7 @@ uint8_t max30102_sensor_init(max30102_handle_t* max30102_handle) {
         return res;
     }
     
-    res = max30102_set_fifo_roll(max30102_handle,MAX30102_BOOL_TRUE);
-    if (res != 0) {
-        Log_Write(LOG_LEVEL_ERROR, "Failed to enable FIFO roll (Error Code: %d)", res);
-        return res;
-    }
+
 
     Log_Write(LOG_LEVEL_MAX30102, "Configuring FIFO sample averaging...\r\n", 0);
     res = max30102_set_fifo_sample_averaging(max30102_handle, MAX30102_SAMPLE_AVERAGING_16); // Change to desired averaging level
@@ -124,13 +120,13 @@ uint8_t max30102_sensor_init(max30102_handle_t* max30102_handle) {
     }
 
     // Set LED pulse amplitudes
-    res = max30102_set_led_red_pulse_amplitude(max30102_handle, 0xFF);
+    res = max30102_set_led_red_pulse_amplitude(max30102_handle, 0x7F);
     if (res != 0) {
         Log_Write(LOG_LEVEL_ERROR, "Failed to set Red LED pulse amplitude (Error Code: %d)", res);
         return res;
     }
 
-    res = max30102_set_led_ir_pulse_amplitude(max30102_handle, 0xFF);
+    res = max30102_set_led_ir_pulse_amplitude(max30102_handle, 0x7F);
     if (res != 0) {
         Log_Write(LOG_LEVEL_ERROR, "Failed to set IR LED pulse amplitude (Error Code: %d)", res);
         return res;
@@ -148,7 +144,11 @@ uint8_t max30102_sensor_init(max30102_handle_t* max30102_handle) {
         Log_Write(LOG_LEVEL_ERROR, "Failed to set Slot 2 for IR LED (Error Code: %d)", res);
         return res;
     }
-
+    res = max30102_set_fifo_roll(max30102_handle, MAX30102_BOOL_TRUE);
+    if (res != 0) {
+        Log_Write(LOG_LEVEL_ERROR, "Failed to enable FIFO roll (Error Code: %d)", res);
+        return res;
+    }
     // Enable interrupts
     res = max30102_set_interrupt(max30102_handle, MAX30102_INTERRUPT_PPG_RDY_EN, MAX30102_BOOL_TRUE);
     if (res != 0) {
@@ -156,11 +156,6 @@ uint8_t max30102_sensor_init(max30102_handle_t* max30102_handle) {
         return res;
     }
 
-    res = max30102_set_interrupt(max30102_handle, MAX30102_INTERRUPT_FIFO_FULL_EN, MAX30102_BOOL_TRUE);
-    if (res != 0) {
-        Log_Write(LOG_LEVEL_ERROR, "Failed to enable FIFO Almost Full interrupt (Error Code: %d)", res);
-        return res;
-    }
     Log_Write(LOG_LEVEL_INFO, "MAX30102 sensor initialized and configured successfully", 0);
     return 0;  // Successful initialization
 }

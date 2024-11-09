@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="esw_uCOS3_cykit-000\esw_uCOS3_cykit\Header Files\includes.h">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="esw_uCOS3_cykit-000\esw_uCOS3_cykit\Source Files\log_task.c">
 <ExpandedNodeIds>
 <v>esw_uCOS3_cykit-000</v>
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit</v>
@@ -54,6 +54,7 @@
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Header Files\os_cfg_app.h</v>
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\SensorLibs</v>
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\SensorLibs\bme280</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\SensorLibs\max30102</v>
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\SensorLibs\max30102\driver_max30102.c</v>
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\SensorLibs\max30102\driver_max30102.h</v>
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\SensorLibs\max30102\max30102_interface.c</v>
@@ -116,23 +117,6 @@
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Generated_Source\PSoC5\SPIM_1</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
-<v>esw_uCOS3_cykit-000</v>
-<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit</v>
-<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\TopDesign</v>
-<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\esw_uCOS3_cykit.cydwr</v>
-<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\esw_uCOS3_cykit.cydwr\Pins</v>
-<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\esw_uCOS3_cykit.cydwr\Analog</v>
-<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\esw_uCOS3_cykit.cydwr\Clocks</v>
-<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\esw_uCOS3_cykit.cydwr\Interrupts</v>
-<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\esw_uCOS3_cykit.cydwr\DMA</v>
-<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\esw_uCOS3_cykit.cydwr\System</v>
-<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\esw_uCOS3_cykit.cydwr\Directives</v>
-<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\esw_uCOS3_cykit.cydwr\Flash Security</v>
-<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\esw_uCOS3_cykit.cydwr\EEPROM</v>
-<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\BSP</v>
-<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\BSP\OS</v>
-<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\BSP\bsp.c</v>
-<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\BSP\bsp.h</v>
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\BSP\bsp_gpio.c</v>
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\BSP\bsp_gpio.h</v>
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\BSP\bsp_i2c.c</v>
@@ -148,6 +132,23 @@
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Header Files\device.h</v>
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Header Files\heartbeatSensor.h</v>
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Header Files\includes.h</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Header Files\log_task.h</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Header Files\os_app_hooks.h</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Header Files\os_cfg.h</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Header Files\os_cfg_app.h</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\SensorLibs</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\SensorLibs\bme280</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\SensorLibs\max30102</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\SensorLibs\max30102\driver_max30102.c</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\SensorLibs\max30102\driver_max30102.h</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\SensorLibs\max30102\max30102_interface.c</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\SensorLibs\max30102\max30102_interface.h</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Source Files</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Source Files\app.c</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Source Files\heartbeatSensor.c</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Source Files\log_task.c</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Source Files\os_app_hooks.c</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\uC-CPU</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -357,7 +358,9 @@
 <name v=".\heartbeatSensor.c" />
 <name v=".\heartbeatSensor.h" />
 <name v=".\APP\app.c" />
-<name v=".\Generated_Source\PSoC5\UART_1.h" />
+<name v=".\max30102_interface.c" />
+<name v=".\TopDesign\TopDesign.cysch" />
+<name v=".\SensorLib\max30102\driver_max30102.h" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -365,7 +368,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1532, 612" SelectedTabbedMdiWindow="8309ff70-3aad-48b8-b647-8f9aa29231d4"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="cd5c3fa7-40fe-4b6d-8354-0906e5e0cb34" /><DocumentWindow Key="C:\Users\Chronikle\Documents\GitHub\BodyAnalyzer\esw_uCOS3_cykit.cydsn\bsp_i2c.c" Guid="1195ea14-978d-46a4-ac41-096d1a387633" /><DocumentWindow Key="C:\Users\Chronikle\Documents\GitHub\BodyAnalyzer\esw_uCOS3_cykit.cydsn\bsp_i2c.h" Guid="68437200-3916-4214-a528-0075c10063b2" /><DocumentWindow Key="C:\Users\Chronikle\Documents\GitHub\BodyAnalyzer\esw_uCOS3_cykit.cydsn\heartbeatSensor.c" Guid="b2e776f1-29c2-405d-a9af-fd50b9da1878" /><DocumentWindow Key="C:\Users\Chronikle\Documents\GitHub\BodyAnalyzer\esw_uCOS3_cykit.cydsn\heartbeatSensor.h" Guid="a642e52a-469a-448d-b21e-603eadbff2be" /><DocumentWindow Key="C:\Users\Chronikle\Documents\GitHub\BodyAnalyzer\esw_uCOS3_cykit.cydsn\APP\app.c" Guid="8309ff70-3aad-48b8-b647-8f9aa29231d4" /><DocumentWindow Key="C:\Users\Chronikle\Documents\GitHub\BodyAnalyzer\esw_uCOS3_cykit.cydsn\Generated_Source\PSoC5\UART_1.h" Guid="a52b4fd8-c5f0-4d9f-959d-6b38a389499a" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1353, 612" SelectedTabbedMdiWindow="b2e776f1-29c2-405d-a9af-fd50b9da1878"><DocumentWindow Key="C:\Users\Chronikle\Documents\GitHub\BodyAnalyzer\esw_uCOS3_cykit.cydsn\bsp_i2c.c" Guid="1195ea14-978d-46a4-ac41-096d1a387633" /><DocumentWindow Key="C:\Users\Chronikle\Documents\GitHub\BodyAnalyzer\esw_uCOS3_cykit.cydsn\bsp_i2c.h" Guid="68437200-3916-4214-a528-0075c10063b2" /><DocumentWindow Key="C:\Users\Chronikle\Documents\GitHub\BodyAnalyzer\esw_uCOS3_cykit.cydsn\heartbeatSensor.c" Guid="b2e776f1-29c2-405d-a9af-fd50b9da1878" /><DocumentWindow Key="C:\Users\Chronikle\Documents\GitHub\BodyAnalyzer\esw_uCOS3_cykit.cydsn\heartbeatSensor.h" Guid="a642e52a-469a-448d-b21e-603eadbff2be" /><DocumentWindow Key="C:\Users\Chronikle\Documents\GitHub\BodyAnalyzer\esw_uCOS3_cykit.cydsn\APP\app.c" Guid="8309ff70-3aad-48b8-b647-8f9aa29231d4" /><DocumentWindow Key="C:\Users\Chronikle\Documents\GitHub\BodyAnalyzer\esw_uCOS3_cykit.cydsn\max30102_interface.c" Guid="691b04a6-6d7f-4526-a3e3-7dafce577141" /><DocumentWindow Key="C:\Users\Chronikle\Documents\GitHub\BodyAnalyzer\esw_uCOS3_cykit.cydsn\TopDesign\TopDesign.cysch" Guid="d485251e-a994-4431-ba1d-402c66b46c44" /><DocumentWindow Key="C:\Users\Chronikle\Documents\GitHub\BodyAnalyzer\esw_uCOS3_cykit.cydsn\SensorLib\max30102\driver_max30102.h" Guid="7602f387-072c-4593-b6d9-decbd6ddff4d" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

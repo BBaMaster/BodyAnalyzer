@@ -4,6 +4,7 @@
 *                                         Timer ISR
 *********************************************************************************************************
 */
+volatile CPU_INT32U current_timestamp = 0;
 // Timer ISR to increment timestamp
 CY_ISR(Timer_ISR) {
     current_timestamp++;
@@ -16,7 +17,6 @@ CY_ISR(Timer_ISR) {
 */
 void I2C_Init(void) {
     OS_ERR os_err;
-    
     Log_Write(LOG_LEVEL_I2C, "Starting I2C hardware initialization", 0);
     I2C_1_Start();
     Log_Write(LOG_LEVEL_I2C, "I2C hardware started", 0);
