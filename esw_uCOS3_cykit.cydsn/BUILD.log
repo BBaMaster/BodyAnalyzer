@@ -1,21 +1,5 @@
---------------- Build Started: 11/09/2024 02:29:38 Project: esw_uCOS3_cykit, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
-cydsfit.exe -.appdatapath "C:\Users\bernh\AppData\Local\Cypress Semiconductor\PSoC Creator\4.4" -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\esw_uCOS3_cykit.cydsn\esw_uCOS3_cykit.cyprj -d CY8C5888LTI-LP097 -s C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\esw_uCOS3_cykit.cydsn\Generated_Source\PSoC5 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
-Elaborating Design...
-HDL Generation...
-Synthesis...
-Tech Mapping...
-ADD: pft.M0040: information: The following 3 pin(s) will be assigned a location by the fitter: Pin_2(0), Pin_2(1), push_button(0)
-Analog Placement...
-Analog Routing...
-Analog Code Generation...
-Digital Placement...
-Digital Routing...
-Bitstream Generation...
-Bitstream Verification...
-Static timing analysis...
-API Generation...
-Dependency Generation...
-Cleanup...
+--------------- Build Started: 11/09/2024 21:01:52 Project: esw_uCOS3_cykit, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+The code generation step is up to date.
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/app.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c APP\app.c -o .\CortexM3\ARM_GCC_541\Debug\app.o
 In file included from APP\app.c:16:0:
 ./heartbeatSensor.h:43:13: warning: 'max30102_Task' declared 'static' but never defined [-Wunused-function]
@@ -26,10 +10,10 @@ In file included from APP\app.c:17:0:
  static void bme688_Task(void *p_arg);
              ^
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/log_task.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c log_task.c -o .\CortexM3\ARM_GCC_541\Debug\log_task.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/heartbeatSensor.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c heartbeatSensor.c -o .\CortexM3\ARM_GCC_541\Debug\heartbeatSensor.o
 log_task.c:6:19: warning: 'allowed_log_types' defined but not used [-Wunused-variable]
  static CPU_INT08U allowed_log_types = LOG_ALLOWED_LEVELS;  /* Bitmask for allowed log types */
                    ^
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/heartbeatSensor.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c heartbeatSensor.c -o .\CortexM3\ARM_GCC_541\Debug\heartbeatSensor.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/environmentSensor.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c environmentSensor.c -o .\CortexM3\ARM_GCC_541\Debug\environmentSensor.o
 environmentSensor.c: In function 'bsp_i2c_read_bme':
 environmentSensor.c:47:16: warning: unused variable 'status' [-Wunused-variable]
@@ -48,34 +32,15 @@ environmentSensor.c:54:16: warning: unused variable 'status' [-Wunused-variable]
      CPU_INT08U status;
                 ^
 environmentSensor.c: In function 'bme688_Task':
-environmentSensor.c:78:26: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
-   bme688_handle.delay_us = us_Delay;
-                          ^
-environmentSensor.c:79:22: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
+environmentSensor.c:77:22: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
    bme688_handle.read = bsp_i2c_read_bme;
                       ^
-environmentSensor.c:80:23: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
+environmentSensor.c:78:23: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
    bme688_handle.write = bsp_i2c_write_bme;
                        ^
-environmentSensor.c:77:11: warning: unused variable 'n_fields' [-Wunused-variable]
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/bsp_i2c.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c bsp_i2c.c -o .\CortexM3\ARM_GCC_541\Debug\bsp_i2c.o
-   uint8_t n_fields;
+environmentSensor.c:82:11: warning: unused variable 'chip_Id' [-Wunused-variable]
+   uint8_t chip_Id = 0;
            ^
-environmentSensor.c:76:22: warning: unused variable 'data' [-Wunused-variable]
-   struct bme68x_data data;
-                      ^
-environmentSensor.c:75:28: warning: unused variable 'heatr_conf' [-Wunused-variable]
-   struct bme68x_heatr_conf heatr_conf;
-                            ^
-environmentSensor.c:74:22: warning: unused variable 'conf' [-Wunused-variable]
-   struct bme68x_conf conf;
-                      ^
-environmentSensor.c:73:10: warning: unused variable 'rslt' [-Wunused-variable]
-   int8_t rslt;
-          ^
-environmentSensor.c:67:10: warning: unused variable 'os_err' [-Wunused-variable]
-   OS_ERR os_err;
-          ^
 environmentSensor.c: In function 'bsp_i2c_read_bme':
 environmentSensor.c:51:1: warning: control reaches end of non-void function [-Wreturn-type]
  }
@@ -84,10 +49,8 @@ environmentSensor.c: In function 'bsp_i2c_write_bme':
 environmentSensor.c:58:1: warning: control reaches end of non-void function [-Wreturn-type]
  }
  ^
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/bsp_counter.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c bsp_counter.c -o .\CortexM3\ARM_GCC_541\Debug\bsp_counter.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/bsp_i2c.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c bsp_i2c.c -o .\CortexM3\ARM_GCC_541\Debug\bsp_i2c.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/max30102_interface.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c max30102_interface.c -o .\CortexM3\ARM_GCC_541\Debug\max30102_interface.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Counter_1.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Counter_1.c -o .\CortexM3\ARM_GCC_541\Debug\Counter_1.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Counter_1_PM.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Counter_1_PM.c -o .\CortexM3\ARM_GCC_541\Debug\Counter_1_PM.o
 arm-none-eabi-ar.exe -rs .\CortexM3\ARM_GCC_541\Debug\esw_uCOS3_cykit.a .\CortexM3\ARM_GCC_541\Debug\UART_1.o .\CortexM3\ARM_GCC_541\Debug\UART_1_PM.o .\CortexM3\ARM_GCC_541\Debug\UART_1_INT.o .\CortexM3\ARM_GCC_541\Debug\UART_1_BOOT.o .\CortexM3\ARM_GCC_541\Debug\Pin_1.o .\CortexM3\ARM_GCC_541\Debug\UART_1_IntClock.o .\CortexM3\ARM_GCC_541\Debug\cy_em_eeprom.o .\CortexM3\ARM_GCC_541\Debug\CyDmac.o .\CortexM3\ARM_GCC_541\Debug\CyFlash.o .\CortexM3\ARM_GCC_541\Debug\CyLib.o .\CortexM3\ARM_GCC_541\Debug\cyPm.o .\CortexM3\ARM_GCC_541\Debug\CySpc.o .\CortexM3\ARM_GCC_541\Debug\cyutils.o .\CortexM3\ARM_GCC_541\Debug\Pin_2.o .\CortexM3\ARM_GCC_541\Debug\push_button.o .\CortexM3\ARM_GCC_541\Debug\SCL_1.o .\CortexM3\ARM_GCC_541\Debug\SDA_1.o .\CortexM3\ARM_GCC_541\Debug\I2C_1.o .\CortexM3\ARM_GCC_541\Debug\I2C_1_BOOT.o .\CortexM3\ARM_GCC_541\Debug\I2C_1_INT.o .\CortexM3\ARM_GCC_541\Debug\I2C_1_PM.o .\CortexM3\ARM_GCC_541\Debug\I2C_1_SLAVE.o .\CortexM3\ARM_GCC_541\Debug\I2C_1_MASTER.o .\CortexM3\ARM_GCC_541\Debug\Pin_Blue_Led.o .\CortexM3\ARM_GCC_541\Debug\Pin_Green_Led.o .\CortexM3\ARM_GCC_541\Debug\Pin_Red_Led.o .\CortexM3\ARM_GCC_541\Debug\DMA_I2C_dma.o .\CortexM3\ARM_GCC_541\Debug\DMA_SPI_dma.o .\CortexM3\ARM_GCC_541\Debug\I2C_INTR.o .\CortexM3\ARM_GCC_541\Debug\I2C_DataReady.o .\CortexM3\ARM_GCC_541\Debug\Timer_1.o .\CortexM3\ARM_GCC_541\Debug\Timer_1_PM.o .\CortexM3\ARM_GCC_541\Debug\Timer_ISR.o .\CortexM3\ARM_GCC_541\Debug\Counter_1.o .\CortexM3\ARM_GCC_541\Debug\Counter_1_PM.o .\CortexM3\ARM_GCC_541\Debug\Clock_1.o .\CortexM3\ARM_GCC_541\Debug\CyBootAsmGnu.o
 arm-none-eabi-ar.exe: creating .\CortexM3\ARM_GCC_541\Debug\esw_uCOS3_cykit.a
 arm-none-eabi-gcc.exe -Wl,--start-group -o C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\esw_uCOS3_cykit.cydsn\CortexM3\ARM_GCC_541\Debug\esw_uCOS3_cykit.elf .\CortexM3\ARM_GCC_541\Debug\app.o .\CortexM3\ARM_GCC_541\Debug\os_app_hooks.o .\CortexM3\ARM_GCC_541\Debug\log_task.o .\CortexM3\ARM_GCC_541\Debug\heartbeatSensor.o .\CortexM3\ARM_GCC_541\Debug\environmentSensor.o .\CortexM3\ARM_GCC_541\Debug\bsp_os.o .\CortexM3\ARM_GCC_541\Debug\bsp.o .\CortexM3\ARM_GCC_541\Debug\cpu_bsp.o .\CortexM3\ARM_GCC_541\Debug\bsp_uart.o .\CortexM3\ARM_GCC_541\Debug\bsp_gpio.o .\CortexM3\ARM_GCC_541\Debug\bsp_i2c.o .\CortexM3\ARM_GCC_541\Debug\bsp_counter.o .\CortexM3\ARM_GCC_541\Debug\cpu_c.o .\CortexM3\ARM_GCC_541\Debug\cpu_core.o .\CortexM3\ARM_GCC_541\Debug\lib_math.o .\CortexM3\ARM_GCC_541\Debug\lib_mem.o .\CortexM3\ARM_GCC_541\Debug\lib_str.o .\CortexM3\ARM_GCC_541\Debug\lib_ascii.o .\CortexM3\ARM_GCC_541\Debug\os_cpu_c.o .\CortexM3\ARM_GCC_541\Debug\os_pend_multi.o .\CortexM3\ARM_GCC_541\Debug\os_prio.o .\CortexM3\ARM_GCC_541\Debug\os_q.o .\CortexM3\ARM_GCC_541\Debug\os_sem.o .\CortexM3\ARM_GCC_541\Debug\os_stat.o .\CortexM3\ARM_GCC_541\Debug\os_task.o .\CortexM3\ARM_GCC_541\Debug\os_tick.o .\CortexM3\ARM_GCC_541\Debug\os_time.o .\CortexM3\ARM_GCC_541\Debug\os_tmr.o .\CortexM3\ARM_GCC_541\Debug\os_var.o .\CortexM3\ARM_GCC_541\Debug\os_cfg_app.o .\CortexM3\ARM_GCC_541\Debug\os_core.o .\CortexM3\ARM_GCC_541\Debug\os_dbg.o .\CortexM3\ARM_GCC_541\Debug\os_flag.o .\CortexM3\ARM_GCC_541\Debug\os_int.o .\CortexM3\ARM_GCC_541\Debug\os_mem.o .\CortexM3\ARM_GCC_541\Debug\os_msg.o .\CortexM3\ARM_GCC_541\Debug\os_mutex.o .\CortexM3\ARM_GCC_541\Debug\max30102_interface.o .\CortexM3\ARM_GCC_541\Debug\driver_max30102.o .\CortexM3\ARM_GCC_541\Debug\bme68x.o .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o .\CortexM3\ARM_GCC_541\Debug\cymetadata.o .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o .\CortexM3\ARM_GCC_541\Debug\cpu_a.o .\CortexM3\ARM_GCC_541\Debug\os_cpu_a.o .\CortexM3\ARM_GCC_541\Debug\esw_uCOS3_cykit.a "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM3\ARM_GCC_541\Debug\CyComponentLibrary.a" -mcpu=cortex-m3 -mthumb -L Generated_Source\PSoC5 -Wl,-Map,.\CortexM3\ARM_GCC_541\Debug/esw_uCOS3_cykit.map -T Generated_Source\PSoC5\cm3gcc.ld -specs=nano.specs -Wl,--gc-sections -g -ffunction-sections -Og -ffat-lto-objects -Wl,--end-group
@@ -96,6 +59,6 @@ No ELF section .cychecksum found, creating one
 Application checksum calculated and stored in ELF section .cychecksum
 Checksum calculated and stored in ELF section .cymeta
 cyelftool.exe -S C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\esw_uCOS3_cykit.cydsn\CortexM3\ARM_GCC_541\Debug\esw_uCOS3_cykit.elf
-Flash used: 29072 of 262144 bytes (11,1 %).
-SRAM used: 23889 of 65536 bytes (36,5 %). Stack: 2048 bytes. Heap: 128 bytes.
---------------- Build Succeeded: 11/09/2024 02:29:44 ---------------
+Flash used: 34928 of 262144 bytes (13,3 %).
+SRAM used: 23905 of 65536 bytes (36,5 %). Stack: 2048 bytes. Heap: 128 bytes.
+--------------- Build Succeeded: 11/09/2024 21:01:54 ---------------

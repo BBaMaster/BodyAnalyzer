@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
   29:log_task.c    ****     UART_1_PutString("\r\n");
   30:log_task.c    **** }
   31:log_task.c    **** 
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 2
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 2
 
 
   32:log_task.c    **** /* Helper function to convert log level to string */
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
   73              	.LVL5:
   74 0036 7047     		bx	lr
   75              	.LVL6:
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 3
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 3
 
 
   76              	.L3:
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  121 0054 00000000 		.word	.LC0
  122 0058 10000000 		.word	.LC2
  123 005c 18000000 		.word	.LC3
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 4
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 4
 
 
  124 0060 20000000 		.word	.LC4
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  173 0020 5DF804FB 		ldr	pc, [sp], #4
  174              	.L20:
  175              		.align	2
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 5
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 5
 
 
  176              	.L19:
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
   78:log_task.c    ****     CPU_TS ts;
   79:log_task.c    ****     LOG_MSG *p_msg;
   80:log_task.c    **** 
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 6
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 6
 
 
   81:log_task.c    ****     (void)p_arg;
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  238              		.loc 1 96 0
  239 0042 0DF10E02 		add	r2, sp, #14
  240 0046 0021     		movs	r1, #0
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 7
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 7
 
 
  241 0048 2248     		ldr	r0, .L29+28
@@ -394,7 +394,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  261              		.loc 1 106 0
  262 006c 0078     		ldrb	r0, [r0]	@ zero_extendqisi2
  263              	.LVL35:
- 264 006e 10F0AF0F 		tst	r0, #175
+ 264 006e 10F0EF0F 		tst	r0, #239
  265 0072 ECD0     		beq	.L25
  107:log_task.c    ****                 /* Print the log level followed by the message */
  108:log_task.c    ****                 UART_1_PutString(Log_LevelToString(p_msg->level));
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  280 0088 1448     		ldr	r0, .L29+36
  281 008a FFF7FEFF 		bl	UART_1_PutString
  282              	.LVL40:
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 8
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 8
 
 
  112:log_task.c    **** 
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  325 00dc 80000000 		.word	.LC11
  326 00e0 F8000000 		.word	.LC17
  327 00e4 28010000 		.word	.LC18
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 9
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 9
 
 
  328              		.cfi_endproc
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
   71:log_task.c    **** 
  378              		.loc 1 71 0 is_stmt 1
  379 003e 0DB0     		add	sp, sp, #52
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 10
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 10
 
 
  380              		.cfi_def_cfa_offset 4
@@ -587,7 +587,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  127:log_task.c    ****     // Check if the log level is valid and allowed
  128:log_task.c    ****     if (!(level & LOG_ALLOWED_LEVELS) || (level == LOG_LEVEL_NONE)) {
  420              		.loc 1 128 0
- 421 0006 10F0AF05 		ands	r5, r0, #175
+ 421 0006 10F0EF05 		ands	r5, r0, #239
  422 000a 48D0     		beq	.L36
  423              		.loc 1 128 0 is_stmt 0 discriminator 1
  424 000c 0028     		cmp	r0, #0
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  131:log_task.c    **** 
  132:log_task.c    ****     OS_ERR os_err;
  133:log_task.c    ****     LOG_MSG *log_msg;
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 11
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 11
 
 
  134:log_task.c    ****     CPU_CHAR formatted_msg[LOG_MSG_SIZE];
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  463              	.LVL57:
  152:log_task.c    ****     va_end(args);
  153:log_task.c    **** 
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 12
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 12
 
 
  154:log_task.c    ****     strncpy(log_msg->msg, formatted_msg, LOG_MSG_SIZE - 1);
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  167:log_task.c    ****     } else if (os_err != OS_ERR_NONE) {
  505              		.loc 1 167 0
  506 008a 41B1     		cbz	r1, .L36
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 13
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 13
 
 
  168:log_task.c    ****         Log_PrintErrorWithCode("Error: Failed to post message to log queue", os_err);
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  556              	.LC1:
  557 0008 494E464F 		.ascii	"INFO\000"
  557      00
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 14
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 14
 
 
  558 000d 000000   		.space	3
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  588      723A2046 
  588      61696C65 
  588      6420746F 
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 15
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 15
 
 
  588      20637265 
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  614      20697320 
  615 01d9 000000   		.space	3
  616              	.LC23:
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 16
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 16
 
 
  617 01dc 4572726F 		.ascii	"Error: Failed to post message to log queue\000"
@@ -923,7 +923,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  632              		.file 14 "c:\\program files (x86)\\cypress\\psoc creator\\4.4\\psoc creator\\import\\gnu\\arm\\5.4
  633              		.section	.debug_info,"",%progbits
  634              	.Ldebug_info0:
- 635 0000 A8130000 		.4byte	0x13a8
+ 635 0000 A7130000 		.4byte	0x13a7
  636 0004 0400     		.2byte	0x4
  637 0006 00000000 		.4byte	.Ldebug_abbrev0
  638 000a 04       		.byte	0x4
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  667 004e 02       		.byte	0x2
  668 004f 62       		.byte	0x62
  669 0050 25000000 		.4byte	0x25
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 17
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 17
 
 
  670 0054 06       		.uleb128 0x6
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  724 00b4 01       		.byte	0x1
  725 00b5 08       		.byte	0x8
  726 00b6 C1050000 		.4byte	.LASF14
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 18
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 18
 
 
  727 00ba 08       		.uleb128 0x8
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  781 012c D9       		.byte	0xd9
  782 012d FF000000 		.4byte	0xff
  783 0131 02       		.uleb128 0x2
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 19
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 19
 
 
  784 0132 7A0B0000 		.4byte	.LASF24
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  838 01aa 02       		.uleb128 0x2
  839 01ab 210B0000 		.4byte	.LASF35
  840 01af 07       		.byte	0x7
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 20
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 20
 
 
  841 01b0 42       		.byte	0x42
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  895 0229 0D       		.uleb128 0xd
  896 022a 600A0000 		.4byte	.LASF45
  897 022e 00       		.byte	0
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 21
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 21
 
 
  898 022f 0E       		.uleb128 0xe
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  952 02ad 0E       		.uleb128 0xe
  953 02ae 4A130000 		.4byte	.LASF64
  954 02b2 5246     		.2byte	0x4652
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 22
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 22
 
 
  955 02b4 0E       		.uleb128 0xe
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  1009 0332 0E       		.uleb128 0xe
  1010 0333 06020000 		.4byte	.LASF83
  1011 0337 C256     		.2byte	0x56c2
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 23
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 23
 
 
  1012 0339 0E       		.uleb128 0xe
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  1066 03b7 0E       		.uleb128 0xe
  1067 03b8 B3090000 		.4byte	.LASF102
  1068 03bc AA61     		.2byte	0x61aa
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 24
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 24
 
 
  1069 03be 0E       		.uleb128 0xe
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  1123 043c 0E       		.uleb128 0xe
  1124 043d 040F0000 		.4byte	.LASF121
  1125 0441 7969     		.2byte	0x6979
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 25
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 25
 
 
  1126 0443 0E       		.uleb128 0xe
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  1180 04c1 0E       		.uleb128 0xe
  1181 04c2 610B0000 		.4byte	.LASF140
  1182 04c6 316E     		.2byte	0x6e31
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 26
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 26
 
 
  1183 04c8 0E       		.uleb128 0xe
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  1237 0546 0E       		.uleb128 0xe
  1238 0547 B6020000 		.4byte	.LASF159
  1239 054b 5A71     		.2byte	0x715a
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 27
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 27
 
 
  1240 054d 0E       		.uleb128 0xe
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  1294 05cb 0E       		.uleb128 0xe
  1295 05cc 9B070000 		.4byte	.LASF178
  1296 05d0 7872     		.2byte	0x7278
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 28
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 28
 
 
  1297 05d2 0E       		.uleb128 0xe
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  1351 0650 0E       		.uleb128 0xe
  1352 0651 EB050000 		.4byte	.LASF197
  1353 0655 4873     		.2byte	0x7348
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 29
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 29
 
 
  1354 0657 0E       		.uleb128 0xe
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  1408 06d0 BD100000 		.4byte	.LASF212
  1409 06d4 08       		.byte	0x8
  1410 06d5 2E03     		.2byte	0x32e
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 30
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 30
 
 
  1411 06d7 040D0000 		.4byte	0xd04
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  1465 074c 100D0000 		.4byte	0xd10
  1466 0750 00       		.byte	0
  1467 0751 11       		.uleb128 0x11
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 31
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 31
 
 
  1468 0752 AD000000 		.4byte	.LASF222
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  1522 07c7 AA0D0000 		.4byte	.LASF231
  1523 07cb 08       		.byte	0x8
  1524 07cc 5803     		.2byte	0x358
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 32
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 32
 
 
  1525 07ce 94010000 		.4byte	0x194
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  1579 0843 79070000 		.4byte	0x779
  1580 0847 20       		.byte	0x20
  1581 0848 00       		.byte	0
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 33
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 33
 
 
  1582 0849 0F       		.uleb128 0xf
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  1636 08be 545300   		.ascii	"TS\000"
  1637 08c1 08       		.byte	0x8
  1638 08c2 A103     		.2byte	0x3a1
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 34
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 34
 
 
  1639 08c4 47010000 		.4byte	0x147
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  1693 093c 14       		.byte	0x14
  1694 093d 11       		.uleb128 0x11
  1695 093e 23080000 		.4byte	.LASF247
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 35
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 35
 
 
  1696 0942 08       		.byte	0x8
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  1750 09b7 08       		.byte	0x8
  1751 09b8 C903     		.2byte	0x3c9
  1752 09ba F7010000 		.4byte	0x1f7
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 36
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 36
 
 
  1753 09be 36       		.byte	0x36
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  1807 0a32 50       		.byte	0x50
  1808 0a33 11       		.uleb128 0x11
  1809 0a34 6C0A0000 		.4byte	.LASF263
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 37
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 37
 
 
  1810 0a38 08       		.byte	0x8
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  1864 0aad 08       		.byte	0x8
  1865 0aae EF03     		.2byte	0x3ef
  1866 0ab0 73010000 		.4byte	0x173
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 38
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 38
 
 
  1867 0ab4 84       		.byte	0x84
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  1921 0b29 A0       		.byte	0xa0
  1922 0b2a 11       		.uleb128 0x11
  1923 0b2b 150B0000 		.4byte	.LASF279
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 39
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 39
 
 
  1924 0b2f 08       		.byte	0x8
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  1978 0ba4 08       		.byte	0x8
  1979 0ba5 1F04     		.2byte	0x41f
  1980 0ba7 F20C0000 		.4byte	0xcf2
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 40
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 40
 
 
  1981 0bab 00       		.byte	0
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  2035 0c20 10       		.byte	0x10
  2036 0c21 11       		.uleb128 0x11
  2037 0c22 F6130000 		.4byte	.LASF291
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 41
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 41
 
 
  2038 0c26 08       		.byte	0x8
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  2092 0c9b 20       		.byte	0x20
  2093 0c9c 08       		.byte	0x8
  2094 0c9d FF02     		.2byte	0x2ff
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 42
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 42
 
 
  2095 0c9f F20C0000 		.4byte	0xcf2
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  2149 0d11 04       		.byte	0x4
  2150 0d12 2B070000 		.4byte	0x72b
  2151 0d16 08       		.uleb128 0x8
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 43
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 43
 
 
  2152 0d17 04       		.byte	0x4
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  2206 0d89 7C000000 		.4byte	.LFE65-.LFB65
  2207 0d8d 01       		.uleb128 0x1
  2208 0d8e 9C       		.byte	0x9c
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 44
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 44
 
 
  2209 0d8f A30D0000 		.4byte	0xda3
@@ -2620,7 +2620,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  2245 0de3 A87F     		.sleb128 -88
  2246 0de5 1D       		.uleb128 0x1d
  2247 0de6 12000000 		.4byte	.LVL23
- 2248 0dea 1F130000 		.4byte	0x131f
+ 2248 0dea 1E130000 		.4byte	0x131e
  2249 0dee 100E0000 		.4byte	0xe10
  2250 0df2 1E       		.uleb128 0x1e
  2251 0df3 01       		.uleb128 0x1
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  2263 0e00 01       		.uleb128 0x1
  2264 0e01 52       		.byte	0x52
  2265 0e02 05       		.uleb128 0x5
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 45
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 45
 
 
  2266 0e03 03       		.byte	0x3
@@ -2653,7 +2653,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  2275 0e0f 00       		.byte	0
  2276 0e10 1D       		.uleb128 0x1d
  2277 0e11 18000000 		.4byte	.LVL24
- 2278 0e15 2A130000 		.4byte	0x132a
+ 2278 0e15 29130000 		.4byte	0x1329
  2279 0e19 250E0000 		.4byte	0xe25
  2280 0e1d 1E       		.uleb128 0x1e
  2281 0e1e 01       		.uleb128 0x1
@@ -2664,7 +2664,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  2286 0e24 00       		.byte	0
  2287 0e25 1F       		.uleb128 0x1f
  2288 0e26 1E000000 		.4byte	.LVL25
- 2289 0e2a 2A130000 		.4byte	0x132a
+ 2289 0e2a 29130000 		.4byte	0x1329
  2290 0e2e 1E       		.uleb128 0x1e
  2291 0e2f 01       		.uleb128 0x1
  2292 0e30 50       		.byte	0x50
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  2320 0e6d 1C       		.uleb128 0x1c
  2321 0e6e 2B0D0000 		.4byte	.LASF307
  2322 0e72 01       		.byte	0x1
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 46
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 46
 
 
  2323 0e73 4C       		.byte	0x4c
@@ -2730,7 +2730,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  2349 0ea1 70010000 		.4byte	.LLST4
  2350 0ea5 1D       		.uleb128 0x1d
  2351 0ea6 18000000 		.4byte	.LVL28
- 2352 0eaa 35130000 		.4byte	0x1335
+ 2352 0eaa 34130000 		.4byte	0x1334
  2353 0eae E20E0000 		.4byte	0xee2
  2354 0eb2 1E       		.uleb128 0x1e
  2355 0eb3 01       		.uleb128 0x1
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  2377 0ed2 54       		.byte	0x54
  2378 0ed3 1E       		.uleb128 0x1e
  2379 0ed4 02       		.uleb128 0x2
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 47
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 47
 
 
  2380 0ed5 7D       		.byte	0x7d
@@ -2787,7 +2787,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  2403 0ef8 00       		.byte	0
  2404 0ef9 1D       		.uleb128 0x1d
  2405 0efa 34000000 		.4byte	.LVL30
- 2406 0efe 41130000 		.4byte	0x1341
+ 2406 0efe 40130000 		.4byte	0x1340
  2407 0f02 250F0000 		.4byte	0xf25
  2408 0f06 1E       		.uleb128 0x1e
  2409 0f07 01       		.uleb128 0x1
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  2434 0f26 40000000 		.4byte	.LVL31
  2435 0f2a A30D0000 		.4byte	0xda3
  2436 0f2e 3C0F0000 		.4byte	0xf3c
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 48
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 48
 
 
  2437 0f32 1E       		.uleb128 0x1e
@@ -2830,7 +2830,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  2443 0f3b 00       		.byte	0
  2444 0f3c 1D       		.uleb128 0x1d
  2445 0f3d 4E000000 		.4byte	.LVL32
- 2446 0f41 4D130000 		.4byte	0x134d
+ 2446 0f41 4C130000 		.4byte	0x134c
  2447 0f45 5E0F0000 		.4byte	0xf5e
  2448 0f49 1E       		.uleb128 0x1e
  2449 0f4a 01       		.uleb128 0x1
@@ -2852,7 +2852,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  2465 0f5d 00       		.byte	0
  2466 0f5e 1D       		.uleb128 0x1d
  2467 0f5f 64000000 		.4byte	.LVL33
- 2468 0f63 59130000 		.4byte	0x1359
+ 2468 0f63 58130000 		.4byte	0x1358
  2469 0f67 930F0000 		.4byte	0xf93
  2470 0f6b 1E       		.uleb128 0x1e
  2471 0f6c 01       		.uleb128 0x1
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  2491 0f83 74       		.sleb128 -12
  2492 0f84 1E       		.uleb128 0x1e
  2493 0f85 02       		.uleb128 0x2
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 49
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 49
 
 
  2494 0f86 7D       		.byte	0x7d
@@ -2899,10 +2899,10 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  2509 0f98 7A0D0000 		.4byte	0xd7a
  2510 0f9c 22       		.uleb128 0x22
  2511 0f9d 7C000000 		.4byte	.LVL37
- 2512 0fa1 2A130000 		.4byte	0x132a
+ 2512 0fa1 29130000 		.4byte	0x1329
  2513 0fa5 1D       		.uleb128 0x1d
  2514 0fa6 82000000 		.4byte	.LVL38
- 2515 0faa 2A130000 		.4byte	0x132a
+ 2515 0faa 29130000 		.4byte	0x1329
  2516 0fae BC0F0000 		.4byte	0xfbc
  2517 0fb2 1E       		.uleb128 0x1e
  2518 0fb3 01       		.uleb128 0x1
@@ -2913,7 +2913,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  2523 0fbb 00       		.byte	0
  2524 0fbc 1D       		.uleb128 0x1d
  2525 0fbd 88000000 		.4byte	.LVL39
- 2526 0fc1 2A130000 		.4byte	0x132a
+ 2526 0fc1 29130000 		.4byte	0x1329
  2527 0fc5 D00F0000 		.4byte	0xfd0
  2528 0fc9 1E       		.uleb128 0x1e
  2529 0fca 01       		.uleb128 0x1
@@ -2924,7 +2924,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  2534 0fcf 00       		.byte	0
  2535 0fd0 1D       		.uleb128 0x1d
  2536 0fd1 8E000000 		.4byte	.LVL40
- 2537 0fd5 2A130000 		.4byte	0x132a
+ 2537 0fd5 29130000 		.4byte	0x1329
  2538 0fd9 E70F0000 		.4byte	0xfe7
  2539 0fdd 1E       		.uleb128 0x1e
  2540 0fde 01       		.uleb128 0x1
@@ -2935,10 +2935,10 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  2545 0fe6 00       		.byte	0
  2546 0fe7 1D       		.uleb128 0x1d
  2547 0fe8 9A000000 		.4byte	.LVL41
- 2548 0fec 65130000 		.4byte	0x1365
+ 2548 0fec 64130000 		.4byte	0x1364
  2549 0ff0 0A100000 		.4byte	0x100a
  2550 0ff4 1E       		.uleb128 0x1e
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 50
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 50
 
 
  2551 0ff5 01       		.uleb128 0x1
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  2605 1055 01       		.byte	0x1
  2606 1056 33       		.byte	0x33
  2607 1057 90060000 		.4byte	0x690
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 51
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 51
 
 
  2608 105b 02       		.uleb128 0x2
@@ -3006,7 +3006,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  2610 105d 76       		.sleb128 -10
  2611 105e 1D       		.uleb128 0x1d
  2612 105f 32000000 		.4byte	.LVL47
- 2613 1063 71130000 		.4byte	0x1371
+ 2613 1063 70130000 		.4byte	0x1370
  2614 1067 CA100000 		.4byte	0x10ca
  2615 106b 1E       		.uleb128 0x1e
  2616 106c 01       		.uleb128 0x1
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  2662 10a6 03       		.uleb128 0x3
  2663 10a7 0A       		.byte	0xa
  2664 10a8 0002     		.2byte	0x200
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 52
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 52
 
 
  2665 10aa 1E       		.uleb128 0x1e
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  2719 10f8 01       		.byte	0x1
  2720 10f9 7E       		.byte	0x7e
  2721 10fa E9000000 		.4byte	0xe9
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 53
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 53
 
 
  2722 10fe A4010000 		.4byte	.LLST5
@@ -3163,7 +3163,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  2761 114a 887F     		.sleb128 -120
  2762 114c 1D       		.uleb128 0x1d
  2763 114d 1C000000 		.4byte	.LVL51
- 2764 1151 7D130000 		.4byte	0x137d
+ 2764 1151 7C130000 		.4byte	0x137c
  2765 1155 69110000 		.4byte	0x1169
  2766 1159 1E       		.uleb128 0x1e
  2767 115a 01       		.uleb128 0x1
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  2776 1166 91       		.byte	0x91
  2777 1167 46       		.sleb128 -58
  2778 1168 00       		.byte	0
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 54
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 54
 
 
  2779 1169 1D       		.uleb128 0x1d
@@ -3194,7 +3194,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  2789 117f 00       		.byte	0
  2790 1180 1D       		.uleb128 0x1d
  2791 1181 42000000 		.4byte	.LVL57
- 2792 1185 89130000 		.4byte	0x1389
+ 2792 1185 88130000 		.4byte	0x1388
  2793 1189 A8110000 		.4byte	0x11a8
  2794 118d 1E       		.uleb128 0x1e
  2795 118e 01       		.uleb128 0x1
@@ -3224,7 +3224,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  2819 11a7 00       		.byte	0
  2820 11a8 1D       		.uleb128 0x1d
  2821 11a9 4C000000 		.4byte	.LVL58
- 2822 11ad 94130000 		.4byte	0x1394
+ 2822 11ad 93130000 		.4byte	0x1393
  2823 11b1 C9110000 		.4byte	0x11c9
  2824 11b5 1E       		.uleb128 0x1e
  2825 11b6 01       		.uleb128 0x1
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  2833 11be 03       		.uleb128 0x3
  2834 11bf 91       		.byte	0x91
  2835 11c0 F47E     		.sleb128 -140
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 55
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 55
 
 
  2836 11c2 1E       		.uleb128 0x1e
@@ -3250,7 +3250,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  2842 11c8 00       		.byte	0
  2843 11c9 1D       		.uleb128 0x1d
  2844 11ca 6A000000 		.4byte	.LVL59
- 2845 11ce 9F130000 		.4byte	0x139f
+ 2845 11ce 9E130000 		.4byte	0x139e
  2846 11d2 F8110000 		.4byte	0x11f8
  2847 11d6 1E       		.uleb128 0x1e
  2848 11d7 01       		.uleb128 0x1
@@ -3296,9 +3296,9 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  2888 120e 00       		.byte	0
  2889 120f 1D       		.uleb128 0x1d
  2890 1210 88000000 		.4byte	.LVL61
- 2891 1214 65130000 		.4byte	0x1365
+ 2891 1214 64130000 		.4byte	0x1364
  2892 1218 32120000 		.4byte	0x1232
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 56
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 56
 
 
  2893 121c 1E       		.uleb128 0x1e
@@ -3333,7 +3333,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  2922 1248 00       		.byte	0
  2923 1249 1F       		.uleb128 0x1f
  2924 124a 9E000000 		.4byte	.LVL63
- 2925 124e 65130000 		.4byte	0x1365
+ 2925 124e 64130000 		.4byte	0x1364
  2926 1252 1E       		.uleb128 0x1e
  2927 1253 01       		.uleb128 0x1
  2928 1254 50       		.byte	0x50
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  2947 126a 04       		.byte	0x4
  2948 126b 6F120000 		.4byte	0x126f
  2949 126f 09       		.uleb128 0x9
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 57
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 57
 
 
  2950 1270 DE000000 		.4byte	0xde
@@ -3367,146 +3367,146 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  2953 1279 01       		.byte	0x1
  2954 127a 06       		.byte	0x6
  2955 127b E9000000 		.4byte	0xe9
- 2956 127f AF7F     		.sleb128 -81
- 2957 1281 27       		.uleb128 0x27
- 2958 1282 78030000 		.4byte	.LASF316
- 2959 1286 0B       		.byte	0xb
- 2960 1287 1207     		.2byte	0x712
- 2961 1289 8D120000 		.4byte	0x128d
- 2962 128d 28       		.uleb128 0x28
- 2963 128e C5000000 		.4byte	0xc5
- 2964 1292 29       		.uleb128 0x29
- 2965 1293 AB020000 		.4byte	.LASF317
- 2966 1297 01       		.byte	0x1
- 2967 1298 0E       		.byte	0xe
- 2968 1299 49080000 		.4byte	0x849
- 2969 129d 05       		.uleb128 0x5
- 2970 129e 03       		.byte	0x3
- 2971 129f 00000000 		.4byte	LogTaskSem
- 2972 12a3 29       		.uleb128 0x29
- 2973 12a4 38060000 		.4byte	.LASF318
- 2974 12a8 01       		.byte	0x1
- 2975 12a9 09       		.byte	0x9
- 2976 12aa D6080000 		.4byte	0x8d6
- 2977 12ae 05       		.uleb128 0x5
- 2978 12af 03       		.byte	0x3
- 2979 12b0 00000000 		.4byte	Log_Task_TCB
- 2980 12b4 13       		.uleb128 0x13
- 2981 12b5 26010000 		.4byte	0x126
- 2982 12b9 C5120000 		.4byte	0x12c5
- 2983 12bd 2A       		.uleb128 0x2a
- 2984 12be AC000000 		.4byte	0xac
- 2985 12c2 FF01     		.2byte	0x1ff
- 2986 12c4 00       		.byte	0
- 2987 12c5 29       		.uleb128 0x29
- 2988 12c6 39010000 		.4byte	.LASF319
- 2989 12ca 01       		.byte	0x1
- 2990 12cb 0A       		.byte	0xa
- 2991 12cc B4120000 		.4byte	0x12b4
- 2992 12d0 05       		.uleb128 0x5
- 2993 12d1 03       		.byte	0x3
- 2994 12d2 00000000 		.4byte	Log_TaskStk
- 2995 12d6 29       		.uleb128 0x29
- 2996 12d7 7A080000 		.4byte	.LASF320
- 2997 12db 01       		.byte	0x1
- 2998 12dc 0D       		.byte	0xd
- 2999 12dd D4070000 		.4byte	0x7d4
- 3000 12e1 05       		.uleb128 0x5
- 3001 12e2 03       		.byte	0x3
- 3002 12e3 00000000 		.4byte	Log_Queue
- 3003 12e7 29       		.uleb128 0x29
- 3004 12e8 3B050000 		.4byte	.LASF321
- 3005 12ec 01       		.byte	0x1
- 3006 12ed 11       		.byte	0x11
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 58
+ 2956 127f 6F       		.sleb128 -17
+ 2957 1280 27       		.uleb128 0x27
+ 2958 1281 78030000 		.4byte	.LASF316
+ 2959 1285 0B       		.byte	0xb
+ 2960 1286 1207     		.2byte	0x712
+ 2961 1288 8C120000 		.4byte	0x128c
+ 2962 128c 28       		.uleb128 0x28
+ 2963 128d C5000000 		.4byte	0xc5
+ 2964 1291 29       		.uleb128 0x29
+ 2965 1292 AB020000 		.4byte	.LASF317
+ 2966 1296 01       		.byte	0x1
+ 2967 1297 0E       		.byte	0xe
+ 2968 1298 49080000 		.4byte	0x849
+ 2969 129c 05       		.uleb128 0x5
+ 2970 129d 03       		.byte	0x3
+ 2971 129e 00000000 		.4byte	LogTaskSem
+ 2972 12a2 29       		.uleb128 0x29
+ 2973 12a3 38060000 		.4byte	.LASF318
+ 2974 12a7 01       		.byte	0x1
+ 2975 12a8 09       		.byte	0x9
+ 2976 12a9 D6080000 		.4byte	0x8d6
+ 2977 12ad 05       		.uleb128 0x5
+ 2978 12ae 03       		.byte	0x3
+ 2979 12af 00000000 		.4byte	Log_Task_TCB
+ 2980 12b3 13       		.uleb128 0x13
+ 2981 12b4 26010000 		.4byte	0x126
+ 2982 12b8 C4120000 		.4byte	0x12c4
+ 2983 12bc 2A       		.uleb128 0x2a
+ 2984 12bd AC000000 		.4byte	0xac
+ 2985 12c1 FF01     		.2byte	0x1ff
+ 2986 12c3 00       		.byte	0
+ 2987 12c4 29       		.uleb128 0x29
+ 2988 12c5 39010000 		.4byte	.LASF319
+ 2989 12c9 01       		.byte	0x1
+ 2990 12ca 0A       		.byte	0xa
+ 2991 12cb B3120000 		.4byte	0x12b3
+ 2992 12cf 05       		.uleb128 0x5
+ 2993 12d0 03       		.byte	0x3
+ 2994 12d1 00000000 		.4byte	Log_TaskStk
+ 2995 12d5 29       		.uleb128 0x29
+ 2996 12d6 7A080000 		.4byte	.LASF320
+ 2997 12da 01       		.byte	0x1
+ 2998 12db 0D       		.byte	0xd
+ 2999 12dc D4070000 		.4byte	0x7d4
+ 3000 12e0 05       		.uleb128 0x5
+ 3001 12e1 03       		.byte	0x3
+ 3002 12e2 00000000 		.4byte	Log_Queue
+ 3003 12e6 29       		.uleb128 0x29
+ 3004 12e7 3B050000 		.4byte	.LASF321
+ 3005 12eb 01       		.byte	0x1
+ 3006 12ec 11       		.byte	0x11
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 58
 
 
- 3007 12ee 9C060000 		.4byte	0x69c
- 3008 12f2 05       		.uleb128 0x5
- 3009 12f3 03       		.byte	0x3
- 3010 12f4 00000000 		.4byte	MsgMemPool
- 3011 12f8 13       		.uleb128 0x13
- 3012 12f9 DE000000 		.4byte	0xde
- 3013 12fd 0E130000 		.4byte	0x130e
- 3014 1301 14       		.uleb128 0x14
- 3015 1302 AC000000 		.4byte	0xac
- 3016 1306 53       		.byte	0x53
- 3017 1307 14       		.uleb128 0x14
- 3018 1308 AC000000 		.4byte	0xac
- 3019 130c 53       		.byte	0x53
- 3020 130d 00       		.byte	0
- 3021 130e 29       		.uleb128 0x29
- 3022 130f 65110000 		.4byte	.LASF322
- 3023 1313 01       		.byte	0x1
- 3024 1314 12       		.byte	0x12
- 3025 1315 F8120000 		.4byte	0x12f8
- 3026 1319 05       		.uleb128 0x5
- 3027 131a 03       		.byte	0x3
- 3028 131b 00000000 		.4byte	MsgMemPoolStorage
- 3029 131f 2B       		.uleb128 0x2b
- 3030 1320 480A0000 		.4byte	.LASF323
- 3031 1324 480A0000 		.4byte	.LASF323
- 3032 1328 0C       		.byte	0xc
- 3033 1329 FD       		.byte	0xfd
- 3034 132a 2B       		.uleb128 0x2b
- 3035 132b 1A0D0000 		.4byte	.LASF324
- 3036 132f 1A0D0000 		.4byte	.LASF324
- 3037 1333 0D       		.byte	0xd
- 3038 1334 8B       		.byte	0x8b
- 3039 1335 2C       		.uleb128 0x2c
- 3040 1336 490B0000 		.4byte	.LASF325
- 3041 133a 490B0000 		.4byte	.LASF325
- 3042 133e 08       		.byte	0x8
- 3043 133f 8C05     		.2byte	0x58c
- 3044 1341 2C       		.uleb128 0x2c
- 3045 1342 F30C0000 		.4byte	.LASF326
- 3046 1346 F30C0000 		.4byte	.LASF326
- 3047 134a 08       		.byte	0x8
- 3048 134b F305     		.2byte	0x5f3
- 3049 134d 2C       		.uleb128 0x2c
- 3050 134e 510A0000 		.4byte	.LASF327
- 3051 1352 510A0000 		.4byte	.LASF327
- 3052 1356 08       		.byte	0x8
- 3053 1357 4606     		.2byte	0x646
- 3054 1359 2C       		.uleb128 0x2c
- 3055 135a BB0E0000 		.4byte	.LASF328
- 3056 135e BB0E0000 		.4byte	.LASF328
- 3057 1362 08       		.byte	0x8
- 3058 1363 0306     		.2byte	0x603
- 3059 1365 2C       		.uleb128 0x2c
- 3060 1366 30140000 		.4byte	.LASF329
- 3061 136a 30140000 		.4byte	.LASF329
- 3062 136e 08       		.byte	0x8
- 3063 136f 9605     		.2byte	0x596
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 59
+ 3007 12ed 9C060000 		.4byte	0x69c
+ 3008 12f1 05       		.uleb128 0x5
+ 3009 12f2 03       		.byte	0x3
+ 3010 12f3 00000000 		.4byte	MsgMemPool
+ 3011 12f7 13       		.uleb128 0x13
+ 3012 12f8 DE000000 		.4byte	0xde
+ 3013 12fc 0D130000 		.4byte	0x130d
+ 3014 1300 14       		.uleb128 0x14
+ 3015 1301 AC000000 		.4byte	0xac
+ 3016 1305 53       		.byte	0x53
+ 3017 1306 14       		.uleb128 0x14
+ 3018 1307 AC000000 		.4byte	0xac
+ 3019 130b 53       		.byte	0x53
+ 3020 130c 00       		.byte	0
+ 3021 130d 29       		.uleb128 0x29
+ 3022 130e 65110000 		.4byte	.LASF322
+ 3023 1312 01       		.byte	0x1
+ 3024 1313 12       		.byte	0x12
+ 3025 1314 F7120000 		.4byte	0x12f7
+ 3026 1318 05       		.uleb128 0x5
+ 3027 1319 03       		.byte	0x3
+ 3028 131a 00000000 		.4byte	MsgMemPoolStorage
+ 3029 131e 2B       		.uleb128 0x2b
+ 3030 131f 480A0000 		.4byte	.LASF323
+ 3031 1323 480A0000 		.4byte	.LASF323
+ 3032 1327 0C       		.byte	0xc
+ 3033 1328 FD       		.byte	0xfd
+ 3034 1329 2B       		.uleb128 0x2b
+ 3035 132a 1A0D0000 		.4byte	.LASF324
+ 3036 132e 1A0D0000 		.4byte	.LASF324
+ 3037 1332 0D       		.byte	0xd
+ 3038 1333 8B       		.byte	0x8b
+ 3039 1334 2C       		.uleb128 0x2c
+ 3040 1335 490B0000 		.4byte	.LASF325
+ 3041 1339 490B0000 		.4byte	.LASF325
+ 3042 133d 08       		.byte	0x8
+ 3043 133e 8C05     		.2byte	0x58c
+ 3044 1340 2C       		.uleb128 0x2c
+ 3045 1341 F30C0000 		.4byte	.LASF326
+ 3046 1345 F30C0000 		.4byte	.LASF326
+ 3047 1349 08       		.byte	0x8
+ 3048 134a F305     		.2byte	0x5f3
+ 3049 134c 2C       		.uleb128 0x2c
+ 3050 134d 510A0000 		.4byte	.LASF327
+ 3051 1351 510A0000 		.4byte	.LASF327
+ 3052 1355 08       		.byte	0x8
+ 3053 1356 4606     		.2byte	0x646
+ 3054 1358 2C       		.uleb128 0x2c
+ 3055 1359 BB0E0000 		.4byte	.LASF328
+ 3056 135d BB0E0000 		.4byte	.LASF328
+ 3057 1361 08       		.byte	0x8
+ 3058 1362 0306     		.2byte	0x603
+ 3059 1364 2C       		.uleb128 0x2c
+ 3060 1365 30140000 		.4byte	.LASF329
+ 3061 1369 30140000 		.4byte	.LASF329
+ 3062 136d 08       		.byte	0x8
+ 3063 136e 9605     		.2byte	0x596
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 59
 
 
- 3064 1371 2C       		.uleb128 0x2c
- 3065 1372 FE000000 		.4byte	.LASF330
- 3066 1376 FE000000 		.4byte	.LASF330
- 3067 137a 08       		.byte	0x8
- 3068 137b 6D06     		.2byte	0x66d
- 3069 137d 2C       		.uleb128 0x2c
- 3070 137e D0080000 		.4byte	.LASF331
- 3071 1382 D0080000 		.4byte	.LASF331
- 3072 1386 08       		.byte	0x8
- 3073 1387 9305     		.2byte	0x593
- 3074 1389 2B       		.uleb128 0x2b
- 3075 138a 030C0000 		.4byte	.LASF332
- 3076 138e 030C0000 		.4byte	.LASF332
- 3077 1392 0C       		.byte	0xc
- 3078 1393 FF       		.byte	0xff
- 3079 1394 2B       		.uleb128 0x2b
- 3080 1395 F3100000 		.4byte	.LASF333
- 3081 1399 F3100000 		.4byte	.LASF333
- 3082 139d 0E       		.byte	0xe
- 3083 139e 24       		.byte	0x24
- 3084 139f 2C       		.uleb128 0x2c
- 3085 13a0 3D120000 		.4byte	.LASF334
- 3086 13a4 3D120000 		.4byte	.LASF334
- 3087 13a8 08       		.byte	0x8
- 3088 13a9 1006     		.2byte	0x610
- 3089 13ab 00       		.byte	0
+ 3064 1370 2C       		.uleb128 0x2c
+ 3065 1371 FE000000 		.4byte	.LASF330
+ 3066 1375 FE000000 		.4byte	.LASF330
+ 3067 1379 08       		.byte	0x8
+ 3068 137a 6D06     		.2byte	0x66d
+ 3069 137c 2C       		.uleb128 0x2c
+ 3070 137d D0080000 		.4byte	.LASF331
+ 3071 1381 D0080000 		.4byte	.LASF331
+ 3072 1385 08       		.byte	0x8
+ 3073 1386 9305     		.2byte	0x593
+ 3074 1388 2B       		.uleb128 0x2b
+ 3075 1389 030C0000 		.4byte	.LASF332
+ 3076 138d 030C0000 		.4byte	.LASF332
+ 3077 1391 0C       		.byte	0xc
+ 3078 1392 FF       		.byte	0xff
+ 3079 1393 2B       		.uleb128 0x2b
+ 3080 1394 F3100000 		.4byte	.LASF333
+ 3081 1398 F3100000 		.4byte	.LASF333
+ 3082 139c 0E       		.byte	0xe
+ 3083 139d 24       		.byte	0x24
+ 3084 139e 2C       		.uleb128 0x2c
+ 3085 139f 3D120000 		.4byte	.LASF334
+ 3086 13a3 3D120000 		.4byte	.LASF334
+ 3087 13a7 08       		.byte	0x8
+ 3088 13a8 1006     		.2byte	0x610
+ 3089 13aa 00       		.byte	0
  3090              		.section	.debug_abbrev,"",%progbits
  3091              	.Ldebug_abbrev0:
  3092 0000 01       		.uleb128 0x1
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  3118 001a 3B       		.uleb128 0x3b
  3119 001b 0B       		.uleb128 0xb
  3120 001c 49       		.uleb128 0x49
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 60
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 60
 
 
  3121 001d 13       		.uleb128 0x13
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  3175 0053 3E       		.uleb128 0x3e
  3176 0054 0B       		.uleb128 0xb
  3177 0055 03       		.uleb128 0x3
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 61
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 61
 
 
  3178 0056 08       		.uleb128 0x8
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  3232 008c 00       		.byte	0
  3233 008d 03       		.uleb128 0x3
  3234 008e 0E       		.uleb128 0xe
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 62
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 62
 
 
  3235 008f 1C       		.uleb128 0x1c
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  3289 00c5 00       		.byte	0
  3290 00c6 00       		.byte	0
  3291 00c7 12       		.uleb128 0x12
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 63
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 63
 
 
  3292 00c8 0D       		.uleb128 0xd
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  3346 00fe 49       		.uleb128 0x49
  3347 00ff 13       		.uleb128 0x13
  3348 0100 38       		.uleb128 0x38
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 64
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 64
 
 
  3349 0101 0B       		.uleb128 0xb
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  3403 0138 02       		.uleb128 0x2
  3404 0139 17       		.uleb128 0x17
  3405 013a 00       		.byte	0
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 65
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 65
 
 
  3406 013b 00       		.byte	0
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  3460 0172 1D       		.uleb128 0x1d
  3461 0173 898201   		.uleb128 0x4109
  3462 0176 01       		.byte	0x1
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 66
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 66
 
 
  3463 0177 11       		.uleb128 0x11
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  3517 01b2 00       		.byte	0
  3518 01b3 00       		.byte	0
  3519 01b4 22       		.uleb128 0x22
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 67
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 67
 
 
  3520 01b5 898201   		.uleb128 0x4109
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  3574 01ee 34       		.uleb128 0x34
  3575 01ef 00       		.byte	0
  3576 01f0 03       		.uleb128 0x3
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 68
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 68
 
 
  3577 01f1 0E       		.uleb128 0xe
@@ -4078,7 +4078,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  3631 0227 00       		.byte	0
  3632 0228 49       		.uleb128 0x49
  3633 0229 13       		.uleb128 0x13
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 69
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 69
 
 
  3634 022a 2F       		.uleb128 0x2f
@@ -4138,7 +4138,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  3688 001d 32000000 		.4byte	.LVL3
  3689 0021 0100     		.2byte	0x1
  3690 0023 50       		.byte	0x50
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 70
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 70
 
 
  3691 0024 32000000 		.4byte	.LVL3
@@ -4198,7 +4198,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  3745 00a0 50       		.byte	0x50
  3746 00a1 46000000 		.4byte	.LVL13
  3747 00a5 48000000 		.4byte	.LVL14
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 71
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 71
 
 
  3748 00a9 0400     		.2byte	0x4
@@ -4258,7 +4258,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  3802 0124 50       		.byte	0x50
  3803 0125 9F       		.byte	0x9f
  3804 0126 00000000 		.4byte	0
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 72
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 72
 
 
  3805 012a 00000000 		.4byte	0
@@ -4318,7 +4318,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  3859 01b3 BC000000 		.4byte	.LFE68
  3860 01b7 0400     		.2byte	0x4
  3861 01b9 F3       		.byte	0xf3
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 73
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 73
 
 
  3862 01ba 01       		.uleb128 0x1
@@ -4378,7 +4378,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  3916 0020 00000000 		.4byte	.LFB68
  3917 0024 BC000000 		.4byte	.LFE68
  3918 0028 00000000 		.4byte	0
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 74
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 74
 
 
  3919 002c 00000000 		.4byte	0
@@ -4438,7 +4438,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  3943              	.LASF195:
  3944 0085 4F535F45 		.ascii	"OS_ERR_TMR_PRIO_INVALID\000"
  3944      52525F54 
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 75
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 75
 
 
  3944      4D525F50 
@@ -4498,7 +4498,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  3968      56414C49 
  3969              	.LASF319:
  3970 0139 4C6F675F 		.ascii	"Log_TaskStk\000"
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 76
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 76
 
 
  3970      5461736B 
@@ -4558,7 +4558,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  3992      656E645F 
  3992      64617461 
  3992      00
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 77
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 77
 
 
  3993              	.LASF229:
@@ -4618,7 +4618,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  4014      4B454400 
  4015              	.LASF288:
  4016 029d 54434250 		.ascii	"TCBPtr\000"
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 78
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 78
 
 
  4016      747200
@@ -4678,7 +4678,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  4038 03a1 4350555F 		.ascii	"CPU_TS\000"
  4038      545300
  4039              	.LASF280:
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 79
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 79
 
 
  4040 03a8 53656D50 		.ascii	"SemPendTimeMax\000"
@@ -4738,7 +4738,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  4066      52525F4D 
  4066      00
  4067              	.LASF89:
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 80
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 80
 
 
  4068 042f 4F535F45 		.ascii	"OS_ERR_N\000"
@@ -4798,7 +4798,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  4094      494D455F 
  4094      5A45524F 
  4094      5F444C59 
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 81
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 81
 
 
  4095              	.LASF110:
@@ -4858,7 +4858,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  4118      5F494E56 
  4118      414C4944 
  4119              	.LASF42:
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 82
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 82
 
 
  4120 056b 4F535F53 		.ascii	"OS_STATE\000"
@@ -4918,7 +4918,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  4143              	.LASF313:
  4144 0612 666F726D 		.ascii	"formatted_msg\000"
  4144      61747465 
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 83
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 83
 
 
  4144      645F6D73 
@@ -4978,7 +4978,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  4166 06c4 4F535F45 		.ascii	"OS_ERR_TASK_NOT_SUSPENDED\000"
  4166      52525F54 
  4166      41534B5F 
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 84
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 84
 
 
  4166      4E4F545F 
@@ -5038,7 +5038,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  4189              	.LASF178:
  4190 079b 4F535F45 		.ascii	"OS_ERR_TIME_INVALID_HOURS\000"
  4190      52525F54 
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 85
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 85
 
 
  4190      494D455F 
@@ -5098,7 +5098,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  4211              	.LASF286:
  4212 086d 4F535F50 		.ascii	"OS_PEND_DATA\000"
  4212      454E445F 
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 86
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 86
 
 
  4212      44415441 
@@ -5158,7 +5158,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  4234 0928 4F535F45 		.ascii	"OS_ERR_TMR_NON_AVAIL\000"
  4234      52525F54 
  4234      4D525F4E 
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 87
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 87
 
 
  4234      4F4E5F41 
@@ -5218,7 +5218,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  4256      41534B5F 
  4256      53544B5F 
  4256      43484B5F 
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 88
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 88
 
 
  4257              	.LASF168:
@@ -5278,7 +5278,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  4282      00
  4283              	.LASF9:
  4284 0a88 6C6F6E67 		.ascii	"long long int\000"
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 89
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 89
 
 
  4284      206C6F6E 
@@ -5338,7 +5338,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  4307              	.LASF133:
  4308 0b30 4F535F45 		.ascii	"OS_ERR_STAT_PRIO_INVALID\000"
  4308      52525F53 
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 90
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 90
 
 
  4308      5441545F 
@@ -5398,7 +5398,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  4332      4D525F49 
  4332      4E56414C 
  4332      49445F44 
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 91
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 91
 
 
  4333              	.LASF285:
@@ -5458,7 +5458,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  4359              	.LASF99:
  4360 0c94 4F535F45 		.ascii	"OS_ERR_OS_RUNNING\000"
  4360      52525F4F 
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 92
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 92
 
 
  4360      535F5255 
@@ -5518,7 +5518,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  4384 0d32 48656164 		.ascii	"HeadPtr\000"
  4384      50747200 
  4385              	.LASF160:
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 93
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 93
 
 
  4386 0d3a 4F535F45 		.ascii	"OS_ERR_TASK_SUSPEND_IDLE\000"
@@ -5578,7 +5578,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  4406      49445F50 
  4407              	.LASF59:
  4408 0dfe 4F535F45 		.ascii	"OS_ERR_FLUSH_ISR\000"
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 94
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 94
 
 
  4408      52525F46 
@@ -5638,7 +5638,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  4428 0ebb 4F535150 		.ascii	"OSQPend\000"
  4428      656E6400 
  4429              	.LASF81:
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 95
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 95
 
 
  4430 0ec3 4F535F45 		.ascii	"OS_ERR_MEM_INVALID_P_DATA\000"
@@ -5698,7 +5698,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  4450      456E7472 
  4450      79417267 
  4450      00
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 96
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 96
 
 
  4451              	.LASF66:
@@ -5758,7 +5758,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  4474      4F626A50 
  4474      747200
  4475              	.LASF30:
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 97
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 97
 
 
  4476 104c 4F535F46 		.ascii	"OS_FLAGS\000"
@@ -5818,7 +5818,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  4502              	.LASF132:
  4503 1103 4F535F45 		.ascii	"OS_ERR_STAT_RESET_ISR\000"
  4503      52525F53 
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 98
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 98
 
 
  4503      5441545F 
@@ -5878,7 +5878,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  4525      757300
  4526              	.LASF269:
  4527 11b9 466C6167 		.ascii	"FlagsRdy\000"
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 99
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 99
 
 
  4527      73526479 
@@ -5938,7 +5938,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  4551      495A4500 
  4552              	.LASF123:
  4553 1264 4F535F45 		.ascii	"OS_ERR_ROUND_ROBIN_DISABLED\000"
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 100
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 100
 
 
  4553      52525F52 
@@ -5998,7 +5998,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  4571      52525F54 
  4571      41534B5F 
  4571      44454C5F 
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 101
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 101
 
 
  4571      49444C45 
@@ -6058,7 +6058,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 1
  4594              	.LASF211:
  4595 13ee 41646472 		.ascii	"AddrPtr\000"
  4595      50747200 
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvRk3Ot.s 			page 102
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccGSYEVW.s 			page 102
 
 
  4596              	.LASF291:

@@ -1,5 +1,5 @@
 -- Project:   esw_uCOS3_cykit
--- Generated: 11/09/2024 02:29:41
+-- Generated: 11/09/2024 12:04:08
 -- PSoC Creator  4.4
 
 ENTITY esw_uCOS3_cykit IS
@@ -44,6 +44,7 @@ ARCHITECTURE __DEFAULT__ OF esw_uCOS3_cykit IS
     SIGNAL Net_146 : bit;
     SIGNAL Net_162 : bit;
     SIGNAL Net_183 : bit;
+    ATTRIBUTE udbclken_assigned OF Net_183 : SIGNAL IS "True";
     ATTRIBUTE global_signal OF Net_183 : SIGNAL IS true;
     SIGNAL Net_183_local : bit;
     SIGNAL Net_2 : bit;
@@ -62,9 +63,35 @@ ARCHITECTURE __DEFAULT__ OF esw_uCOS3_cykit IS
     SIGNAL SCL_1(0)__PA : bit;
     SIGNAL SDA_1(0)__PA : bit;
     SIGNAL Tx_1(0)__PA : bit;
-    SIGNAL \Counter_1:Net_42\ : bit;
-    SIGNAL \Counter_1:Net_47\ : bit;
-    SIGNAL \Counter_1:Net_48\ : bit;
+    SIGNAL \Counter_1:CounterUDB:cmp_less\ : bit;
+    SIGNAL \Counter_1:CounterUDB:control_0\ : bit;
+    SIGNAL \Counter_1:CounterUDB:control_1\ : bit;
+    SIGNAL \Counter_1:CounterUDB:control_2\ : bit;
+    SIGNAL \Counter_1:CounterUDB:control_3\ : bit;
+    SIGNAL \Counter_1:CounterUDB:control_4\ : bit;
+    SIGNAL \Counter_1:CounterUDB:control_5\ : bit;
+    SIGNAL \Counter_1:CounterUDB:control_6\ : bit;
+    SIGNAL \Counter_1:CounterUDB:control_7\ : bit;
+    SIGNAL \Counter_1:CounterUDB:count_enable\ : bit;
+    ATTRIBUTE placement_force OF \Counter_1:CounterUDB:count_enable\ : SIGNAL IS "U(2,1,A)0";
+    SIGNAL \Counter_1:CounterUDB:count_stored_i\ : bit;
+    ATTRIBUTE placement_force OF \Counter_1:CounterUDB:count_stored_i\ : SIGNAL IS "U(2,1,A)1";
+    SIGNAL \Counter_1:CounterUDB:disable_run_i\ : bit;
+    ATTRIBUTE placement_force OF \Counter_1:CounterUDB:disable_run_i\ : SIGNAL IS "U(2,1,A)2";
+    SIGNAL \Counter_1:CounterUDB:overflow_reg_i\ : bit;
+    ATTRIBUTE placement_force OF \Counter_1:CounterUDB:overflow_reg_i\ : SIGNAL IS "U(2,1,B)2";
+    SIGNAL \Counter_1:CounterUDB:overflow_status\ : bit;
+    ATTRIBUTE placement_force OF \Counter_1:CounterUDB:overflow_status\ : SIGNAL IS "U(2,1,B)0";
+    SIGNAL \Counter_1:CounterUDB:per_equal\ : bit;
+    SIGNAL \Counter_1:CounterUDB:prevCompare\ : bit;
+    ATTRIBUTE placement_force OF \Counter_1:CounterUDB:prevCompare\ : SIGNAL IS "U(2,1,A)3";
+    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u1.ce0__sig\ : bit;
+    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u2.ce0__sig\ : bit;
+    SIGNAL \Counter_1:CounterUDB:status_0\ : bit;
+    ATTRIBUTE placement_force OF \Counter_1:CounterUDB:status_0\ : SIGNAL IS "U(2,1,B)1";
+    SIGNAL \Counter_1:CounterUDB:status_1\ : bit;
+    SIGNAL \Counter_1:CounterUDB:status_5\ : bit;
+    SIGNAL \Counter_1:CounterUDB:status_6\ : bit;
     SIGNAL \I2C_1:Net_1109_0\ : bit;
     SIGNAL \I2C_1:Net_1109_1\ : bit;
     SIGNAL \I2C_1:Net_643_0\ : bit;
@@ -73,13 +100,13 @@ ARCHITECTURE __DEFAULT__ OF esw_uCOS3_cykit IS
     SIGNAL \Timer_1:Net_261\ : bit;
     SIGNAL \Timer_1:Net_57\ : bit;
     SIGNAL \UART_1:BUART:counter_load_not\ : bit;
-    ATTRIBUTE placement_force OF \UART_1:BUART:counter_load_not\ : SIGNAL IS "U(1,2,B)1";
+    ATTRIBUTE placement_force OF \UART_1:BUART:counter_load_not\ : SIGNAL IS "U(1,0,B)1";
     SIGNAL \UART_1:BUART:pollcount_0\ : bit;
-    ATTRIBUTE placement_force OF \UART_1:BUART:pollcount_0\ : SIGNAL IS "U(1,0,B)2";
+    ATTRIBUTE placement_force OF \UART_1:BUART:pollcount_0\ : SIGNAL IS "U(0,0,B)2";
     SIGNAL \UART_1:BUART:pollcount_1\ : bit;
-    ATTRIBUTE placement_force OF \UART_1:BUART:pollcount_1\ : SIGNAL IS "U(1,2,B)2";
+    ATTRIBUTE placement_force OF \UART_1:BUART:pollcount_1\ : SIGNAL IS "U(0,0,A)2";
     SIGNAL \UART_1:BUART:rx_bitclk_enable\ : bit;
-    ATTRIBUTE placement_force OF \UART_1:BUART:rx_bitclk_enable\ : SIGNAL IS "U(1,1,B)1";
+    ATTRIBUTE placement_force OF \UART_1:BUART:rx_bitclk_enable\ : SIGNAL IS "U(0,0,B)3";
     SIGNAL \UART_1:BUART:rx_count7_tc\ : bit;
     SIGNAL \UART_1:BUART:rx_count_0\ : bit;
     SIGNAL \UART_1:BUART:rx_count_1\ : bit;
@@ -89,59 +116,58 @@ ARCHITECTURE __DEFAULT__ OF esw_uCOS3_cykit IS
     SIGNAL \UART_1:BUART:rx_count_5\ : bit;
     SIGNAL \UART_1:BUART:rx_count_6\ : bit;
     SIGNAL \UART_1:BUART:rx_counter_load\ : bit;
-    ATTRIBUTE placement_force OF \UART_1:BUART:rx_counter_load\ : SIGNAL IS "U(1,1,B)3";
+    ATTRIBUTE placement_force OF \UART_1:BUART:rx_counter_load\ : SIGNAL IS "U(0,1,A)1";
     SIGNAL \UART_1:BUART:rx_fifofull\ : bit;
     SIGNAL \UART_1:BUART:rx_fifonotempty\ : bit;
     SIGNAL \UART_1:BUART:rx_last\ : bit;
-    ATTRIBUTE placement_force OF \UART_1:BUART:rx_last\ : SIGNAL IS "U(1,1,A)1";
+    ATTRIBUTE placement_force OF \UART_1:BUART:rx_last\ : SIGNAL IS "U(0,1,B)3";
     SIGNAL \UART_1:BUART:rx_load_fifo\ : bit;
-    ATTRIBUTE placement_force OF \UART_1:BUART:rx_load_fifo\ : SIGNAL IS "U(1,0,A)1";
+    ATTRIBUTE placement_force OF \UART_1:BUART:rx_load_fifo\ : SIGNAL IS "U(0,1,B)1";
     SIGNAL \UART_1:BUART:rx_postpoll\ : bit;
-    ATTRIBUTE placement_force OF \UART_1:BUART:rx_postpoll\ : SIGNAL IS "U(1,0,B)1";
+    ATTRIBUTE placement_force OF \UART_1:BUART:rx_postpoll\ : SIGNAL IS "U(0,0,B)0";
     SIGNAL \UART_1:BUART:rx_state_0\ : bit;
-    ATTRIBUTE placement_force OF \UART_1:BUART:rx_state_0\ : SIGNAL IS "U(1,1,A)0";
+    ATTRIBUTE placement_force OF \UART_1:BUART:rx_state_0\ : SIGNAL IS "U(0,1,A)0";
     SIGNAL \UART_1:BUART:rx_state_2\ : bit;
-    ATTRIBUTE placement_force OF \UART_1:BUART:rx_state_2\ : SIGNAL IS "U(1,1,A)2";
+    ATTRIBUTE placement_force OF \UART_1:BUART:rx_state_2\ : SIGNAL IS "U(0,1,B)0";
     SIGNAL \UART_1:BUART:rx_state_3\ : bit;
-    ATTRIBUTE placement_force OF \UART_1:BUART:rx_state_3\ : SIGNAL IS "U(1,0,A)0";
+    ATTRIBUTE placement_force OF \UART_1:BUART:rx_state_3\ : SIGNAL IS "U(0,1,A)2";
     SIGNAL \UART_1:BUART:rx_state_stop1_reg\ : bit;
-    ATTRIBUTE placement_force OF \UART_1:BUART:rx_state_stop1_reg\ : SIGNAL IS "U(1,0,B)3";
+    ATTRIBUTE placement_force OF \UART_1:BUART:rx_state_stop1_reg\ : SIGNAL IS "U(0,1,B)2";
     SIGNAL \UART_1:BUART:rx_status_3\ : bit;
-    ATTRIBUTE placement_force OF \UART_1:BUART:rx_status_3\ : SIGNAL IS "U(1,0,A)2";
+    ATTRIBUTE placement_force OF \UART_1:BUART:rx_status_3\ : SIGNAL IS "U(0,1,A)3";
     SIGNAL \UART_1:BUART:rx_status_4\ : bit;
-    ATTRIBUTE placement_force OF \UART_1:BUART:rx_status_4\ : SIGNAL IS "U(1,0,B)0";
+    ATTRIBUTE placement_force OF \UART_1:BUART:rx_status_4\ : SIGNAL IS "U(1,1,A)1";
     SIGNAL \UART_1:BUART:rx_status_5\ : bit;
-    ATTRIBUTE placement_force OF \UART_1:BUART:rx_status_5\ : SIGNAL IS "U(0,0,A)1";
+    ATTRIBUTE placement_force OF \UART_1:BUART:rx_status_5\ : SIGNAL IS "U(1,1,A)0";
     SIGNAL \UART_1:BUART:tx_bitclk\ : bit;
-    ATTRIBUTE placement_force OF \UART_1:BUART:tx_bitclk\ : SIGNAL IS "U(0,2,A)3";
+    ATTRIBUTE placement_force OF \UART_1:BUART:tx_bitclk\ : SIGNAL IS "U(1,0,B)2";
     SIGNAL \UART_1:BUART:tx_bitclk_enable_pre\ : bit;
     SIGNAL \UART_1:BUART:tx_counter_dp\ : bit;
     SIGNAL \UART_1:BUART:tx_ctrl_mark_last\ : bit;
-    ATTRIBUTE placement_force OF \UART_1:BUART:tx_ctrl_mark_last\ : SIGNAL IS "U(1,0,A)3";
+    ATTRIBUTE placement_force OF \UART_1:BUART:tx_ctrl_mark_last\ : SIGNAL IS "U(1,1,B)0";
     SIGNAL \UART_1:BUART:tx_fifo_empty\ : bit;
     SIGNAL \UART_1:BUART:tx_fifo_notfull\ : bit;
     SIGNAL \UART_1:BUART:tx_shift_out\ : bit;
     SIGNAL \UART_1:BUART:tx_state_0\ : bit;
-    ATTRIBUTE placement_force OF \UART_1:BUART:tx_state_0\ : SIGNAL IS "U(0,1,A)1";
+    ATTRIBUTE placement_force OF \UART_1:BUART:tx_state_0\ : SIGNAL IS "U(0,0,A)0";
     SIGNAL \UART_1:BUART:tx_state_1\ : bit;
-    ATTRIBUTE placement_force OF \UART_1:BUART:tx_state_1\ : SIGNAL IS "U(0,2,B)0";
+    ATTRIBUTE placement_force OF \UART_1:BUART:tx_state_1\ : SIGNAL IS "U(1,0,A)1";
     SIGNAL \UART_1:BUART:tx_state_2\ : bit;
-    ATTRIBUTE placement_force OF \UART_1:BUART:tx_state_2\ : SIGNAL IS "U(1,2,A)0";
+    ATTRIBUTE placement_force OF \UART_1:BUART:tx_state_2\ : SIGNAL IS "U(1,0,B)0";
     SIGNAL \UART_1:BUART:tx_status_0\ : bit;
-    ATTRIBUTE placement_force OF \UART_1:BUART:tx_status_0\ : SIGNAL IS "U(0,1,B)2";
+    ATTRIBUTE placement_force OF \UART_1:BUART:tx_status_0\ : SIGNAL IS "U(0,0,A)1";
     SIGNAL \UART_1:BUART:tx_status_2\ : bit;
-    ATTRIBUTE placement_force OF \UART_1:BUART:tx_status_2\ : SIGNAL IS "U(0,2,A)1";
+    ATTRIBUTE placement_force OF \UART_1:BUART:tx_status_2\ : SIGNAL IS "U(1,1,A)3";
     SIGNAL \UART_1:BUART:txn\ : bit;
-    ATTRIBUTE placement_force OF \UART_1:BUART:txn\ : SIGNAL IS "U(0,2,A)0";
+    ATTRIBUTE placement_force OF \UART_1:BUART:txn\ : SIGNAL IS "U(1,0,A)0";
     SIGNAL \UART_1:Net_9\ : bit;
     ATTRIBUTE udbclken_assigned OF \UART_1:Net_9\ : SIGNAL IS "True";
     ATTRIBUTE global_signal OF \UART_1:Net_9\ : SIGNAL IS true;
     SIGNAL \UART_1:Net_9_local\ : bit;
     SIGNAL __ONE__ : bit;
-    ATTRIBUTE placement_force OF __ONE__ : SIGNAL IS "U(2,0,A)1";
+    ATTRIBUTE placement_force OF __ONE__ : SIGNAL IS "U(0,3,A)0";
     ATTRIBUTE POWER OF __ONE__ : SIGNAL IS true;
     SIGNAL __ZERO__ : bit;
-    ATTRIBUTE placement_force OF __ZERO__ : SIGNAL IS "U(1,2,B)0";
     ATTRIBUTE GROUND OF __ZERO__ : SIGNAL IS true;
     SIGNAL one : bit;
     ATTRIBUTE POWER OF one : SIGNAL IS true;
@@ -149,7 +175,43 @@ ARCHITECTURE __DEFAULT__ OF esw_uCOS3_cykit IS
     SIGNAL zero : bit;
     ATTRIBUTE GROUND OF zero : SIGNAL IS true;
     SIGNAL \ClockBlock.clk_bus_glb_ff__sig\ : bit;
-    SIGNAL \ClockBlock.dclk_glb_ff_0__sig\ : bit;
+    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u0.ce0__sig\ : bit;
+    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u0.cl0__sig\ : bit;
+    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u0.z0__sig\ : bit;
+    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u0.ff0__sig\ : bit;
+    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u0.ce1__sig\ : bit;
+    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u0.cl1__sig\ : bit;
+    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u0.z1__sig\ : bit;
+    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u0.ff1__sig\ : bit;
+    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u0.co_msb__sig\ : bit;
+    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u0.sol_msb__sig\ : bit;
+    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u0.cfbo__sig\ : bit;
+    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u1.sor__sig\ : bit;
+    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u1.cmsbo__sig\ : bit;
+    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u1.cl0__sig\ : bit;
+    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u1.z0__sig\ : bit;
+    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u1.ff0__sig\ : bit;
+    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u1.ce1__sig\ : bit;
+    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u1.cl1__sig\ : bit;
+    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u1.z1__sig\ : bit;
+    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u1.ff1__sig\ : bit;
+    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u1.co_msb__sig\ : bit;
+    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u1.sol_msb__sig\ : bit;
+    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u1.cfbo__sig\ : bit;
+    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u2.sor__sig\ : bit;
+    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u2.cmsbo__sig\ : bit;
+    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u2.cl0__sig\ : bit;
+    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u2.z0__sig\ : bit;
+    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u2.ff0__sig\ : bit;
+    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u2.ce1__sig\ : bit;
+    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u2.cl1__sig\ : bit;
+    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u2.z1__sig\ : bit;
+    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u2.ff1__sig\ : bit;
+    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u2.co_msb__sig\ : bit;
+    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u2.sol_msb__sig\ : bit;
+    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u2.cfbo__sig\ : bit;
+    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u3.sor__sig\ : bit;
+    SIGNAL \Counter_1:CounterUDB:sC32:counterdp:u3.cmsbo__sig\ : bit;
     ATTRIBUTE Location OF ClockBlock : LABEL IS "F(Clock,0)";
     ATTRIBUTE lib_model OF Rx_1(0) : LABEL IS "iocell1";
     ATTRIBUTE Location OF Rx_1(0) : LABEL IS "P12[6]";
@@ -179,37 +241,52 @@ ARCHITECTURE __DEFAULT__ OF esw_uCOS3_cykit IS
     ATTRIBUTE lib_model OF Net_2 : LABEL IS "macrocell1";
     ATTRIBUTE Location OF Net_2 : LABEL IS "U(0,0)";
     ATTRIBUTE lib_model OF \UART_1:BUART:counter_load_not\ : LABEL IS "macrocell2";
-    ATTRIBUTE Location OF \UART_1:BUART:counter_load_not\ : LABEL IS "U(1,2)";
+    ATTRIBUTE Location OF \UART_1:BUART:counter_load_not\ : LABEL IS "U(1,0)";
     ATTRIBUTE lib_model OF \UART_1:BUART:tx_status_0\ : LABEL IS "macrocell3";
-    ATTRIBUTE Location OF \UART_1:BUART:tx_status_0\ : LABEL IS "U(0,1)";
+    ATTRIBUTE Location OF \UART_1:BUART:tx_status_0\ : LABEL IS "U(0,0)";
     ATTRIBUTE lib_model OF \UART_1:BUART:tx_status_2\ : LABEL IS "macrocell4";
-    ATTRIBUTE Location OF \UART_1:BUART:tx_status_2\ : LABEL IS "U(0,2)";
+    ATTRIBUTE Location OF \UART_1:BUART:tx_status_2\ : LABEL IS "U(1,1)";
     ATTRIBUTE lib_model OF \UART_1:BUART:rx_counter_load\ : LABEL IS "macrocell5";
-    ATTRIBUTE Location OF \UART_1:BUART:rx_counter_load\ : LABEL IS "U(1,1)";
+    ATTRIBUTE Location OF \UART_1:BUART:rx_counter_load\ : LABEL IS "U(0,1)";
     ATTRIBUTE lib_model OF \UART_1:BUART:rx_postpoll\ : LABEL IS "macrocell6";
-    ATTRIBUTE Location OF \UART_1:BUART:rx_postpoll\ : LABEL IS "U(1,0)";
+    ATTRIBUTE Location OF \UART_1:BUART:rx_postpoll\ : LABEL IS "U(0,0)";
     ATTRIBUTE lib_model OF \UART_1:BUART:rx_status_4\ : LABEL IS "macrocell7";
-    ATTRIBUTE Location OF \UART_1:BUART:rx_status_4\ : LABEL IS "U(1,0)";
+    ATTRIBUTE Location OF \UART_1:BUART:rx_status_4\ : LABEL IS "U(1,1)";
     ATTRIBUTE lib_model OF \UART_1:BUART:rx_status_5\ : LABEL IS "macrocell8";
-    ATTRIBUTE Location OF \UART_1:BUART:rx_status_5\ : LABEL IS "U(0,0)";
+    ATTRIBUTE Location OF \UART_1:BUART:rx_status_5\ : LABEL IS "U(1,1)";
+    ATTRIBUTE lib_model OF \Counter_1:CounterUDB:status_0\ : LABEL IS "macrocell9";
+    ATTRIBUTE Location OF \Counter_1:CounterUDB:status_0\ : LABEL IS "U(2,1)";
+    ATTRIBUTE lib_model OF \Counter_1:CounterUDB:overflow_status\ : LABEL IS "macrocell10";
+    ATTRIBUTE Location OF \Counter_1:CounterUDB:overflow_status\ : LABEL IS "U(2,1)";
+    ATTRIBUTE lib_model OF \Counter_1:CounterUDB:count_enable\ : LABEL IS "macrocell11";
+    ATTRIBUTE Location OF \Counter_1:CounterUDB:count_enable\ : LABEL IS "U(2,1)";
     ATTRIBUTE Location OF \UART_1:TXInternalInterrupt\ : LABEL IS "[IntrContainer=(0)][IntrId=(2)]";
     ATTRIBUTE Location OF \UART_1:RXInternalInterrupt\ : LABEL IS "[IntrContainer=(0)][IntrId=(1)]";
-    ATTRIBUTE lib_model OF __ONE__ : LABEL IS "macrocell9";
-    ATTRIBUTE Location OF __ONE__ : LABEL IS "U(2,0)";
+    ATTRIBUTE lib_model OF __ONE__ : LABEL IS "macrocell12";
+    ATTRIBUTE Location OF __ONE__ : LABEL IS "U(0,3)";
     ATTRIBUTE lib_model OF \UART_1:BUART:sTX:TxShifter:u0\ : LABEL IS "datapathcell1";
-    ATTRIBUTE Location OF \UART_1:BUART:sTX:TxShifter:u0\ : LABEL IS "U(0,2)";
-    ATTRIBUTE lib_model OF __ZERO__ : LABEL IS "macrocell10";
-    ATTRIBUTE Location OF __ZERO__ : LABEL IS "U(1,2)";
+    ATTRIBUTE Location OF \UART_1:BUART:sTX:TxShifter:u0\ : LABEL IS "U(0,0)";
     ATTRIBUTE lib_model OF \UART_1:BUART:sTX:sCLOCK:TxBitClkGen\ : LABEL IS "datapathcell2";
-    ATTRIBUTE Location OF \UART_1:BUART:sTX:sCLOCK:TxBitClkGen\ : LABEL IS "U(1,2)";
+    ATTRIBUTE Location OF \UART_1:BUART:sTX:sCLOCK:TxBitClkGen\ : LABEL IS "U(1,0)";
     ATTRIBUTE lib_model OF \UART_1:BUART:sTX:TxSts\ : LABEL IS "statusicell1";
-    ATTRIBUTE Location OF \UART_1:BUART:sTX:TxSts\ : LABEL IS "U(0,1)";
+    ATTRIBUTE Location OF \UART_1:BUART:sTX:TxSts\ : LABEL IS "U(0,0)";
     ATTRIBUTE lib_model OF \UART_1:BUART:sRX:RxShifter:u0\ : LABEL IS "datapathcell3";
-    ATTRIBUTE Location OF \UART_1:BUART:sRX:RxShifter:u0\ : LABEL IS "U(1,0)";
-    ATTRIBUTE Location OF \UART_1:BUART:sRX:RxBitCounter\ : LABEL IS "U(1,1)";
+    ATTRIBUTE Location OF \UART_1:BUART:sRX:RxShifter:u0\ : LABEL IS "U(0,1)";
+    ATTRIBUTE Location OF \UART_1:BUART:sRX:RxBitCounter\ : LABEL IS "U(0,1)";
     ATTRIBUTE lib_model OF \UART_1:BUART:sRX:RxSts\ : LABEL IS "statusicell2";
-    ATTRIBUTE Location OF \UART_1:BUART:sRX:RxSts\ : LABEL IS "U(1,0)";
-    ATTRIBUTE Location OF \Counter_1:CounterHW\ : LABEL IS "F(Timer,0)";
+    ATTRIBUTE Location OF \UART_1:BUART:sRX:RxSts\ : LABEL IS "U(1,1)";
+    ATTRIBUTE lib_model OF \Counter_1:CounterUDB:sCTRLReg:ctrlreg\ : LABEL IS "controlcell1";
+    ATTRIBUTE Location OF \Counter_1:CounterUDB:sCTRLReg:ctrlreg\ : LABEL IS "U(2,1)";
+    ATTRIBUTE lib_model OF \Counter_1:CounterUDB:sSTSReg:stsreg\ : LABEL IS "statusicell3";
+    ATTRIBUTE Location OF \Counter_1:CounterUDB:sSTSReg:stsreg\ : LABEL IS "U(2,1)";
+    ATTRIBUTE lib_model OF \Counter_1:CounterUDB:sC32:counterdp:u0\ : LABEL IS "datapathcell4";
+    ATTRIBUTE Location OF \Counter_1:CounterUDB:sC32:counterdp:u0\ : LABEL IS "U(2,0)";
+    ATTRIBUTE lib_model OF \Counter_1:CounterUDB:sC32:counterdp:u1\ : LABEL IS "datapathcell5";
+    ATTRIBUTE Location OF \Counter_1:CounterUDB:sC32:counterdp:u1\ : LABEL IS "U(3,0)";
+    ATTRIBUTE lib_model OF \Counter_1:CounterUDB:sC32:counterdp:u2\ : LABEL IS "datapathcell6";
+    ATTRIBUTE Location OF \Counter_1:CounterUDB:sC32:counterdp:u2\ : LABEL IS "U(3,1)";
+    ATTRIBUTE lib_model OF \Counter_1:CounterUDB:sC32:counterdp:u3\ : LABEL IS "datapathcell7";
+    ATTRIBUTE Location OF \Counter_1:CounterUDB:sC32:counterdp:u3\ : LABEL IS "U(2,1)";
     ATTRIBUTE Location OF \I2C_1:I2C_IRQ\ : LABEL IS "[IntrContainer=(0)][IntrId=(15)]";
     ATTRIBUTE Location OF \I2C_1:I2C_FF\ : LABEL IS "F(I2C,0)";
     ATTRIBUTE lib_model OF DMA_I2C : LABEL IS "drqcell1";
@@ -217,40 +294,48 @@ ARCHITECTURE __DEFAULT__ OF esw_uCOS3_cykit IS
     ATTRIBUTE lib_model OF DMA_SPI : LABEL IS "drqcell2";
     ATTRIBUTE Location OF DMA_SPI : LABEL IS "[DrqContainer=(0)][DrqId=(1)]";
     ATTRIBUTE Location OF I2C_DataReady : LABEL IS "[IntrContainer=(0)][IntrId=(5)]";
-    ATTRIBUTE Location OF \Timer_1:TimerHW\ : LABEL IS "F(Timer,1)";
+    ATTRIBUTE Location OF \Timer_1:TimerHW\ : LABEL IS "F(Timer,0)";
     ATTRIBUTE Location OF Timer_ISR : LABEL IS "[IntrContainer=(0)][IntrId=(0)]";
-    ATTRIBUTE lib_model OF \UART_1:BUART:txn\ : LABEL IS "macrocell11";
-    ATTRIBUTE Location OF \UART_1:BUART:txn\ : LABEL IS "U(0,2)";
-    ATTRIBUTE lib_model OF \UART_1:BUART:tx_state_1\ : LABEL IS "macrocell12";
-    ATTRIBUTE Location OF \UART_1:BUART:tx_state_1\ : LABEL IS "U(0,2)";
-    ATTRIBUTE lib_model OF \UART_1:BUART:tx_state_0\ : LABEL IS "macrocell13";
-    ATTRIBUTE Location OF \UART_1:BUART:tx_state_0\ : LABEL IS "U(0,1)";
-    ATTRIBUTE lib_model OF \UART_1:BUART:tx_state_2\ : LABEL IS "macrocell14";
-    ATTRIBUTE Location OF \UART_1:BUART:tx_state_2\ : LABEL IS "U(1,2)";
-    ATTRIBUTE lib_model OF \UART_1:BUART:tx_bitclk\ : LABEL IS "macrocell15";
-    ATTRIBUTE Location OF \UART_1:BUART:tx_bitclk\ : LABEL IS "U(0,2)";
-    ATTRIBUTE lib_model OF \UART_1:BUART:tx_ctrl_mark_last\ : LABEL IS "macrocell16";
-    ATTRIBUTE Location OF \UART_1:BUART:tx_ctrl_mark_last\ : LABEL IS "U(1,0)";
-    ATTRIBUTE lib_model OF \UART_1:BUART:rx_state_0\ : LABEL IS "macrocell17";
-    ATTRIBUTE Location OF \UART_1:BUART:rx_state_0\ : LABEL IS "U(1,1)";
-    ATTRIBUTE lib_model OF \UART_1:BUART:rx_load_fifo\ : LABEL IS "macrocell18";
-    ATTRIBUTE Location OF \UART_1:BUART:rx_load_fifo\ : LABEL IS "U(1,0)";
-    ATTRIBUTE lib_model OF \UART_1:BUART:rx_state_3\ : LABEL IS "macrocell19";
-    ATTRIBUTE Location OF \UART_1:BUART:rx_state_3\ : LABEL IS "U(1,0)";
-    ATTRIBUTE lib_model OF \UART_1:BUART:rx_state_2\ : LABEL IS "macrocell20";
-    ATTRIBUTE Location OF \UART_1:BUART:rx_state_2\ : LABEL IS "U(1,1)";
-    ATTRIBUTE lib_model OF \UART_1:BUART:rx_bitclk_enable\ : LABEL IS "macrocell21";
-    ATTRIBUTE Location OF \UART_1:BUART:rx_bitclk_enable\ : LABEL IS "U(1,1)";
-    ATTRIBUTE lib_model OF \UART_1:BUART:rx_state_stop1_reg\ : LABEL IS "macrocell22";
-    ATTRIBUTE Location OF \UART_1:BUART:rx_state_stop1_reg\ : LABEL IS "U(1,0)";
-    ATTRIBUTE lib_model OF \UART_1:BUART:pollcount_1\ : LABEL IS "macrocell23";
-    ATTRIBUTE Location OF \UART_1:BUART:pollcount_1\ : LABEL IS "U(1,2)";
-    ATTRIBUTE lib_model OF \UART_1:BUART:pollcount_0\ : LABEL IS "macrocell24";
-    ATTRIBUTE Location OF \UART_1:BUART:pollcount_0\ : LABEL IS "U(1,0)";
-    ATTRIBUTE lib_model OF \UART_1:BUART:rx_status_3\ : LABEL IS "macrocell25";
-    ATTRIBUTE Location OF \UART_1:BUART:rx_status_3\ : LABEL IS "U(1,0)";
-    ATTRIBUTE lib_model OF \UART_1:BUART:rx_last\ : LABEL IS "macrocell26";
-    ATTRIBUTE Location OF \UART_1:BUART:rx_last\ : LABEL IS "U(1,1)";
+    ATTRIBUTE lib_model OF \UART_1:BUART:txn\ : LABEL IS "macrocell13";
+    ATTRIBUTE Location OF \UART_1:BUART:txn\ : LABEL IS "U(1,0)";
+    ATTRIBUTE lib_model OF \UART_1:BUART:tx_state_1\ : LABEL IS "macrocell14";
+    ATTRIBUTE Location OF \UART_1:BUART:tx_state_1\ : LABEL IS "U(1,0)";
+    ATTRIBUTE lib_model OF \UART_1:BUART:tx_state_0\ : LABEL IS "macrocell15";
+    ATTRIBUTE Location OF \UART_1:BUART:tx_state_0\ : LABEL IS "U(0,0)";
+    ATTRIBUTE lib_model OF \UART_1:BUART:tx_state_2\ : LABEL IS "macrocell16";
+    ATTRIBUTE Location OF \UART_1:BUART:tx_state_2\ : LABEL IS "U(1,0)";
+    ATTRIBUTE lib_model OF \UART_1:BUART:tx_bitclk\ : LABEL IS "macrocell17";
+    ATTRIBUTE Location OF \UART_1:BUART:tx_bitclk\ : LABEL IS "U(1,0)";
+    ATTRIBUTE lib_model OF \UART_1:BUART:tx_ctrl_mark_last\ : LABEL IS "macrocell18";
+    ATTRIBUTE Location OF \UART_1:BUART:tx_ctrl_mark_last\ : LABEL IS "U(1,1)";
+    ATTRIBUTE lib_model OF \UART_1:BUART:rx_state_0\ : LABEL IS "macrocell19";
+    ATTRIBUTE Location OF \UART_1:BUART:rx_state_0\ : LABEL IS "U(0,1)";
+    ATTRIBUTE lib_model OF \UART_1:BUART:rx_load_fifo\ : LABEL IS "macrocell20";
+    ATTRIBUTE Location OF \UART_1:BUART:rx_load_fifo\ : LABEL IS "U(0,1)";
+    ATTRIBUTE lib_model OF \UART_1:BUART:rx_state_3\ : LABEL IS "macrocell21";
+    ATTRIBUTE Location OF \UART_1:BUART:rx_state_3\ : LABEL IS "U(0,1)";
+    ATTRIBUTE lib_model OF \UART_1:BUART:rx_state_2\ : LABEL IS "macrocell22";
+    ATTRIBUTE Location OF \UART_1:BUART:rx_state_2\ : LABEL IS "U(0,1)";
+    ATTRIBUTE lib_model OF \UART_1:BUART:rx_bitclk_enable\ : LABEL IS "macrocell23";
+    ATTRIBUTE Location OF \UART_1:BUART:rx_bitclk_enable\ : LABEL IS "U(0,0)";
+    ATTRIBUTE lib_model OF \UART_1:BUART:rx_state_stop1_reg\ : LABEL IS "macrocell24";
+    ATTRIBUTE Location OF \UART_1:BUART:rx_state_stop1_reg\ : LABEL IS "U(0,1)";
+    ATTRIBUTE lib_model OF \UART_1:BUART:pollcount_1\ : LABEL IS "macrocell25";
+    ATTRIBUTE Location OF \UART_1:BUART:pollcount_1\ : LABEL IS "U(0,0)";
+    ATTRIBUTE lib_model OF \UART_1:BUART:pollcount_0\ : LABEL IS "macrocell26";
+    ATTRIBUTE Location OF \UART_1:BUART:pollcount_0\ : LABEL IS "U(0,0)";
+    ATTRIBUTE lib_model OF \UART_1:BUART:rx_status_3\ : LABEL IS "macrocell27";
+    ATTRIBUTE Location OF \UART_1:BUART:rx_status_3\ : LABEL IS "U(0,1)";
+    ATTRIBUTE lib_model OF \UART_1:BUART:rx_last\ : LABEL IS "macrocell28";
+    ATTRIBUTE Location OF \UART_1:BUART:rx_last\ : LABEL IS "U(0,1)";
+    ATTRIBUTE lib_model OF \Counter_1:CounterUDB:disable_run_i\ : LABEL IS "macrocell29";
+    ATTRIBUTE Location OF \Counter_1:CounterUDB:disable_run_i\ : LABEL IS "U(2,1)";
+    ATTRIBUTE lib_model OF \Counter_1:CounterUDB:overflow_reg_i\ : LABEL IS "macrocell30";
+    ATTRIBUTE Location OF \Counter_1:CounterUDB:overflow_reg_i\ : LABEL IS "U(2,1)";
+    ATTRIBUTE lib_model OF \Counter_1:CounterUDB:prevCompare\ : LABEL IS "macrocell31";
+    ATTRIBUTE Location OF \Counter_1:CounterUDB:prevCompare\ : LABEL IS "U(2,1)";
+    ATTRIBUTE lib_model OF \Counter_1:CounterUDB:count_stored_i\ : LABEL IS "macrocell32";
+    ATTRIBUTE Location OF \Counter_1:CounterUDB:count_stored_i\ : LABEL IS "U(2,1)";
     COMPONENT clockblockcell
         PORT (
             dclk_0 : OUT std_ulogic;
@@ -330,6 +415,21 @@ ARCHITECTURE __DEFAULT__ OF esw_uCOS3_cykit IS
             dclk_glb_ff_5 : OUT std_ulogic;
             dclk_glb_ff_6 : OUT std_ulogic;
             dclk_glb_ff_7 : OUT std_ulogic);
+    END COMPONENT;
+    COMPONENT controlcell
+        PORT (
+            control_0 : OUT std_ulogic;
+            control_1 : OUT std_ulogic;
+            control_2 : OUT std_ulogic;
+            control_3 : OUT std_ulogic;
+            control_4 : OUT std_ulogic;
+            control_5 : OUT std_ulogic;
+            control_6 : OUT std_ulogic;
+            control_7 : OUT std_ulogic;
+            clock : IN std_ulogic;
+            reset : IN std_ulogic;
+            clk_en : IN std_ulogic;
+            busclk : IN std_ulogic);
     END COMPONENT;
     COMPONENT count7cell
         PORT (
@@ -587,8 +687,7 @@ BEGIN
             dclk_0 => Net_183_local,
             dclk_glb_1 => \UART_1:Net_9\,
             dclk_1 => \UART_1:Net_9_local\,
-            clk_bus_glb_ff => \ClockBlock.clk_bus_glb_ff__sig\,
-            dclk_glb_ff_0 => \ClockBlock.dclk_glb_ff_0__sig\);
+            clk_bus_glb_ff => \ClockBlock.clk_bus_glb_ff__sig\);
 
     Rx_1:logicalport
         GENERIC MAP(
@@ -1696,6 +1795,38 @@ BEGIN
             main_0 => \UART_1:BUART:rx_fifonotempty\,
             main_1 => \UART_1:BUART:rx_state_stop1_reg\);
 
+    \Counter_1:CounterUDB:status_0\:macrocell
+        GENERIC MAP(
+            eqn_main => "(!main_0 * !main_1)",
+            regmode => 0,
+            clken_mode => 1)
+        PORT MAP(
+            q => \Counter_1:CounterUDB:status_0\,
+            main_0 => \Counter_1:CounterUDB:cmp_less\,
+            main_1 => \Counter_1:CounterUDB:prevCompare\);
+
+    \Counter_1:CounterUDB:overflow_status\:macrocell
+        GENERIC MAP(
+            eqn_main => "(main_0 * !main_1)",
+            regmode => 0,
+            clken_mode => 1)
+        PORT MAP(
+            q => \Counter_1:CounterUDB:overflow_status\,
+            main_0 => \Counter_1:CounterUDB:per_equal\,
+            main_1 => \Counter_1:CounterUDB:overflow_reg_i\);
+
+    \Counter_1:CounterUDB:count_enable\:macrocell
+        GENERIC MAP(
+            eqn_main => "(main_0 * !main_1 * !main_2 * main_3)",
+            regmode => 0,
+            clken_mode => 1)
+        PORT MAP(
+            q => \Counter_1:CounterUDB:count_enable\,
+            main_0 => \Counter_1:CounterUDB:control_7\,
+            main_1 => \Counter_1:CounterUDB:disable_run_i\,
+            main_2 => \Counter_1:CounterUDB:count_stored_i\,
+            main_3 => Net_183_local);
+
     \UART_1:TXInternalInterrupt\:interrupt
         GENERIC MAP(
             int_type => "10",
@@ -1757,14 +1888,6 @@ BEGIN
             f0_bus_stat_comb => \UART_1:BUART:tx_fifo_notfull\,
             f0_blk_stat_comb => \UART_1:BUART:tx_fifo_empty\,
             busclk => ClockBlock_BUS_CLK);
-
-    __ZERO__:macrocell
-        GENERIC MAP(
-            eqn_main => "1'b0",
-            regmode => 0,
-            clken_mode => 1)
-        PORT MAP(
-            q => __ZERO__);
 
     \UART_1:BUART:sTX:sCLOCK:TxBitClkGen\:datapathcell
         GENERIC MAP(
@@ -1901,18 +2024,258 @@ BEGIN
             status_0 => open,
             interrupt => Net_42);
 
-    \Counter_1:CounterHW\:timercell
+    \Counter_1:CounterUDB:sCTRLReg:ctrlreg\:controlcell
         GENERIC MAP(
-            cy_registers => "")
+            cy_ctrl_mode_0 => "11111111",
+            cy_ctrl_mode_1 => "00000000",
+            cy_ext_reset => 0,
+            cy_force_order => 1,
+            cy_init_value => "00000000",
+            clk_inv => '0',
+            clken_mode => 1)
         PORT MAP(
-            clock => \ClockBlock.dclk_glb_ff_0__sig\,
-            kill => open,
-            enable => __ZERO__,
-            capture => open,
-            timer_reset => open,
-            tc => \Counter_1:Net_48\,
-            cmp => \Counter_1:Net_47\,
-            irq => \Counter_1:Net_42\);
+            clock => Net_183,
+            control_7 => \Counter_1:CounterUDB:control_7\,
+            control_6 => \Counter_1:CounterUDB:control_6\,
+            control_5 => \Counter_1:CounterUDB:control_5\,
+            control_4 => \Counter_1:CounterUDB:control_4\,
+            control_3 => \Counter_1:CounterUDB:control_3\,
+            control_2 => \Counter_1:CounterUDB:control_2\,
+            control_1 => \Counter_1:CounterUDB:control_1\,
+            control_0 => \Counter_1:CounterUDB:control_0\,
+            busclk => ClockBlock_BUS_CLK);
+
+    \Counter_1:CounterUDB:sSTSReg:stsreg\:statusicell
+        GENERIC MAP(
+            cy_force_order => 1,
+            cy_int_mask => "1111111",
+            cy_md_select => "0011111",
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            clock => Net_183,
+            status_6 => \Counter_1:CounterUDB:status_6\,
+            status_5 => \Counter_1:CounterUDB:status_5\,
+            status_4 => open,
+            status_3 => open,
+            status_2 => \Counter_1:CounterUDB:overflow_status\,
+            status_1 => \Counter_1:CounterUDB:status_1\,
+            status_0 => \Counter_1:CounterUDB:status_0\);
+
+    \Counter_1:CounterUDB:sC32:counterdp:u0\:datapathcell
+        GENERIC MAP(
+            a0_init => "00000000",
+            a1_init => "00000000",
+            ce0_sync => 1,
+            ce1_sync => 1,
+            cl0_sync => 1,
+            cl1_sync => 1,
+            cmsb_sync => 1,
+            co_msb_sync => 1,
+            cy_dpconfig => "0000000001000000000000001000000001000000010000000000000010000000000000000100000010101000010100000010000001000000101010000101000011111111000000001111111111111111101000000000000000000001000000000000000000011000",
+            d0_init => "00000000",
+            d1_init => "00000000",
+            f0_blk_sync => 1,
+            f0_bus_sync => 1,
+            f1_blk_sync => 1,
+            f1_bus_sync => 1,
+            ff0_sync => 1,
+            ff1_sync => 1,
+            ov_msb_sync => 1,
+            so_sync => 1,
+            z0_sync => 1,
+            z1_sync => 1,
+            uses_p_in => '0',
+            uses_p_out => '0',
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            clock => Net_183,
+            cs_addr_2 => __ONE__,
+            cs_addr_1 => \Counter_1:CounterUDB:count_enable\,
+            busclk => ClockBlock_BUS_CLK,
+            ce0 => \Counter_1:CounterUDB:sC32:counterdp:u0.ce0__sig\,
+            cl0 => \Counter_1:CounterUDB:sC32:counterdp:u0.cl0__sig\,
+            z0 => \Counter_1:CounterUDB:sC32:counterdp:u0.z0__sig\,
+            ff0 => \Counter_1:CounterUDB:sC32:counterdp:u0.ff0__sig\,
+            ce1 => \Counter_1:CounterUDB:sC32:counterdp:u0.ce1__sig\,
+            cl1 => \Counter_1:CounterUDB:sC32:counterdp:u0.cl1__sig\,
+            z1 => \Counter_1:CounterUDB:sC32:counterdp:u0.z1__sig\,
+            ff1 => \Counter_1:CounterUDB:sC32:counterdp:u0.ff1__sig\,
+            co_msb => \Counter_1:CounterUDB:sC32:counterdp:u0.co_msb__sig\,
+            sol_msb => \Counter_1:CounterUDB:sC32:counterdp:u0.sol_msb__sig\,
+            cfbo => \Counter_1:CounterUDB:sC32:counterdp:u0.cfbo__sig\,
+            sil => \Counter_1:CounterUDB:sC32:counterdp:u1.sor__sig\,
+            cmsbi => \Counter_1:CounterUDB:sC32:counterdp:u1.cmsbo__sig\);
+
+    \Counter_1:CounterUDB:sC32:counterdp:u1\:datapathcell
+        GENERIC MAP(
+            a0_init => "00000000",
+            a1_init => "00000000",
+            ce0_sync => 1,
+            ce1_sync => 1,
+            cl0_sync => 1,
+            cl1_sync => 1,
+            cmsb_sync => 1,
+            co_msb_sync => 1,
+            cy_dpconfig => "0000000001000000000000001000000001000000010000000000000010000000000000000100000010101000010100000010000001000000101010000101000011111111000000001111111111111111101011110000000000000001000001110000000000011000",
+            d0_init => "00000000",
+            d1_init => "00000000",
+            f0_blk_sync => 1,
+            f0_bus_sync => 1,
+            f1_blk_sync => 1,
+            f1_bus_sync => 1,
+            ff0_sync => 1,
+            ff1_sync => 1,
+            ov_msb_sync => 1,
+            so_sync => 1,
+            z0_sync => 1,
+            z1_sync => 1,
+            uses_p_in => '0',
+            uses_p_out => '0',
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            clock => Net_183,
+            cs_addr_2 => __ONE__,
+            cs_addr_1 => \Counter_1:CounterUDB:count_enable\,
+            busclk => ClockBlock_BUS_CLK,
+            ce0i => \Counter_1:CounterUDB:sC32:counterdp:u0.ce0__sig\,
+            cl0i => \Counter_1:CounterUDB:sC32:counterdp:u0.cl0__sig\,
+            z0i => \Counter_1:CounterUDB:sC32:counterdp:u0.z0__sig\,
+            ff0i => \Counter_1:CounterUDB:sC32:counterdp:u0.ff0__sig\,
+            ce1i => \Counter_1:CounterUDB:sC32:counterdp:u0.ce1__sig\,
+            cl1i => \Counter_1:CounterUDB:sC32:counterdp:u0.cl1__sig\,
+            z1i => \Counter_1:CounterUDB:sC32:counterdp:u0.z1__sig\,
+            ff1i => \Counter_1:CounterUDB:sC32:counterdp:u0.ff1__sig\,
+            ci => \Counter_1:CounterUDB:sC32:counterdp:u0.co_msb__sig\,
+            sir => \Counter_1:CounterUDB:sC32:counterdp:u0.sol_msb__sig\,
+            cfbi => \Counter_1:CounterUDB:sC32:counterdp:u0.cfbo__sig\,
+            sor => \Counter_1:CounterUDB:sC32:counterdp:u1.sor__sig\,
+            cmsbo => \Counter_1:CounterUDB:sC32:counterdp:u1.cmsbo__sig\,
+            ce0 => \Counter_1:CounterUDB:sC32:counterdp:u1.ce0__sig\,
+            cl0 => \Counter_1:CounterUDB:sC32:counterdp:u1.cl0__sig\,
+            z0 => \Counter_1:CounterUDB:sC32:counterdp:u1.z0__sig\,
+            ff0 => \Counter_1:CounterUDB:sC32:counterdp:u1.ff0__sig\,
+            ce1 => \Counter_1:CounterUDB:sC32:counterdp:u1.ce1__sig\,
+            cl1 => \Counter_1:CounterUDB:sC32:counterdp:u1.cl1__sig\,
+            z1 => \Counter_1:CounterUDB:sC32:counterdp:u1.z1__sig\,
+            ff1 => \Counter_1:CounterUDB:sC32:counterdp:u1.ff1__sig\,
+            co_msb => \Counter_1:CounterUDB:sC32:counterdp:u1.co_msb__sig\,
+            sol_msb => \Counter_1:CounterUDB:sC32:counterdp:u1.sol_msb__sig\,
+            cfbo => \Counter_1:CounterUDB:sC32:counterdp:u1.cfbo__sig\,
+            sil => \Counter_1:CounterUDB:sC32:counterdp:u2.sor__sig\,
+            cmsbi => \Counter_1:CounterUDB:sC32:counterdp:u2.cmsbo__sig\);
+
+    \Counter_1:CounterUDB:sC32:counterdp:u2\:datapathcell
+        GENERIC MAP(
+            a0_init => "00000000",
+            a1_init => "00000000",
+            ce0_sync => 1,
+            ce1_sync => 1,
+            cl0_sync => 1,
+            cl1_sync => 1,
+            cmsb_sync => 1,
+            co_msb_sync => 1,
+            cy_dpconfig => "0000000001000000000000001000000001000000010000000000000010000000000000000100000010101000010100000010000001000000101010000101000011111111000000001111111111111111101011110000000000000001000001110000000000011000",
+            d0_init => "00000000",
+            d1_init => "00000000",
+            f0_blk_sync => 1,
+            f0_bus_sync => 1,
+            f1_blk_sync => 1,
+            f1_bus_sync => 1,
+            ff0_sync => 1,
+            ff1_sync => 1,
+            ov_msb_sync => 1,
+            so_sync => 1,
+            z0_sync => 1,
+            z1_sync => 1,
+            uses_p_in => '0',
+            uses_p_out => '0',
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            clock => Net_183,
+            cs_addr_2 => __ONE__,
+            cs_addr_1 => \Counter_1:CounterUDB:count_enable\,
+            busclk => ClockBlock_BUS_CLK,
+            ce0i => \Counter_1:CounterUDB:sC32:counterdp:u1.ce0__sig\,
+            cl0i => \Counter_1:CounterUDB:sC32:counterdp:u1.cl0__sig\,
+            z0i => \Counter_1:CounterUDB:sC32:counterdp:u1.z0__sig\,
+            ff0i => \Counter_1:CounterUDB:sC32:counterdp:u1.ff0__sig\,
+            ce1i => \Counter_1:CounterUDB:sC32:counterdp:u1.ce1__sig\,
+            cl1i => \Counter_1:CounterUDB:sC32:counterdp:u1.cl1__sig\,
+            z1i => \Counter_1:CounterUDB:sC32:counterdp:u1.z1__sig\,
+            ff1i => \Counter_1:CounterUDB:sC32:counterdp:u1.ff1__sig\,
+            ci => \Counter_1:CounterUDB:sC32:counterdp:u1.co_msb__sig\,
+            sir => \Counter_1:CounterUDB:sC32:counterdp:u1.sol_msb__sig\,
+            cfbi => \Counter_1:CounterUDB:sC32:counterdp:u1.cfbo__sig\,
+            sor => \Counter_1:CounterUDB:sC32:counterdp:u2.sor__sig\,
+            cmsbo => \Counter_1:CounterUDB:sC32:counterdp:u2.cmsbo__sig\,
+            ce0 => \Counter_1:CounterUDB:sC32:counterdp:u2.ce0__sig\,
+            cl0 => \Counter_1:CounterUDB:sC32:counterdp:u2.cl0__sig\,
+            z0 => \Counter_1:CounterUDB:sC32:counterdp:u2.z0__sig\,
+            ff0 => \Counter_1:CounterUDB:sC32:counterdp:u2.ff0__sig\,
+            ce1 => \Counter_1:CounterUDB:sC32:counterdp:u2.ce1__sig\,
+            cl1 => \Counter_1:CounterUDB:sC32:counterdp:u2.cl1__sig\,
+            z1 => \Counter_1:CounterUDB:sC32:counterdp:u2.z1__sig\,
+            ff1 => \Counter_1:CounterUDB:sC32:counterdp:u2.ff1__sig\,
+            co_msb => \Counter_1:CounterUDB:sC32:counterdp:u2.co_msb__sig\,
+            sol_msb => \Counter_1:CounterUDB:sC32:counterdp:u2.sol_msb__sig\,
+            cfbo => \Counter_1:CounterUDB:sC32:counterdp:u2.cfbo__sig\,
+            sil => \Counter_1:CounterUDB:sC32:counterdp:u3.sor__sig\,
+            cmsbi => \Counter_1:CounterUDB:sC32:counterdp:u3.cmsbo__sig\);
+
+    \Counter_1:CounterUDB:sC32:counterdp:u3\:datapathcell
+        GENERIC MAP(
+            a0_init => "00000000",
+            a1_init => "00000000",
+            ce0_sync => 1,
+            ce1_sync => 1,
+            cl0_sync => 1,
+            cl1_sync => 1,
+            cmsb_sync => 1,
+            co_msb_sync => 1,
+            cy_dpconfig => "0000000001000000000000001000000001000000010000000000000010000000000000000100000010101000010100000010000001000000101010000101000011111111000000001111111111111111101011110000000000000001000001110000000000011000",
+            d0_init => "00000000",
+            d1_init => "00000000",
+            f0_blk_sync => 1,
+            f0_bus_sync => 1,
+            f1_blk_sync => 1,
+            f1_bus_sync => 1,
+            ff0_sync => 1,
+            ff1_sync => 1,
+            ov_msb_sync => 1,
+            so_sync => 1,
+            z0_sync => 1,
+            z1_sync => 1,
+            uses_p_in => '0',
+            uses_p_out => '0',
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            clock => Net_183,
+            cs_addr_2 => __ONE__,
+            cs_addr_1 => \Counter_1:CounterUDB:count_enable\,
+            ce0_comb => \Counter_1:CounterUDB:per_equal\,
+            z0_comb => \Counter_1:CounterUDB:status_1\,
+            cl1_comb => \Counter_1:CounterUDB:cmp_less\,
+            f0_bus_stat_comb => \Counter_1:CounterUDB:status_6\,
+            f0_blk_stat_comb => \Counter_1:CounterUDB:status_5\,
+            busclk => ClockBlock_BUS_CLK,
+            ce0i => \Counter_1:CounterUDB:sC32:counterdp:u2.ce0__sig\,
+            cl0i => \Counter_1:CounterUDB:sC32:counterdp:u2.cl0__sig\,
+            z0i => \Counter_1:CounterUDB:sC32:counterdp:u2.z0__sig\,
+            ff0i => \Counter_1:CounterUDB:sC32:counterdp:u2.ff0__sig\,
+            ce1i => \Counter_1:CounterUDB:sC32:counterdp:u2.ce1__sig\,
+            cl1i => \Counter_1:CounterUDB:sC32:counterdp:u2.cl1__sig\,
+            z1i => \Counter_1:CounterUDB:sC32:counterdp:u2.z1__sig\,
+            ff1i => \Counter_1:CounterUDB:sC32:counterdp:u2.ff1__sig\,
+            ci => \Counter_1:CounterUDB:sC32:counterdp:u2.co_msb__sig\,
+            sir => \Counter_1:CounterUDB:sC32:counterdp:u2.sol_msb__sig\,
+            cfbi => \Counter_1:CounterUDB:sC32:counterdp:u2.cfbo__sig\,
+            sor => \Counter_1:CounterUDB:sC32:counterdp:u3.sor__sig\,
+            cmsbo => \Counter_1:CounterUDB:sC32:counterdp:u3.cmsbo__sig\);
 
     \I2C_1:I2C_IRQ\:interrupt
         GENERIC MAP(
@@ -2233,5 +2596,51 @@ BEGIN
             q => \UART_1:BUART:rx_last\,
             clock_0 => \UART_1:Net_9\,
             main_0 => Net_7);
+
+    \Counter_1:CounterUDB:disable_run_i\:macrocell
+        GENERIC MAP(
+            eqn_main => "(!main_0 * main_1 * !main_2)",
+            regmode => 2,
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            q => \Counter_1:CounterUDB:disable_run_i\,
+            clock_0 => Net_183,
+            main_0 => \Counter_1:CounterUDB:disable_run_i\,
+            main_1 => \Counter_1:CounterUDB:per_equal\,
+            main_2 => \Counter_1:CounterUDB:overflow_reg_i\);
+
+    \Counter_1:CounterUDB:overflow_reg_i\:macrocell
+        GENERIC MAP(
+            eqn_main => "(main_0)",
+            regmode => 1,
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            q => \Counter_1:CounterUDB:overflow_reg_i\,
+            clock_0 => Net_183,
+            main_0 => \Counter_1:CounterUDB:per_equal\);
+
+    \Counter_1:CounterUDB:prevCompare\:macrocell
+        GENERIC MAP(
+            eqn_main => "(!main_0)",
+            regmode => 1,
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            q => \Counter_1:CounterUDB:prevCompare\,
+            clock_0 => Net_183,
+            main_0 => \Counter_1:CounterUDB:cmp_less\);
+
+    \Counter_1:CounterUDB:count_stored_i\:macrocell
+        GENERIC MAP(
+            eqn_main => "(main_0)",
+            regmode => 1,
+            clk_inv => '0',
+            clken_mode => 1)
+        PORT MAP(
+            q => \Counter_1:CounterUDB:count_stored_i\,
+            clock_0 => Net_183,
+            main_0 => Net_183_local);
 
 END __DEFAULT__;

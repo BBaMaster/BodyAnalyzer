@@ -17,9 +17,8 @@ void init_counter(){
   Counter_1_Enable(); 
 }
 
-void start_counter(uint16_t period){
-  Counter_1_WriteCounter(0);
-  Counter_1_WritePeriod(period);
+void start_counter(){
+//  Counter_1_WriteCounter(0);
   Counter_1_Start();
 }
 

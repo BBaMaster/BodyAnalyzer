@@ -14,7 +14,7 @@
 #include <Counter_1.h>
 
 void init_counter();
-void start_counter(uint16_t period);
+void start_counter();
 void stop_counter();
 uint16_t read_counter_value();
 
