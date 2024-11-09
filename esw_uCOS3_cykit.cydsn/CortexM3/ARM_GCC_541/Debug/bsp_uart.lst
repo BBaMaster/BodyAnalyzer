@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvYCQ0r.s 			page 1
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXK8SPk.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvYCQ0r.s 			page 1
   28:bsp_uart.c    **** ***************************************************************************************************
   29:bsp_uart.c    **** */
   30:bsp_uart.c    **** 
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvYCQ0r.s 			page 2
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXK8SPk.s 			page 2
 
 
   31:bsp_uart.c    **** CPU_VOID init_uart(CPU_VOID)
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvYCQ0r.s 			page 1
   56              		.cfi_def_cfa_offset 8
   57              		.cfi_offset 3, -8
   58              		.cfi_offset 14, -4
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvYCQ0r.s 			page 3
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXK8SPk.s 			page 3
 
 
   57:bsp_uart.c    ****     return UART_1_GetChar();
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvYCQ0r.s 			page 1
   89              	.LFE2:
   90              		.size	uart_send_byte, .-uart_send_byte
   91              		.text
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvYCQ0r.s 			page 4
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXK8SPk.s 			page 4
 
 
   92              	.Letext0:
@@ -191,42 +191,42 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvYCQ0r.s 			page 1
   99 0006 00000000 		.4byte	.Ldebug_abbrev0
  100 000a 04       		.byte	0x4
  101 000b 01       		.uleb128 0x1
- 102 000c 37000000 		.4byte	.LASF19
+ 102 000c 72000000 		.4byte	.LASF19
  103 0010 0C       		.byte	0xc
- 104 0011 76010000 		.4byte	.LASF20
- 105 0015 24010000 		.4byte	.LASF21
+ 104 0011 7B010000 		.4byte	.LASF20
+ 105 0015 1C000000 		.4byte	.LASF21
  106 0019 00000000 		.4byte	.Ldebug_ranges0+0
  107 001d 00000000 		.4byte	0
  108 0021 00000000 		.4byte	.Ldebug_line0
  109 0025 02       		.uleb128 0x2
  110 0026 01       		.byte	0x1
  111 0027 08       		.byte	0x8
- 112 0028 68010000 		.4byte	.LASF0
+ 112 0028 6D010000 		.4byte	.LASF0
  113 002c 02       		.uleb128 0x2
  114 002d 01       		.byte	0x1
  115 002e 08       		.byte	0x8
- 116 002f 29000000 		.4byte	.LASF1
+ 116 002f 5F010000 		.4byte	.LASF1
  117 0033 03       		.uleb128 0x3
- 118 0034 D6010000 		.4byte	.LASF22
+ 118 0034 DB010000 		.4byte	.LASF22
  119 0038 03       		.byte	0x3
  120 0039 78       		.byte	0x78
  121 003a 2C000000 		.4byte	0x2c
  122 003e 02       		.uleb128 0x2
  123 003f 01       		.byte	0x1
  124 0040 06       		.byte	0x6
- 125 0041 BE010000 		.4byte	.LASF2
+ 125 0041 C3010000 		.4byte	.LASF2
  126 0045 02       		.uleb128 0x2
  127 0046 02       		.byte	0x2
  128 0047 07       		.byte	0x7
- 129 0048 AB010000 		.4byte	.LASF3
+ 129 0048 B0010000 		.4byte	.LASF3
  130 004c 02       		.uleb128 0x2
  131 004d 02       		.byte	0x2
  132 004e 05       		.byte	0x5
- 133 004f E1000000 		.4byte	.LASF4
+ 133 004f 1C010000 		.4byte	.LASF4
  134 0053 02       		.uleb128 0x2
  135 0054 04       		.byte	0x4
  136 0055 07       		.byte	0x7
- 137 0056 1C000000 		.4byte	.LASF5
+ 137 0056 65000000 		.4byte	.LASF5
  138 005a 04       		.uleb128 0x4
  139 005b 04       		.byte	0x4
  140 005c 05       		.byte	0x5
@@ -234,40 +234,40 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvYCQ0r.s 			page 1
  142 0061 02       		.uleb128 0x2
  143 0062 08       		.byte	0x8
  144 0063 07       		.byte	0x7
- 145 0064 EB000000 		.4byte	.LASF6
+ 145 0064 26010000 		.4byte	.LASF6
  146 0068 02       		.uleb128 0x2
  147 0069 08       		.byte	0x8
  148 006a 05       		.byte	0x5
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvYCQ0r.s 			page 5
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXK8SPk.s 			page 5
 
 
  149 006b 00000000 		.4byte	.LASF7
  150 006f 02       		.uleb128 0x2
  151 0070 04       		.byte	0x4
  152 0071 04       		.byte	0x4
- 153 0072 02010000 		.4byte	.LASF8
+ 153 0072 3D010000 		.4byte	.LASF8
  154 0076 02       		.uleb128 0x2
  155 0077 08       		.byte	0x8
  156 0078 04       		.byte	0x4
- 157 0079 90010000 		.4byte	.LASF9
+ 157 0079 95010000 		.4byte	.LASF9
  158 007d 02       		.uleb128 0x2
  159 007e 04       		.byte	0x4
  160 007f 05       		.byte	0x5
- 161 0080 6D010000 		.4byte	.LASF10
+ 161 0080 72010000 		.4byte	.LASF10
  162 0084 02       		.uleb128 0x2
  163 0085 04       		.byte	0x4
  164 0086 07       		.byte	0x7
- 165 0087 CF000000 		.4byte	.LASF11
+ 165 0087 0A010000 		.4byte	.LASF11
  166 008b 02       		.uleb128 0x2
  167 008c 08       		.byte	0x8
  168 008d 04       		.byte	0x4
- 169 008e CA010000 		.4byte	.LASF12
+ 169 008e CF010000 		.4byte	.LASF12
  170 0092 02       		.uleb128 0x2
  171 0093 04       		.byte	0x4
  172 0094 07       		.byte	0x7
- 173 0095 E1010000 		.4byte	.LASF13
+ 173 0095 E6010000 		.4byte	.LASF13
  174 0099 05       		.uleb128 0x5
- 175 009a C5000000 		.4byte	.LASF14
+ 175 009a 00010000 		.4byte	.LASF14
  176 009e 01       		.byte	0x1
  177 009f 1F       		.byte	0x1f
  178 00a0 00000000 		.4byte	.LFB0
@@ -294,11 +294,11 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvYCQ0r.s 			page 1
  199 00d6 14010000 		.4byte	0x114
  200 00da 00       		.byte	0
  201 00db 05       		.uleb128 0x5
- 202 00dc 08010000 		.4byte	.LASF15
+ 202 00dc 43010000 		.4byte	.LASF15
  203 00e0 01       		.byte	0x1
  204 00e1 4E       		.byte	0x4e
  205 00e2 00000000 		.4byte	.LFB2
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvYCQ0r.s 			page 6
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXK8SPk.s 			page 6
 
 
  206 00e6 08000000 		.4byte	.LFE2-.LFB2
@@ -306,7 +306,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvYCQ0r.s 			page 1
  208 00eb 9C       		.byte	0x9c
  209 00ec 09010000 		.4byte	0x109
  210 00f0 08       		.uleb128 0x8
- 211 00f1 97010000 		.4byte	.LASF24
+ 211 00f1 9C010000 		.4byte	.LASF24
  212 00f5 01       		.byte	0x1
  213 00f6 4E       		.byte	0x4e
  214 00f7 33000000 		.4byte	0x33
@@ -316,18 +316,18 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvYCQ0r.s 			page 1
  218 0104 1F010000 		.4byte	0x11f
  219 0108 00       		.byte	0
  220 0109 09       		.uleb128 0x9
- 221 010a 17010000 		.4byte	.LASF16
- 222 010e 17010000 		.4byte	.LASF16
+ 221 010a 52010000 		.4byte	.LASF16
+ 222 010e 52010000 		.4byte	.LASF16
  223 0112 02       		.byte	0x2
  224 0113 54       		.byte	0x54
  225 0114 09       		.uleb128 0x9
- 226 0115 9C010000 		.4byte	.LASF17
- 227 0119 9C010000 		.4byte	.LASF17
+ 226 0115 A1010000 		.4byte	.LASF17
+ 227 0119 A1010000 		.4byte	.LASF17
  228 011d 02       		.byte	0x2
  229 011e 71       		.byte	0x71
  230 011f 09       		.uleb128 0x9
- 231 0120 81010000 		.4byte	.LASF18
- 232 0124 81010000 		.4byte	.LASF18
+ 231 0120 86010000 		.4byte	.LASF18
+ 232 0124 86010000 		.4byte	.LASF18
  233 0128 02       		.byte	0x2
  234 0129 8A       		.byte	0x8a
  235 012a 00       		.byte	0
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvYCQ0r.s 			page 1
  260 0016 0B       		.uleb128 0xb
  261 0017 0B       		.uleb128 0xb
  262 0018 3E       		.uleb128 0x3e
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvYCQ0r.s 			page 7
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXK8SPk.s 			page 7
 
 
  263 0019 0B       		.uleb128 0xb
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvYCQ0r.s 			page 1
  317 0050 06       		.uleb128 0x6
  318 0051 898201   		.uleb128 0x4109
  319 0054 00       		.byte	0
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvYCQ0r.s 			page 8
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXK8SPk.s 			page 8
 
 
  320 0055 11       		.uleb128 0x11
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvYCQ0r.s 			page 1
  374 008c 19       		.uleb128 0x19
  375 008d 6E       		.uleb128 0x6e
  376 008e 0E       		.uleb128 0xe
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvYCQ0r.s 			page 9
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXK8SPk.s 			page 9
 
 
  377 008f 03       		.uleb128 0x3
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvYCQ0r.s 			page 1
  430      02006800 
  430      00000201 
  430      FB0E0D00 
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvYCQ0r.s 			page 10
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXK8SPk.s 			page 10
 
 
  430      01010101 
@@ -552,129 +552,129 @@ ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvYCQ0r.s 			page 1
  434      5F676574 
  434      5F627974 
  434      6500
- 435              	.LASF5:
- 436 001c 756E7369 		.ascii	"unsigned int\000"
- 436      676E6564 
- 436      20696E74 
- 436      00
- 437              	.LASF1:
- 438 0029 756E7369 		.ascii	"unsigned char\000"
- 438      676E6564 
- 438      20636861 
- 438      7200
- 439              	.LASF19:
- 440 0037 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
- 440      43313120 
- 440      352E342E 
- 440      31203230 
- 440      31363036 
- 441 006a 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
- 441      20726576 
- 441      6973696F 
- 441      6E203233 
- 441      37373135 
- 442 009d 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
- 442      66756E63 
- 442      74696F6E 
- 442      2D736563 
- 442      74696F6E 
- 443              	.LASF14:
- 444 00c5 696E6974 		.ascii	"init_uart\000"
- 444      5F756172 
- 444      7400
- 445              	.LASF11:
- 446 00cf 6C6F6E67 		.ascii	"long unsigned int\000"
- 446      20756E73 
- 446      69676E65 
- 446      6420696E 
- 446      7400
- 447              	.LASF4:
- 448 00e1 73686F72 		.ascii	"short int\000"
- 448      7420696E 
- 448      7400
- 449              	.LASF6:
- 450 00eb 6C6F6E67 		.ascii	"long long unsigned int\000"
- 450      206C6F6E 
- 450      6720756E 
- 450      7369676E 
- 450      65642069 
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvYCQ0r.s 			page 11
+ 435              	.LASF21:
+ 436 001c 433A5C63 		.ascii	"C:\\cypress\\BodyAnalyzer_test\\esw_uCOS3_cykit.cyd"
+ 436      79707265 
+ 436      73735C42 
+ 436      6F647941 
+ 436      6E616C79 
+ 437 004c 736E5C65 		.ascii	"sn\\esw_uCOS3_cykit.cydsn\000"
+ 437      73775F75 
+ 437      434F5333 
+ 437      5F63796B 
+ 437      69742E63 
+ 438              	.LASF5:
+ 439 0065 756E7369 		.ascii	"unsigned int\000"
+ 439      676E6564 
+ 439      20696E74 
+ 439      00
+ 440              	.LASF19:
+ 441 0072 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 441      43313120 
+ 441      352E342E 
+ 441      31203230 
+ 441      31363036 
+ 442 00a5 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 442      20726576 
+ 442      6973696F 
+ 442      6E203233 
+ 442      37373135 
+ 443 00d8 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 443      66756E63 
+ 443      74696F6E 
+ 443      2D736563 
+ 443      74696F6E 
+ 444              	.LASF14:
+ 445 0100 696E6974 		.ascii	"init_uart\000"
+ 445      5F756172 
+ 445      7400
+ 446              	.LASF11:
+ 447 010a 6C6F6E67 		.ascii	"long unsigned int\000"
+ 447      20756E73 
+ 447      69676E65 
+ 447      6420696E 
+ 447      7400
+ 448              	.LASF4:
+ 449 011c 73686F72 		.ascii	"short int\000"
+ 449      7420696E 
+ 449      7400
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXK8SPk.s 			page 11
 
 
- 451              	.LASF8:
- 452 0102 666C6F61 		.ascii	"float\000"
- 452      7400
- 453              	.LASF15:
- 454 0108 75617274 		.ascii	"uart_send_byte\000"
- 454      5F73656E 
- 454      645F6279 
- 454      746500
- 455              	.LASF16:
- 456 0117 55415254 		.ascii	"UART_1_Start\000"
- 456      5F315F53 
- 456      74617274 
- 456      00
- 457              	.LASF21:
- 458 0124 433A5C63 		.ascii	"C:\\cypress\\BodyAnalyzer\\esw_uCOS3_cykit.cydsn\\e"
- 458      79707265 
- 458      73735C42 
- 458      6F647941 
- 458      6E616C79 
- 459 0153 73775F75 		.ascii	"sw_uCOS3_cykit.cydsn\000"
- 459      434F5333 
- 459      5F63796B 
- 459      69742E63 
- 459      7964736E 
+ 450              	.LASF6:
+ 451 0126 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 451      206C6F6E 
+ 451      6720756E 
+ 451      7369676E 
+ 451      65642069 
+ 452              	.LASF8:
+ 453 013d 666C6F61 		.ascii	"float\000"
+ 453      7400
+ 454              	.LASF15:
+ 455 0143 75617274 		.ascii	"uart_send_byte\000"
+ 455      5F73656E 
+ 455      645F6279 
+ 455      746500
+ 456              	.LASF16:
+ 457 0152 55415254 		.ascii	"UART_1_Start\000"
+ 457      5F315F53 
+ 457      74617274 
+ 457      00
+ 458              	.LASF1:
+ 459 015f 756E7369 		.ascii	"unsigned char\000"
+ 459      676E6564 
+ 459      20636861 
+ 459      7200
  460              	.LASF0:
- 461 0168 63686172 		.ascii	"char\000"
+ 461 016d 63686172 		.ascii	"char\000"
  461      00
  462              	.LASF10:
- 463 016d 6C6F6E67 		.ascii	"long int\000"
+ 463 0172 6C6F6E67 		.ascii	"long int\000"
  463      20696E74 
  463      00
  464              	.LASF20:
- 465 0176 6273705F 		.ascii	"bsp_uart.c\000"
+ 465 017b 6273705F 		.ascii	"bsp_uart.c\000"
  465      75617274 
  465      2E6300
  466              	.LASF18:
- 467 0181 55415254 		.ascii	"UART_1_PutChar\000"
+ 467 0186 55415254 		.ascii	"UART_1_PutChar\000"
  467      5F315F50 
  467      75744368 
  467      617200
  468              	.LASF9:
- 469 0190 646F7562 		.ascii	"double\000"
+ 469 0195 646F7562 		.ascii	"double\000"
  469      6C6500
  470              	.LASF24:
- 471 0197 62797465 		.ascii	"byte\000"
+ 471 019c 62797465 		.ascii	"byte\000"
  471      00
  472              	.LASF17:
- 473 019c 55415254 		.ascii	"UART_1_GetChar\000"
+ 473 01a1 55415254 		.ascii	"UART_1_GetChar\000"
  473      5F315F47 
  473      65744368 
  473      617200
  474              	.LASF3:
- 475 01ab 73686F72 		.ascii	"short unsigned int\000"
+ 475 01b0 73686F72 		.ascii	"short unsigned int\000"
  475      7420756E 
  475      7369676E 
  475      65642069 
  475      6E7400
-ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccvYCQ0r.s 			page 12
+ARM GAS  C:\Users\bernh\AppData\Local\Temp\ccXK8SPk.s 			page 12
 
 
  476              	.LASF2:
- 477 01be 7369676E 		.ascii	"signed char\000"
+ 477 01c3 7369676E 		.ascii	"signed char\000"
  477      65642063 
  477      68617200 
  478              	.LASF12:
- 479 01ca 6C6F6E67 		.ascii	"long double\000"
+ 479 01cf 6C6F6E67 		.ascii	"long double\000"
  479      20646F75 
  479      626C6500 
  480              	.LASF22:
- 481 01d6 4350555F 		.ascii	"CPU_INT08U\000"
+ 481 01db 4350555F 		.ascii	"CPU_INT08U\000"
  481      494E5430 
  481      385500
  482              	.LASF13:
- 483 01e1 73697A65 		.ascii	"sizetype\000"
+ 483 01e6 73697A65 		.ascii	"sizetype\000"
  483      74797065 
  483      00
  484              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

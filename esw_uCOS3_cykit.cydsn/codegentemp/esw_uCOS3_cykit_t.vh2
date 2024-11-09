@@ -1,5 +1,5 @@
--- Project:   C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\esw_uCOS3_cykit.cydsn\esw_uCOS3_cykit.cyprj
--- Generated: 11/09/2024 12:04:09
+-- Project:   C:\cypress\BodyAnalyzer_test\esw_uCOS3_cykit.cydsn\esw_uCOS3_cykit.cydsn\esw_uCOS3_cykit.cyprj
+-- Generated: 11/09/2024 21:21:12
 -- PSoC Creator  4.4
 
 ENTITY esw_uCOS3_cykit IS
