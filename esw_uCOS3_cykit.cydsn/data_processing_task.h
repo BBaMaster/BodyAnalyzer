@@ -50,8 +50,8 @@ typedef struct {
 
 // Define a struct for environment data
 typedef struct {
-    CPU_TS human_readable_timestamp;
     CPU_INT08S command;
+    ELAPSED_TIME_SET elapsed_time;
 
 } DATA_SET_PACKAGE_ENVIRONMENT;
 
@@ -65,7 +65,7 @@ typedef enum {
 /* Function prototypes */
 void Data_Processing_Init(void);
 CPU_BOOLEAN ProcessRawOximeterData(DATA_SET_PACKAGE_OXIMETER *data_oximeter_package);
-DATA_SET_PACKAGE_ENVIRONMENT ProcessRawEnvironmentData(void);
+CPU_BOOLEAN ProcessRawEnvironmentData(DATA_SET_PACKAGE_ENVIRONMENT *data_environment_package);
 acceptanceRatesCategory isDataInAccceptableRange(CPU_INT08S average_heart_rate);
 void initializeMessageQueues(void);
 ELAPSED_TIME_SET conversionOfTimestamp();

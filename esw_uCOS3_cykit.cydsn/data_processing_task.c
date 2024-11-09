@@ -99,6 +99,7 @@ static void Data_Processing_Task(void *p_arg) {
   OS_ERR os_err;
   OS_MSG_QTY entries;
   DATA_SET_PACKAGE_OXIMETER processed_data_oximeter;
+  DATA_SET_PACKAGE_ENVIRONMENT processd_data_environment;
   (void)p_arg;
 
   Log_Write(LOG_LEVEL_DATA_PROCESSING, "Data Processing Task: Initializing message queues ...", 0);
@@ -143,6 +144,8 @@ static void Data_Processing_Task(void *p_arg) {
 
       // Delay to allow for periodic processing
       OSTimeDlyHMSM(0, 0, 0, 100, OS_OPT_TIME_HMSM_STRICT, &os_err);
+    } else if(ProcessRawEnvironmentData(&processd_data_environment)){
+      Log_Write(LOG_LEVEL_DATA_PROCESSING, "...environment sensor data should be sent from here ..");
     }
   }
   OSTimeDlyHMSM(0, 0, 1, 0, OS_OPT_TIME_HMSM_STRICT, &os_err);
@@ -155,7 +158,7 @@ CPU_BOOLEAN ProcessRawOximeterData(DATA_SET_PACKAGE_OXIMETER *data_oximeter_pack
   OS_MSG_SIZE  msg_size;
   CPU_TS raw_timestamp = OS_TS_GET();
   
-  // Initialize package data
+  // Initialize package set to store informations to transmit
   *data_oximeter_package = (DATA_SET_PACKAGE_OXIMETER) {0, 0,{0, 0, 0, 0}};
 
   // Wait for data from the I2C queue
@@ -189,10 +192,12 @@ CPU_BOOLEAN ProcessRawOximeterData(DATA_SET_PACKAGE_OXIMETER *data_oximeter_pack
   return DEF_FALSE;
 }
 
-/*DATA_SET_PACKAGE_ENVIRONMENT ProcessRawEnvironmentData(){
-    ;;
-  
-}*/
+CPU_BOOLEAN ProcessRawEnvironmentData(DATA_SET_PACKAGE_ENVIRONMENT *data_environment_package){
+   
+  // Initialize package set to store informations to transmit
+  *data_environment_package = (DATA_SET_PACKAGE_ENVIRONMENT) {0, {0, 0, 0, 0}};
+  return FALSE;
+}
 
 acceptanceRatesCategory isDataInAccceptableRange(CPU_INT08S average_heart_rate){
   if (average_heart_rate >= HEART_RATE_GOOD_MIN && average_heart_rate <= HEART_RATE_GOOD_MAX) {

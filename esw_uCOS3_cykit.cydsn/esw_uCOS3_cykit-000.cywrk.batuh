@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="esw_uCOS3_cykit-000\esw_uCOS3_cykit\BSP\bsp_i2c.h">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="esw_uCOS3_cykit-000\esw_uCOS3_cykit\Header Files\data_processing_task.h">
 <ExpandedNodeIds>
 <v>esw_uCOS3_cykit-000</v>
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit</v>
@@ -124,6 +124,10 @@
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Generated_Source\PSoC5</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
+<v>esw_uCOS3_cykit-000</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\TopDesign</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\esw_uCOS3_cykit.cydwr</v>
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\esw_uCOS3_cykit.cydwr\Pins</v>
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\esw_uCOS3_cykit.cydwr\Analog</v>
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\esw_uCOS3_cykit.cydwr\Clocks</v>
@@ -153,6 +157,15 @@
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Header Files</v>
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Header Files\app_cfg.h</v>
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Header Files\cpu_cfg.h</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Header Files\cyapicallbacks.h</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Header Files\data_processing_task.h</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Header Files\device.h</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Header Files\includes.h</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Header Files\log_task.h</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Header Files\os_app_hooks.h</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Header Files\os_cfg.h</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Header Files\os_cfg_app.h</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\SensorLibs</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -300,6 +313,20 @@
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\CortexM3\ARM_GCC_541\Debug\Listing Files\data_processing_task.lst</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\CortexM3\ARM_GCC_541\Debug\Listing Files\DMA_I2C_dma.lst</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\CortexM3\ARM_GCC_541\Debug\Listing Files\DMA_SPI_dma.lst</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\CortexM3\ARM_GCC_541\Debug\Listing Files\driver_max30102.lst</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_1.lst</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_1_BOOT.lst</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_1_INT.lst</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_1_MASTER.lst</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_1_PM.lst</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_1_SLAVE.lst</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_DataReady.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -355,14 +382,23 @@
 </userData>
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
-<OpenDocs />
+<OpenDocs>
+<name v=".\APP\app.c" />
+<name v=".\log_task.c" />
+<name v=".\APP\app_cfg.h" />
+<name v=".\log_task.h" />
+<name v=".\bsp_i2c.c" />
+<name v=".\bsp_i2c.h" />
+<name v=".\data_processing_task.c" />
+<name v=".\data_processing_task.h" />
+</OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
   Actipro Docking/MDI for WinForms
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Vertical"><TabbedMdiContainer Size="1585, 661" SelectedTabbedMdiWindow="2abf2215-7b03-497e-a107-540139b3c079"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="2abf2215-7b03-497e-a107-540139b3c079" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Vertical"><TabbedMdiContainer Size="1158, 803" SelectedTabbedMdiWindow="f85457ef-4b9a-423b-b96f-4cd7d7393fb9"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="2abf2215-7b03-497e-a107-540139b3c079" /><DocumentWindow Key="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\APP\app.c" Guid="b96c3c33-b544-4d11-88fd-a143c42c4ee9" /><DocumentWindow Key="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\log_task.c" Guid="580cfa3d-e353-4aef-89a7-842222dd188e" /><DocumentWindow Key="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\APP\app_cfg.h" Guid="89f66657-3712-4dd6-b628-c73af8610658" /><DocumentWindow Key="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\log_task.h" Guid="42474568-dc60-4090-b1a6-12ba731abf74" /><DocumentWindow Key="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\bsp_i2c.c" Guid="b98d7550-0e0e-4301-8433-a2ebf7b260b0" /><DocumentWindow Key="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\bsp_i2c.h" Guid="96b80a98-abc3-450f-acbb-08459bc65faf" /><DocumentWindow Key="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\data_processing_task.c" Guid="f85457ef-4b9a-423b-b96f-4cd7d7393fb9" /><DocumentWindow Key="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\data_processing_task.h" Guid="e041f2e0-aeb9-45af-83f3-ae28c9ddfadf" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
