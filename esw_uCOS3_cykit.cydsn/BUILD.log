@@ -1,31 +1,31 @@
---------------- Build Started: 11/10/2024 18:20:34 Project: esw_uCOS3_cykit, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+--------------- Build Started: 11/10/2024 18:23:57 Project: esw_uCOS3_cykit, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
 The code generation step is up to date.
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/environmentSensor.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c environmentSensor.c -o .\CortexM3\ARM_GCC_541\Debug\environmentSensor.o
+environmentSensor.c: In function 'bsp_i2c_write_bme':
+environmentSensor.c:59:12: warning: return makes pointer from integer without a cast [-Wint-conversion]
+     return 1;
+            ^
 environmentSensor.c: In function 'sendDataViaUartForCSV':
-environmentSensor.c:75:23: warning: format '%d' expects argument of type 'int', but argument 4 has type 'uint32_t {aka long unsigned int}' [-Wformat=]
+environmentSensor.c:76:23: warning: format '%d' expects argument of type 'int', but argument 4 has type 'uint32_t {aka long unsigned int}' [-Wformat=]
    sprintf(&buffer[0], "%d,%d,%d,%d,%d\r\n", env_data.temperature, env_data.humidity, env_data.pressure, env_data.gas_resistance, current_timestamp);
                        ^
-environmentSensor.c:75:23: warning: format '%d' expects argument of type 'int', but argument 5 has type 'uint32_t {aka long unsigned int}' [-Wformat=]
-environmentSensor.c:75:23: warning: format '%d' expects argument of type 'int', but argument 6 has type 'uint32_t {aka long unsigned int}' [-Wformat=]
-environmentSensor.c:75:23: warning: format '%d' expects argument of type 'int', but argument 4 has type 'uint32_t {aka long unsigned int}' [-Wformat=]
-environmentSensor.c:75:23: warning: format '%d' expects argument of type 'int', but argument 5 has type 'uint32_t {aka long unsigned int}' [-Wformat=]
-environmentSensor.c:75:23: warning: format '%d' expects argument of type 'int', but argument 6 has type 'uint32_t {aka long unsigned int}' [-Wformat=]
+environmentSensor.c:76:23: warning: format '%d' expects argument of type 'int', but argument 5 has type 'uint32_t {aka long unsigned int}' [-Wformat=]
+environmentSensor.c:76:23: warning: format '%d' expects argument of type 'int', but argument 6 has type 'uint32_t {aka long unsigned int}' [-Wformat=]
+environmentSensor.c:76:23: warning: format '%d' expects argument of type 'int', but argument 4 has type 'uint32_t {aka long unsigned int}' [-Wformat=]
+environmentSensor.c:76:23: warning: format '%d' expects argument of type 'int', but argument 5 has type 'uint32_t {aka long unsigned int}' [-Wformat=]
+environmentSensor.c:76:23: warning: format '%d' expects argument of type 'int', but argument 6 has type 'uint32_t {aka long unsigned int}' [-Wformat=]
 environmentSensor.c: In function 'Init_BME688_Sensor':
-environmentSensor.c:100:23: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
+environmentSensor.c:101:23: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
    bme688_handle->read = bsp_i2c_read_bme;
                        ^
-environmentSensor.c:101:24: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
+environmentSensor.c:102:24: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
    bme688_handle->write = bsp_i2c_write_bme;
                         ^
-environmentSensor.c:106:28: warning: unused variable 'check_heatr_conf' [-Wunused-variable]
+environmentSensor.c:107:28: warning: unused variable 'check_heatr_conf' [-Wunused-variable]
    struct bme68x_heatr_conf check_heatr_conf;
                             ^
 environmentSensor.c: In function 'bsp_i2c_read_bme':
 environmentSensor.c:52:1: warning: control reaches end of non-void function [-Wreturn-type]
- }
- ^
-environmentSensor.c: In function 'bsp_i2c_write_bme':
-environmentSensor.c:60:1: warning: control reaches end of non-void function [-Wreturn-type]
  }
  ^
 arm-none-eabi-ar.exe -rs .\CortexM3\ARM_GCC_541\Debug\esw_uCOS3_cykit.a .\CortexM3\ARM_GCC_541\Debug\UART_1.o .\CortexM3\ARM_GCC_541\Debug\UART_1_PM.o .\CortexM3\ARM_GCC_541\Debug\UART_1_INT.o .\CortexM3\ARM_GCC_541\Debug\UART_1_BOOT.o .\CortexM3\ARM_GCC_541\Debug\Pin_1.o .\CortexM3\ARM_GCC_541\Debug\UART_1_IntClock.o .\CortexM3\ARM_GCC_541\Debug\cy_em_eeprom.o .\CortexM3\ARM_GCC_541\Debug\CyDmac.o .\CortexM3\ARM_GCC_541\Debug\CyFlash.o .\CortexM3\ARM_GCC_541\Debug\CyLib.o .\CortexM3\ARM_GCC_541\Debug\cyPm.o .\CortexM3\ARM_GCC_541\Debug\CySpc.o .\CortexM3\ARM_GCC_541\Debug\cyutils.o .\CortexM3\ARM_GCC_541\Debug\Pin_2.o .\CortexM3\ARM_GCC_541\Debug\push_button.o .\CortexM3\ARM_GCC_541\Debug\SCL_1.o .\CortexM3\ARM_GCC_541\Debug\SDA_1.o .\CortexM3\ARM_GCC_541\Debug\I2C_1.o .\CortexM3\ARM_GCC_541\Debug\I2C_1_BOOT.o .\CortexM3\ARM_GCC_541\Debug\I2C_1_INT.o .\CortexM3\ARM_GCC_541\Debug\I2C_1_PM.o .\CortexM3\ARM_GCC_541\Debug\I2C_1_SLAVE.o .\CortexM3\ARM_GCC_541\Debug\I2C_1_MASTER.o .\CortexM3\ARM_GCC_541\Debug\Pin_Blue_Led.o .\CortexM3\ARM_GCC_541\Debug\Pin_Green_Led.o .\CortexM3\ARM_GCC_541\Debug\Pin_Red_Led.o .\CortexM3\ARM_GCC_541\Debug\DMA_I2C_dma.o .\CortexM3\ARM_GCC_541\Debug\DMA_SPI_dma.o .\CortexM3\ARM_GCC_541\Debug\I2C_INTR.o .\CortexM3\ARM_GCC_541\Debug\I2C_DataReady.o .\CortexM3\ARM_GCC_541\Debug\Timer_1.o .\CortexM3\ARM_GCC_541\Debug\Timer_1_PM.o .\CortexM3\ARM_GCC_541\Debug\Timer_ISR.o .\CortexM3\ARM_GCC_541\Debug\CyBootAsmGnu.o
@@ -36,6 +36,6 @@ No ELF section .cychecksum found, creating one
 Application checksum calculated and stored in ELF section .cychecksum
 Checksum calculated and stored in ELF section .cymeta
 cyelftool.exe -S C:\Users\Chronikle\Documents\GitHub\BodyAnalyzer\esw_uCOS3_cykit.cydsn\CortexM3\ARM_GCC_541\Debug\esw_uCOS3_cykit.elf
-Flash used: 37952 of 262144 bytes (14.5%).
+Flash used: 37960 of 262144 bytes (14.5%).
 SRAM used: 26433 of 65536 bytes (40.3%). Stack: 2048 bytes. Heap: 128 bytes.
---------------- Build Succeeded: 11/10/2024 18:20:35 ---------------
+--------------- Build Succeeded: 11/10/2024 18:23:59 ---------------

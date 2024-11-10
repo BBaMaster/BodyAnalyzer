@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="esw_uCOS3_cykit-000\esw_uCOS3_cykit\Header Files\data_processing_task.h">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="esw_uCOS3_cykit-000\esw_uCOS3_cykit\Source Files\log_task.c">
 <ExpandedNodeIds>
 <v>esw_uCOS3_cykit-000</v>
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit</v>
@@ -126,12 +126,6 @@
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Generated_Source\PSoC5</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
-<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\esw_uCOS3_cykit.cydwr\System</v>
-<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\esw_uCOS3_cykit.cydwr\Directives</v>
-<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\esw_uCOS3_cykit.cydwr\Flash Security</v>
-<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\esw_uCOS3_cykit.cydwr\EEPROM</v>
-<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\BSP</v>
-<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Header Files</v>
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Header Files\app_cfg.h</v>
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Header Files\cpu_cfg.h</v>
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Header Files\cyapicallbacks.h</v>
@@ -158,6 +152,12 @@
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Source Files\app.c</v>
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Source Files\data_processing_task.c</v>
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Source Files\environmentSensor.c</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Source Files\heartbeatSensor.c</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Source Files\log_task.c</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Source Files\os_app_hooks.c</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\uC-CPU</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\uC-LIB</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\uC-LIB\lib_ascii.c</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">

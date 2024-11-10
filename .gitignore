@@ -240,3 +240,9 @@ esw_uCOS3_cykit.cydsn/esw_uCOS3_cykit.cyprj.Chronikle
 esw_uCOS3_cykit.cydsn/esw_uCOS3_cykit.rpt
 esw_uCOS3_cykit.cydsn/esw_uCOS3_cykit_timing.html
 esw_uCOS3_cykit.cydsn/Export/PSoCCreatorExportIDE.xml
+*.cmd
+*.lst
+*.o
+*.a
+*.Chronikle
+*.log
