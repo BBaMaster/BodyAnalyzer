@@ -42,6 +42,8 @@ static const char* Log_LevelToString(CPU_INT08U level)
         case LOG_LEVEL_I2C:               return "I2C LOGGING";
         case LOG_LEVEL_MAX30102:          return "MAX30102 LOGGING";
         case LOG_LEVEL_BME688:             return "BME688 LOGGING";
+        case LOG_LEVEL_BME280:            return "BME280 LOGGING";
+        case LOG_LEVEL_DATA_PROCESSING:    return "DATA PROCESSING LOGGING";
         default:                          return "UNKNOWN";
     }
 }

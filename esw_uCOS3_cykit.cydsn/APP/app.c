@@ -13,6 +13,7 @@
 #include <project.h>
 #include <includes.h>
 #include "log_task.h"  /* Include the log task header */
+#include "data_processing_task.h" /* Include the data processing task header */
 #include <heartbeatSensor.h>
 #include <environmentSensor.h>
 /*
@@ -95,6 +96,9 @@ static void App_TaskStart(void *p_arg) {
     OSSemPend(&LogTaskSem, 0, OS_OPT_PEND_BLOCKING, NULL, &err);
     
     Log_Write(LOG_LEVEL_INFO, "App_TaskStart: Log task initialized successfully");
+    
+    Data_Processing_Init();
+    Log_Write(LOG_LEVEL_INFO, "App_TaskStart: Data Processing task initialized successfully");
 
     I2C_Init();    /* Initializes and creates the I2C task */
     MAX30102_Init();

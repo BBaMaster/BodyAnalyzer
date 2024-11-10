@@ -6,6 +6,7 @@
 #include "bsp_i2c.h"
 #include "Timer_1.h"
 #include "log_task.h"
+#include "data_processing_task.h"
 
 // Threshold and Timing Constants
 #define INITIAL_THRESHOLD           1000000
