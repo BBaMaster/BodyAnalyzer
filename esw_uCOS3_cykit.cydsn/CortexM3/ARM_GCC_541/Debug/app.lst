@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
   29:APP/app.c     **** *                                            LOCAL VARIABLES
   30:APP/app.c     **** ***************************************************************************************************
   31:APP/app.c     **** */
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 2
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 2
 
 
   32:APP/app.c     **** static OS_TCB App_TaskStartTCB;
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
   30              		@ frame_needed = 0, uses_anonymous_args = 0
   31              	.LVL0:
   32 0000 30B5     		push	{r4, r5, lr}
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 3
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 3
 
 
   33              		.cfi_def_cfa_offset 12
@@ -175,37 +175,38 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
   68 0034 FFF7FEFF 		bl	Log_Write
   69              	.LVL6:
   99:APP/app.c     ****     
- 100:APP/app.c     ****     Data_Processing_Init();
-  70              		.loc 1 100 0
-  71 0038 FFF7FEFF 		bl	Data_Processing_Init
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 4
+ 100:APP/app.c     **** 
+ 101:APP/app.c     **** 
+ 102:APP/app.c     ****     I2C_Init();    /* Initializes and creates the I2C task */
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 4
 
 
+  70              		.loc 1 102 0
+  71 0038 FFF7FEFF 		bl	I2C_Init
   72              	.LVL7:
- 101:APP/app.c     ****     Log_Write(LOG_LEVEL_INFO, "App_TaskStart: Data Processing task initialized successfully");
-  73              		.loc 1 101 0
-  74 003c 0D49     		ldr	r1, .L4+12
-  75 003e 0120     		movs	r0, #1
-  76 0040 FFF7FEFF 		bl	Log_Write
-  77              	.LVL8:
- 102:APP/app.c     **** 
- 103:APP/app.c     ****     I2C_Init();    /* Initializes and creates the I2C task */
-  78              		.loc 1 103 0
-  79 0044 FFF7FEFF 		bl	I2C_Init
-  80              	.LVL9:
- 104:APP/app.c     ****     MAX30102_Init();
-  81              		.loc 1 104 0
-  82 0048 FFF7FEFF 		bl	MAX30102_Init
-  83              	.LVL10:
- 105:APP/app.c     ****     BME688_Init_Task();
-  84              		.loc 1 105 0
-  85 004c FFF7FEFF 		bl	BME688_Init_Task
+ 103:APP/app.c     ****     MAX30102_Init();
+  73              		.loc 1 103 0
+  74 003c FFF7FEFF 		bl	MAX30102_Init
+  75              	.LVL8:
+ 104:APP/app.c     ****     BME688_Init_Task();
+  76              		.loc 1 104 0
+  77 0040 FFF7FEFF 		bl	BME688_Init_Task
+  78              	.LVL9:
+ 105:APP/app.c     ****     Data_Processing_Init();
+  79              		.loc 1 105 0
+  80 0044 FFF7FEFF 		bl	Data_Processing_Init
+  81              	.LVL10:
+ 106:APP/app.c     ****     Log_Write(LOG_LEVEL_INFO, "App_TaskStart: Data Processing task initialized successfully");
+  82              		.loc 1 106 0
+  83 0048 0A49     		ldr	r1, .L4+12
+  84 004a 0120     		movs	r0, #1
+  85 004c FFF7FEFF 		bl	Log_Write
   86              	.LVL11:
   87              	.L2:
- 106:APP/app.c     ****     while (DEF_TRUE) {
- 107:APP/app.c     ****         /* Delay before next read */
- 108:APP/app.c     ****         OSTimeDlyHMSM(0, 0, 1, 0, OS_OPT_TIME_HMSM_STRICT, &err);
-  88              		.loc 1 108 0 discriminator 1
+ 107:APP/app.c     ****     while (DEF_TRUE) {
+ 108:APP/app.c     ****         /* Delay before next read */
+ 109:APP/app.c     ****         OSTimeDlyHMSM(0, 0, 1, 0, OS_OPT_TIME_HMSM_STRICT, &err);
+  88              		.loc 1 109 0 discriminator 1
   89 0050 0DF10E03 		add	r3, sp, #14
   90 0054 0193     		str	r3, [sp, #4]
   91 0056 0020     		movs	r0, #0
@@ -237,10 +238,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
   50:APP/app.c     ****     OS_ERR os_err;
  117              		.loc 1 50 0
  118              		.cfi_startproc
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 5
+
+
  119              		@ args = 0, pretend = 0, frame = 8
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 5
-
-
  120              		@ frame_needed = 0, uses_anonymous_args = 0
  121 0000 30B5     		push	{r4, r5, lr}
  122              		.cfi_def_cfa_offset 12
@@ -297,10 +298,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
   73:APP/app.c     **** }
  168              		.loc 1 73 0
  169 0046 2846     		mov	r0, r5
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 6
+
+
  170 0048 FFF7FEFF 		bl	OSStart
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 6
-
-
  171              	.LVL17:
   74:APP/app.c     **** 
  172              		.loc 1 74 0
@@ -357,10 +358,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  208              		.set	.LANCHOR0,. + 0
  209              		.type	App_TaskStartTCB, %object
  210              		.size	App_TaskStartTCB, 192
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 7
+
+
  211              	App_TaskStartTCB:
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 7
-
-
  212 0000 00000000 		.space	192
  212      00000000 
  212      00000000 
@@ -417,10 +418,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  257 0036 70100000 		.4byte	.LASF2
  258 003a 02       		.uleb128 0x2
  259 003b 02       		.byte	0x2
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 8
+
+
  260 003c 07       		.byte	0x7
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 8
-
-
  261 003d B4120000 		.4byte	.LASF3
  262 0041 03       		.uleb128 0x3
  263 0042 20130000 		.4byte	.LASF9
@@ -477,10 +478,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  314 009f 07       		.byte	0x7
  315 00a0 61000000 		.4byte	.LASF15
  316 00a4 05       		.uleb128 0x5
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 9
+
+
  317 00a5 04       		.byte	0x4
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 9
-
-
  318 00a6 03       		.uleb128 0x3
  319 00a7 EB000000 		.4byte	.LASF16
  320 00ab 04       		.byte	0x4
@@ -537,10 +538,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  371 011a 03       		.uleb128 0x3
  372 011b 5E090000 		.4byte	.LASF25
  373 011f 06       		.byte	0x6
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 10
+
+
  374 0120 30       		.byte	0x30
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 10
-
-
  375 0121 BC000000 		.4byte	0xbc
  376 0125 03       		.uleb128 0x3
  377 0126 85080000 		.4byte	.LASF26
@@ -597,10 +598,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  428 0198 06       		.byte	0x6
  429 0199 4F       		.byte	0x4f
  430 019a C7000000 		.4byte	0xc7
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 11
+
+
  431 019e 03       		.uleb128 0x3
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 11
-
-
  432 019f DE0A0000 		.4byte	.LASF37
  433 01a3 06       		.byte	0x6
  434 01a4 52       		.byte	0x52
@@ -657,10 +658,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  485 0219 0B       		.uleb128 0xb
  486 021a 31040000 		.4byte	.LASF50
  487 021e 983A     		.2byte	0x3a98
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 12
+
+
  488 0220 0B       		.uleb128 0xb
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 12
-
-
  489 0221 D2030000 		.4byte	.LASF51
  490 0225 993A     		.2byte	0x3a99
  491 0227 0B       		.uleb128 0xb
@@ -717,10 +718,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  542 029e 0B       		.uleb128 0xb
  543 029f 73040000 		.4byte	.LASF69
  544 02a3 F055     		.2byte	0x55f0
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 13
+
+
  545 02a5 0B       		.uleb128 0xb
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 13
-
-
  546 02a6 F3050000 		.4byte	.LASF70
  547 02aa B956     		.2byte	0x56b9
  548 02ac 0B       		.uleb128 0xb
@@ -777,10 +778,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  599 0323 0B       		.uleb128 0xb
  600 0324 85040000 		.4byte	.LASF88
  601 0328 C05D     		.2byte	0x5dc0
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 14
+
+
  602 032a 0B       		.uleb128 0xb
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 14
-
-
  603 032b 0E020000 		.4byte	.LASF89
  604 032f C15D     		.2byte	0x5dc1
  605 0331 0B       		.uleb128 0xb
@@ -837,10 +838,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  656 03a8 0B       		.uleb128 0xb
  657 03a9 F9100000 		.4byte	.LASF107
  658 03ad 7162     		.2byte	0x6271
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 15
+
+
  659 03af 0B       		.uleb128 0xb
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 15
-
-
  660 03b0 EE120000 		.4byte	.LASF108
  661 03b4 7262     		.2byte	0x6272
  662 03b6 0B       		.uleb128 0xb
@@ -897,10 +898,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  713 042d 0B       		.uleb128 0xb
  714 042e 09010000 		.4byte	.LASF126
  715 0432 C56D     		.2byte	0x6dc5
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 16
+
+
  716 0434 0B       		.uleb128 0xb
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 16
-
-
  717 0435 C40C0000 		.4byte	.LASF127
  718 0439 C66D     		.2byte	0x6dc6
  719 043b 0B       		.uleb128 0xb
@@ -957,10 +958,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  770 04b2 0B       		.uleb128 0xb
  771 04b3 C6010000 		.4byte	.LASF145
  772 04b7 5071     		.2byte	0x7150
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 17
+
+
  773 04b9 0B       		.uleb128 0xb
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 17
-
-
  774 04ba 82090000 		.4byte	.LASF146
  775 04be 5171     		.2byte	0x7151
  776 04c0 0B       		.uleb128 0xb
@@ -1017,10 +1018,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  827 0537 0B       		.uleb128 0xb
  828 0538 E2090000 		.4byte	.LASF164
  829 053c C271     		.2byte	0x71c2
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 18
+
+
  830 053e 0B       		.uleb128 0xb
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 18
-
-
  831 053f C7120000 		.4byte	.LASF165
  832 0543 C371     		.2byte	0x71c3
  833 0545 0B       		.uleb128 0xb
@@ -1077,10 +1078,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  884 05bc 0B       		.uleb128 0xb
  885 05bd 03090000 		.4byte	.LASF183
  886 05c1 3E73     		.2byte	0x733e
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 19
+
+
  887 05c3 0B       		.uleb128 0xb
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 19
-
-
  888 05c4 B00B0000 		.4byte	.LASF184
  889 05c8 3F73     		.2byte	0x733f
  890 05ca 0B       		.uleb128 0xb
@@ -1137,10 +1138,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  941 0641 00       		.byte	0
  942 0642 0C       		.uleb128 0xc
  943 0643 DB020000 		.4byte	.LASF202
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 20
+
+
  944 0647 07       		.byte	0x7
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 20
-
-
  945 0648 7202     		.2byte	0x272
  946 064a CA010000 		.4byte	0x1ca
  947 064e 0C       		.uleb128 0xc
@@ -1197,10 +1198,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  998 06bd 2D0C0000 		.4byte	0xc2d
  999 06c1 00       		.byte	0
  1000 06c2 0E       		.uleb128 0xe
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 21
+
+
  1001 06c3 D3100000 		.4byte	.LASF212
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 21
-
-
  1002 06c7 07       		.byte	0x7
  1003 06c8 5503     		.2byte	0x355
  1004 06ca 2D0C0000 		.4byte	0xc2d
@@ -1257,10 +1258,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  1055 0738 94050000 		.4byte	.LASF221
  1056 073c 07       		.byte	0x7
  1057 073d 8403     		.2byte	0x384
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 22
+
+
  1058 073f 330C0000 		.4byte	0xc33
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 22
-
-
  1059 0743 14       		.byte	0x14
  1060 0744 0E       		.uleb128 0xe
  1061 0745 6D110000 		.4byte	.LASF222
@@ -1317,10 +1318,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  1112 07b4 390C0000 		.4byte	0xc39
  1113 07b8 14       		.byte	0x14
  1114 07b9 0E       		.uleb128 0xe
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 23
+
+
  1115 07ba 6D110000 		.4byte	.LASF222
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 23
-
-
  1116 07be 07       		.byte	0x7
  1117 07bf 9C03     		.2byte	0x39c
  1118 07c1 390C0000 		.4byte	0xc39
@@ -1377,10 +1378,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  1169 0831 07       		.byte	0x7
  1170 0832 B003     		.2byte	0x3b0
  1171 0834 3F0C0000 		.4byte	0xc3f
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 24
+
+
  1172 0838 08       		.byte	0x8
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 24
-
-
  1173 0839 0E       		.uleb128 0xe
  1174 083a 2B100000 		.4byte	.LASF204
  1175 083e 07       		.byte	0x7
@@ -1437,10 +1438,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  1226 08ad 2C       		.byte	0x2c
  1227 08ae 0E       		.uleb128 0xe
  1228 08af 72060000 		.4byte	.LASF240
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 25
+
+
  1229 08b3 07       		.byte	0x7
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 25
-
-
  1230 08b4 C503     		.2byte	0x3c5
  1231 08b6 1B0C0000 		.4byte	0xc1b
  1232 08ba 30       		.byte	0x30
@@ -1497,10 +1498,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  1283 0927 07       		.byte	0x7
  1284 0928 D203     		.2byte	0x3d2
  1285 092a 9E010000 		.4byte	0x19e
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 26
+
+
  1286 092e 44       		.byte	0x44
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 26
-
-
  1287 092f 0E       		.uleb128 0xe
  1288 0930 A6010000 		.4byte	.LASF248
  1289 0934 07       		.byte	0x7
@@ -1557,10 +1558,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  1340 09a3 74       		.byte	0x74
  1341 09a4 0E       		.uleb128 0xe
  1342 09a5 8E130000 		.4byte	.LASF254
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 27
+
+
  1343 09a9 07       		.byte	0x7
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 27
-
-
  1344 09aa E503     		.2byte	0x3e5
  1345 09ac 0F010000 		.4byte	0x10f
  1346 09b0 78       		.byte	0x78
@@ -1617,10 +1618,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  1397 0a1e 07       		.byte	0x7
  1398 0a1f FB03     		.2byte	0x3fb
  1399 0a21 0F010000 		.4byte	0x10f
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 28
+
+
  1400 0a25 94       		.byte	0x94
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 28
-
-
  1401 0a26 0E       		.uleb128 0xe
  1402 0a27 B80C0000 		.4byte	.LASF264
  1403 0a2b 07       		.byte	0x7
@@ -1677,10 +1678,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  1454 0a9a B8       		.byte	0xb8
  1455 0a9b 0E       		.uleb128 0xe
  1456 0a9c 34050000 		.4byte	.LASF223
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 29
+
+
  1457 0aa0 07       		.byte	0x7
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 29
-
-
  1458 0aa1 1304     		.2byte	0x413
  1459 0aa3 270C0000 		.4byte	0xc27
  1460 0aa7 BC       		.byte	0xbc
@@ -1737,10 +1738,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  1511 0b15 07       		.byte	0x7
  1512 0b16 DF02     		.2byte	0x2df
  1513 0b18 1B0C0000 		.4byte	0xc1b
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 30
+
+
  1514 0b1c 04       		.byte	0x4
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 30
-
-
  1515 0b1d 0E       		.uleb128 0xe
  1516 0b1e D4020000 		.4byte	.LASF276
  1517 0b22 07       		.byte	0x7
@@ -1797,10 +1798,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  1568 0b91 00       		.byte	0
  1569 0b92 0E       		.uleb128 0xe
  1570 0b93 FF0B0000 		.4byte	.LASF285
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 31
+
+
  1571 0b97 07       		.byte	0x7
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 31
-
-
  1572 0b98 EB02     		.2byte	0x2eb
  1573 0b9a 1B0C0000 		.4byte	0xc1b
  1574 0b9e 04       		.byte	0x4
@@ -1857,10 +1858,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  1625 0c0c 07       		.byte	0x7
  1626 0c0d 0603     		.2byte	0x306
  1627 0c0f 270C0000 		.4byte	0xc27
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 32
+
+
  1628 0c13 1C       		.byte	0x1c
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 32
-
-
  1629 0c14 00       		.byte	0
  1630 0c15 06       		.uleb128 0x6
  1631 0c16 04       		.byte	0x4
@@ -1917,10 +1918,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  1682 0c85 53       		.byte	0x53
  1683 0c86 42060000 		.4byte	0x642
  1684 0c8a 02       		.uleb128 0x2
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 33
+
+
  1685 0c8b 91       		.byte	0x91
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 33
-
-
  1686 0c8c 6E       		.sleb128 -18
  1687 0c8d 15       		.uleb128 0x15
  1688 0c8e 08000000 		.4byte	.LVL1
@@ -1977,10 +1978,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  1739 0ce8 17       		.uleb128 0x17
  1740 0ce9 01       		.uleb128 0x1
  1741 0cea 52       		.byte	0x52
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 34
+
+
  1742 0ceb 01       		.uleb128 0x1
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 34
-
-
  1743 0cec 30       		.byte	0x30
  1744 0ced 17       		.uleb128 0x17
  1745 0cee 01       		.uleb128 0x1
@@ -2014,34 +2015,34 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  1773 0d16 15       		.uleb128 0x15
  1774 0d17 3C000000 		.4byte	.LVL7
  1775 0d1b C00F0000 		.4byte	0xfc0
- 1776 0d1f 16       		.uleb128 0x16
- 1777 0d20 44000000 		.4byte	.LVL8
- 1778 0d24 B50F0000 		.4byte	0xfb5
- 1779 0d28 3B0D0000 		.4byte	0xd3b
- 1780 0d2c 17       		.uleb128 0x17
- 1781 0d2d 01       		.uleb128 0x1
- 1782 0d2e 50       		.byte	0x50
- 1783 0d2f 01       		.uleb128 0x1
- 1784 0d30 31       		.byte	0x31
- 1785 0d31 17       		.uleb128 0x17
- 1786 0d32 01       		.uleb128 0x1
- 1787 0d33 51       		.byte	0x51
- 1788 0d34 05       		.uleb128 0x5
- 1789 0d35 03       		.byte	0x3
- 1790 0d36 48000000 		.4byte	.LC2
- 1791 0d3a 00       		.byte	0
- 1792 0d3b 15       		.uleb128 0x15
- 1793 0d3c 48000000 		.4byte	.LVL9
- 1794 0d40 CB0F0000 		.4byte	0xfcb
- 1795 0d44 15       		.uleb128 0x15
- 1796 0d45 4C000000 		.4byte	.LVL10
- 1797 0d49 D60F0000 		.4byte	0xfd6
- 1798 0d4d 15       		.uleb128 0x15
- 1799 0d4e 50000000 		.4byte	.LVL11
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 35
+ 1776 0d1f 15       		.uleb128 0x15
+ 1777 0d20 40000000 		.4byte	.LVL8
+ 1778 0d24 CB0F0000 		.4byte	0xfcb
+ 1779 0d28 15       		.uleb128 0x15
+ 1780 0d29 44000000 		.4byte	.LVL9
+ 1781 0d2d D60F0000 		.4byte	0xfd6
+ 1782 0d31 15       		.uleb128 0x15
+ 1783 0d32 48000000 		.4byte	.LVL10
+ 1784 0d36 E10F0000 		.4byte	0xfe1
+ 1785 0d3a 16       		.uleb128 0x16
+ 1786 0d3b 50000000 		.4byte	.LVL11
+ 1787 0d3f B50F0000 		.4byte	0xfb5
+ 1788 0d43 560D0000 		.4byte	0xd56
+ 1789 0d47 17       		.uleb128 0x17
+ 1790 0d48 01       		.uleb128 0x1
+ 1791 0d49 50       		.byte	0x50
+ 1792 0d4a 01       		.uleb128 0x1
+ 1793 0d4b 31       		.byte	0x31
+ 1794 0d4c 17       		.uleb128 0x17
+ 1795 0d4d 01       		.uleb128 0x1
+ 1796 0d4e 51       		.byte	0x51
+ 1797 0d4f 05       		.uleb128 0x5
+ 1798 0d50 03       		.byte	0x3
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 35
 
 
- 1800 0d52 E10F0000 		.4byte	0xfe1
+ 1799 0d51 48000000 		.4byte	.LC2
+ 1800 0d55 00       		.byte	0
  1801 0d56 18       		.uleb128 0x18
  1802 0d57 64000000 		.4byte	.LVL12
  1803 0d5b EC0F0000 		.4byte	0xfec
@@ -2097,10 +2098,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  1853 0da2 42060000 		.4byte	0x642
  1854 0da6 02       		.uleb128 0x2
  1855 0da7 91       		.byte	0x91
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 36
+
+
  1856 0da8 6E       		.sleb128 -18
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 36
-
-
  1857 0da9 15       		.uleb128 0x15
  1858 0daa 08000000 		.4byte	.LVL13
  1859 0dae F80F0000 		.4byte	0xff8
@@ -2157,10 +2158,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  1910 0e05 7D       		.byte	0x7d
  1911 0e06 04       		.sleb128 4
  1912 0e07 05       		.uleb128 0x5
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 37
+
+
  1913 0e08 03       		.byte	0x3
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 37
-
-
  1914 0e09 C0000000 		.4byte	.LANCHOR0+192
  1915 0e0d 17       		.uleb128 0x17
  1916 0e0e 02       		.uleb128 0x2
@@ -2217,10 +2218,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  1967 0e48 01       		.uleb128 0x1
  1968 0e49 50       		.byte	0x50
  1969 0e4a 02       		.uleb128 0x2
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 38
+
+
  1970 0e4b 75       		.byte	0x75
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 38
-
-
  1971 0e4c 00       		.sleb128 0
  1972 0e4d 00       		.byte	0
  1973 0e4e 00       		.byte	0
@@ -2277,10 +2278,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  2024 0e93 FE       		.byte	0xfe
  2025 0e94 38       		.byte	0x38
  2026 0e95 FE       		.byte	0xfe
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 39
+
+
  2027 0e96 93       		.byte	0x93
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 39
-
-
  2028 0e97 FD       		.byte	0xfd
  2029 0e98 F6       		.byte	0xf6
  2030 0e99 FC       		.byte	0xfc
@@ -2337,10 +2338,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  2081 0ecc 37       		.byte	0x37
  2082 0ecd 07       		.byte	0x7
  2083 0ece FF       		.byte	0xff
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 40
+
+
  2084 0ecf 05       		.byte	0x5
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 40
-
-
  2085 0ed0 78       		.byte	0x78
  2086 0ed1 04       		.byte	0x4
  2087 0ed2 A9       		.byte	0xa9
@@ -2397,10 +2398,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  2138 0f3f F7060000 		.4byte	0x6f7
  2139 0f43 05       		.uleb128 0x5
  2140 0f44 03       		.byte	0x3
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 41
+
+
  2141 0f45 00000000 		.4byte	CommQI2CHeartRate
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 41
-
-
  2142 0f49 20       		.uleb128 0x20
  2143 0f4a D00B0000 		.4byte	.LASF296
  2144 0f4e 0B       		.byte	0xb
@@ -2456,28 +2457,28 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  2194 0fbe 0A       		.byte	0xa
  2195 0fbf 36       		.byte	0x36
  2196 0fc0 21       		.uleb128 0x21
- 2197 0fc1 7E120000 		.4byte	.LASF305
- 2198 0fc5 7E120000 		.4byte	.LASF305
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 42
+ 2197 0fc1 220A0000 		.4byte	.LASF305
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 42
 
 
- 2199 0fc9 0B       		.byte	0xb
- 2200 0fca 56       		.byte	0x56
+ 2198 0fc5 220A0000 		.4byte	.LASF305
+ 2199 0fc9 0D       		.byte	0xd
+ 2200 0fca 1B       		.byte	0x1b
  2201 0fcb 21       		.uleb128 0x21
- 2202 0fcc 220A0000 		.4byte	.LASF306
- 2203 0fd0 220A0000 		.4byte	.LASF306
- 2204 0fd4 0D       		.byte	0xd
- 2205 0fd5 1B       		.byte	0x1b
+ 2202 0fcc 7F0A0000 		.4byte	.LASF306
+ 2203 0fd0 7F0A0000 		.4byte	.LASF306
+ 2204 0fd4 08       		.byte	0x8
+ 2205 0fd5 27       		.byte	0x27
  2206 0fd6 21       		.uleb128 0x21
- 2207 0fd7 7F0A0000 		.4byte	.LASF307
- 2208 0fdb 7F0A0000 		.4byte	.LASF307
- 2209 0fdf 08       		.byte	0x8
- 2210 0fe0 27       		.byte	0x27
+ 2207 0fd7 BE000000 		.4byte	.LASF307
+ 2208 0fdb BE000000 		.4byte	.LASF307
+ 2209 0fdf 0E       		.byte	0xe
+ 2210 0fe0 1F       		.byte	0x1f
  2211 0fe1 21       		.uleb128 0x21
- 2212 0fe2 BE000000 		.4byte	.LASF308
- 2213 0fe6 BE000000 		.4byte	.LASF308
- 2214 0fea 0E       		.byte	0xe
- 2215 0feb 1F       		.byte	0x1f
+ 2212 0fe2 7E120000 		.4byte	.LASF308
+ 2213 0fe6 7E120000 		.4byte	.LASF308
+ 2214 0fea 0B       		.byte	0xb
+ 2215 0feb 56       		.byte	0x56
  2216 0fec 22       		.uleb128 0x22
  2217 0fed 3C000000 		.4byte	.LASF309
  2218 0ff1 3C000000 		.4byte	.LASF309
@@ -2517,10 +2518,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  2252 0003 25       		.uleb128 0x25
  2253 0004 0E       		.uleb128 0xe
  2254 0005 13       		.uleb128 0x13
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 43
+
+
  2255 0006 0B       		.uleb128 0xb
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 43
-
-
  2256 0007 03       		.uleb128 0x3
  2257 0008 0E       		.uleb128 0xe
  2258 0009 1B       		.uleb128 0x1b
@@ -2577,10 +2578,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  2309 003c 00       		.byte	0
  2310 003d 06       		.uleb128 0x6
  2311 003e 0F       		.uleb128 0xf
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 44
+
+
  2312 003f 00       		.byte	0
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 44
-
-
  2313 0040 0B       		.uleb128 0xb
  2314 0041 0B       		.uleb128 0xb
  2315 0042 49       		.uleb128 0x49
@@ -2637,10 +2638,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  2366 0075 1C       		.uleb128 0x1c
  2367 0076 05       		.uleb128 0x5
  2368 0077 00       		.byte	0
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 45
+
+
  2369 0078 00       		.byte	0
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 45
-
-
  2370 0079 0C       		.uleb128 0xc
  2371 007a 16       		.uleb128 0x16
  2372 007b 00       		.byte	0
@@ -2697,10 +2698,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  2423 00ae 13       		.uleb128 0x13
  2424 00af 38       		.uleb128 0x38
  2425 00b0 0B       		.uleb128 0xb
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 46
+
+
  2426 00b1 00       		.byte	0
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 46
-
-
  2427 00b2 00       		.byte	0
  2428 00b3 10       		.uleb128 0x10
  2429 00b4 01       		.uleb128 0x1
@@ -2757,10 +2758,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  2480 00e9 49       		.uleb128 0x49
  2481 00ea 13       		.uleb128 0x13
  2482 00eb 02       		.uleb128 0x2
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 47
+
+
  2483 00ec 17       		.uleb128 0x17
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 47
-
-
  2484 00ed 00       		.byte	0
  2485 00ee 00       		.byte	0
  2486 00ef 14       		.uleb128 0x14
@@ -2817,10 +2818,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  2537 012b 00       		.byte	0
  2538 012c 00       		.byte	0
  2539 012d 19       		.uleb128 0x19
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 48
+
+
  2540 012e 2E       		.uleb128 0x2e
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 48
-
-
  2541 012f 01       		.byte	0x1
  2542 0130 3F       		.uleb128 0x3f
  2543 0131 19       		.uleb128 0x19
@@ -2877,10 +2878,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  2594 0165 0B       		.uleb128 0xb
  2595 0166 3B       		.uleb128 0x3b
  2596 0167 0B       		.uleb128 0xb
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 49
+
+
  2597 0168 49       		.uleb128 0x49
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 49
-
-
  2598 0169 13       		.uleb128 0x13
  2599 016a 1C       		.uleb128 0x1c
  2600 016b 0A       		.uleb128 0xa
@@ -2937,10 +2938,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  2651 019e 3B       		.uleb128 0x3b
  2652 019f 0B       		.uleb128 0xb
  2653 01a0 49       		.uleb128 0x49
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 50
+
+
  2654 01a1 13       		.uleb128 0x13
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 50
-
-
  2655 01a2 3F       		.uleb128 0x3f
  2656 01a3 19       		.uleb128 0x19
  2657 01a4 02       		.uleb128 0x2
@@ -2997,10 +2998,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  2708 0017 50       		.byte	0x50
  2709 0018 9F       		.byte	0x9f
  2710 0019 00000000 		.4byte	0
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 51
+
+
  2711 001d 00000000 		.4byte	0
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 51
-
-
  2712              		.section	.debug_aranges,"",%progbits
  2713 0000 24000000 		.4byte	0x24
  2714 0004 0200     		.2byte	0x2
@@ -3057,10 +3058,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  2746      4D00
  2747              	.LASF192:
  2748 004a 4F535F45 		.ascii	"OS_ERR_TMR_STK_INVALID\000"
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 52
+
+
  2748      52525F54 
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 52
-
-
  2748      4D525F53 
  2748      544B5F49 
  2748      4E56414C 
@@ -3096,7 +3097,7 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  2761              	.LASF10:
  2762 00b6 696E7433 		.ascii	"int32_t\000"
  2762      325F7400 
- 2763              	.LASF308:
+ 2763              	.LASF307:
  2764 00be 424D4536 		.ascii	"BME688_Init_Task\000"
  2764      38385F49 
  2764      6E69745F 
@@ -3117,10 +3118,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  2772 00eb 4350555F 		.ascii	"CPU_CHAR\000"
  2772      43484152 
  2772      00
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 53
+
+
  2773              	.LASF118:
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 53
-
-
  2774 00f4 4F535F45 		.ascii	"OS_ERR_ROUND_ROBIN_1\000"
  2774      52525F52 
  2774      4F554E44 
@@ -3177,10 +3178,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  2796 019b 53757370 		.ascii	"SuspendCtr\000"
  2796      656E6443 
  2796      747200
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 54
+
+
  2797              	.LASF248:
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 54
-
-
  2798 01a6 5469636B 		.ascii	"TickCtrPrev\000"
  2798      43747250 
  2798      72657600 
@@ -3237,10 +3238,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  2818 0255 43505555 		.ascii	"CPUUsage\000"
  2818      73616765 
  2818      00
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 55
+
+
  2819              	.LASF163:
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 55
-
-
  2820 025e 4F535F45 		.ascii	"OS_ERR_TLS_ISR\000"
  2820      52525F54 
  2820      4C535F49 
@@ -3297,10 +3298,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  2842      53555350 
  2842      454E4445 
  2843              	.LASF316:
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 56
+
+
  2844 0303 4150505C 		.ascii	"APP\\app.c\000"
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 56
-
-
  2844      6170702E 
  2844      6300
  2845              	.LASF320:
@@ -3357,10 +3358,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  2866      656E6454 
  2866      696D654D 
  2866      617800
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 57
+
+
  2867              	.LASF42:
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 57
-
-
  2868 0404 4F535F45 		.ascii	"OS_ERR_A\000"
  2868      52525F41 
  2868      00
@@ -3417,10 +3418,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  2894      52525F4E 
  2894      00
  2895              	.LASF88:
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 58
+
+
  2896 0485 4F535F45 		.ascii	"OS_ERR_O\000"
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 58
-
-
  2896      52525F4F 
  2896      00
  2897              	.LASF96:
@@ -3477,10 +3478,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  2922 050f 4F535F45 		.ascii	"OS_ERR_TIME_ZERO_DLY\000"
  2922      52525F54 
  2922      494D455F 
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 59
+
+
  2922      5A45524F 
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 59
-
-
  2922      5F444C59 
  2923              	.LASF106:
  2924 0524 4F535F45 		.ascii	"OS_ERR_POST_ISR\000"
@@ -3537,10 +3538,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  2945              	.LASF38:
  2946 05cb 4F535F53 		.ascii	"OS_STATE\000"
  2946      54415445 
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 60
+
+
  2946      00
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 60
-
-
  2947              	.LASF208:
  2948 05d4 4F535F4D 		.ascii	"OS_MSG_Q\000"
  2948      53475F51 
@@ -3597,10 +3598,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  2970      44617461 
  2970      54626C50 
  2970      747200
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 61
+
+
  2971              	.LASF72:
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 61
-
-
  2972 0681 4F535F45 		.ascii	"OS_ERR_MEM_INVALID_P_ADDR\000"
  2972      52525F4D 
  2972      454D5F49 
@@ -3657,10 +3658,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  2992      52525F54 
  2992      494D455F 
  2992      444C595F 
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 62
+
+
  2992      52455355 
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 62
-
-
  2993              	.LASF312:
  2994 075a 4F53496E 		.ascii	"OSInit\000"
  2994      697400
@@ -3717,10 +3718,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  3014      41534B5F 
  3014      53555350 
  3014      454E445F 
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 63
+
+
  3015              	.LASF74:
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 63
-
-
  3016 0831 4F535F45 		.ascii	"OS_ERR_MEM_INVALID_PART\000"
  3016      52525F4D 
  3016      454D5F49 
@@ -3777,10 +3778,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  3036      52455F49 
  3036      445F4156 
  3037              	.LASF139:
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 64
+
+
  3038 08ec 4F535F45 		.ascii	"OS_ERR_TASK_CREATE_ISR\000"
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 64
-
-
  3038      52525F54 
  3038      41534B5F 
  3038      43524541 
@@ -3837,10 +3838,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  3056      455F4953 
  3056      5200
  3057              	.LASF286:
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 65
+
+
  3058 09a8 4F535F50 		.ascii	"OS_PEND_OBJ\000"
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 65
-
-
  3058      454E445F 
  3058      4F424A00 
  3059              	.LASF98:
@@ -3871,7 +3872,7 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  3068 0a17 4F535F4F 		.ascii	"OS_OBJ_QTY\000"
  3068      424A5F51 
  3068      545900
- 3069              	.LASF306:
+ 3069              	.LASF305:
  3070 0a22 4932435F 		.ascii	"I2C_Init\000"
  3070      496E6974 
  3070      00
@@ -3897,10 +3898,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  3080      52494F00 
  3081              	.LASF258:
  3082 0a60 466C6167 		.ascii	"FlagsOpt\000"
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 66
+
+
  3082      734F7074 
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 66
-
-
  3082      00
  3083              	.LASF6:
  3084 0a69 6C6F6E67 		.ascii	"long long int\000"
@@ -3910,7 +3911,7 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  3085              	.LASF40:
  3086 0a77 4F535F54 		.ascii	"OS_TICK\000"
  3086      49434B00 
- 3087              	.LASF307:
+ 3087              	.LASF306:
  3088 0a7f 4D415833 		.ascii	"MAX30102_Init\000"
  3088      30313032 
  3088      5F496E69 
@@ -3957,10 +3958,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  3104      696D6500 
  3105              	.LASF31:
  3106 0b08 4F535F4E 		.ascii	"OS_NESTING_CTR\000"
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 67
+
+
  3106      45535449 
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 67
-
-
  3106      4E475F43 
  3106      545200
  3107              	.LASF129:
@@ -4017,10 +4018,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  3130      52525F54 
  3130      4D525F49 
  3130      4E56414C 
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 68
+
+
  3130      49445F44 
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 68
-
-
  3131              	.LASF273:
  3132 0bc7 46697273 		.ascii	"FirstPtr\000"
  3132      74507472 
@@ -4077,10 +4078,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  3154      535F5255 
  3154      4E4E494E 
  3154      4700
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 69
+
+
  3155              	.LASF39:
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 69
-
-
  3156 0c77 4F535F53 		.ascii	"OS_STATUS\000"
  3156      54415455 
  3156      5300
@@ -4137,10 +4138,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  3180 0d15 4F535F45 		.ascii	"OS_ERR_TASK_DEL\000"
  3180      52525F54 
  3180      41534B5F 
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 70
+
+
  3180      44454C00 
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 70
-
-
  3181              	.LASF287:
  3182 0d25 6F735F70 		.ascii	"os_pend_obj\000"
  3182      656E645F 
@@ -4197,10 +4198,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  3201              	.LASF7:
  3202 0dd5 6C6F6E67 		.ascii	"long long unsigned int\000"
  3202      206C6F6E 
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 71
+
+
  3202      6720756E 
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 71
-
-
  3202      7369676E 
  3202      65642069 
  3203              	.LASF152:
@@ -4257,10 +4258,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  3222      4D617800 
  3223              	.LASF109:
  3224 0ea3 4F535F45 		.ascii	"OS_ERR_PRIO_INVALID\000"
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 72
+
+
  3224      52525F50 
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 72
-
-
  3224      52494F5F 
  3224      494E5641 
  3224      4C494400 
@@ -4317,10 +4318,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  3244      73657273 
  3244      5C436872 
  3244      6F6E696B 
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 73
+
+
  3244      6C655C44 
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 73
-
-
  3245 0f80 65725C65 		.ascii	"er\\esw_uCOS3_cykit.cydsn\000"
  3245      73775F75 
  3245      434F5333 
@@ -4377,10 +4378,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  3267 104e 50656E64 		.ascii	"PendObjPtr\000"
  3267      4F626A50 
  3267      747200
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 74
+
+
  3268              	.LASF28:
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 74
-
-
  3269 1059 4F535F46 		.ascii	"OS_FLAGS\000"
  3269      4C414753 
  3269      00
@@ -4437,10 +4438,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  3293      6E747269 
  3293      657300
  3294              	.LASF107:
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 75
+
+
  3295 10f9 4F535F45 		.ascii	"OS_ERR_PRIO_EXIST\000"
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 75
-
-
  3295      52525F50 
  3295      52494F5F 
  3295      45584953 
@@ -4497,10 +4498,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  3318              	.LASF81:
  3319 11a0 4F535F45 		.ascii	"OS_ERR_MSG_POOL_NULL_PTR\000"
  3319      52525F4D 
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 76
+
+
  3319      53475F50 
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 76
-
-
  3319      4F4F4C5F 
  3319      4E554C4C 
  3320              	.LASF227:
@@ -4557,14 +4558,14 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  3339      4C5F5349 
  3340              	.LASF171:
  3341 126a 4F535F45 		.ascii	"OS_ERR_TIME_DLY_ISR\000"
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 77
+
+
  3341      52525F54 
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 77
-
-
  3341      494D455F 
  3341      444C595F 
  3341      49535200 
- 3342              	.LASF305:
+ 3342              	.LASF308:
  3343 127e 44617461 		.ascii	"Data_Processing_Init\000"
  3343      5F50726F 
  3343      63657373 
@@ -4617,10 +4618,10 @@ ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 1
  3361      00
  3362              	.LASF9:
  3363 1320 5F5F696E 		.ascii	"__int32_t\000"
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\cc3O1KiP.s 			page 78
+
+
  3363      7433325F 
-ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccUr5vJK.s 			page 78
-
-
  3363      7400
  3364              	.LASF92:
  3365 132a 4F535F45 		.ascii	"OS_ERR_OBJ_TYPE\000"

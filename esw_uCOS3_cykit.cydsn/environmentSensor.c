@@ -46,7 +46,6 @@ void BME688_Init_Task(void) {
 //Wrapper function for I2C read
 bme68x_read_fptr_t bsp_i2c_read_bme(uint8_t reg_addr, uint8_t* reg_data, uint32_t len, void* intf_ptr) {
     (void)intf_ptr; // Suppress unused parameter warning
-    CPU_INT08U status;
     if(bsp_i2c_read(0x76, reg_addr, reg_data, len) != 0){
       Log_Write(LOG_LEVEL_ERROR, "Error Reading I2C BME", 0);
     }
@@ -55,10 +54,9 @@ bme68x_read_fptr_t bsp_i2c_read_bme(uint8_t reg_addr, uint8_t* reg_data, uint32_
 //Wrapper function for i2c write
 bme68x_write_fptr_t bsp_i2c_write_bme(uint8_t reg_addr, const uint8_t* reg_data, uint32_t len, void* intf_ptr) {
     (void)intf_ptr; // Suppress unused parameter warning
-    CPU_INT08U status;
-    if(bsp_i2c_write(0x76, reg_addr, reg_data, len) != 0){
+    if(bsp_i2c_write(0x76, reg_addr, (CPU_INT08U*)reg_data, len) != 0){
       Log_Write(LOG_LEVEL_ERROR, "Error Writing I2C BME", 0);
-    }
+    } else return 0;
 }
 
 // Wrapper function to cause microsecond delay

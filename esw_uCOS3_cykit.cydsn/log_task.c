@@ -3,7 +3,7 @@
 #include <stdio.h>  /* For snprintf */
 
 /* Global variables */
-static CPU_INT08U allowed_log_types = LOG_ALLOWED_LEVELS;  /* Bitmask for allowed log types */
+CPU_INT08U allowed_log_types = LOG_ALLOWED_LEVELS;  /* Bitmask for allowed log types */
 
 /* Task Control Block and Stack */
 OS_TCB Log_Task_TCB;
