@@ -1,165 +1,199 @@
---------------- Build Started: 11/10/2024 19:11:06 Project: esw_uCOS3_cykit, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
-cydsfit.exe -.appdatapath "C:\Users\Chronikle\AppData\Local\Cypress Semiconductor\PSoC Creator\4.4" -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p C:\Users\Chronikle\Documents\GitHub\BodyAnalyzer\esw_uCOS3_cykit.cydsn\esw_uCOS3_cykit.cyprj -d CY8C5888LTI-LP097 -s C:\Users\Chronikle\Documents\GitHub\BodyAnalyzer\esw_uCOS3_cykit.cydsn\Generated_Source\PSoC5 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
-Elaborating Design...
-HDL Generation...
-Synthesis...
-Tech Mapping...
-ADD: pft.M0040: information: The following 6 pin(s) will be assigned a location by the fitter: Pin_2(0), Pin_2(1), Pin_Blue_Led_1(0), Pin_Green_Led_1(0), Pin_Red_Led_1(0), push_button(0)
-Analog Placement...
-Analog Routing...
-Analog Code Generation...
-Digital Placement...
-Digital Routing...
-Bitstream Generation...
-Bitstream Verification...
-Static timing analysis...
-API Generation...
-Dependency Generation...
-Cleanup...
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/app.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c APP\app.c -o .\CortexM3\ARM_GCC_541\Debug\app.o
-In file included from APP\app.c:17:0:
-./heartbeatSensor.h:40:13: warning: 'max30102_Task' declared 'static' but never defined [-Wunused-function]
- static void max30102_Task(void *p_arg);
-             ^
-In file included from APP\app.c:18:0:
-./environmentSensor.h:32:13: warning: 'bme688_Task' declared 'static' but never defined [-Wunused-function]
- static void bme688_Task(void *p_arg);
-             ^
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/os_app_hooks.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c APP\os_app_hooks.c -o .\CortexM3\ARM_GCC_541\Debug\os_app_hooks.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/log_task.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c log_task.c -o .\CortexM3\ARM_GCC_541\Debug\log_task.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/heartbeatSensor.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c heartbeatSensor.c -o .\CortexM3\ARM_GCC_541\Debug\heartbeatSensor.o
-heartbeatSensor.c:47:6: warning: 'initMessageQueue' defined but not used [-Wunused-function]
- void initMessageQueue(){
-      ^
+--------------- Build Started: 11/10/2024 22:35:06 Project: esw_uCOS3_cykit, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+The code generation step is up to date.
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/environmentSensor.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c environmentSensor.c -o .\CortexM3\ARM_GCC_541\Debug\environmentSensor.o
+environmentSensor.c: In function 'bsp_i2c_read_bme':
+.\SensorLib\bme688/bme68x_defs.h:124:58: warning: return makes pointer from integer without a cast [-Wint-conversion]
+ #define BME68X_E_COM_FAIL                         INT8_C(-2)
+                                                          ^
+environmentSensor.c:62:14: note: in expansion of macro 'BME68X_E_COM_FAIL'
+       return BME68X_E_COM_FAIL;
+              ^
 environmentSensor.c: In function 'bsp_i2c_write_bme':
-environmentSensor.c:59:12: warning: return makes pointer from integer without a cast [-Wint-conversion]
-     return 1;
+.\SensorLib\bme688/bme68x_defs.h:124:58: warning: return makes pointer from integer without a cast [-Wint-conversion]
+ #define BME68X_E_COM_FAIL                         INT8_C(-2)
+                                                          ^
+environmentSensor.c:71:12: note: in expansion of macro 'BME68X_E_COM_FAIL'
+     return BME68X_E_COM_FAIL;
             ^
+environmentSensor.c: In function 'enqueueEnvironmentData':
+environmentSensor.c:82:14: warning: variable 'entries' set but not used [-Wunused-but-set-variable]
+   OS_MSG_QTY entries;
+              ^
 environmentSensor.c: In function 'sendDataViaUartForCSV':
-environmentSensor.c:76:23: warning: format '%d' expects argument of type 'int', but argument 4 has type 'uint32_t {aka long unsigned int}' [-Wformat=]
+environmentSensor.c:114:23: warning: format '%d' expects argument of type 'int', but argument 4 has type 'uint32_t {aka long unsigned int}' [-Wformat=]
    sprintf(&buffer[0], "%d,%d,%d,%d,%d\r\n", env_data.temperature, env_data.humidity, env_data.pressure, env_data.gas_resistance, current_timestamp);
                        ^
-environmentSensor.c:76:23: warning: format '%d' expects argument of type 'int', but argument 5 has type 'uint32_t {aka long unsigned int}' [-Wformat=]
-environmentSensor.c:76:23: warning: format '%d' expects argument of type 'int', but argument 6 has type 'uint32_t {aka long unsigned int}' [-Wformat=]
-environmentSensor.c:76:23: warning: format '%d' expects argument of type 'int', but argument 4 has type 'uint32_t {aka long unsigned int}' [-Wformat=]
-environmentSensor.c:76:23: warning: format '%d' expects argument of type 'int', but argument 5 has type 'uint32_t {aka long unsigned int}' [-Wformat=]
-environmentSensor.c:76:23: warning: format '%d' expects argument of type 'int', but argument 6 has type 'uint32_t {aka long unsigned int}' [-Wformat=]
+environmentSensor.c:114:23: warning: format '%d' expects argument of type 'int', but argument 5 has type 'uint32_t {aka long unsigned int}' [-Wformat=]
+environmentSensor.c:114:23: warning: format '%d' expects argument of type 'int', but argument 6 has type 'uint32_t {aka long unsigned int}' [-Wformat=]
+environmentSensor.c:114:23: warning: format '%d' expects argument of type 'int', but argument 4 has type 'uint32_t {aka long unsigned int}' [-Wformat=]
+environmentSensor.c:114:23: warning: format '%d' expects argument of type 'int', but argument 5 has type 'uint32_t {aka long unsigned int}' [-Wformat=]
+environmentSensor.c:114:23: warning: format '%d' expects argument of type 'int', but argument 6 has type 'uint32_t {aka long unsigned int}' [-Wformat=]
 environmentSensor.c: In function 'Init_BME688_Sensor':
-environmentSensor.c:101:23: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
+environmentSensor.c:139:23: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
    bme688_handle->read = bsp_i2c_read_bme;
                        ^
-environmentSensor.c:102:24: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
+environmentSensor.c:140:24: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
    bme688_handle->write = bsp_i2c_write_bme;
                         ^
-environmentSensor.c:107:28: warning: unused variable 'check_heatr_conf' [-Wunused-variable]
+environmentSensor.c:145:28: warning: unused variable 'check_heatr_conf' [-Wunused-variable]
    struct bme68x_heatr_conf check_heatr_conf;
                             ^
-environmentSensor.c: In function 'bsp_i2c_read_bme':
-environmentSensor.c:52:1: warning: control reaches end of non-void function [-Wreturn-type]
- }
- ^
+In file included from .\APP/includes.h:66:0,
+                 from ./bsp_i2c.h:7,
+                 from ./environmentSensor.h:17,
+                 from environmentSensor.c:13:
+environmentSensor.c: At top level:
+./bsp_gpio.h:46:13: warning: 'BUT_Task' declared 'static' but never defined [-Wunused-function]
+ static void BUT_Task(void *p_arg);
+             ^
+./bsp_gpio.h:51:13: warning: 'LedR_Task' declared 'static' but never defined [-Wunused-function]
+ static void LedR_Task(void *p_arg);
+             ^
+./bsp_gpio.h:55:13: warning: 'LedG_Task' declared 'static' but never defined [-Wunused-function]
+ static void LedG_Task(void *p_arg);
+             ^
+./bsp_gpio.h:59:13: warning: 'LedB_Task' declared 'static' but never defined [-Wunused-function]
+ static void LedB_Task(void *p_arg);
+             ^
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/data_processing_task.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c data_processing_task.c -o .\CortexM3\ARM_GCC_541\Debug\data_processing_task.o
 data_processing_task.c: In function 'Data_Processing_Task':
 data_processing_task.c:83:14: warning: variable 'entries' set but not used [-Wunused-but-set-variable]
    OS_MSG_QTY entries;
               ^
+In file included from .\APP/includes.h:66:0,
+                 from data_processing_task.h:5,
+                 from data_processing_task.c:1:
+data_processing_task.c: At top level:
+./bsp_gpio.h:46:13: warning: 'BUT_Task' declared 'static' but never defined [-Wunused-function]
+ static void BUT_Task(void *p_arg);
+             ^
+./bsp_gpio.h:51:13: warning: 'LedR_Task' declared 'static' but never defined [-Wunused-function]
+ static void LedR_Task(void *p_arg);
+             ^
+./bsp_gpio.h:55:13: warning: 'LedG_Task' declared 'static' but never defined [-Wunused-function]
+ static void LedG_Task(void *p_arg);
+             ^
+./bsp_gpio.h:59:13: warning: 'LedB_Task' declared 'static' but never defined [-Wunused-function]
+ static void LedB_Task(void *p_arg);
+             ^
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/bsp_os.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c BSP\OS\uCOS-III\bsp_os.c -o .\CortexM3\ARM_GCC_541\Debug\bsp_os.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/bsp.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c BSP\bsp.c -o .\CortexM3\ARM_GCC_541\Debug\bsp.o
+In file included from BSP\bsp.c:40:0:
+./bsp_gpio.h:46:13: warning: 'BUT_Task' declared 'static' but never defined [-Wunused-function]
+ static void BUT_Task(void *p_arg);
+             ^
+./bsp_gpio.h:51:13: warning: 'LedR_Task' declared 'static' but never defined [-Wunused-function]
+ static void LedR_Task(void *p_arg);
+             ^
+./bsp_gpio.h:55:13: warning: 'LedG_Task' declared 'static' but never defined [-Wunused-function]
+ static void LedG_Task(void *p_arg);
+             ^
+./bsp_gpio.h:59:13: warning: 'LedB_Task' declared 'static' but never defined [-Wunused-function]
+ static void LedB_Task(void *p_arg);
+             ^
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/cpu_bsp.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c BSP\cpu_bsp.c -o .\CortexM3\ARM_GCC_541\Debug\cpu_bsp.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/bsp_uart.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c bsp_uart.c -o .\CortexM3\ARM_GCC_541\Debug\bsp_uart.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/bsp_gpio.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c bsp_gpio.c -o .\CortexM3\ARM_GCC_541\Debug\bsp_gpio.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/bsp_i2c.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c bsp_i2c.c -o .\CortexM3\ARM_GCC_541\Debug\bsp_i2c.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/cpu_c.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c uC-CPU\ARM-Cortex-M3\GNU\cpu_c.c -o .\CortexM3\ARM_GCC_541\Debug\cpu_c.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/cpu_core.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c uC-CPU\cpu_core.c -o .\CortexM3\ARM_GCC_541\Debug\cpu_core.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/lib_math.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c uC-LIB\lib_math.c -o .\CortexM3\ARM_GCC_541\Debug\lib_math.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/lib_mem.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c uC-LIB\lib_mem.c -o .\CortexM3\ARM_GCC_541\Debug\lib_mem.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/lib_str.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c uC-LIB\lib_str.c -o .\CortexM3\ARM_GCC_541\Debug\lib_str.o
-uC-LIB\lib_str.c: In function 'Str_FmtNbr_Int32':
-uC-LIB\lib_str.c:3614:51: warning: 'lead_char_0' may be used uninitialized in this function [-Wmaybe-uninitialized]
-                        (nbr_neg_fmtd == DEF_NO )) ||            /* ... but neg sign NOT yet fmt'd  OR           ...     */
-                                                   ^
-uC-LIB\lib_str.c:3586:14: warning: 'nbr_dig_fmtd' may be used uninitialized in this function [-Wmaybe-uninitialized]
-     pstr_fmt += nbr_dig_fmtd;                                   /* Start fmt @ least-sig dig.                           */
-              ^
-uC-LIB\lib_str.c:3610:25: warning: 'nbr_fmt' may be used uninitialized in this function [-Wmaybe-uninitialized]
-                 nbr_fmt /= nbr_base;                            /* Shift to next more-sig dig.                          */
+bsp_gpio.c: In function 'init_gpio':
+bsp_gpio.c:53:13: error: 'LOG_LEVEL_BUT' undeclared (first use in this function)
+   Log_Write(LOG_LEVEL_BUT, "(init_gpio) Knopf-Task wird erstellt", os_err);
+             ^
+bsp_gpio.c:53:13: note: each undeclared identifier is reported only once for each function it appears in
+bsp_gpio.c:61:30: error: 'BUT_TaskStk' undeclared (first use in this function)
+                  (CPU_STK *)&BUT_TaskStk[0],
+                              ^
+bsp_gpio.c:63:32: error: 'APP_CFG_TASK_BUT_STK_SIZE' undeclared (first use in this function)
+                  (CPU_STK_SIZE)APP_CFG_TASK_BUT_STK_SIZE,
+                                ^
+bsp_gpio.c:88:42: error: 'LOG_LEVEL_LED' undeclared (first use in this function)
+     if (os_err == OS_ERR_NONE) Log_Write(LOG_LEVEL_LED, "(init_gpio) Led-Task erstellt", os_err);
+                                          ^
+bsp_gpio.c: In function 'BUT_Task':
+bsp_gpio.c:129:18: error: 'Knopf_Sem' undeclared (first use in this function)
+       OSSemPend(&Knopf_Sem, OS_OPT_POST_ALL, &os_err);
+                  ^
+bsp_gpio.c:129:46: warning: passing argument 3 of 'OSSemPend' makes integer from pointer without a cast [-Wint-conversion]
+       OSSemPend(&Knopf_Sem, OS_OPT_POST_ALL, &os_err);
+                                              ^
+In file included from bsp_gpio.h:13:0,
+                 from bsp_gpio.c:13:
+.\uCOS-III\Source/os.h:1594:15: note: expected 'OS_OPT {aka short unsigned int}' but argument is of type 'OS_ERR * {aka enum os_err *}'
+ OS_SEM_CTR    OSSemPend                 (OS_SEM                *p_sem,
+               ^
+bsp_gpio.c:129:7: error: too few arguments to function 'OSSemPend'
+       OSSemPend(&Knopf_Sem, OS_OPT_POST_ALL, &os_err);
+       ^
+In file included from bsp_gpio.h:13:0,
+                 from bsp_gpio.c:13:
+.\uCOS-III\Source/os.h:1594:15: note: declared here
+ OS_SEM_CTR    OSSemPend                 (OS_SEM                *p_sem,
+               ^
+bsp_gpio.c: In function 'LedB_Task':
+bsp_gpio.c:145:3: error: unknown type name 'LED_CONTROL_MESSAGE'
+   LED_CONTROL_MESSAGE *lcm;
+   ^
+bsp_gpio.c:149:25: error: 'Knopf_Sem' undeclared (first use in this function)
+     if (0 != OSSemPend(&Knopf_Sem, 0, OS_OPT_PEND_BLOCKING, &ts, &os_err))
                          ^
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/lib_ascii.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c uC-LIB\lib_ascii.c -o .\CortexM3\ARM_GCC_541\Debug\lib_ascii.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/os_cpu_c.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU\os_cpu_c.c -o .\CortexM3\ARM_GCC_541\Debug\os_cpu_c.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/os_pend_multi.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c uCOS-III\Source\os_pend_multi.c -o .\CortexM3\ARM_GCC_541\Debug\os_pend_multi.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/os_prio.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c uCOS-III\Source\os_prio.c -o .\CortexM3\ARM_GCC_541\Debug\os_prio.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/os_q.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c uCOS-III\Source\os_q.c -o .\CortexM3\ARM_GCC_541\Debug\os_q.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/os_sem.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c uCOS-III\Source\os_sem.c -o .\CortexM3\ARM_GCC_541\Debug\os_sem.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/os_stat.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c uCOS-III\Source\os_stat.c -o .\CortexM3\ARM_GCC_541\Debug\os_stat.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/os_task.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c uCOS-III\Source\os_task.c -o .\CortexM3\ARM_GCC_541\Debug\os_task.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/os_tick.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c uCOS-III\Source\os_tick.c -o .\CortexM3\ARM_GCC_541\Debug\os_tick.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/os_time.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c uCOS-III\Source\os_time.c -o .\CortexM3\ARM_GCC_541\Debug\os_time.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/os_tmr.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c uCOS-III\Source\os_tmr.c -o .\CortexM3\ARM_GCC_541\Debug\os_tmr.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/os_var.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c uCOS-III\Source\os_var.c -o .\CortexM3\ARM_GCC_541\Debug\os_var.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/os_cfg_app.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c uCOS-III\Source\os_cfg_app.c -o .\CortexM3\ARM_GCC_541\Debug\os_cfg_app.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/os_core.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c uCOS-III\Source\os_core.c -o .\CortexM3\ARM_GCC_541\Debug\os_core.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/os_dbg.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c uCOS-III\Source\os_dbg.c -o .\CortexM3\ARM_GCC_541\Debug\os_dbg.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/os_flag.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c uCOS-III\Source\os_flag.c -o .\CortexM3\ARM_GCC_541\Debug\os_flag.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/os_int.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c uCOS-III\Source\os_int.c -o .\CortexM3\ARM_GCC_541\Debug\os_int.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/os_mem.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c uCOS-III\Source\os_mem.c -o .\CortexM3\ARM_GCC_541\Debug\os_mem.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/os_msg.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c uCOS-III\Source\os_msg.c -o .\CortexM3\ARM_GCC_541\Debug\os_msg.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/os_mutex.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c uCOS-III\Source\os_mutex.c -o .\CortexM3\ARM_GCC_541\Debug\os_mutex.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/max30102_interface.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c max30102_interface.c -o .\CortexM3\ARM_GCC_541\Debug\max30102_interface.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/driver_max30102.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c SensorLib\max30102\driver_max30102.c -o .\CortexM3\ARM_GCC_541\Debug\driver_max30102.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/bme68x.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c SensorLib\bme688\bme68x.c -o .\CortexM3\ARM_GCC_541\Debug\bme68x.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/cyfitter_cfg.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\cyfitter_cfg.c -o .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/cymetadata.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\cymetadata.c -o .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/UART_1.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\UART_1.c -o .\CortexM3\ARM_GCC_541\Debug\UART_1.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/UART_1_PM.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\UART_1_PM.c -o .\CortexM3\ARM_GCC_541\Debug\UART_1_PM.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/UART_1_INT.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\UART_1_INT.c -o .\CortexM3\ARM_GCC_541\Debug\UART_1_INT.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/UART_1_BOOT.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\UART_1_BOOT.c -o .\CortexM3\ARM_GCC_541\Debug\UART_1_BOOT.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Pin_1.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Pin_1.c -o .\CortexM3\ARM_GCC_541\Debug\Pin_1.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/UART_1_IntClock.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\UART_1_IntClock.c -o .\CortexM3\ARM_GCC_541\Debug\UART_1_IntClock.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/cy_em_eeprom.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\cy_em_eeprom.c -o .\CortexM3\ARM_GCC_541\Debug\cy_em_eeprom.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Cm3Start.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Cm3Start.c -o .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/CyDmac.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\CyDmac.c -o .\CortexM3\ARM_GCC_541\Debug\CyDmac.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/CyFlash.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\CyFlash.c -o .\CortexM3\ARM_GCC_541\Debug\CyFlash.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/CyLib.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\CyLib.c -o .\CortexM3\ARM_GCC_541\Debug\CyLib.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/cyPm.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\cyPm.c -o .\CortexM3\ARM_GCC_541\Debug\cyPm.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/CySpc.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\CySpc.c -o .\CortexM3\ARM_GCC_541\Debug\CySpc.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/cyutils.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\cyutils.c -o .\CortexM3\ARM_GCC_541\Debug\cyutils.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Pin_2.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Pin_2.c -o .\CortexM3\ARM_GCC_541\Debug\Pin_2.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/push_button.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\push_button.c -o .\CortexM3\ARM_GCC_541\Debug\push_button.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/SCL_1.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\SCL_1.c -o .\CortexM3\ARM_GCC_541\Debug\SCL_1.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/SDA_1.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\SDA_1.c -o .\CortexM3\ARM_GCC_541\Debug\SDA_1.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/I2C_1.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\I2C_1.c -o .\CortexM3\ARM_GCC_541\Debug\I2C_1.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/I2C_1_BOOT.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\I2C_1_BOOT.c -o .\CortexM3\ARM_GCC_541\Debug\I2C_1_BOOT.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/I2C_1_INT.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\I2C_1_INT.c -o .\CortexM3\ARM_GCC_541\Debug\I2C_1_INT.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/I2C_1_PM.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\I2C_1_PM.c -o .\CortexM3\ARM_GCC_541\Debug\I2C_1_PM.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/I2C_1_SLAVE.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\I2C_1_SLAVE.c -o .\CortexM3\ARM_GCC_541\Debug\I2C_1_SLAVE.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/I2C_1_MASTER.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\I2C_1_MASTER.c -o .\CortexM3\ARM_GCC_541\Debug\I2C_1_MASTER.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/DMA_I2C_dma.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\DMA_I2C_dma.c -o .\CortexM3\ARM_GCC_541\Debug\DMA_I2C_dma.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/DMA_SPI_dma.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\DMA_SPI_dma.c -o .\CortexM3\ARM_GCC_541\Debug\DMA_SPI_dma.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/I2C_INTR.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\I2C_INTR.c -o .\CortexM3\ARM_GCC_541\Debug\I2C_INTR.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/I2C_DataReady.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\I2C_DataReady.c -o .\CortexM3\ARM_GCC_541\Debug\I2C_DataReady.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Timer_1.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Timer_1.c -o .\CortexM3\ARM_GCC_541\Debug\Timer_1.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Timer_1_PM.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Timer_1_PM.c -o .\CortexM3\ARM_GCC_541\Debug\Timer_1_PM.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Timer_ISR.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Timer_ISR.c -o .\CortexM3\ARM_GCC_541\Debug\Timer_ISR.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/PWM2.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\PWM2.c -o .\CortexM3\ARM_GCC_541\Debug\PWM2.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/PWM2_PM.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\PWM2_PM.c -o .\CortexM3\ARM_GCC_541\Debug\PWM2_PM.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Pin_Red_Led_1.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Pin_Red_Led_1.c -o .\CortexM3\ARM_GCC_541\Debug\Pin_Red_Led_1.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Pin_Blue_Led_1.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Pin_Blue_Led_1.c -o .\CortexM3\ARM_GCC_541\Debug\Pin_Blue_Led_1.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Pin_Green_Led_1.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Pin_Green_Led_1.c -o .\CortexM3\ARM_GCC_541\Debug\Pin_Green_Led_1.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/PWM1.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\PWM1.c -o .\CortexM3\ARM_GCC_541\Debug\PWM1.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/PWM1_PM.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\PWM1_PM.c -o .\CortexM3\ARM_GCC_541\Debug\PWM1_PM.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/Zeit.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c Generated_Source\PSoC5\Zeit.c -o .\CortexM3\ARM_GCC_541\Debug\Zeit.o
-arm-none-eabi-as.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -alh=.\CortexM3\ARM_GCC_541\Debug/cpu_a.lst -g -W -o .\CortexM3\ARM_GCC_541\Debug\cpu_a.o uC-CPU\ARM-Cortex-M3\GNU\cpu_a.s
-arm-none-eabi-as.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -alh=.\CortexM3\ARM_GCC_541\Debug/os_cpu_a.lst -g -W -o .\CortexM3\ARM_GCC_541\Debug\os_cpu_a.o uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU\os_cpu_a.s
-arm-none-eabi-as.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -alh=.\CortexM3\ARM_GCC_541\Debug/CyBootAsmGnu.lst -g -W -o .\CortexM3\ARM_GCC_541\Debug\CyBootAsmGnu.o Generated_Source\PSoC5\CyBootAsmGnu.s
-arm-none-eabi-ar.exe -rs .\CortexM3\ARM_GCC_541\Debug\esw_uCOS3_cykit.a .\CortexM3\ARM_GCC_541\Debug\UART_1.o .\CortexM3\ARM_GCC_541\Debug\UART_1_PM.o .\CortexM3\ARM_GCC_541\Debug\UART_1_INT.o .\CortexM3\ARM_GCC_541\Debug\UART_1_BOOT.o .\CortexM3\ARM_GCC_541\Debug\Pin_1.o .\CortexM3\ARM_GCC_541\Debug\UART_1_IntClock.o .\CortexM3\ARM_GCC_541\Debug\cy_em_eeprom.o .\CortexM3\ARM_GCC_541\Debug\CyDmac.o .\CortexM3\ARM_GCC_541\Debug\CyFlash.o .\CortexM3\ARM_GCC_541\Debug\CyLib.o .\CortexM3\ARM_GCC_541\Debug\cyPm.o .\CortexM3\ARM_GCC_541\Debug\CySpc.o .\CortexM3\ARM_GCC_541\Debug\cyutils.o .\CortexM3\ARM_GCC_541\Debug\Pin_2.o .\CortexM3\ARM_GCC_541\Debug\push_button.o .\CortexM3\ARM_GCC_541\Debug\SCL_1.o .\CortexM3\ARM_GCC_541\Debug\SDA_1.o .\CortexM3\ARM_GCC_541\Debug\I2C_1.o .\CortexM3\ARM_GCC_541\Debug\I2C_1_BOOT.o .\CortexM3\ARM_GCC_541\Debug\I2C_1_INT.o .\CortexM3\ARM_GCC_541\Debug\I2C_1_PM.o .\CortexM3\ARM_GCC_541\Debug\I2C_1_SLAVE.o .\CortexM3\ARM_GCC_541\Debug\I2C_1_MASTER.o .\CortexM3\ARM_GCC_541\Debug\DMA_I2C_dma.o .\CortexM3\ARM_GCC_541\Debug\DMA_SPI_dma.o .\CortexM3\ARM_GCC_541\Debug\I2C_INTR.o .\CortexM3\ARM_GCC_541\Debug\I2C_DataReady.o .\CortexM3\ARM_GCC_541\Debug\Timer_1.o .\CortexM3\ARM_GCC_541\Debug\Timer_1_PM.o .\CortexM3\ARM_GCC_541\Debug\Timer_ISR.o .\CortexM3\ARM_GCC_541\Debug\PWM2.o .\CortexM3\ARM_GCC_541\Debug\PWM2_PM.o .\CortexM3\ARM_GCC_541\Debug\Pin_Red_Led_1.o .\CortexM3\ARM_GCC_541\Debug\Pin_Blue_Led_1.o .\CortexM3\ARM_GCC_541\Debug\Pin_Green_Led_1.o .\CortexM3\ARM_GCC_541\Debug\PWM1.o .\CortexM3\ARM_GCC_541\Debug\PWM1_PM.o .\CortexM3\ARM_GCC_541\Debug\Zeit.o .\CortexM3\ARM_GCC_541\Debug\CyBootAsmGnu.o
-arm-none-eabi-ar.exe: creating .\CortexM3\ARM_GCC_541\Debug\esw_uCOS3_cykit.a
-arm-none-eabi-gcc.exe -Wl,--start-group -o C:\Users\Chronikle\Documents\GitHub\BodyAnalyzer\esw_uCOS3_cykit.cydsn\CortexM3\ARM_GCC_541\Debug\esw_uCOS3_cykit.elf .\CortexM3\ARM_GCC_541\Debug\app.o .\CortexM3\ARM_GCC_541\Debug\os_app_hooks.o .\CortexM3\ARM_GCC_541\Debug\log_task.o .\CortexM3\ARM_GCC_541\Debug\heartbeatSensor.o .\CortexM3\ARM_GCC_541\Debug\environmentSensor.o .\CortexM3\ARM_GCC_541\Debug\data_processing_task.o .\CortexM3\ARM_GCC_541\Debug\bsp_os.o .\CortexM3\ARM_GCC_541\Debug\bsp.o .\CortexM3\ARM_GCC_541\Debug\cpu_bsp.o .\CortexM3\ARM_GCC_541\Debug\bsp_uart.o .\CortexM3\ARM_GCC_541\Debug\bsp_gpio.o .\CortexM3\ARM_GCC_541\Debug\bsp_i2c.o .\CortexM3\ARM_GCC_541\Debug\cpu_c.o .\CortexM3\ARM_GCC_541\Debug\cpu_core.o .\CortexM3\ARM_GCC_541\Debug\lib_math.o .\CortexM3\ARM_GCC_541\Debug\lib_mem.o .\CortexM3\ARM_GCC_541\Debug\lib_str.o .\CortexM3\ARM_GCC_541\Debug\lib_ascii.o .\CortexM3\ARM_GCC_541\Debug\os_cpu_c.o .\CortexM3\ARM_GCC_541\Debug\os_pend_multi.o .\CortexM3\ARM_GCC_541\Debug\os_prio.o .\CortexM3\ARM_GCC_541\Debug\os_q.o .\CortexM3\ARM_GCC_541\Debug\os_sem.o .\CortexM3\ARM_GCC_541\Debug\os_stat.o .\CortexM3\ARM_GCC_541\Debug\os_task.o .\CortexM3\ARM_GCC_541\Debug\os_tick.o .\CortexM3\ARM_GCC_541\Debug\os_time.o .\CortexM3\ARM_GCC_541\Debug\os_tmr.o .\CortexM3\ARM_GCC_541\Debug\os_var.o .\CortexM3\ARM_GCC_541\Debug\os_cfg_app.o .\CortexM3\ARM_GCC_541\Debug\os_core.o .\CortexM3\ARM_GCC_541\Debug\os_dbg.o .\CortexM3\ARM_GCC_541\Debug\os_flag.o .\CortexM3\ARM_GCC_541\Debug\os_int.o .\CortexM3\ARM_GCC_541\Debug\os_mem.o .\CortexM3\ARM_GCC_541\Debug\os_msg.o .\CortexM3\ARM_GCC_541\Debug\os_mutex.o .\CortexM3\ARM_GCC_541\Debug\max30102_interface.o .\CortexM3\ARM_GCC_541\Debug\driver_max30102.o .\CortexM3\ARM_GCC_541\Debug\bme68x.o .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o .\CortexM3\ARM_GCC_541\Debug\cymetadata.o .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o .\CortexM3\ARM_GCC_541\Debug\cpu_a.o .\CortexM3\ARM_GCC_541\Debug\os_cpu_a.o .\CortexM3\ARM_GCC_541\Debug\esw_uCOS3_cykit.a "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM3\ARM_GCC_541\Debug\CyComponentLibrary.a" -mcpu=cortex-m3 -mthumb -L Generated_Source\PSoC5 -Wl,-Map,.\CortexM3\ARM_GCC_541\Debug/esw_uCOS3_cykit.map -T Generated_Source\PSoC5\cm3gcc.ld -specs=nano.specs -Wl,--gc-sections -g -ffunction-sections -Og -ffat-lto-objects -Wl,--end-group
-cyelftool.exe -C C:\Users\Chronikle\Documents\GitHub\BodyAnalyzer\esw_uCOS3_cykit.cydsn\CortexM3\ARM_GCC_541\Debug\esw_uCOS3_cykit.elf --flash_row_size 256 --flash_size 262144 --flash_offset 0x00000000
-No ELF section .cychecksum found, creating one
-Application checksum calculated and stored in ELF section .cychecksum
-Checksum calculated and stored in ELF section .cymeta
-cyelftool.exe -S C:\Users\Chronikle\Documents\GitHub\BodyAnalyzer\esw_uCOS3_cykit.cydsn\CortexM3\ARM_GCC_541\Debug\esw_uCOS3_cykit.elf
-Flash used: 37960 of 262144 bytes (14.5%).
-SRAM used: 26433 of 65536 bytes (40.3%). Stack: 2048 bytes. Heap: 128 bytes.
---------------- Build Succeeded: 11/10/2024 19:11:40 ---------------
+bsp_gpio.c:151:31: error: 'CommQProcessedEnvironmentData' undeclared (first use in this function)
+       if (0 != (lcm =OSQPend(&CommQProcessedEnvironmentData, 0, OS_OPT_PEND_BLOCKING, &lcm_size, &ts, &os_err)))
+                               ^
+The command 'arm-none-eabi-gcc.exe' failed with exit code '1'.
+bsp_gpio.c:151:87: warning: passing argument 4 of 'OSQPend' from incompatible pointer type [-Wincompatible-pointer-types]
+       if (0 != (lcm =OSQPend(&CommQProcessedEnvironmentData, 0, OS_OPT_PEND_BLOCKING, &lcm_size, &ts, &os_err)))
+                                                                                       ^
+In file included from bsp_gpio.h:13:0,
+                 from bsp_gpio.c:13:
+.\uCOS-III\Source/os.h:1539:15: note: expected 'OS_MSG_SIZE * {aka short unsigned int *}' but argument is of type 'OS_MSG_SIZE ** {aka short unsigned int **}'
+ void         *OSQPend                   (OS_Q                  *p_q,
+               ^
+bsp_gpio.c:153:32: error: 'LED_CONTROL_MESSAGE' undeclared (first use in this function)
+         if (lcm_size == sizeof(LED_CONTROL_MESSAGE))
+                                ^
+bsp_gpio.c:154:68: error: request for member 'mode_data' in something not a structure or union
+           BSP_PWM_set_Halbperiode(PWM2, 2, Sauerstoffumrechnung(lcm->mode_data));
+                                                                    ^
+bsp_gpio.c: In function 'LedR_Task':
+bsp_gpio.c:174:3: error: unknown type name 'LED_CONTROL_MESSAGE'
+   LED_CONTROL_MESSAGE *lcm;
+   ^
+bsp_gpio.c:178:25: error: 'Knopf_Sem' undeclared (first use in this function)
+     if (0 != OSSemPend(&Knopf_Sem, 0, OS_OPT_PEND_BLOCKING, &ts, &os_err))
+                         ^
+bsp_gpio.c:180:31: error: 'CommQProcessedEnvironmentData' undeclared (first use in this function)
+       if (0 != (lcm =OSQPend(&CommQProcessedEnvironmentData, 0, OS_OPT_PEND_BLOCKING, &lcm_size, &ts, &os_err)))
+                               ^
+bsp_gpio.c:180:87: warning: passing argument 4 of 'OSQPend' from incompatible pointer type [-Wincompatible-pointer-types]
+       if (0 != (lcm =OSQPend(&CommQProcessedEnvironmentData, 0, OS_OPT_PEND_BLOCKING, &lcm_size, &ts, &os_err)))
+                                                                                       ^
+In file included from bsp_gpio.h:13:0,
+                 from bsp_gpio.c:13:
+.\uCOS-III\Source/os.h:1539:15: note: expected 'OS_MSG_SIZE * {aka short unsigned int *}' but argument is of type 'OS_MSG_SIZE ** {aka short unsigned int **}'
+ void         *OSQPend                   (OS_Q                  *p_q,
+               ^
+bsp_gpio.c:182:32: error: 'LED_CONTROL_MESSAGE' undeclared (first use in this function)
+         if (lcm_size == sizeof(LED_CONTROL_MESSAGE))
+                                ^
+bsp_gpio.c:183:68: error: request for member 'mode_data' in something not a structure or union
+           BSP_PWM_set_Halbperiode(PWM2, 1, Herzschlagumrechnung(lcm->mode_data));
+                                                                    ^
+bsp_gpio.c: In function 'LedG_Task':
+bsp_gpio.c:204:23: error: 'Knopf_Sem' undeclared (first use in this function)
+   if (0 != OSSemPend(&Knopf_Sem, 0, OS_OPT_PEND_BLOCKING, &ts, &os_err))
+                       ^
+bsp_gpio.c:208:17: error: 'lcm' undeclared (first use in this function)
+       if (0 != (lcm =OSQPend(&CommQProcessedEnvironmentData, 0, OS_OPT_PEND_BLOCKING, &lcm_size, &ts, &os_err)))
+                 ^
+bsp_gpio.c:208:31: error: 'CommQProcessedEnvironmentData' undeclared (first use in this function)
+       if (0 != (lcm =OSQPend(&CommQProcessedEnvironmentData, 0, OS_OPT_PEND_BLOCKING, &lcm_size, &ts, &os_err)))
+                               ^
+bsp_gpio.c:208:88: error: 'lcm_size' undeclared (first use in this function)
+       if (0 != (lcm =OSQPend(&CommQProcessedEnvironmentData, 0, OS_OPT_PEND_BLOCKING, &lcm_size, &ts, &os_err)))
+                                                                                        ^
+bsp_gpio.c:210:32: error: 'LED_CONTROL_MESSAGE' undeclared (first use in this function)
+         if (lcm_size == sizeof(LED_CONTROL_MESSAGE))
+                                ^
+bsp_gpio.c:211:44: warning: implicit declaration of function 'Pastallesumrechung' [-Wimplicit-function-declaration]
+           BSP_PWM_set_Halbperiode(PWM2, 1, Pastallesumrechung(lcm->mode_data));
+                                            ^
+--------------- Build Failed: 11/10/2024 22:35:07 ---------------

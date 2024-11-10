@@ -63,7 +63,7 @@ typedef struct {
 
 // To caputre raw environment values
 typedef struct {
-    CPU_INT32S temperature_raw;                   //RAW values
+    CPU_INT16S temperature_raw;                   //RAW values
     CPU_INT32S humidity_raw;                      //RAW values
     CPU_INT32S pressure_raw;                      //RAW values
     CPU_INT32S gas_raw;                           //RAW values

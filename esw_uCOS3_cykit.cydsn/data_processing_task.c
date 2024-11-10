@@ -125,7 +125,14 @@ static void Data_Processing_Task(void *p_arg) {
 
         // Send the green LED command to the LED control task
         OSQPost(&CommQProcessedEnvironmentData, &led_control_message, sizeof(led_control_message), OS_OPT_POST_FIFO, &os_err);
-        if (os_err != OS_ERR_NONE) {
+        if (os_err == OS_ERR_Q_MAX) {
+            Log_Write(LOG_LEVEL_ERROR, "Data Processing Task: Queue is full, can't send the value to further task...", 0);
+            entries = OSQFlush(&CommQProcessedOximeterData, &os_err);  // Flush queue if full
+            if(os_err == OS_ERR_NONE){
+              Log_Write(LOG_LEVEL_DATA_PROCESSING, "Queue is flushed .. ");
+            }
+        }
+        else if (os_err != OS_ERR_NONE) {
             Log_Write(LOG_LEVEL_ERROR, "Data Processing Task: Failed to send environment LED command with error", os_err);
         } else {
             Log_Write(LOG_LEVEL_DATA_PROCESSING, "Environment LED command sent to LED control task.", 0);

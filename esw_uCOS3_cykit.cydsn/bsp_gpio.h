@@ -42,7 +42,7 @@
 
 // Knopf-Task
 OS_TCB BUT_Task_TCB;
-CPU_STK BUT_TaskStk[APP_CFG_TASK_BUT_STK_SIZE];
+//CPU_STK BUT_TaskStk[APP_CFG_TASK_BUT_STK_SIZE];
 static void BUT_Task(void *p_arg);
 
 // LEDs

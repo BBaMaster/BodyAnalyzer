@@ -15,6 +15,17 @@
 OS_TCB BME688_Task_TCB;                              // Task Control Block for BME688 task
 CPU_STK BME688_TaskStk[APP_CFG_TASK_BME688_STK_SIZE]; // Stack for BME688 task
 
+/* Initialize the message queue to process send the environment values to processing tasks*/
+void initMessageQueue(){
+  OS_ERR   os_err;
+  OSQCreate(&CommQSPIData, "Message Queue to send environment data from SPI as Message", MESSAGE_QUEUE_SIZE, &os_err);
+  if (os_err == OS_ERR_NONE) {
+      Log_Write(LOG_LEVEL_SPI, "SPI Task: SPI Message queue created successfully", 0);
+  } else {
+      Log_Write(LOG_LEVEL_ERROR, "Error: SPI Message Queue creation failed", os_err);
+  }
+}
+
 void BME688_Init_Task(void) {
     OS_ERR os_err;
 
@@ -68,7 +79,33 @@ void us_Delay(uint32_t period, void *intf_ptr){
 }
 
 void enqueueEnvironmentData(Environment_Data env_data) {
-   
+  OS_MSG_QTY entries;
+  OS_ERR os_err;
+  static Environment_Data previous_env_data;
+  
+  if (memcpy(&previous_env_data, &env_data, sizeof(Environment_Data)) == DEF_FALSE){
+    Log_Write(LOG_LEVEL_ERROR, "SPI Task: Values are same as previous values. Do not send them.", 0);
+    return;
+  } else {
+    OSQPost(&CommQSPIData, &env_data, sizeof(env_data), OS_OPT_POST_FIFO + OS_OPT_POST_ALL, &os_err); 
+    if (os_err != OS_ERR_NONE) {
+      if (os_err == OS_ERR_Q_MAX) {
+        // Log an error if the queue is full
+        Log_Write(LOG_LEVEL_ERROR, "SPI Task: queue is full, can't send raw environment value to processing task...", 0);
+        entries = OSQFlush(&CommQSPIData, &os_err);  // Flush queue if full
+        if(os_err == OS_ERR_NONE){
+          Log_Write(LOG_LEVEL_SPI, "Queue is flushed .. ");
+        }
+      } else {
+        // Log any other errors that occur when posting to the queue
+        Log_Write(LOG_LEVEL_ERROR, "Error occurred at I2C Task, posting to queue failed...", 0);
+      }
+    } else {
+      // Log a message when the SPO2 value is successfully posted to the queue
+      Log_Write(LOG_LEVEL_SPI, "Sent raw environment value to processing task...", 0);
+      previous_env_data = env_data;
+    }
+  }
 }
 
 void sendDataViaUartForCSV(Environment_Data env_data) {
@@ -184,6 +221,9 @@ static void bme688_Task(void *p_arg){
     Log_Write(LOG_LEVEL_BME688,"Initializing BME688 sensor successful", 0);
   }  
   
+  Log_Write(LOG_LEVEL_SPI, "Creating message queue...", 0);
+  initMessageQueue();
+    
   while(DEF_TRUE){
     //place button semaphore
     //setting opmode to force mode to start measurement
@@ -218,5 +258,6 @@ static void bme688_Task(void *p_arg){
     OSTimeDlyHMSM(0,0,MEASUREMENT_INTERVAL,0,OS_OPT_TIME_HMSM_NON_STRICT, &os_err);  
   }
 }
+
 
 /* [] END OF FILE */

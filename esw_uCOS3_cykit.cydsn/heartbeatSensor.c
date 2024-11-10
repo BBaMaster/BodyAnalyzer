@@ -8,7 +8,7 @@ void updateHeartRate(void);
 void updateSpO2(void);
 void enqueueHeartRate(CPU_INT32S heart_rate);
 void enqueueSpO2(CPU_INT32S spO2);
-static void initMessageQueue(void);
+void initMessageQueue(void);
 CPU_INT32S calculateSpO2(CPU_INT32S ac_red, CPU_INT32S dc_red, CPU_INT32S ac_ir, CPU_INT32S dc_ir);
 CPU_INT16S averageDCEstimator(CPU_INT32S *p, CPU_INT32U x);
 CPU_INT16S lowPassFIRFilter(CPU_INT16S din);
@@ -48,7 +48,7 @@ void initMessageQueue(){
 
   OS_ERR   os_err;
   
-  OSQCreate(&CommQI2CHeartRate, "Message Queue to send Heart Rate from I2C as Message", MESSAGE_QUEUE_SIZE, &os_err);
+  OSQCreate(&CommQI2CHeartRate, "Message Queue to send heart rate from I2C as Message", MESSAGE_QUEUE_SIZE, &os_err);
   if (os_err == OS_ERR_NONE) {
         Log_Write(LOG_LEVEL_I2C, "I2C Task: I2C Message queue created successfully", 0);
     } else {
@@ -115,6 +115,9 @@ static void max30102_Task(void *p_arg) {
         Log_Write(LOG_LEVEL_ERROR, "Failed to initialize MAX30102 sensor", 0);
         return;
     }
+    
+    Log_Write(LOG_LEVEL_I2C, "Creating message queues...", 0);
+    initMessageQueue();
 
     // Infinite loop for continuous sensor data reading and processing
     while (DEF_TRUE) {
@@ -271,6 +274,7 @@ void updateSpO2(void) {
  */
 void enqueueHeartRate(CPU_INT32S heart_rate) {
   OS_ERR os_err;
+  OS_MSG_QTY entries;
   
   static CPU_INT32S previous_heart_rate;
   
@@ -283,8 +287,11 @@ void enqueueHeartRate(CPU_INT32S heart_rate) {
     if (os_err != OS_ERR_NONE) {
       if (os_err == OS_ERR_Q_MAX) {
         // Log an error if the queue is full
-        Log_Write(LOG_LEVEL_ERROR, "I2C Task: queue is full, can't send heart rate value to processing task...", 0);
-
+        Log_Write(LOG_LEVEL_ERROR, "I2C Task: queue is full, can't send heart rate value to processing task...", 0);   
+        entries = OSQFlush(&CommQI2CHeartRate, &os_err);  // Flush queue if full
+        if(os_err == OS_ERR_NONE){
+          Log_Write(LOG_LEVEL_DATA_PROCESSING, "Queue is flushed .. ");
+        }
       } else {
         // Log any other errors that occur when posting to the queue
         Log_Write(LOG_LEVEL_ERROR, "Error occurred at I2C Task, posting to queue failed...", 0);
@@ -305,6 +312,7 @@ void enqueueHeartRate(CPU_INT32S heart_rate) {
 void enqueueSpO2(CPU_INT32S spO2) {
   OS_ERR os_err;
   static CPU_INT32S previous_spO2_rate = -1;
+  OS_MSG_QTY entries;
 
   if (previous_spO2_rate == spO2){
     Log_Write(LOG_LEVEL_ERROR, "I2C Task: Value is same as previous value. Do not send it.", 0);
@@ -316,7 +324,10 @@ void enqueueSpO2(CPU_INT32S spO2) {
       if (os_err == OS_ERR_Q_MAX) {
         // Log an error if the queue is full
         Log_Write(LOG_LEVEL_ERROR, "I2C Task: queue is full, can't send SPO2 value to processing task...", 0);
-
+        entries = OSQFlush(&CommQI2CSPO2, &os_err);  // Flush queue if full
+        if(os_err == OS_ERR_NONE){
+          Log_Write(LOG_LEVEL_DATA_PROCESSING, "Queue is flushed .. ");
+        }
       } else {
         // Log any other errors that occur when posting to the queue
         Log_Write(LOG_LEVEL_ERROR, "Error occurred at I2C Task, posting to queue failed...", 0);
