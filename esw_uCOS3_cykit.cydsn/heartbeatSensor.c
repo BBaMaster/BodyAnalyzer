@@ -118,6 +118,7 @@ static void max30102_Task(void *p_arg) {
 
     // Infinite loop for continuous sensor data reading and processing
     while (DEF_TRUE) {
+        //place button semaphore
         // Attempt to read raw red and IR data from the MAX30102 sensor
         // If the read fails, log an error and continue to the next iteration
         if (max30102_read(&max30102_handle, &raw_red, &raw_ir, &data_len) != 0) {

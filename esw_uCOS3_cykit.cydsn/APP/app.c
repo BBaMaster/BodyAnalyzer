@@ -82,7 +82,6 @@ int main(void)
 static void App_TaskStart(void *p_arg) {
     OS_ERR err;
     (void)p_arg;
-
     
     BSP_PostInit();
     BSP_CPU_TickInit();

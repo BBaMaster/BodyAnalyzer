@@ -48,7 +48,8 @@ bme68x_read_fptr_t bsp_i2c_read_bme(uint8_t reg_addr, uint8_t* reg_data, uint32_
     (void)intf_ptr; // Suppress unused parameter warning
     if(bsp_i2c_read(0x76, reg_addr, reg_data, len) != 0){
       Log_Write(LOG_LEVEL_ERROR, "Error Reading I2C BME", 0);
-    } else return 0;
+      return BME68X_E_COM_FAIL;
+    } else return BME68X_OK;
 }
 
 //Wrapper function for i2c write
@@ -56,8 +57,8 @@ bme68x_write_fptr_t bsp_i2c_write_bme(uint8_t reg_addr, const uint8_t* reg_data,
     (void)intf_ptr; // Suppress unused parameter warning
     if(bsp_i2c_write(0x76, reg_addr, (CPU_INT08U*)reg_data, len) != 0){
       Log_Write(LOG_LEVEL_ERROR, "Error Writing I2C BME", 0);
-    return 1;
-    } else return 0;
+    return BME68X_E_COM_FAIL;
+    } else return BME68X_OK;
 }
 
 // Wrapper function to cause microsecond delay
@@ -183,7 +184,8 @@ static void bme688_Task(void *p_arg){
     Log_Write(LOG_LEVEL_BME688,"Initializing BME688 sensor successful", 0);
   }  
   
-  for(;;){
+  while(DEF_TRUE){
+    //place button semaphore
     //setting opmode to force mode to start measurement
     rslt = bme68x_set_op_mode(BME68X_FORCED_MODE, &bme688_handle);
     if(rslt != 0){

@@ -17,6 +17,7 @@
 #include "bsp_i2c.h"
 #include "log_task.h"
 #include <bme68x.h>
+#include "includes.h"
   
 #define MEASUREMENT_INTERVAL 1
   
