@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: I2C_INTR.h  
+* File Name: Pin_Green_Led_1.h  
 * Version 2.20
 *
 * Description:
@@ -15,8 +15,8 @@
 * the software package with which this file was provided.
 *******************************************************************************/
 
-#if !defined(CY_PINS_I2C_INTR_ALIASES_H) /* Pins I2C_INTR_ALIASES_H */
-#define CY_PINS_I2C_INTR_ALIASES_H
+#if !defined(CY_PINS_Pin_Green_Led_1_ALIASES_H) /* Pins Pin_Green_Led_1_ALIASES_H */
+#define CY_PINS_Pin_Green_Led_1_ALIASES_H
 
 #include "cytypes.h"
 #include "cyfitter.h"
@@ -25,12 +25,12 @@
 /***************************************
 *              Constants        
 ***************************************/
-#define I2C_INTR_0			(I2C_INTR__0__PC)
-#define I2C_INTR_0_INTR	((uint16)((uint16)0x0001u << I2C_INTR__0__SHIFT))
+#define Pin_Green_Led_1_0			(Pin_Green_Led_1__0__PC)
+#define Pin_Green_Led_1_0_INTR	((uint16)((uint16)0x0001u << Pin_Green_Led_1__0__SHIFT))
 
-#define I2C_INTR_INTR_ALL	 ((uint16)(I2C_INTR_0_INTR))
+#define Pin_Green_Led_1_INTR_ALL	 ((uint16)(Pin_Green_Led_1_0_INTR))
 
-#endif /* End Pins I2C_INTR_ALIASES_H */
+#endif /* End Pins Pin_Green_Led_1_ALIASES_H */
 
 
 /* [] END OF FILE */
