@@ -7,21 +7,25 @@
 OS_TCB Data_Processing_TCB;
 CPU_STK Data_Processing_TaskStk[APP_CFG_TASK_DATA_PROCESSING_STK_SIZE];
 
-
+/* Function prototype */
 static void Data_Processing_Task(void *p_arg);
 
+/**
+ @brief This function initializes two message queues to send processed sensor values.
 
+ @param none
+**/
 void initMessageQueues(){
 
   OS_ERR   os_err;
-  OSQCreate(&CommQProcessDataOximeter, "Creating message queue to send processed oximeter values", DATA_PROCESSING_QUEUE_SIZE, &os_err);
+  OSQCreate(&CommQProcessedOximeterData, "Creating message queue to send processed oximeter values", DATA_PROCESSING_QUEUE_SIZE, &os_err);
   if (os_err == OS_ERR_NONE) {
     Log_Write(LOG_LEVEL_DATA_PROCESSING, "Queue created for oximeter data successfully", 0);
   } else {
     Log_Write(LOG_LEVEL_ERROR, "Error: Queue creation failed", os_err);
   }
   
-  OSQCreate(&CommQProcessDataEnvironment, "Creating message queue to send processed environment values", DATA_PROCESSING_QUEUE_SIZE, &os_err);
+  OSQCreate(&CommQProcessedEnvironmentData, "Creating message queue to send processed environment values", DATA_PROCESSING_QUEUE_SIZE, &os_err);
   if (os_err == OS_ERR_NONE) {
     Log_Write(LOG_LEVEL_DATA_PROCESSING, "Queue created for environment data successfully", 0);
   } else {
@@ -29,45 +33,11 @@ void initMessageQueues(){
   }
 }
 
-/*
-* To convert the timestamp (CPU_TS) into a human-readable format, we’ll need a function that translates the tick count into a more understandable time format 
-* like hours, minutes, seconds, and milliseconds. Assuming timestamp is in clock ticks, you’ll need the clock tick rate to determine the exact time in seconds.
-*/
-ELAPSED_TIME_SET conversionOfTimestamp(CPU_TS *start_timestamp) {
-    // Retrieve the current timestamp
-    CPU_TS current_timestamp = OS_TS_GET();
+/**
+ @brief This is the initialization function for the task itself which is called from main().
 
-    // Calculate the elapsed time (delta) in ticks from the passed start timestamp
-    CPU_TS delta_ticks = current_timestamp - *start_timestamp;
-
-    // Confirm tick rate accurately represents system ticks per second
-    CPU_INT32U tick_rate = OSCfg_TickRate_Hz;
-    if (tick_rate == 0) {
-        Log_Write(LOG_LEVEL_ERROR, "Error: Tick rate is zero, cannot compute time.\n");
-        return (ELAPSED_TIME_SET){0, 0, 0, 0};;
-    }
-
-    // Convert delta ticks to total seconds and milliseconds
-    CPU_INT32U total_seconds = delta_ticks / tick_rate;
-    CPU_INT32U milliseconds = (delta_ticks % tick_rate) * 1000 / tick_rate;
-
-    // Breakdown total seconds into hours, minutes, and seconds
-    ELAPSED_TIME_SET elapsed_time;
-    elapsed_time.hours = (total_seconds / 3600) % 24;  // Wrap around after 24 hours
-    elapsed_time.minutes = (total_seconds % 3600) / 60;
-    elapsed_time.seconds = total_seconds % 60;
-    elapsed_time.milliseconds = milliseconds;
-
-    // Log the stopwatch time in human-readable format
-    Log_Write(LOG_LEVEL_DATA_PROCESSING, "Time: %02u:%02u:%02u.%03u", 
-        elapsed_time.hours, elapsed_time.minutes, 
-        elapsed_time.seconds, elapsed_time.milliseconds);
-    
-    return elapsed_time; // Return the elapsed time structure
-}
-
-
-/* Function to create the Log Task */
+ @param void
+**/
 void Data_Processing_Init(void) {
     OS_ERR os_err;
 
@@ -94,6 +64,14 @@ void Data_Processing_Init(void) {
     }
 }
 
+/**
+ @brief Main task for the data processing part of the project. This task is responsible
+        to gather values from both sensors -> oximeter and environment and control them against pre-defined
+        acceptance ranges. After checking the processed values are sent to a message queue to further processing
+        in led task, logging etc ...
+
+ @param void *p_arg
+**/
 static void Data_Processing_Task(void *p_arg) {
     
   OS_ERR os_err;
@@ -107,32 +85,40 @@ static void Data_Processing_Task(void *p_arg) {
   
   while(DEF_ON) {
     //Process data only if new data is received from queues ...
-    if(ProcessRawOximeterData(&processed_data_oximeter)){
+    if(processRawOximeterData(&processed_data_oximeter)){
 
       // Determine the acceptance rates category
-      acceptanceRatesCategory category = isDataInAccceptableRange(processed_data_oximeter.average_heart_rate_in_bpm);
+      acceptanceRatesCategory category = isDataInAccceptableRange(processed_data_oximeter.average_heart_rate_in_bpm, processed_data_oximeter.blood_oxygen_level_in_percentage);
 
       switch (category) {
         case HEART_RATE_GOOD:
-            Log_Write(LOG_LEVEL_DATA_PROCESSING, "Heart rate is in good range.", 0);
+            Log_Write(LOG_LEVEL_DATA_PROCESSING, "Average Heart rate is in good range.", 0);
             break;
         case HEART_RATE_NORMAL:
-            Log_Write(LOG_LEVEL_DATA_PROCESSING, "Heart rate is in normal range.", 0);
+            Log_Write(LOG_LEVEL_DATA_PROCESSING, "Average Heart rate is in normal range.", 0);
             break;
         case HEART_RATE_CRITICAL:
-            Log_Write(LOG_LEVEL_DATA_PROCESSING, "Heart rate is in critical range!", 0);
-            // Additional handling for critical range if necessary
+            Log_Write(LOG_LEVEL_DATA_PROCESSING, "Average Heart rate is in critical range!", 0);
+            break;
+        case BLOOD_OXYGEN_NORMAL:
+            Log_Write(LOG_LEVEL_DATA_PROCESSING, "Blood oxygen level is in normal range!", 0);
+            break;
+        case BLOOD_OXYGEN_TOLERABLE:
+            Log_Write(LOG_LEVEL_DATA_PROCESSING, "Blood oxygen is on a tolerable level!", 0);
+            break;
+        case BLOOD_OXYGEN_DECREASED:
+            Log_Write(LOG_LEVEL_DATA_PROCESSING, "Blood oxygen level decreased..be careful!", 0);
             break;
         default:
-            Log_Write(LOG_LEVEL_DATA_PROCESSING, "Heart rate is out of expected range...", 0);
+            Log_Write(LOG_LEVEL_DATA_PROCESSING, "out of range...", 0);
             break;
       }
 
       // Post to queue for further processing
-      OSQPost(&CommQProcessDataOximeter, &processed_data_oximeter, sizeof(processed_data_oximeter), OS_OPT_POST_FIFO, &os_err);
+      OSQPost(&CommQProcessedOximeterData, &processed_data_oximeter, sizeof(processed_data_oximeter), OS_OPT_POST_FIFO, &os_err);
       if (os_err == OS_ERR_Q_MAX) {
-          Log_Write(LOG_LEVEL_ERROR, "Data Processing Task: Queue is full, can't send the value to task...", 0);
-          entries = OSQFlush(&CommQProcessDataOximeter, &os_err);  // Flush queue if full
+          Log_Write(LOG_LEVEL_ERROR, "Data Processing Task: Queue is full, can't send the value to further task...", 0);
+          entries = OSQFlush(&CommQProcessedOximeterData, &os_err);  // Flush queue if full
           if(os_err == OS_ERR_NONE){
             Log_Write(LOG_LEVEL_DATA_PROCESSING, "Queue is flushed .. ");
           }
@@ -144,71 +130,134 @@ static void Data_Processing_Task(void *p_arg) {
 
       // Delay to allow for periodic processing
       OSTimeDlyHMSM(0, 0, 0, 100, OS_OPT_TIME_HMSM_STRICT, &os_err);
-    } else if(ProcessRawEnvironmentData(&processd_data_environment)){
+    } else if(processRawEnvironmentData(&processd_data_environment)){
       Log_Write(LOG_LEVEL_DATA_PROCESSING, "...environment sensor data should be sent from here ..");
     }
   }
-  OSTimeDlyHMSM(0, 0, 1, 0, OS_OPT_TIME_HMSM_STRICT, &os_err);
+  OSTimeDlyHMSM(0, 0, 0, 100, OS_OPT_TIME_HMSM_STRICT, &os_err);
 }
 
-CPU_BOOLEAN ProcessRawOximeterData(DATA_SET_PACKAGE_OXIMETER *data_oximeter_package){
+CPU_BOOLEAN RetrieveSensorData(OS_Q *queue, CPU_INT08S *data_field, const char *sensor_name) {
+    OS_ERR os_err;
+    OS_MSG_SIZE msg_size;
+    CPU_TS raw_timestamp = OS_TS_GET();
+    CPU_INT32S *p_msg_I2C;
+
+    // Wait for data from the specified queue
+    p_msg_I2C = OSQPend(queue, 100, OS_OPT_PEND_BLOCKING, &msg_size, &raw_timestamp, &os_err);
+
+    // Handle potential errors or timeouts
+    if (os_err == OS_ERR_TIMEOUT) {
+        // No errors, queue was just empty; no further action needed
+        return DEF_FALSE;
+    } else if (os_err != OS_ERR_NONE) {
+        Log_Write(LOG_LEVEL_ERROR, "Data Processing Task: OSQPend() failed for %s with error code %d", sensor_name, os_err);
+        return DEF_FALSE;
+    }
+
+    // Successfully received data, process and store the least significant 8 bits
+    *data_field = (CPU_INT08S)(*p_msg_I2C & 0xFF);
+
+    // Log the received data
+    Log_Write(LOG_LEVEL_DATA_PROCESSING, "Data Processing Task: Received %s -> %d", sensor_name, *data_field);
+    return DEF_TRUE;
+}
+
+CPU_BOOLEAN processRawOximeterData(DATA_SET_PACKAGE_OXIMETER *data_oximeter_package) {
+    CPU_BOOLEAN heart_rate_received = DEF_FALSE;
+    CPU_BOOLEAN spo2_received = DEF_FALSE;
+
+    // Initialize data structure fields
+    *data_oximeter_package = (DATA_SET_PACKAGE_OXIMETER) {0, 0};
+
+    // Retrieve heart rate data
+    heart_rate_received = RetrieveSensorData(&CommQI2CHeartRate, &data_oximeter_package->average_heart_rate_in_bpm, "Average Heart Rate");
+
+    // Retrieve SpO2 data
+    spo2_received = RetrieveSensorData(&CommQI2CSPO2, &data_oximeter_package->blood_oxygen_level_in_percentage, "SpO2");
+
+    // Return TRUE only if both data values were successfully received
+    return heart_rate_received && spo2_received;
+}
+
+CPU_BOOLEAN processRawEnvironmentData(DATA_SET_PACKAGE_ENVIRONMENT *data_environment_package) {
     
-  OS_ERR os_err;
-  CPU_INT32S *p_msg_I2C;
-  OS_MSG_SIZE  msg_size;
-  CPU_TS raw_timestamp = OS_TS_GET();
-  
-  // Initialize package set to store informations to transmit
-  *data_oximeter_package = (DATA_SET_PACKAGE_OXIMETER) {0, 0,{0, 0, 0, 0}};
+    OS_ERR os_err;
+    OS_MSG_SIZE msg_size;
+    CPU_TS raw_timestamp = OS_TS_GET();
+    
+    // Initialize package set to store information to transmit
+    *data_environment_package = (DATA_SET_PACKAGE_ENVIRONMENT){0, 0, 0, 0};
+    
+    // Define a variable to hold the received data
+    RAW_ENVIRONMENT_DATA *p_msg_SPI_data;
 
-  // Wait for data from the I2C queue
-  p_msg_I2C = OSQPend(&CommQI2C, 100 ,OS_OPT_PEND_BLOCKING, &msg_size, &raw_timestamp, &os_err);
+    // Wait for environmental data from the queue
+    p_msg_SPI_data = (RAW_ENVIRONMENT_DATA *)OSQPend(&CommQSPIData, 100, OS_OPT_PEND_BLOCKING, &msg_size, &raw_timestamp, &os_err);
 
-  // Give a hint when error occures (not by OS_ERR_TIMEOUT)
-  if (os_err == OS_ERR_TIMEOUT) {
-     // No errors: Queue was empty, no hints necessary
-  } else if (os_err != OS_ERR_NONE) {
-      Log_Write(LOG_LEVEL_ERROR, "Data Processing Task: OSQPend() operation failed with error code", os_err);
+    if (os_err == OS_ERR_TIMEOUT) {
+        // Queue was empty, no hints necessary
+        return DEF_FALSE;
+    } else if (os_err != OS_ERR_NONE) {
+        Log_Write(LOG_LEVEL_ERROR, "Data Processing Task: OSQPend() operation failed for environmental data with error code", os_err);
+        return DEF_FALSE;
+    } else {
+      // Convert and scale each environmental parameter
       
-  } else {
-      // Received message -> convert and scale value from pointer to CPU_INT08S value && and keep least significant 8-bits
-      data_oximeter_package->average_heart_rate_in_bpm = (CPU_INT08S)(*p_msg_I2C & 0xFF); 
+      // Convert and scale temperature
+      data_environment_package->temperature_in_celsius = ((p_msg_SPI_data->temperature_raw * 12500) / 4095) - 4000;
       
-      // Call conversionOfTimestamp and store the result in elapsed_time field
-      data_oximeter_package->elapsed_time = conversionOfTimestamp(&raw_timestamp);
+      // Convert and scale humidity
+      data_environment_package->humidity_in_percentage = (p_msg_SPI_data->humidity_raw * 10000) / 65535;
       
-      // Log average heart rate received
-      Log_Write(LOG_LEVEL_DATA_PROCESSING, "Data Processing Task: Received Average Heart Rate -> %d BPM", data_oximeter_package->average_heart_rate_in_bpm);
+      // Convert and scale pressure
+      data_environment_package->pressure_in_bar = ((p_msg_SPI_data->pressure_raw * 8000) / 65535) + 3000;
+      
+      // Convert gas concentration
+      data_environment_package->gas_in_ohm = (p_msg_SPI_data->gas_raw * 1000) / 65535;
+      
+      // Log each converted environmental value
+      Log_Write(LOG_LEVEL_DATA_PROCESSING, "Data Processing Task: Received Temperature -> %d.%02d deg C", 
+                data_environment_package->temperature_in_celsius / 100, data_environment_package->temperature_in_celsius % 100);
+      Log_Write(LOG_LEVEL_DATA_PROCESSING, "Data Processing Task: Received Humidity -> %d.%02d %%", 
+                data_environment_package->humidity_in_percentage / 100, data_environment_package->humidity_in_percentage % 100);
+      Log_Write(LOG_LEVEL_DATA_PROCESSING, "Data Processing Task: Received Pressure -> %d.%1d hPa", 
+                data_environment_package->pressure_in_bar / 10, data_environment_package->pressure_in_bar % 10);
+      Log_Write(LOG_LEVEL_DATA_PROCESSING, "Data Processing Task: Received Gas Concentration -> %d ppm", 
+                data_environment_package->gas_in_ohm);
 
-      // Log the elapsed time details
-      Log_Write(LOG_LEVEL_DATA_PROCESSING, "Elapsed Time: %02u:%02u:%02u.%03u", 
-          data_oximeter_package->elapsed_time.hours, 
-          data_oximeter_package->elapsed_time.minutes, 
-          data_oximeter_package->elapsed_time.seconds, 
-          data_oximeter_package->elapsed_time.milliseconds);
-      
       return DEF_TRUE;
     }
-  return DEF_FALSE;
 }
 
-CPU_BOOLEAN ProcessRawEnvironmentData(DATA_SET_PACKAGE_ENVIRONMENT *data_environment_package){
-   
-  // Initialize package set to store informations to transmit
-  *data_environment_package = (DATA_SET_PACKAGE_ENVIRONMENT) {0, {0, 0, 0, 0}};
-  return FALSE;
-}
 
-acceptanceRatesCategory isDataInAccceptableRange(CPU_INT08S average_heart_rate){
+acceptanceRatesCategory isDataInAccceptableRange(CPU_INT08S average_heart_rate, CPU_INT08S blood_oxygen_level) {
+  
+  // Classify Heart Rate
   if (average_heart_rate >= HEART_RATE_GOOD_MIN && average_heart_rate <= HEART_RATE_GOOD_MAX) {
-    return HEART_RATE_GOOD;
-  } else if (average_heart_rate >= HEART_RATE_NORMAL_MIN && average_heart_rate <= HEART_RATE_NORMAL_MAX) {
-    return HEART_RATE_NORMAL;
-  } else if (average_heart_rate >= HEART_RATE_CRITICAL_MIN && average_heart_rate <= HEART_RATE_CRITICAL_MAX) {
-    return HEART_RATE_CRITICAL;
-  } else {
-    return HEART_RATE_OUT_OF_RANGE;  // Handle unexpected values
+      return HEART_RATE_GOOD;
   }
+  if (average_heart_rate >= HEART_RATE_NORMAL_MIN && average_heart_rate <= HEART_RATE_NORMAL_MAX) {
+      return HEART_RATE_NORMAL;
+  }
+  if (average_heart_rate >= HEART_RATE_CRITICAL_MIN && average_heart_rate <= HEART_RATE_CRITICAL_MAX) {
+      return HEART_RATE_CRITICAL;
+  }
+
+  // Classify Blood Oxygen Level (only if heart rate is out of range)
+  if (blood_oxygen_level >= BLOOD_OXYGEN_LEVEL_NORMAL_MIN && blood_oxygen_level <= BLOOD_OXYGEN_LEVEL_NORMAL_MAX) {
+      return BLOOD_OXYGEN_NORMAL;
+  }
+  if (blood_oxygen_level >= BLOOD_OXYGEN_LEVEL_TOLERABLE_MIN && blood_oxygen_level <= BLOOD_OXYGEN_LEVEL_TOLERABLE_MAX) {
+      return BLOOD_OXYGEN_TOLERABLE;
+  }
+  if (blood_oxygen_level >= BLOOD_OXYGEN_LEVEL_DECREASED_MIN && blood_oxygen_level <= BLOOD_OXYGEN_LEVEL_DECREASED_MAX) {
+      return BLOOD_OXYGEN_DECREASED;
+  }
+  
+  // If both heart rate and blood oxygen level are out of range
+  return DATA_OUT_OF_RANGE;
 }
+
 
 /* [] END OF FILE */

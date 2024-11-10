@@ -7,68 +7,95 @@
   
 /* Maximum number of messages in the log queue */
 #define MESSAGE_QUEUE_SIZE  100u
+
+// dunno wtf to do with this..
 #define CMD_RED 0x01
 #define CMD_BLUE 0x02
 #define CMD_GREEN 0x03
-  
-  
-/* Acceptance ranges for heartbeat in bpm */
-  
+   
+/* Acceptance ranges for heart beat in bpm */
 #define HEART_RATE_GOOD_MIN     60
 #define HEART_RATE_GOOD_MAX     80
 #define HEART_RATE_NORMAL_MIN   81
 #define HEART_RATE_NORMAL_MAX   100
 #define HEART_RATE_CRITICAL_MIN 101
 #define HEART_RATE_CRITICAL_MAX 200  // Example upper limit for critical
+
+/* Acceptance ranges for blood oxygen level in percentage */
+#define BLOOD_OXYGEN_LEVEL_NORMAL_MIN 98
+#define BLOOD_OXYGEN_LEVEL_NORMAL_MAX 100
+#define BLOOD_OXYGEN_LEVEL_TOLERABLE_MIN 95
+#define BLOOD_OXYGEN_LEVEL_TOLERABLE_MAX 97
+#define BLOOD_OXYGEN_LEVEL_DECREASED_MIN 90
+#define BLOOD_OXYGEN_LEVEL_DECREASED_MAX 94
+ 
+/* Acceptance ranges for humidity */
+#define HUMIDITY_LEVEL_INDOOR_MIN 30
+#define HUMIDITY_LEVEL_INDOOR_MAX 50
+  
+#define TEMPERATURE_LEVEL_INDOOR_MIN 20
+#define TEMPERATURE_LEVEL_INDOOR_MAX 25
+
+#define PRESSURE_LEVEL_INDOOR_MIN 1000
+#define PRESSURE_LEVEL_INDOOR_MAX 1013
+
+#define GAS_LEVEL_INDOOR_MIN 
+#define GAS_LEVEL_INDOOR_MAX
   
   
-  /* Maximum number of messages in the log queue */
-#define DATA_PROCESSING_QUEUE_SIZE  10u
+/* Maximum number of messages in the log queue */
+#define DATA_PROCESSING_QUEUE_SIZE  100u
   
 /* pointer to queues  */
-OS_Q   CommQI2C;
-OS_Q   CommQSPI;
-OS_Q   CommQProcessDataOximeter;
-OS_Q   CommQProcessDataEnvironment;
+OS_Q   CommQI2CSPO2;
+OS_Q   CommQI2CHeartRate;
+OS_Q   CommQSPIData;
+OS_Q   CommQProcessedOximeterData;
+OS_Q   CommQProcessedEnvironmentData;
 
-/* Message structure for processed data */
-// 
+// Ready to use data set package
 typedef struct {
-    CPU_INT32U hours;
-    CPU_INT32U minutes;
-    CPU_INT32U seconds;
-    CPU_INT32U milliseconds;
-} ELAPSED_TIME_SET;
-
-// Define a struct for oximeter data
-typedef struct {
-    CPU_INT08S command;
-    CPU_INT08S average_heart_rate_in_bpm;   // Stores BPM value
-    ELAPSED_TIME_SET elapsed_time;
-
+    CPU_INT08S average_heart_rate_in_bpm;          // Stores heart rate/BPM
+    CPU_INT08S blood_oxygen_level_in_percentage;   // Stores SPO2 value in %
 } DATA_SET_PACKAGE_OXIMETER;
 
-// Define a struct for environment data
+// To caputre raw environment values
 typedef struct {
-    CPU_INT08S command;
-    ELAPSED_TIME_SET elapsed_time;
+    CPU_INT32S temperature_raw;                   //RAW
+    CPU_INT32S humidity_raw;                      //RAW
+    CPU_INT32S pressure_raw;                      //RAW
+    CPU_INT32S gas_raw;                           //RAW
+} RAW_ENVIRONMENT_DATA;
 
+
+// Ready to use data set package
+typedef struct {
+    CPU_INT16S temperature_in_celsius;             // Stores temperature in Celsius degree
+    CPU_INT32S humidity_in_percentage;             // Stores humidity level
+    CPU_INT32S pressure_in_bar;                    // Pressure level in air in BAR
+    CPU_INT16S gas_in_ohm;                         // gas level 
 } DATA_SET_PACKAGE_ENVIRONMENT;
 
 typedef enum {
     HEART_RATE_GOOD,
     HEART_RATE_NORMAL,
     HEART_RATE_CRITICAL,
-    HEART_RATE_OUT_OF_RANGE
+    HEART_RATE_OUT_OF_RANGE,
+    BLOOD_OXYGEN_NORMAL,
+    BLOOD_OXYGEN_TOLERABLE,
+    BLOOD_OXYGEN_DECREASED,
+    BLOOD_OXYGEN_OUT_OF_RANGE,
+    DATA_OUT_OF_RANGE
 } acceptanceRatesCategory;
 
 /* Function prototypes */
 void Data_Processing_Init(void);
-CPU_BOOLEAN ProcessRawOximeterData(DATA_SET_PACKAGE_OXIMETER *data_oximeter_package);
-CPU_BOOLEAN ProcessRawEnvironmentData(DATA_SET_PACKAGE_ENVIRONMENT *data_environment_package);
-acceptanceRatesCategory isDataInAccceptableRange(CPU_INT08S average_heart_rate);
-void initializeMessageQueues(void);
-ELAPSED_TIME_SET conversionOfTimestamp();
+CPU_BOOLEAN processRawOximeterData(DATA_SET_PACKAGE_OXIMETER *data_oximeter_package);
+CPU_BOOLEAN processRawEnvironmentData(DATA_SET_PACKAGE_ENVIRONMENT *data_environment_package);
+CPU_BOOLEAN RetrieveSensorData(OS_Q *queue, CPU_INT08S *data_field, const char *sensor_name);
+acceptanceRatesCategory isDataInAccceptableRange(CPU_INT08S average_heart_rate, CPU_INT08S blood_oxygen_level);
+void initMessageQueues();
+//ELAPSED_TIME_SET conversionOfTimestamp();
 
 
   
