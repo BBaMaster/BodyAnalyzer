@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: push_button.c  
+* File Name: Pin_Blue_Led_1.c  
 * Version 2.20
 *
 * Description:
@@ -15,15 +15,15 @@
 *******************************************************************************/
 
 #include "cytypes.h"
-#include "push_button.h"
+#include "Pin_Blue_Led_1.h"
 
 /* APIs are not generated for P15[7:6] on PSoC 5 */
 #if !(CY_PSOC5A &&\
-	 push_button__PORT == 15 && ((push_button__MASK & 0xC0) != 0))
+	 Pin_Blue_Led_1__PORT == 15 && ((Pin_Blue_Led_1__MASK & 0xC0) != 0))
 
 
 /*******************************************************************************
-* Function Name: push_button_Write
+* Function Name: Pin_Blue_Led_1_Write
 ****************************************************************************//**
 *
 * \brief Writes the value to the physical port (data output register), masking
@@ -52,17 +52,17 @@
 *  this function.
 *
 * \funcusage
-*  \snippet push_button_SUT.c usage_push_button_Write
+*  \snippet Pin_Blue_Led_1_SUT.c usage_Pin_Blue_Led_1_Write
 *******************************************************************************/
-void push_button_Write(uint8 value)
+void Pin_Blue_Led_1_Write(uint8 value)
 {
-    uint8 staticBits = (push_button_DR & (uint8)(~push_button_MASK));
-    push_button_DR = staticBits | ((uint8)(value << push_button_SHIFT) & push_button_MASK);
+    uint8 staticBits = (Pin_Blue_Led_1_DR & (uint8)(~Pin_Blue_Led_1_MASK));
+    Pin_Blue_Led_1_DR = staticBits | ((uint8)(value << Pin_Blue_Led_1_SHIFT) & Pin_Blue_Led_1_MASK);
 }
 
 
 /*******************************************************************************
-* Function Name: push_button_SetDriveMode
+* Function Name: Pin_Blue_Led_1_SetDriveMode
 ****************************************************************************//**
 *
 * \brief Sets the drive mode for each of the Pins component's pins.
@@ -85,16 +85,16 @@ void push_button_Write(uint8 value)
 *  APIs (primary method) or disable interrupts around this function.
 *
 * \funcusage
-*  \snippet push_button_SUT.c usage_push_button_SetDriveMode
+*  \snippet Pin_Blue_Led_1_SUT.c usage_Pin_Blue_Led_1_SetDriveMode
 *******************************************************************************/
-void push_button_SetDriveMode(uint8 mode)
+void Pin_Blue_Led_1_SetDriveMode(uint8 mode)
 {
-	CyPins_SetPinDriveMode(push_button_0, mode);
+	CyPins_SetPinDriveMode(Pin_Blue_Led_1_0, mode);
 }
 
 
 /*******************************************************************************
-* Function Name: push_button_Read
+* Function Name: Pin_Blue_Led_1_Read
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port (pin status register) and masks 
@@ -108,16 +108,16 @@ void push_button_SetDriveMode(uint8 mode)
 *  The current value for the pins in the component as a right justified number.
 *
 * \funcusage
-*  \snippet push_button_SUT.c usage_push_button_Read  
+*  \snippet Pin_Blue_Led_1_SUT.c usage_Pin_Blue_Led_1_Read  
 *******************************************************************************/
-uint8 push_button_Read(void)
+uint8 Pin_Blue_Led_1_Read(void)
 {
-    return (push_button_PS & push_button_MASK) >> push_button_SHIFT;
+    return (Pin_Blue_Led_1_PS & Pin_Blue_Led_1_MASK) >> Pin_Blue_Led_1_SHIFT;
 }
 
 
 /*******************************************************************************
-* Function Name: push_button_ReadDataReg
+* Function Name: Pin_Blue_Led_1_ReadDataReg
 ****************************************************************************//**
 *
 * \brief Reads the associated physical port's data output register and masks 
@@ -126,8 +126,8 @@ uint8 push_button_Read(void)
 *
 * The data output register controls the signal applied to the physical pin in 
 * conjunction with the drive mode parameter. This is not the same as the 
-* preferred push_button_Read() API because the 
-* push_button_ReadDataReg() reads the data register instead of the status 
+* preferred Pin_Blue_Led_1_Read() API because the 
+* Pin_Blue_Led_1_ReadDataReg() reads the data register instead of the status 
 * register. For output pins this is a useful function to determine the value 
 * just written to the pin.
 *
@@ -136,19 +136,19 @@ uint8 push_button_Read(void)
 *  justified number for the component instance.
 *
 * \funcusage
-*  \snippet push_button_SUT.c usage_push_button_ReadDataReg 
+*  \snippet Pin_Blue_Led_1_SUT.c usage_Pin_Blue_Led_1_ReadDataReg 
 *******************************************************************************/
-uint8 push_button_ReadDataReg(void)
+uint8 Pin_Blue_Led_1_ReadDataReg(void)
 {
-    return (push_button_DR & push_button_MASK) >> push_button_SHIFT;
+    return (Pin_Blue_Led_1_DR & Pin_Blue_Led_1_MASK) >> Pin_Blue_Led_1_SHIFT;
 }
 
 
 /* If interrupt is connected for this Pins component */ 
-#if defined(push_button_INTSTAT) 
+#if defined(Pin_Blue_Led_1_INTSTAT) 
 
     /*******************************************************************************
-    * Function Name: push_button_SetInterruptMode
+    * Function Name: Pin_Blue_Led_1_SetInterruptMode
     ****************************************************************************//**
     *
     * \brief Configures the interrupt mode for each of the Pins component's
@@ -161,12 +161,12 @@ uint8 push_button_ReadDataReg(void)
     * \param position
     *  The pin position as listed in the Pins component. You may OR these to be 
     *  able to configure the interrupt mode of multiple pins within a Pins 
-    *  component. Or you may use push_button_INTR_ALL to configure the
+    *  component. Or you may use Pin_Blue_Led_1_INTR_ALL to configure the
     *  interrupt mode of all the pins in the Pins component.       
-    *  - push_button_0_INTR       (First pin in the list)
-    *  - push_button_1_INTR       (Second pin in the list)
+    *  - Pin_Blue_Led_1_0_INTR       (First pin in the list)
+    *  - Pin_Blue_Led_1_1_INTR       (Second pin in the list)
     *  - ...
-    *  - push_button_INTR_ALL     (All pins in Pins component)
+    *  - Pin_Blue_Led_1_INTR_ALL     (All pins in Pins component)
     *
     * \param mode
     *  Interrupt mode for the selected pins. Valid options are documented in
@@ -182,19 +182,19 @@ uint8 push_button_ReadDataReg(void)
     *  port.
     *
     * \funcusage
-    *  \snippet push_button_SUT.c usage_push_button_SetInterruptMode
+    *  \snippet Pin_Blue_Led_1_SUT.c usage_Pin_Blue_Led_1_SetInterruptMode
     *******************************************************************************/
-    void push_button_SetInterruptMode(uint16 position, uint16 mode)
+    void Pin_Blue_Led_1_SetInterruptMode(uint16 position, uint16 mode)
     {
-		if((position & push_button_0_INTR) != 0u) 
+		if((position & Pin_Blue_Led_1_0_INTR) != 0u) 
 		{ 
-			 push_button_0_INTTYPE_REG = (uint8)mode; 
+			 Pin_Blue_Led_1_0_INTTYPE_REG = (uint8)mode; 
 		}
     }
     
     
     /*******************************************************************************
-    * Function Name: push_button_ClearInterrupt
+    * Function Name: Pin_Blue_Led_1_ClearInterrupt
     ****************************************************************************//**
     *
     * \brief Clears any active interrupts attached with the component and returns 
@@ -211,11 +211,11 @@ uint8 push_button_ReadDataReg(void)
     *  those associated with the Pins component.
     *
     * \funcusage
-    *  \snippet push_button_SUT.c usage_push_button_ClearInterrupt
+    *  \snippet Pin_Blue_Led_1_SUT.c usage_Pin_Blue_Led_1_ClearInterrupt
     *******************************************************************************/
-    uint8 push_button_ClearInterrupt(void)
+    uint8 Pin_Blue_Led_1_ClearInterrupt(void)
     {
-        return (push_button_INTSTAT & push_button_MASK) >> push_button_SHIFT;
+        return (Pin_Blue_Led_1_INTSTAT & Pin_Blue_Led_1_MASK) >> Pin_Blue_Led_1_SHIFT;
     }
 
 #endif /* If Interrupts Are Enabled for this Pins component */ 
