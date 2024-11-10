@@ -11,13 +11,7 @@
 */
 
 #include <os.h>
-#include "bsp_pwm.h"
-#include "log_task.h"
-//#include "data_processing_task.h"
 
-
-#include <Pin_1.h>
-#include <Pin_2.h>
 #include <push_button.h>
 
 #include <Pin_Blue_Led.h>
@@ -40,29 +34,6 @@
 #define P2_2 (1<<2)
 
 
-// Knopf-Task
-OS_TCB BUT_Task_TCB;
-//CPU_STK BUT_TaskStk[APP_CFG_TASK_BUT_STK_SIZE];
-static void BUT_Task(void *p_arg);
-
-// LEDs
-OS_TCB LedR_Task_TCB;
-CPU_STK LedR_TaskStk[APP_CFG_TASK_LED_STK_SIZE];
-static void LedR_Task(void *p_arg);
-
-OS_TCB LedG_Task_TCB;
-CPU_STK LedG_TaskStk[APP_CFG_TASK_LED_STK_SIZE];
-static void LedG_Task(void *p_arg);
-
-OS_TCB LedB_Task_TCB;
-CPU_STK LedB_TaskStk[APP_CFG_TASK_LED_STK_SIZE];
-static void LedB_Task(void *p_arg);
-
-CPU_INT08U Sauerstoffumrechnung(CPU_INT08U s);
-CPU_INT08U Herzschlag(CPU_INT08U h);
-CPU_INT08U Passtalles(CPU_INT08U p);
-
-CPU_VOID init_gpio(CPU_VOID);
 CPU_INT08U gpio_high(CPU_INT08U port, CPU_INT08U pin);
 CPU_INT08U gpio_low(CPU_INT08U port, CPU_INT08U pin);
 CPU_INT08S gpio_read(CPU_INT08U port, CPU_INT08U pin);

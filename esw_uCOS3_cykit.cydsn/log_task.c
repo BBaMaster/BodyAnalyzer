@@ -124,7 +124,7 @@ static void Log_Task(void *p_arg)
 }
 
 /* Write a message to the log queue with a given severity level and optional error code */
-void Log_Write(CPU_INT08U level, const CPU_CHAR *msg, ...) {
+void Log_Write(CPU_INT16U level, const CPU_CHAR *msg, ...) {
     // Check if the log level is valid and allowed
     if (!(level & LOG_ALLOWED_LEVELS) || (level == LOG_LEVEL_NONE)) {
         return;  // Skip logging if the message type is not allowed or is NONE

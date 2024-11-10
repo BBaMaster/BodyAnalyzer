@@ -23,17 +23,18 @@ Rückgabe: Nichts
 Rufer: App_TaskPWM
 Notizen: Keine
 */
-void BSP_PWM_set_Halbperiode(CPU_INT08U pwm, CPU_INT08U Ausgang, CPU_INT08U halbperiode)
+void BSP_PWM_set_Halfperiod(CPU_INT08U pwm, CPU_INT08U halfperiod)
 {
-  if (pwm == PWM2)
-  {
-    if (Ausgang == 1)
-      PWM2_WriteCompare1(halbperiode);
-    else if (Ausgang == 2)
-      PWM2_WriteCompare2(halbperiode);
-  }
-  else if (pwm == PWM1)
-    PWM1_WriteCompare(halbperiode);
+  if (pwm == PWM_ac) PWM_ac_WriteCompare(halfperiod);
+  else if (pwm == PWM_bo) PWM_bo_WriteCompare(halfperiod);
+  else if (pwm == PWM_hb) PWM_hb_WriteCompare(halfperiod);
+}
+
+void BSP_PWM_set_Period(CPU_INT08U pwm, CPU_INT08U period)
+{
+  if (pwm == PWM_ac) PWM_ac_WritePeriod(period);
+  else if (pwm == PWM_bo) PWM_bo_WritePeriod(period);
+  else if (pwm == PWM_hb) PWM_hb_WritePeriod(period);
 }
 
 /*
@@ -45,16 +46,16 @@ Notizen: Keine
 */
 void BSP_PWM_Start(CPU_INT08U pwm)
 {
-  if (pwm == PWM1)
-    PWM1_Start();
-  else if (pwm == PWM2)
-    PWM2_Start();
+  if (pwm == PWM_ac) PWM_ac_Start();
+  else if (pwm == PWM_bo) PWM_bo_Start();
+  else if (pwm == PWM_hb) PWM_hb_Start();
 }
 
 void BSP_PWM_Stop(CPU_INT08U pwm)
 {
-  if (pwm == PWM1) PWM1_Stop();
-  else if (pwm == PWM2) PWM2_Stop();
+  if (pwm == PWM_ac) PWM_ac_Stop();
+  else if (pwm == PWM_bo) PWM_bo_Stop();
+  else if (pwm == PWM_hb) PWM_hb_Stop();
 }
 
 /* [] END OF FILE */

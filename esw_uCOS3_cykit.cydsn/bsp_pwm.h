@@ -14,13 +14,13 @@
 #include <PWM1.h>
 #include <PWM2.h>
 
-#define PWM1 1
-#define PWM2 2
+#define PWM_hb 1
+#define PWM_ac 2
+#define PWM_bo 3
 
 //Setzt die Wechselzeit des gewählten PWMs
-void BSP_PWM_set_Halbperiode(CPU_INT08U pwm,
-                             CPU_INT08U Ausgang,
-                             CPU_INT08U halbperiode);
+void BSP_PWM_set_Halfperiod(CPU_INT08U pwm, CPU_INT08U halfperiod);
+void BSP_PWM_set_Period(CPU_INT08U pwm, CPU_INT08U period);
 
 void BSP_PWM_Start(CPU_INT08U pwm); //Startet einen PWM
 void BSP_PWM_Stop(CPU_INT08U pwm); //Startet einen PWM
