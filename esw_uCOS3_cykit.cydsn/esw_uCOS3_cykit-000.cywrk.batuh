@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="esw_uCOS3_cykit-000\esw_uCOS3_cykit\Source Files\heartbeatSensor.c">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="esw_uCOS3_cykit-000\esw_uCOS3_cykit\Source Files\log_task.c">
 <ExpandedNodeIds>
 <v>esw_uCOS3_cykit-000</v>
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit</v>
@@ -155,6 +155,11 @@
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\uC-CPU\ARM-Cortex-M3</v>
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\uC-CPU\ARM-Cortex-M3\GNU</v>
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\uC-CPU\ARM-Cortex-M3\GNU\cpu.h</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\uC-CPU\ARM-Cortex-M3\GNU\cpu_a.s</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\uC-CPU\ARM-Cortex-M3\GNU\cpu_c.c</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\uC-CPU\cpu_core.c</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\uC-CPU\cpu_core.h</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\uC-CPU\cpu_def.h</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -274,6 +279,42 @@
 <VisibleNodeIds>
 <v>esw_uCOS3_cykit-000</v>
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\CortexM3</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\CortexM3\ARM_GCC_541</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\CortexM3\ARM_GCC_541\Debug</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\CortexM3\ARM_GCC_541\Debug\Listing Files\app.lst</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\CortexM3\ARM_GCC_541\Debug\Listing Files\bsp.lst</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\CortexM3\ARM_GCC_541\Debug\Listing Files\bsp_gpio.lst</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\CortexM3\ARM_GCC_541\Debug\Listing Files\bsp_i2c.lst</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\CortexM3\ARM_GCC_541\Debug\Listing Files\bsp_os.lst</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\CortexM3\ARM_GCC_541\Debug\Listing Files\bsp_uart.lst</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\CortexM3\ARM_GCC_541\Debug\Listing Files\cpu_a.lst</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\CortexM3\ARM_GCC_541\Debug\Listing Files\cpu_bsp.lst</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\CortexM3\ARM_GCC_541\Debug\Listing Files\cpu_c.lst</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\CortexM3\ARM_GCC_541\Debug\Listing Files\cpu_core.lst</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\CortexM3\ARM_GCC_541\Debug\Listing Files\CS_1.lst</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\CortexM3\ARM_GCC_541\Debug\Listing Files\data_processing_task.lst</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\CortexM3\ARM_GCC_541\Debug\Listing Files\DMA_I2C_dma.lst</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\CortexM3\ARM_GCC_541\Debug\Listing Files\DMA_SPI_dma.lst</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\CortexM3\ARM_GCC_541\Debug\Listing Files\driver_max30102.lst</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\CortexM3\ARM_GCC_541\Debug\Listing Files\heartbeatSensor.lst</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_1.lst</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_1_BOOT.lst</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_1_INT.lst</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_1_MASTER.lst</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_1_PM.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>

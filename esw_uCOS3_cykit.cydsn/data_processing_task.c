@@ -65,10 +65,15 @@ void Data_Processing_Init(void) {
 }
 
 /**
- @brief Main task for the data processing part of the project. This task is responsible
-        to gather values from both sensors -> oximeter and environment and control them against pre-defined
-        acceptance ranges. After checking the processed values are sent to a message queue to further processing
-        in led task, logging etc ...
+ @brief Main task for the data processing part of the project. 
+        
+        This task is responsible to gather values from both sensors oximeter and environment and to control them against pre-defined
+        acceptance ranges. After checking a struct concluding led_cmd and mode_data variables will be sent to the led task.
+        This struct is the keyrole to control the green led. So if the values from envrionment sensor are in a accepted range the green led should fully bright.
+        If one or more values are not within the range the green led should blink.
+        To control the red and blue leds according to the oximiter values another struct called processed_data_oximeter will be sent over message queue to the
+        led task. This struct concludes the variables CPU_INT08U average_heart_rate_in_bpm & CPU_INT08U blood_oxygen_level_in_percentage;
+        Just grep the values out of the queue and control the leds via PWM or something like that..
 
  @param void *p_arg
 **/
@@ -104,18 +109,18 @@ static void Data_Processing_Task(void *p_arg) {
       }
 
       // Delay to allow for periodic processing
-      OSTimeDlyHMSM(0, 0, 0, 100, OS_OPT_TIME_HMSM_STRICT, &os_err);
+      //OSTimeDlyHMSM(0, 0, 0, 100, OS_OPT_TIME_HMSM_STRICT, &os_err);
     } else if(processRawEnvironmentData(&processed_data_environment)){
       Log_Write(LOG_LEVEL_DATA_PROCESSING, "Processing environment data for LED control...", 0);
             
         // Set the command for the green LED based on environmental data range
-        led_control_message.cmd = CMD_GREEN_LED;
+        led_control_message.led_cmd = CMD_GREEN_LED;
         if (isEnvironmentDataInRange(&processed_data_environment)) {
-            led_control_message.data = GREEN_LED_FULL_BRIGHTNESS;  // Full brightness when data is in range
-            Log_Write(LOG_LEVEL_DATA_PROCESSING, "Environment data in range - setting LED to full brightness.", 0);
+            led_control_message.mode_data = GREEN_LED_FULL_BRIGHTNESS;  // Full brightness when data is in range
+            Log_Write(LOG_LEVEL_DATA_PROCESSING, "Environment data in range - setting green LED command to full brightness.", 0);
         } else {
-            led_control_message.data = GREEN_LED_BLINK;  // Blink when data is out of range
-            Log_Write(LOG_LEVEL_DATA_PROCESSING, "Environment data out of range - setting LED to blink.", 0);
+            led_control_message.mode_data = GREEN_LED_BLINK;  // Blink when data is out of range
+            Log_Write(LOG_LEVEL_DATA_PROCESSING, "Environment data out of range - setting green LED to blink.", 0);
         }
 
         // Send the green LED command to the LED control task
@@ -125,14 +130,18 @@ static void Data_Processing_Task(void *p_arg) {
         } else {
             Log_Write(LOG_LEVEL_DATA_PROCESSING, "Environment LED command sent to LED control task.", 0);
         }
-
-        // Delay to allow for periodic processing
-        OSTimeDlyHMSM(0, 0, 0, 100, OS_OPT_TIME_HMSM_STRICT, &os_err);
       }
     }
-  OSTimeDlyHMSM(0, 0, 0, 100, OS_OPT_TIME_HMSM_STRICT, &os_err);
+  //OSTimeDlyHMSM(0, 0, 0, 100, OS_OPT_TIME_HMSM_STRICT, &os_err);
 }
 
+/**
+ @brief A helper function to retrieve sensor data.
+        
+        This task pends for both SPO2 and heart rate values from the two queues in heartbeatSensor part.
+        
+ @param OS_Q *queue, CPU_INT08U *data_field, const char *sensor_name
+**/
 CPU_BOOLEAN retrieveSensorData(OS_Q *queue, CPU_INT08U *data_field, const char *sensor_name) {
     OS_ERR os_err;
     OS_MSG_SIZE msg_size;
@@ -159,6 +168,15 @@ CPU_BOOLEAN retrieveSensorData(OS_Q *queue, CPU_INT08U *data_field, const char *
     return DEF_TRUE;
 }
 
+/**
+ @brief Processes the oximeter sensor values out of the queues straight into the processed struct
+        
+        This helper function expects a structs address as pointer to fullfill it with the help of th helper function
+        mentioned above -> retrieveSensorData().
+        No preparation for data needed, because the data is received already in a processed and expected value format.
+        
+ @param DATA_SET_PACKAGE_OXIMETER *data_oximeter_package
+**/
 CPU_BOOLEAN processRawOximeterData(DATA_SET_PACKAGE_OXIMETER *data_oximeter_package) {
     CPU_BOOLEAN heart_rate_received = DEF_FALSE;
     CPU_BOOLEAN spo2_received = DEF_FALSE;
@@ -173,9 +191,19 @@ CPU_BOOLEAN processRawOximeterData(DATA_SET_PACKAGE_OXIMETER *data_oximeter_pack
     spo2_received = retrieveSensorData(&CommQI2CSPO2, &data_oximeter_package->blood_oxygen_level_in_percentage, "SpO2");
 
     // Return TRUE only if both data values were successfully received
-    return heart_rate_received && spo2_received;
+
+    return (heart_rate_received && spo2_received);
 }
 
+/**
+ @brief Processes the environment sensor values out of the queue straight into the processed struct
+        
+        This helper function expects a structs address as pointer to fullfill it with the processed clean values.
+        Fruthermore this tasks receives the raw sensor values from the environment sensor and coverts them to the expected value
+        format. After the process it stores the new values into the struct as a complete dataset.
+        
+ @param DATA_SET_PACKAGE_ENVIRONMENT *data_environment_package
+**/
 CPU_BOOLEAN processRawEnvironmentData(DATA_SET_PACKAGE_ENVIRONMENT *data_environment_package) {
     
     OS_ERR os_err;
@@ -222,7 +250,7 @@ CPU_BOOLEAN processRawEnvironmentData(DATA_SET_PACKAGE_ENVIRONMENT *data_environ
     }
 }
 
-// Helper function to check if environmental data is within acceptable indoor ranges
+/* Helper function to check if environmental data is within acceptable indoor ranges */
 CPU_BOOLEAN isEnvironmentDataInRange(DATA_SET_PACKAGE_ENVIRONMENT *data) {
     return (data->temperature_in_celsius >= TEMPERATURE_LEVEL_INDOOR_MIN && data->temperature_in_celsius <= TEMPERATURE_LEVEL_INDOOR_MAX) &&
            (data->humidity_in_percentage >= HUMIDITY_LEVEL_INDOOR_MIN && data->humidity_in_percentage <= HUMIDITY_LEVEL_INDOOR_MAX) &&

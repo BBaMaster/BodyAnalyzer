@@ -48,14 +48,14 @@ void initMessageQueue(){
 
   OS_ERR   os_err;
   
-  OSQCreate(&CommQI2CHeartRate, "Message Queue to send Heart Rate from I2C as Message", LOG_QUEUE_SIZE, &os_err);
+  OSQCreate(&CommQI2CHeartRate, "Message Queue to send Heart Rate from I2C as Message", MESSAGE_QUEUE_SIZE, &os_err);
   if (os_err == OS_ERR_NONE) {
         Log_Write(LOG_LEVEL_I2C, "I2C Task: I2C Message queue created successfully", 0);
     } else {
         Log_Write(LOG_LEVEL_ERROR, "Error: I2C Message Queue creation failed", os_err);
    }
     
-  OSQCreate(&CommQI2CSPO2, "Message Queue to send SPO2 from I2C as Message", LOG_QUEUE_SIZE, &os_err);
+  OSQCreate(&CommQI2CSPO2, "Message Queue to send SPO2 from I2C as Message", MESSAGE_QUEUE_SIZE, &os_err);
   if (os_err == OS_ERR_NONE) {
         Log_Write(LOG_LEVEL_I2C, "I2C Task: I2C Message queue created successfully", 0);
     } else {
@@ -167,7 +167,7 @@ void processSignals(CPU_INT32U raw_ir, CPU_INT32U raw_red) {
     
     // Call function to analyze IR signal and detect heart rate
     updateHeartRate();
-
+    
     // Call function to calculate and update SpO₂ level based on the filtered AC and DC components
     updateSpO2();
 }
@@ -270,13 +270,29 @@ void updateSpO2(void) {
  */
 void enqueueHeartRate(CPU_INT32S heart_rate) {
   OS_ERR os_err;
-  OSQPost(&CommQI2CHeartRate, &heart_rate, sizeof(heart_rate), OS_OPT_POST_FIFO, &os_err);
-  if (os_err == OS_ERR_Q_MAX){
-    Log_Write(LOG_LEVEL_ERROR, "I2C Task: queue is full can't send heart rate value to task...", 0);
-  } else if (os_err != OS_ERR_NONE) {
-    Log_Write(LOG_LEVEL_ERROR, "Error occured at I2C Task...", 0);
-  } else {
-    Log_Write(LOG_LEVEL_I2C, "Sent heart rate value to processing task...", 0);
+  
+  static CPU_INT32S previous_heart_rate;
+  
+  if (previous_heart_rate == heart_rate){
+    Log_Write(LOG_LEVEL_ERROR, "I2C Task: Value is same as previous value. Do not send it.", 0);
+    return;
+  }else{
+    // Try to post to the queue
+    OSQPost(&CommQI2CHeartRate, &heart_rate, sizeof(heart_rate), OS_OPT_POST_FIFO + OS_OPT_POST_ALL, &os_err); 
+    if (os_err != OS_ERR_NONE) {
+      if (os_err == OS_ERR_Q_MAX) {
+        // Log an error if the queue is full
+        Log_Write(LOG_LEVEL_ERROR, "I2C Task: queue is full, can't send heart rate value to processing task...", 0);
+
+      } else {
+        // Log any other errors that occur when posting to the queue
+        Log_Write(LOG_LEVEL_ERROR, "Error occurred at I2C Task, posting to queue failed...", 0);
+      }
+    } else {
+      // Log a message when the SPO2 value is successfully posted to the queue
+      Log_Write(LOG_LEVEL_I2C, "Sent heart rate value to processing task...", 0);
+      previous_heart_rate = heart_rate;
+    }
   }
 }
 
@@ -287,13 +303,28 @@ void enqueueHeartRate(CPU_INT32S heart_rate) {
  */
 void enqueueSpO2(CPU_INT32S spO2) {
   OS_ERR os_err;
-  OSQPost(&CommQI2CSPO2, &spO2, sizeof(spO2), OS_OPT_POST_FIFO, &os_err);
-  if (os_err == OS_ERR_Q_MAX){
-    Log_Write(LOG_LEVEL_ERROR, "I2C Task: queue is full can't send SPO2 value to task...", 0);
-  } else if (os_err != OS_ERR_NONE) {
-    Log_Write(LOG_LEVEL_ERROR, "Error occured at I2C Task...", 0);
-  } else {
-    Log_Write(LOG_LEVEL_I2C, "Sent SPO2 value to processing task...", 0);
+  static CPU_INT32S previous_spO2_rate = -1;
+
+  if (previous_spO2_rate == spO2){
+    Log_Write(LOG_LEVEL_ERROR, "I2C Task: Value is same as previous value. Do not send it.", 0);
+    return;
+  }else{
+    // Try to post to the queue
+    OSQPost(&CommQI2CSPO2, &spO2, sizeof(spO2), OS_OPT_POST_FIFO + OS_OPT_POST_ALL, &os_err); 
+    if (os_err != OS_ERR_NONE) {
+      if (os_err == OS_ERR_Q_MAX) {
+        // Log an error if the queue is full
+        Log_Write(LOG_LEVEL_ERROR, "I2C Task: queue is full, can't send SPO2 value to processing task...", 0);
+
+      } else {
+        // Log any other errors that occur when posting to the queue
+        Log_Write(LOG_LEVEL_ERROR, "Error occurred at I2C Task, posting to queue failed...", 0);
+      }
+    } else {
+      // Log a message when the SPO2 value is successfully posted to the queue
+      Log_Write(LOG_LEVEL_I2C, "Sent SPO2 value to processing task...", 0);
+      previous_spO2_rate = spO2;
+    }
   }
 }
 

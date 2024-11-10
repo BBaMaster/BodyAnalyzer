@@ -6,7 +6,7 @@
 #include <log_task.h>
   
 /* Maximum number of messages in the log queue */
-#define MESSAGE_QUEUE_SIZE  100u
+#define MESSAGE_QUEUE_SIZE  250u
 
 #define CMD_RED_LED                   0x01
 #define CMD_BLUE_LED                  0x02
@@ -69,7 +69,6 @@ typedef struct {
     CPU_INT32S gas_raw;                           //RAW values
 } RAW_ENVIRONMENT_DATA;
 
-
 // Ready to use data set package
 typedef struct {
     CPU_INT16S temperature_in_celsius;             // Stores temperature in celsius degree
@@ -79,8 +78,8 @@ typedef struct {
 } DATA_SET_PACKAGE_ENVIRONMENT;
 
 typedef struct {
-    CPU_INT08S cmd;
-    CPU_INT08S data;
+    CPU_INT08S led_cmd;
+    CPU_INT08S mode_data;
 } LED_CONTROL_MESSAGE;
 
 /* Function prototypes */
