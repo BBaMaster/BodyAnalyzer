@@ -8,10 +8,12 @@
 /* Maximum number of messages in the log queue */
 #define MESSAGE_QUEUE_SIZE  100u
 
-// dunno wtf to do with this..
-#define CMD_RED 0x01
-#define CMD_BLUE 0x02
-#define CMD_GREEN 0x03
+#define CMD_RED_LED                   0x01
+#define CMD_BLUE_LED                  0x02
+#define CMD_GREEN_LED                 0x03
+
+#define GREEN_LED_FULL_BRIGHTNESS     1
+#define GREEN_LED_BLINK               2
    
 /* Acceptance ranges for heart beat in bpm */
 #define HEART_RATE_GOOD_MIN     60
@@ -39,8 +41,8 @@
 #define PRESSURE_LEVEL_INDOOR_MIN 1000
 #define PRESSURE_LEVEL_INDOOR_MAX 1013
 
-#define GAS_LEVEL_INDOOR_MIN 
-#define GAS_LEVEL_INDOOR_MAX
+#define GAS_LEVEL_INDOOR_MIN 150000
+#define GAS_LEVEL_INDOOR_MAX 521000
   
   
 /* Maximum number of messages in the log queue */
@@ -55,48 +57,39 @@ OS_Q   CommQProcessedEnvironmentData;
 
 // Ready to use data set package
 typedef struct {
-    CPU_INT08S average_heart_rate_in_bpm;          // Stores heart rate/BPM
-    CPU_INT08S blood_oxygen_level_in_percentage;   // Stores SPO2 value in %
+    CPU_INT08U average_heart_rate_in_bpm;          // Stores heart rate/BPM
+    CPU_INT08U blood_oxygen_level_in_percentage;   // Stores SPO2 value in %
 } DATA_SET_PACKAGE_OXIMETER;
 
 // To caputre raw environment values
 typedef struct {
-    CPU_INT32S temperature_raw;                   //RAW
-    CPU_INT32S humidity_raw;                      //RAW
-    CPU_INT32S pressure_raw;                      //RAW
-    CPU_INT32S gas_raw;                           //RAW
+    CPU_INT32S temperature_raw;                   //RAW values
+    CPU_INT32S humidity_raw;                      //RAW values
+    CPU_INT32S pressure_raw;                      //RAW values
+    CPU_INT32S gas_raw;                           //RAW values
 } RAW_ENVIRONMENT_DATA;
 
 
 // Ready to use data set package
 typedef struct {
-    CPU_INT16S temperature_in_celsius;             // Stores temperature in Celsius degree
+    CPU_INT16S temperature_in_celsius;             // Stores temperature in celsius degree
     CPU_INT32S humidity_in_percentage;             // Stores humidity level
     CPU_INT32S pressure_in_bar;                    // Pressure level in air in BAR
-    CPU_INT16S gas_in_ohm;                         // gas level 
+    CPU_INT32S gas_in_ohm;                         // gas level in ohm
 } DATA_SET_PACKAGE_ENVIRONMENT;
 
-typedef enum {
-    HEART_RATE_GOOD,
-    HEART_RATE_NORMAL,
-    HEART_RATE_CRITICAL,
-    HEART_RATE_OUT_OF_RANGE,
-    BLOOD_OXYGEN_NORMAL,
-    BLOOD_OXYGEN_TOLERABLE,
-    BLOOD_OXYGEN_DECREASED,
-    BLOOD_OXYGEN_OUT_OF_RANGE,
-    DATA_OUT_OF_RANGE
-} acceptanceRatesCategory;
+typedef struct {
+    CPU_INT08S cmd;
+    CPU_INT08S data;
+} LED_CONTROL_MESSAGE;
 
 /* Function prototypes */
 void Data_Processing_Init(void);
 CPU_BOOLEAN processRawOximeterData(DATA_SET_PACKAGE_OXIMETER *data_oximeter_package);
 CPU_BOOLEAN processRawEnvironmentData(DATA_SET_PACKAGE_ENVIRONMENT *data_environment_package);
-CPU_BOOLEAN RetrieveSensorData(OS_Q *queue, CPU_INT08S *data_field, const char *sensor_name);
-acceptanceRatesCategory isDataInAccceptableRange(CPU_INT08S average_heart_rate, CPU_INT08S blood_oxygen_level);
+CPU_BOOLEAN retrieveSensorData(OS_Q *queue, CPU_INT08U *data_field, const char *sensor_name);
+CPU_BOOLEAN isEnvironmentDataInRange(DATA_SET_PACKAGE_ENVIRONMENT *data_environment_package);
 void initMessageQueues();
-//ELAPSED_TIME_SET conversionOfTimestamp();
-
 
   
 #endif /* DATA_PROCESSING_TASK_H */

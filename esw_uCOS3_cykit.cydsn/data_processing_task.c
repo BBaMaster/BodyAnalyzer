@@ -77,42 +77,17 @@ static void Data_Processing_Task(void *p_arg) {
   OS_ERR os_err;
   OS_MSG_QTY entries;
   DATA_SET_PACKAGE_OXIMETER processed_data_oximeter;
-  DATA_SET_PACKAGE_ENVIRONMENT processd_data_environment;
+  DATA_SET_PACKAGE_ENVIRONMENT processed_data_environment;
+  LED_CONTROL_MESSAGE led_control_message;
   (void)p_arg;
 
   Log_Write(LOG_LEVEL_DATA_PROCESSING, "Data Processing Task: Initializing message queues ...", 0);
   initMessageQueues();
   
   while(DEF_ON) {
+    
     //Process data only if new data is received from queues ...
     if(processRawOximeterData(&processed_data_oximeter)){
-
-      // Determine the acceptance rates category
-      acceptanceRatesCategory category = isDataInAccceptableRange(processed_data_oximeter.average_heart_rate_in_bpm, processed_data_oximeter.blood_oxygen_level_in_percentage);
-
-      switch (category) {
-        case HEART_RATE_GOOD:
-            Log_Write(LOG_LEVEL_DATA_PROCESSING, "Average Heart rate is in good range.", 0);
-            break;
-        case HEART_RATE_NORMAL:
-            Log_Write(LOG_LEVEL_DATA_PROCESSING, "Average Heart rate is in normal range.", 0);
-            break;
-        case HEART_RATE_CRITICAL:
-            Log_Write(LOG_LEVEL_DATA_PROCESSING, "Average Heart rate is in critical range!", 0);
-            break;
-        case BLOOD_OXYGEN_NORMAL:
-            Log_Write(LOG_LEVEL_DATA_PROCESSING, "Blood oxygen level is in normal range!", 0);
-            break;
-        case BLOOD_OXYGEN_TOLERABLE:
-            Log_Write(LOG_LEVEL_DATA_PROCESSING, "Blood oxygen is on a tolerable level!", 0);
-            break;
-        case BLOOD_OXYGEN_DECREASED:
-            Log_Write(LOG_LEVEL_DATA_PROCESSING, "Blood oxygen level decreased..be careful!", 0);
-            break;
-        default:
-            Log_Write(LOG_LEVEL_DATA_PROCESSING, "out of range...", 0);
-            break;
-      }
 
       // Post to queue for further processing
       OSQPost(&CommQProcessedOximeterData, &processed_data_oximeter, sizeof(processed_data_oximeter), OS_OPT_POST_FIFO, &os_err);
@@ -130,14 +105,35 @@ static void Data_Processing_Task(void *p_arg) {
 
       // Delay to allow for periodic processing
       OSTimeDlyHMSM(0, 0, 0, 100, OS_OPT_TIME_HMSM_STRICT, &os_err);
-    } else if(processRawEnvironmentData(&processd_data_environment)){
-      Log_Write(LOG_LEVEL_DATA_PROCESSING, "...environment sensor data should be sent from here ..");
+    } else if(processRawEnvironmentData(&processed_data_environment)){
+      Log_Write(LOG_LEVEL_DATA_PROCESSING, "Processing environment data for LED control...", 0);
+            
+        // Set the command for the green LED based on environmental data range
+        led_control_message.cmd = CMD_GREEN_LED;
+        if (isEnvironmentDataInRange(&processed_data_environment)) {
+            led_control_message.data = GREEN_LED_FULL_BRIGHTNESS;  // Full brightness when data is in range
+            Log_Write(LOG_LEVEL_DATA_PROCESSING, "Environment data in range - setting LED to full brightness.", 0);
+        } else {
+            led_control_message.data = GREEN_LED_BLINK;  // Blink when data is out of range
+            Log_Write(LOG_LEVEL_DATA_PROCESSING, "Environment data out of range - setting LED to blink.", 0);
+        }
+
+        // Send the green LED command to the LED control task
+        OSQPost(&CommQProcessedEnvironmentData, &led_control_message, sizeof(led_control_message), OS_OPT_POST_FIFO, &os_err);
+        if (os_err != OS_ERR_NONE) {
+            Log_Write(LOG_LEVEL_ERROR, "Data Processing Task: Failed to send environment LED command with error", os_err);
+        } else {
+            Log_Write(LOG_LEVEL_DATA_PROCESSING, "Environment LED command sent to LED control task.", 0);
+        }
+
+        // Delay to allow for periodic processing
+        OSTimeDlyHMSM(0, 0, 0, 100, OS_OPT_TIME_HMSM_STRICT, &os_err);
+      }
     }
-  }
   OSTimeDlyHMSM(0, 0, 0, 100, OS_OPT_TIME_HMSM_STRICT, &os_err);
 }
 
-CPU_BOOLEAN RetrieveSensorData(OS_Q *queue, CPU_INT08S *data_field, const char *sensor_name) {
+CPU_BOOLEAN retrieveSensorData(OS_Q *queue, CPU_INT08U *data_field, const char *sensor_name) {
     OS_ERR os_err;
     OS_MSG_SIZE msg_size;
     CPU_TS raw_timestamp = OS_TS_GET();
@@ -171,10 +167,10 @@ CPU_BOOLEAN processRawOximeterData(DATA_SET_PACKAGE_OXIMETER *data_oximeter_pack
     *data_oximeter_package = (DATA_SET_PACKAGE_OXIMETER) {0, 0};
 
     // Retrieve heart rate data
-    heart_rate_received = RetrieveSensorData(&CommQI2CHeartRate, &data_oximeter_package->average_heart_rate_in_bpm, "Average Heart Rate");
+    heart_rate_received = retrieveSensorData(&CommQI2CHeartRate, &data_oximeter_package->average_heart_rate_in_bpm, "Average Heart Rate");
 
     // Retrieve SpO2 data
-    spo2_received = RetrieveSensorData(&CommQI2CSPO2, &data_oximeter_package->blood_oxygen_level_in_percentage, "SpO2");
+    spo2_received = retrieveSensorData(&CommQI2CSPO2, &data_oximeter_package->blood_oxygen_level_in_percentage, "SpO2");
 
     // Return TRUE only if both data values were successfully received
     return heart_rate_received && spo2_received;
@@ -217,46 +213,21 @@ CPU_BOOLEAN processRawEnvironmentData(DATA_SET_PACKAGE_ENVIRONMENT *data_environ
       data_environment_package->gas_in_ohm = (p_msg_SPI_data->gas_raw * 1000) / 65535;
       
       // Log each converted environmental value
-      Log_Write(LOG_LEVEL_DATA_PROCESSING, "Data Processing Task: Received Temperature -> %d.%02d deg C", 
-                data_environment_package->temperature_in_celsius / 100, data_environment_package->temperature_in_celsius % 100);
-      Log_Write(LOG_LEVEL_DATA_PROCESSING, "Data Processing Task: Received Humidity -> %d.%02d %%", 
-                data_environment_package->humidity_in_percentage / 100, data_environment_package->humidity_in_percentage % 100);
-      Log_Write(LOG_LEVEL_DATA_PROCESSING, "Data Processing Task: Received Pressure -> %d.%1d hPa", 
-                data_environment_package->pressure_in_bar / 10, data_environment_package->pressure_in_bar % 10);
-      Log_Write(LOG_LEVEL_DATA_PROCESSING, "Data Processing Task: Received Gas Concentration -> %d ppm", 
-                data_environment_package->gas_in_ohm);
+      Log_Write(LOG_LEVEL_DATA_PROCESSING, "Data Processing Task: Received Temperature -> %d.%02d deg C", data_environment_package->temperature_in_celsius / 100, data_environment_package->temperature_in_celsius % 100);
+      Log_Write(LOG_LEVEL_DATA_PROCESSING, "Data Processing Task: Received Humidity -> %d.%02d %%", data_environment_package->humidity_in_percentage / 100, data_environment_package->humidity_in_percentage % 100);
+      Log_Write(LOG_LEVEL_DATA_PROCESSING, "Data Processing Task: Received Pressure -> %d.%1d hPa", data_environment_package->pressure_in_bar / 10, data_environment_package->pressure_in_bar % 10);
+      Log_Write(LOG_LEVEL_DATA_PROCESSING, "Data Processing Task: Received Gas Concentration -> %d ppm", data_environment_package->gas_in_ohm);
 
       return DEF_TRUE;
     }
 }
 
-
-acceptanceRatesCategory isDataInAccceptableRange(CPU_INT08S average_heart_rate, CPU_INT08S blood_oxygen_level) {
-  
-  // Classify Heart Rate
-  if (average_heart_rate >= HEART_RATE_GOOD_MIN && average_heart_rate <= HEART_RATE_GOOD_MAX) {
-      return HEART_RATE_GOOD;
-  }
-  if (average_heart_rate >= HEART_RATE_NORMAL_MIN && average_heart_rate <= HEART_RATE_NORMAL_MAX) {
-      return HEART_RATE_NORMAL;
-  }
-  if (average_heart_rate >= HEART_RATE_CRITICAL_MIN && average_heart_rate <= HEART_RATE_CRITICAL_MAX) {
-      return HEART_RATE_CRITICAL;
-  }
-
-  // Classify Blood Oxygen Level (only if heart rate is out of range)
-  if (blood_oxygen_level >= BLOOD_OXYGEN_LEVEL_NORMAL_MIN && blood_oxygen_level <= BLOOD_OXYGEN_LEVEL_NORMAL_MAX) {
-      return BLOOD_OXYGEN_NORMAL;
-  }
-  if (blood_oxygen_level >= BLOOD_OXYGEN_LEVEL_TOLERABLE_MIN && blood_oxygen_level <= BLOOD_OXYGEN_LEVEL_TOLERABLE_MAX) {
-      return BLOOD_OXYGEN_TOLERABLE;
-  }
-  if (blood_oxygen_level >= BLOOD_OXYGEN_LEVEL_DECREASED_MIN && blood_oxygen_level <= BLOOD_OXYGEN_LEVEL_DECREASED_MAX) {
-      return BLOOD_OXYGEN_DECREASED;
-  }
-  
-  // If both heart rate and blood oxygen level are out of range
-  return DATA_OUT_OF_RANGE;
+// Helper function to check if environmental data is within acceptable indoor ranges
+CPU_BOOLEAN isEnvironmentDataInRange(DATA_SET_PACKAGE_ENVIRONMENT *data) {
+    return (data->temperature_in_celsius >= TEMPERATURE_LEVEL_INDOOR_MIN && data->temperature_in_celsius <= TEMPERATURE_LEVEL_INDOOR_MAX) &&
+           (data->humidity_in_percentage >= HUMIDITY_LEVEL_INDOOR_MIN && data->humidity_in_percentage <= HUMIDITY_LEVEL_INDOOR_MAX) &&
+           (data->pressure_in_bar >= PRESSURE_LEVEL_INDOOR_MIN && data->pressure_in_bar <= PRESSURE_LEVEL_INDOOR_MAX) &&
+           (data->gas_in_ohm >= GAS_LEVEL_INDOOR_MIN && data->gas_in_ohm <= GAS_LEVEL_INDOOR_MAX);
 }
 
 
