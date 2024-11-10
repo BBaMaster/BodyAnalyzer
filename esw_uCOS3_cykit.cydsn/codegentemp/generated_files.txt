@@ -26,11 +26,6 @@
   <file name="C:\Users\Chronikle\Documents\GitHub\BodyAnalyzer\esw_uCOS3_cykit.cydsn\codegentemp\Pin_1_aliases.h" value="HEADER;;;;;Pin_1" />
   <file name="C:\Users\Chronikle\Documents\GitHub\BodyAnalyzer\esw_uCOS3_cykit.cydsn\codegentemp\Pin_1.c" value="SOURCE_C;CortexM3;;;;Pin_1" />
   <file name="C:\Users\Chronikle\Documents\GitHub\BodyAnalyzer\esw_uCOS3_cykit.cydsn\codegentemp\Pin_1.h" value="HEADER;;;;;Pin_1" />
-  <file name="C:\Users\Chronikle\Documents\GitHub\BodyAnalyzer\esw_uCOS3_cykit.cydsn\codegentemp\Counter_1.c" value="SOURCE_C;CortexM3;;;;Counter_1" />
-  <file name="C:\Users\Chronikle\Documents\GitHub\BodyAnalyzer\esw_uCOS3_cykit.cydsn\codegentemp\Counter_1.h" value="HEADER;;;;;Counter_1" />
-  <file name="C:\Users\Chronikle\Documents\GitHub\BodyAnalyzer\esw_uCOS3_cykit.cydsn\codegentemp\Counter_1_PM.c" value="SOURCE_C;CortexM3;;;;Counter_1" />
-  <file name="C:\Users\Chronikle\Documents\GitHub\BodyAnalyzer\esw_uCOS3_cykit.cydsn\codegentemp\Clock_1.c" value="SOURCE_C;CortexM3;;;;Clock_1" />
-  <file name="C:\Users\Chronikle\Documents\GitHub\BodyAnalyzer\esw_uCOS3_cykit.cydsn\codegentemp\Clock_1.h" value="HEADER;;;;;Clock_1" />
   <file name="C:\Users\Chronikle\Documents\GitHub\BodyAnalyzer\esw_uCOS3_cykit.cydsn\codegentemp\Pin_2_aliases.h" value="HEADER;;;;;Pin_2" />
   <file name="C:\Users\Chronikle\Documents\GitHub\BodyAnalyzer\esw_uCOS3_cykit.cydsn\codegentemp\Pin_2.c" value="SOURCE_C;CortexM3;;;;Pin_2" />
   <file name="C:\Users\Chronikle\Documents\GitHub\BodyAnalyzer\esw_uCOS3_cykit.cydsn\codegentemp\Pin_2.h" value="HEADER;;;;;Pin_2" />

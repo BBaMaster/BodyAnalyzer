@@ -22,8 +22,6 @@
 #include "UART_1.h"
 #include "Pin_1_aliases.h"
 #include "Pin_1.h"
-#include "Counter_1.h"
-#include "Clock_1.h"
 #include "Pin_2_aliases.h"
 #include "Pin_2.h"
 #include "push_button_aliases.h"

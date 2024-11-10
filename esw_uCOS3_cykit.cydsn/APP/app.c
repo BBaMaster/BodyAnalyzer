@@ -97,12 +97,13 @@ static void App_TaskStart(void *p_arg) {
     
     Log_Write(LOG_LEVEL_INFO, "App_TaskStart: Log task initialized successfully");
     
-    Data_Processing_Init();
-    Log_Write(LOG_LEVEL_INFO, "App_TaskStart: Data Processing task initialized successfully");
+
 
     I2C_Init();    /* Initializes and creates the I2C task */
     MAX30102_Init();
     BME688_Init_Task();
+    Data_Processing_Init();
+    Log_Write(LOG_LEVEL_INFO, "App_TaskStart: Data Processing task initialized successfully");
     while (DEF_TRUE) {
         /* Delay before next read */
         OSTimeDlyHMSM(0, 0, 1, 0, OS_OPT_TIME_HMSM_STRICT, &err);
