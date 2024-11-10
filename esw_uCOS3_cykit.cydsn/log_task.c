@@ -30,7 +30,7 @@ static void Log_PrintErrorWithCode(const char *msg, OS_ERR err_code)
 }
 
 /* Helper function to convert log level to string */
-static const char* Log_LevelToString(CPU_INT16U level)
+static const char* Log_LevelToString(CPU_INT08U level)
 {
     switch (level) {
         case LOG_LEVEL_NONE:              return "NONE";
@@ -43,7 +43,6 @@ static const char* Log_LevelToString(CPU_INT16U level)
         case LOG_LEVEL_MAX30102:          return "MAX30102 LOGGING";
         case LOG_LEVEL_BME688:            return "BME688 LOGGING";
         case LOG_LEVEL_DATA_PROCESSING:   return "DATA PROCESSING LOGGING";
-        case LOG_LEVEL_BUT:               return "BUTTON";
         default:                          return "UNKNOWN";
     }
 }
@@ -125,7 +124,7 @@ static void Log_Task(void *p_arg)
 }
 
 /* Write a message to the log queue with a given severity level and optional error code */
-void Log_Write(CPU_INT16U level, const CPU_CHAR *msg, ...) {
+void Log_Write(CPU_INT08U level, const CPU_CHAR *msg, ...) {
     // Check if the log level is valid and allowed
     if (!(level & LOG_ALLOWED_LEVELS) || (level == LOG_LEVEL_NONE)) {
         return;  // Skip logging if the message type is not allowed or is NONE

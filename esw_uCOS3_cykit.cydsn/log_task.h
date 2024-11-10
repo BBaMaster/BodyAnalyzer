@@ -17,7 +17,6 @@
 #define LOG_LEVEL_DATA_PROCESSING 0x30 /* Data processor logging*/
 #define LOG_LEVEL_MAX30102    0x40  /* MAX30102 sensor logging */
 #define LOG_LEVEL_BME688      0x80  /* BME688 sensor logging */
-#define LOG_LEVEL_BUT         0x100  /* Knopf logging */
 /* Default allowed logging levels (set to all levels by default) */
 #ifndef LOG_ALLOWED_LEVELS
 #define LOG_ALLOWED_LEVELS   (LOG_LEVEL_INFO | LOG_LEVEL_WARNING | LOG_LEVEL_DEBUG | LOG_LEVEL_BME688 | LOG_LEVEL_MAX30102 | LOG_LEVEL_ERROR | LOG_LEVEL_I2C | LOG_LEVEL_DATA_PROCESSING)
@@ -52,6 +51,6 @@ extern CPU_STK Log_TaskStk[APP_CFG_TASK_LOG_STK_SIZE];
 
 /* Function Prototypes */
 void Log_Init(void);  // Initializes the log task (creates the task, not memory pool/queue)
-void Log_Write(CPU_INT16U level, const CPU_CHAR *msg, ...);
+void Log_Write(CPU_INT08U level, const CPU_CHAR *msg, ...);
 
 #endif /* LOG_TASK_H */
