@@ -370,7 +370,12 @@
 <name v=".\heartbeatSensor.c" />
 <name v=".\log_task.c" />
 <name v=".\Generated_Source\PSoC5\UART_1.c" />
-<name v=".\Generated_Source\PSoC5\cy_em_eeprom.c" />
+<name v=".\environmentSensor.c" />
+<name v=".\environmentSensor.h" />
+<name v=".\heartbeatSensor.h" />
+<name v=".\bsp_gpio.h" />
+<name v=".\bsp_gpio.c" />
+<name v=".\APP\includes.h" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -378,7 +383,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Vertical"><TabbedMdiContainer Size="1287, 727" SelectedTabbedMdiWindow="b1c73778-3009-4899-b368-1c03f3ec018e"><DocumentWindow Key="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\data_processing_task.h" Guid="b1c73778-3009-4899-b368-1c03f3ec018e" /><DocumentWindow Key="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\bsp_i2c.c" Guid="9795f4c5-7f6e-46e5-9b1b-fe75f4ba9564" /><DocumentWindow Key="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\APP\cpu_cfg.h" Guid="e7cc9727-d9e7-4dd8-85f5-d6a64f4f4845" /><DocumentWindow Key="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\APP\app_cfg.h" Guid="1f3a0a17-3f39-407e-99f8-a87acdb3ffa7" /><DocumentWindow Key="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\log_task.h" Guid="d6c91ff8-c9a5-47f4-bcb5-798af12d64b5" /><DocumentWindow Key="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\APP\app.c" Guid="22f56e93-dc54-4e86-accd-0f151eb362fd" /><DocumentWindow Key="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\heartbeatSensor.c" Guid="ff46eea6-8ce1-43ed-a9d7-ce2146118de9" /><DocumentWindow Key="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\log_task.c" Guid="78b8c4bf-cb2b-445c-a5b5-b96e56e41277" /><DocumentWindow Key="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\Generated_Source\PSoC5\UART_1.c" Guid="24114dd7-5802-4b7d-8e14-2f3e06fb8c5f" /><DocumentWindow Key="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\Generated_Source\PSoC5\cy_em_eeprom.c" Guid="b0904028-027a-4009-ba3b-a24e35e48e91" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Vertical"><TabbedMdiContainer Size="1287, 619" SelectedTabbedMdiWindow="fc684ac9-5e7d-4a25-8ff1-6735df2aa9fc"><DocumentWindow Key="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\data_processing_task.h" Guid="b1c73778-3009-4899-b368-1c03f3ec018e" /><DocumentWindow Key="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\bsp_i2c.c" Guid="9795f4c5-7f6e-46e5-9b1b-fe75f4ba9564" /><DocumentWindow Key="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\APP\cpu_cfg.h" Guid="e7cc9727-d9e7-4dd8-85f5-d6a64f4f4845" /><DocumentWindow Key="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\APP\app_cfg.h" Guid="1f3a0a17-3f39-407e-99f8-a87acdb3ffa7" /><DocumentWindow Key="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\log_task.h" Guid="d6c91ff8-c9a5-47f4-bcb5-798af12d64b5" /><DocumentWindow Key="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\APP\app.c" Guid="22f56e93-dc54-4e86-accd-0f151eb362fd" /><DocumentWindow Key="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\heartbeatSensor.c" Guid="ff46eea6-8ce1-43ed-a9d7-ce2146118de9" /><DocumentWindow Key="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\log_task.c" Guid="78b8c4bf-cb2b-445c-a5b5-b96e56e41277" /><DocumentWindow Key="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\Generated_Source\PSoC5\UART_1.c" Guid="24114dd7-5802-4b7d-8e14-2f3e06fb8c5f" /><DocumentWindow Key="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\environmentSensor.c" Guid="704c72c2-d08c-4267-ba04-62a2c28bd220" /><DocumentWindow Key="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\environmentSensor.h" Guid="fc684ac9-5e7d-4a25-8ff1-6735df2aa9fc" /><DocumentWindow Key="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\heartbeatSensor.h" Guid="941087ab-b31e-4fe0-8694-0a5d08f1580d" /><DocumentWindow Key="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\bsp_gpio.h" Guid="cf18abcf-d9cd-4007-ba0f-3e2f26f41363" /><DocumentWindow Key="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\bsp_gpio.c" Guid="709865bd-6ffb-464f-acc8-f49e4c6c1e38" /><DocumentWindow Key="C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\APP\includes.h" Guid="bac9b734-2b33-443a-a82b-0b1daef12648" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
