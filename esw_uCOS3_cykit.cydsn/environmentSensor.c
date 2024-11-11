@@ -16,7 +16,7 @@ OS_TCB BME688_Task_TCB;                              // Task Control Block for B
 CPU_STK BME688_TaskStk[APP_CFG_TASK_BME688_STK_SIZE]; // Stack for BME688 task
 
 /* Initialize the message queue to process send the environment values to processing tasks*/
-void initMessageQueue(){
+void initializeMessageQueueEnvironment(){
   OS_ERR   os_err;
   OSQCreate(&CommQSPIData, "Message Queue to send environment data from SPI as Message", MESSAGE_QUEUE_SIZE, &os_err);
   if (os_err == OS_ERR_NONE) {
@@ -222,7 +222,7 @@ static void bme688_Task(void *p_arg){
   }  
   
   Log_Write(LOG_LEVEL_SPI, "Creating message queue...", 0);
-  initMessageQueue();
+  initializeMessageQueueEnvironment();
     
   while(DEF_TRUE){
     //place button semaphore

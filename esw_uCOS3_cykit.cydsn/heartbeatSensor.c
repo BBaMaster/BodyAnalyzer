@@ -8,7 +8,6 @@ void updateHeartRate(void);
 void updateSpO2(void);
 void enqueueHeartRate(CPU_INT32S heart_rate);
 void enqueueSpO2(CPU_INT32S spO2);
-void initMessageQueue(void);
 CPU_INT32S calculateSpO2(CPU_INT32S ac_red, CPU_INT32S dc_red, CPU_INT32S ac_ir, CPU_INT32S dc_ir);
 CPU_INT16S averageDCEstimator(CPU_INT32S *p, CPU_INT32U x);
 CPU_INT16S lowPassFIRFilter(CPU_INT16S din);
@@ -44,7 +43,7 @@ OS_TCB MAX30102_Task_TCB;                              // Task Control Block for
 CPU_STK MAX30102_TaskStk[APP_CFG_TASK_MAX30102_STK_SIZE]; // Stack for MAX30102 task
 
 /* Initialize the message queue to process send the heart rate & SpO2 values to*/
-void initMessageQueue(){
+void initializeMessageQueueOximiter(){
 
   OS_ERR   os_err;
   
@@ -117,7 +116,7 @@ static void max30102_Task(void *p_arg) {
     }
     
     Log_Write(LOG_LEVEL_I2C, "Creating message queues...", 0);
-    initMessageQueue();
+    initializeMessageQueueOximiter();
 
     // Infinite loop for continuous sensor data reading and processing
     while (DEF_TRUE) {

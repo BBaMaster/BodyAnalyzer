@@ -15,7 +15,7 @@ static void Data_Processing_Task(void *p_arg);
 
  @param none
 **/
-void initMessageQueues(){
+void initializeMessageQueuesDataProcessing(){
 
   OS_ERR   os_err;
   OSQCreate(&CommQProcessedOximeterData, "Creating message queue to send processed oximeter values", DATA_PROCESSING_QUEUE_SIZE, &os_err);
@@ -87,7 +87,7 @@ static void Data_Processing_Task(void *p_arg) {
   (void)p_arg;
 
   Log_Write(LOG_LEVEL_DATA_PROCESSING, "Data Processing Task: Initializing message queues ...", 0);
-  initMessageQueues();
+  initializeMessageQueuesDataProcessing();
   
   while(DEF_ON) {
     

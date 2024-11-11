@@ -1,5 +1,73 @@
---------------- Build Started: 11/10/2024 22:35:06 Project: esw_uCOS3_cykit, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+--------------- Build Started: 11/11/2024 08:57:40 Project: esw_uCOS3_cykit, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
 The code generation step is up to date.
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/app.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c APP\app.c -o .\CortexM3\ARM_GCC_541\Debug\app.o
+In file included from ./bsp_gpio.h:15:0,
+                 from .\APP/includes.h:66,
+                 from APP\app.c:14:
+./gpio_tasks.h:23:13: warning: 'BUT_Task' declared 'static' but never defined [-Wunused-function]
+ static void BUT_Task(void *p_arg);
+             ^
+./gpio_tasks.h:24:20: warning: 'button_variable' defined but not used [-Wunused-variable]
+ static CPU_BOOLEAN button_variable;
+                    ^
+./gpio_tasks.h:29:13: warning: 'LedRB_Task' declared 'static' but never defined [-Wunused-function]
+ static void LedRB_Task(void *p_arg);
+             ^
+./gpio_tasks.h:32:13: warning: 'LedG_Task' declared 'static' but never defined [-Wunused-function]
+ static void LedG_Task(void *p_arg);
+             ^
+In file included from APP\app.c:17:0:
+./heartbeatSensor.h:41:13: warning: 'max30102_Task' declared 'static' but never defined [-Wunused-function]
+ static void max30102_Task(void *p_arg);
+             ^
+In file included from APP\app.c:18:0:
+./environmentSensor.h:34:13: warning: 'bme688_Task' declared 'static' but never defined [-Wunused-function]
+ static void bme688_Task(void *p_arg);
+             ^
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/log_task.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c log_task.c -o .\CortexM3\ARM_GCC_541\Debug\log_task.o
+In file included from ./bsp_gpio.h:15:0,
+                 from .\APP/includes.h:66,
+                 from log_task.h:4,
+                 from log_task.c:1:
+./gpio_tasks.h:23:13: warning: 'BUT_Task' declared 'static' but never defined [-Wunused-function]
+ static void BUT_Task(void *p_arg);
+             ^
+./gpio_tasks.h:24:20: warning: 'button_variable' defined but not used [-Wunused-variable]
+ static CPU_BOOLEAN button_variable;
+                    ^
+./gpio_tasks.h:29:13: warning: 'LedRB_Task' declared 'static' but never defined [-Wunused-function]
+ static void LedRB_Task(void *p_arg);
+             ^
+./gpio_tasks.h:32:13: warning: 'LedG_Task' declared 'static' but never defined [-Wunused-function]
+ static void LedG_Task(void *p_arg);
+             ^
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/heartbeatSensor.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c heartbeatSensor.c -o .\CortexM3\ARM_GCC_541\Debug\heartbeatSensor.o
+heartbeatSensor.c: In function 'enqueueHeartRate':
+heartbeatSensor.c:276:14: warning: variable 'entries' set but not used [-Wunused-but-set-variable]
+   OS_MSG_QTY entries;
+              ^
+heartbeatSensor.c: In function 'enqueueSpO2':
+heartbeatSensor.c:314:14: warning: variable 'entries' set but not used [-Wunused-but-set-variable]
+   OS_MSG_QTY entries;
+              ^
+In file included from ./bsp_gpio.h:15:0,
+                 from .\APP/includes.h:66,
+                 from bsp_i2c.h:7,
+                 from heartbeatSensor.h:6,
+                 from heartbeatSensor.c:1:
+heartbeatSensor.c: At top level:
+./gpio_tasks.h:23:13: warning: 'BUT_Task' declared 'static' but never defined [-Wunused-function]
+ static void BUT_Task(void *p_arg);
+             ^
+./gpio_tasks.h:24:20: warning: 'button_variable' defined but not used [-Wunused-variable]
+ static CPU_BOOLEAN button_variable;
+                    ^
+./gpio_tasks.h:29:13: warning: 'LedRB_Task' declared 'static' but never defined [-Wunused-function]
+ static void LedRB_Task(void *p_arg);
+             ^
+./gpio_tasks.h:32:13: warning: 'LedG_Task' declared 'static' but never defined [-Wunused-function]
+ static void LedG_Task(void *p_arg);
+             ^
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/environmentSensor.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c environmentSensor.c -o .\CortexM3\ARM_GCC_541\Debug\environmentSensor.o
 environmentSensor.c: In function 'bsp_i2c_read_bme':
 .\SensorLib\bme688/bme68x_defs.h:124:58: warning: return makes pointer from integer without a cast [-Wint-conversion]
@@ -38,162 +106,127 @@ environmentSensor.c:140:24: warning: assignment from incompatible pointer type [
 environmentSensor.c:145:28: warning: unused variable 'check_heatr_conf' [-Wunused-variable]
    struct bme68x_heatr_conf check_heatr_conf;
                             ^
-In file included from .\APP/includes.h:66:0,
+In file included from ./bsp_gpio.h:15:0,
+                 from .\APP/includes.h:66,
                  from ./bsp_i2c.h:7,
                  from ./environmentSensor.h:17,
                  from environmentSensor.c:13:
 environmentSensor.c: At top level:
-./bsp_gpio.h:46:13: warning: 'BUT_Task' declared 'static' but never defined [-Wunused-function]
+./gpio_tasks.h:23:13: warning: 'BUT_Task' declared 'static' but never defined [-Wunused-function]
  static void BUT_Task(void *p_arg);
              ^
-./bsp_gpio.h:51:13: warning: 'LedR_Task' declared 'static' but never defined [-Wunused-function]
- static void LedR_Task(void *p_arg);
+./gpio_tasks.h:24:20: warning: 'button_variable' defined but not used [-Wunused-variable]
+ static CPU_BOOLEAN button_variable;
+                    ^
+./gpio_tasks.h:29:13: warning: 'LedRB_Task' declared 'static' but never defined [-Wunused-function]
+ static void LedRB_Task(void *p_arg);
              ^
-./bsp_gpio.h:55:13: warning: 'LedG_Task' declared 'static' but never defined [-Wunused-function]
+./gpio_tasks.h:32:13: warning: 'LedG_Task' declared 'static' but never defined [-Wunused-function]
  static void LedG_Task(void *p_arg);
-             ^
-./bsp_gpio.h:59:13: warning: 'LedB_Task' declared 'static' but never defined [-Wunused-function]
- static void LedB_Task(void *p_arg);
              ^
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/data_processing_task.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c data_processing_task.c -o .\CortexM3\ARM_GCC_541\Debug\data_processing_task.o
 data_processing_task.c: In function 'Data_Processing_Task':
 data_processing_task.c:83:14: warning: variable 'entries' set but not used [-Wunused-but-set-variable]
    OS_MSG_QTY entries;
               ^
-In file included from .\APP/includes.h:66:0,
+In file included from ./bsp_gpio.h:15:0,
+                 from .\APP/includes.h:66,
                  from data_processing_task.h:5,
                  from data_processing_task.c:1:
 data_processing_task.c: At top level:
-./bsp_gpio.h:46:13: warning: 'BUT_Task' declared 'static' but never defined [-Wunused-function]
+./gpio_tasks.h:23:13: warning: 'BUT_Task' declared 'static' but never defined [-Wunused-function]
  static void BUT_Task(void *p_arg);
              ^
-./bsp_gpio.h:51:13: warning: 'LedR_Task' declared 'static' but never defined [-Wunused-function]
- static void LedR_Task(void *p_arg);
+./gpio_tasks.h:24:20: warning: 'button_variable' defined but not used [-Wunused-variable]
+ static CPU_BOOLEAN button_variable;
+                    ^
+./gpio_tasks.h:29:13: warning: 'LedRB_Task' declared 'static' but never defined [-Wunused-function]
+ static void LedRB_Task(void *p_arg);
              ^
-./bsp_gpio.h:55:13: warning: 'LedG_Task' declared 'static' but never defined [-Wunused-function]
+./gpio_tasks.h:32:13: warning: 'LedG_Task' declared 'static' but never defined [-Wunused-function]
  static void LedG_Task(void *p_arg);
              ^
-./bsp_gpio.h:59:13: warning: 'LedB_Task' declared 'static' but never defined [-Wunused-function]
- static void LedB_Task(void *p_arg);
-             ^
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/bsp_os.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c BSP\OS\uCOS-III\bsp_os.c -o .\CortexM3\ARM_GCC_541\Debug\bsp_os.o
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/gpio_tasks.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c gpio_tasks.c -o .\CortexM3\ARM_GCC_541\Debug\gpio_tasks.o
+gpio_tasks.c: In function 'LedRB_Task':
+gpio_tasks.c:117:10: warning: unused variable 'os_err' [-Wunused-variable]
+   OS_ERR os_err;
+          ^
+gpio_tasks.c: In function 'LedG_Task':
+gpio_tasks.c:157:10: warning: unused variable 'os_err' [-Wunused-variable]
+   OS_ERR os_err;
+          ^
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/bsp.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c BSP\bsp.c -o .\CortexM3\ARM_GCC_541\Debug\bsp.o
-In file included from BSP\bsp.c:40:0:
-./bsp_gpio.h:46:13: warning: 'BUT_Task' declared 'static' but never defined [-Wunused-function]
+In file included from ./bsp_gpio.h:15:0,
+                 from BSP\bsp.c:40:
+./gpio_tasks.h:23:13: warning: 'BUT_Task' declared 'static' but never defined [-Wunused-function]
  static void BUT_Task(void *p_arg);
              ^
-./bsp_gpio.h:51:13: warning: 'LedR_Task' declared 'static' but never defined [-Wunused-function]
- static void LedR_Task(void *p_arg);
+./gpio_tasks.h:24:20: warning: 'button_variable' defined but not used [-Wunused-variable]
+ static CPU_BOOLEAN button_variable;
+                    ^
+./gpio_tasks.h:29:13: warning: 'LedRB_Task' declared 'static' but never defined [-Wunused-function]
+ static void LedRB_Task(void *p_arg);
              ^
-./bsp_gpio.h:55:13: warning: 'LedG_Task' declared 'static' but never defined [-Wunused-function]
+./gpio_tasks.h:32:13: warning: 'LedG_Task' declared 'static' but never defined [-Wunused-function]
  static void LedG_Task(void *p_arg);
              ^
-./bsp_gpio.h:59:13: warning: 'LedB_Task' declared 'static' but never defined [-Wunused-function]
- static void LedB_Task(void *p_arg);
-             ^
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/cpu_bsp.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c BSP\cpu_bsp.c -o .\CortexM3\ARM_GCC_541\Debug\cpu_bsp.o
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/bsp_uart.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c bsp_uart.c -o .\CortexM3\ARM_GCC_541\Debug\bsp_uart.o
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/bsp_gpio.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c bsp_gpio.c -o .\CortexM3\ARM_GCC_541\Debug\bsp_gpio.o
-bsp_gpio.c: In function 'init_gpio':
-bsp_gpio.c:53:13: error: 'LOG_LEVEL_BUT' undeclared (first use in this function)
-   Log_Write(LOG_LEVEL_BUT, "(init_gpio) Knopf-Task wird erstellt", os_err);
+In file included from bsp_gpio.h:15:0,
+                 from bsp_gpio.c:13:
+./gpio_tasks.h:23:13: warning: 'BUT_Task' declared 'static' but never defined [-Wunused-function]
+ static void BUT_Task(void *p_arg);
              ^
-bsp_gpio.c:53:13: note: each undeclared identifier is reported only once for each function it appears in
-bsp_gpio.c:61:30: error: 'BUT_TaskStk' undeclared (first use in this function)
-                  (CPU_STK *)&BUT_TaskStk[0],
-                              ^
-bsp_gpio.c:63:32: error: 'APP_CFG_TASK_BUT_STK_SIZE' undeclared (first use in this function)
-                  (CPU_STK_SIZE)APP_CFG_TASK_BUT_STK_SIZE,
-                                ^
-bsp_gpio.c:88:42: error: 'LOG_LEVEL_LED' undeclared (first use in this function)
-     if (os_err == OS_ERR_NONE) Log_Write(LOG_LEVEL_LED, "(init_gpio) Led-Task erstellt", os_err);
-                                          ^
-bsp_gpio.c: In function 'BUT_Task':
-bsp_gpio.c:129:18: error: 'Knopf_Sem' undeclared (first use in this function)
-       OSSemPend(&Knopf_Sem, OS_OPT_POST_ALL, &os_err);
-                  ^
-bsp_gpio.c:129:46: warning: passing argument 3 of 'OSSemPend' makes integer from pointer without a cast [-Wint-conversion]
-       OSSemPend(&Knopf_Sem, OS_OPT_POST_ALL, &os_err);
-                                              ^
-In file included from bsp_gpio.h:13:0,
-                 from bsp_gpio.c:13:
-.\uCOS-III\Source/os.h:1594:15: note: expected 'OS_OPT {aka short unsigned int}' but argument is of type 'OS_ERR * {aka enum os_err *}'
- OS_SEM_CTR    OSSemPend                 (OS_SEM                *p_sem,
-               ^
-bsp_gpio.c:129:7: error: too few arguments to function 'OSSemPend'
-       OSSemPend(&Knopf_Sem, OS_OPT_POST_ALL, &os_err);
-       ^
-In file included from bsp_gpio.h:13:0,
-                 from bsp_gpio.c:13:
-.\uCOS-III\Source/os.h:1594:15: note: declared here
- OS_SEM_CTR    OSSemPend                 (OS_SEM                *p_sem,
-               ^
-bsp_gpio.c: In function 'LedB_Task':
-bsp_gpio.c:145:3: error: unknown type name 'LED_CONTROL_MESSAGE'
-   LED_CONTROL_MESSAGE *lcm;
-   ^
-bsp_gpio.c:149:25: error: 'Knopf_Sem' undeclared (first use in this function)
-     if (0 != OSSemPend(&Knopf_Sem, 0, OS_OPT_PEND_BLOCKING, &ts, &os_err))
-                         ^
-bsp_gpio.c:151:31: error: 'CommQProcessedEnvironmentData' undeclared (first use in this function)
-       if (0 != (lcm =OSQPend(&CommQProcessedEnvironmentData, 0, OS_OPT_PEND_BLOCKING, &lcm_size, &ts, &os_err)))
-                               ^
-The command 'arm-none-eabi-gcc.exe' failed with exit code '1'.
-bsp_gpio.c:151:87: warning: passing argument 4 of 'OSQPend' from incompatible pointer type [-Wincompatible-pointer-types]
-       if (0 != (lcm =OSQPend(&CommQProcessedEnvironmentData, 0, OS_OPT_PEND_BLOCKING, &lcm_size, &ts, &os_err)))
-                                                                                       ^
-In file included from bsp_gpio.h:13:0,
-                 from bsp_gpio.c:13:
-.\uCOS-III\Source/os.h:1539:15: note: expected 'OS_MSG_SIZE * {aka short unsigned int *}' but argument is of type 'OS_MSG_SIZE ** {aka short unsigned int **}'
- void         *OSQPend                   (OS_Q                  *p_q,
-               ^
-bsp_gpio.c:153:32: error: 'LED_CONTROL_MESSAGE' undeclared (first use in this function)
-         if (lcm_size == sizeof(LED_CONTROL_MESSAGE))
-                                ^
-bsp_gpio.c:154:68: error: request for member 'mode_data' in something not a structure or union
-           BSP_PWM_set_Halbperiode(PWM2, 2, Sauerstoffumrechnung(lcm->mode_data));
-                                                                    ^
-bsp_gpio.c: In function 'LedR_Task':
-bsp_gpio.c:174:3: error: unknown type name 'LED_CONTROL_MESSAGE'
-   LED_CONTROL_MESSAGE *lcm;
-   ^
-bsp_gpio.c:178:25: error: 'Knopf_Sem' undeclared (first use in this function)
-     if (0 != OSSemPend(&Knopf_Sem, 0, OS_OPT_PEND_BLOCKING, &ts, &os_err))
-                         ^
-bsp_gpio.c:180:31: error: 'CommQProcessedEnvironmentData' undeclared (first use in this function)
-       if (0 != (lcm =OSQPend(&CommQProcessedEnvironmentData, 0, OS_OPT_PEND_BLOCKING, &lcm_size, &ts, &os_err)))
-                               ^
-bsp_gpio.c:180:87: warning: passing argument 4 of 'OSQPend' from incompatible pointer type [-Wincompatible-pointer-types]
-       if (0 != (lcm =OSQPend(&CommQProcessedEnvironmentData, 0, OS_OPT_PEND_BLOCKING, &lcm_size, &ts, &os_err)))
-                                                                                       ^
-In file included from bsp_gpio.h:13:0,
-                 from bsp_gpio.c:13:
-.\uCOS-III\Source/os.h:1539:15: note: expected 'OS_MSG_SIZE * {aka short unsigned int *}' but argument is of type 'OS_MSG_SIZE ** {aka short unsigned int **}'
- void         *OSQPend                   (OS_Q                  *p_q,
-               ^
-bsp_gpio.c:182:32: error: 'LED_CONTROL_MESSAGE' undeclared (first use in this function)
-         if (lcm_size == sizeof(LED_CONTROL_MESSAGE))
-                                ^
-bsp_gpio.c:183:68: error: request for member 'mode_data' in something not a structure or union
-           BSP_PWM_set_Halbperiode(PWM2, 1, Herzschlagumrechnung(lcm->mode_data));
-                                                                    ^
-bsp_gpio.c: In function 'LedG_Task':
-bsp_gpio.c:204:23: error: 'Knopf_Sem' undeclared (first use in this function)
-   if (0 != OSSemPend(&Knopf_Sem, 0, OS_OPT_PEND_BLOCKING, &ts, &os_err))
-                       ^
-bsp_gpio.c:208:17: error: 'lcm' undeclared (first use in this function)
-       if (0 != (lcm =OSQPend(&CommQProcessedEnvironmentData, 0, OS_OPT_PEND_BLOCKING, &lcm_size, &ts, &os_err)))
-                 ^
-bsp_gpio.c:208:31: error: 'CommQProcessedEnvironmentData' undeclared (first use in this function)
-       if (0 != (lcm =OSQPend(&CommQProcessedEnvironmentData, 0, OS_OPT_PEND_BLOCKING, &lcm_size, &ts, &os_err)))
-                               ^
-bsp_gpio.c:208:88: error: 'lcm_size' undeclared (first use in this function)
-       if (0 != (lcm =OSQPend(&CommQProcessedEnvironmentData, 0, OS_OPT_PEND_BLOCKING, &lcm_size, &ts, &os_err)))
-                                                                                        ^
-bsp_gpio.c:210:32: error: 'LED_CONTROL_MESSAGE' undeclared (first use in this function)
-         if (lcm_size == sizeof(LED_CONTROL_MESSAGE))
-                                ^
-bsp_gpio.c:211:44: warning: implicit declaration of function 'Pastallesumrechung' [-Wimplicit-function-declaration]
-           BSP_PWM_set_Halbperiode(PWM2, 1, Pastallesumrechung(lcm->mode_data));
-                                            ^
---------------- Build Failed: 11/10/2024 22:35:07 ---------------
+./gpio_tasks.h:24:20: warning: 'button_variable' defined but not used [-Wunused-variable]
+ static CPU_BOOLEAN button_variable;
+                    ^
+./gpio_tasks.h:29:13: warning: 'LedRB_Task' declared 'static' but never defined [-Wunused-function]
+ static void LedRB_Task(void *p_arg);
+             ^
+./gpio_tasks.h:32:13: warning: 'LedG_Task' declared 'static' but never defined [-Wunused-function]
+ static void LedG_Task(void *p_arg);
+             ^
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/bsp_i2c.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c bsp_i2c.c -o .\CortexM3\ARM_GCC_541\Debug\bsp_i2c.o
+In file included from ./bsp_gpio.h:15:0,
+                 from .\APP/includes.h:66,
+                 from bsp_i2c.h:7,
+                 from bsp_i2c.c:1:
+./gpio_tasks.h:23:13: warning: 'BUT_Task' declared 'static' but never defined [-Wunused-function]
+ static void BUT_Task(void *p_arg);
+             ^
+./gpio_tasks.h:24:20: warning: 'button_variable' defined but not used [-Wunused-variable]
+ static CPU_BOOLEAN button_variable;
+                    ^
+./gpio_tasks.h:29:13: warning: 'LedRB_Task' declared 'static' but never defined [-Wunused-function]
+ static void LedRB_Task(void *p_arg);
+             ^
+./gpio_tasks.h:32:13: warning: 'LedG_Task' declared 'static' but never defined [-Wunused-function]
+ static void LedG_Task(void *p_arg);
+             ^
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/max30102_interface.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c max30102_interface.c -o .\CortexM3\ARM_GCC_541\Debug\max30102_interface.o
+In file included from ./bsp_gpio.h:15:0,
+                 from .\APP/includes.h:66,
+                 from bsp_i2c.h:7,
+                 from max30102_interface.c:2:
+./gpio_tasks.h:23:13: warning: 'BUT_Task' declared 'static' but never defined [-Wunused-function]
+ static void BUT_Task(void *p_arg);
+             ^
+./gpio_tasks.h:24:20: warning: 'button_variable' defined but not used [-Wunused-variable]
+ static CPU_BOOLEAN button_variable;
+                    ^
+./gpio_tasks.h:29:13: warning: 'LedRB_Task' declared 'static' but never defined [-Wunused-function]
+ static void LedRB_Task(void *p_arg);
+             ^
+./gpio_tasks.h:32:13: warning: 'LedG_Task' declared 'static' but never defined [-Wunused-function]
+ static void LedG_Task(void *p_arg);
+             ^
+arm-none-eabi-ar.exe -rs .\CortexM3\ARM_GCC_541\Debug\esw_uCOS3_cykit.a .\CortexM3\ARM_GCC_541\Debug\UART_1.o .\CortexM3\ARM_GCC_541\Debug\UART_1_PM.o .\CortexM3\ARM_GCC_541\Debug\UART_1_INT.o .\CortexM3\ARM_GCC_541\Debug\UART_1_BOOT.o .\CortexM3\ARM_GCC_541\Debug\Pin_1.o .\CortexM3\ARM_GCC_541\Debug\UART_1_IntClock.o .\CortexM3\ARM_GCC_541\Debug\cy_em_eeprom.o .\CortexM3\ARM_GCC_541\Debug\CyDmac.o .\CortexM3\ARM_GCC_541\Debug\CyFlash.o .\CortexM3\ARM_GCC_541\Debug\CyLib.o .\CortexM3\ARM_GCC_541\Debug\cyPm.o .\CortexM3\ARM_GCC_541\Debug\CySpc.o .\CortexM3\ARM_GCC_541\Debug\cyutils.o .\CortexM3\ARM_GCC_541\Debug\Pin_2.o .\CortexM3\ARM_GCC_541\Debug\push_button.o .\CortexM3\ARM_GCC_541\Debug\SCL_1.o .\CortexM3\ARM_GCC_541\Debug\SDA_1.o .\CortexM3\ARM_GCC_541\Debug\I2C_1.o .\CortexM3\ARM_GCC_541\Debug\I2C_1_BOOT.o .\CortexM3\ARM_GCC_541\Debug\I2C_1_INT.o .\CortexM3\ARM_GCC_541\Debug\I2C_1_PM.o .\CortexM3\ARM_GCC_541\Debug\I2C_1_SLAVE.o .\CortexM3\ARM_GCC_541\Debug\I2C_1_MASTER.o .\CortexM3\ARM_GCC_541\Debug\DMA_I2C_dma.o .\CortexM3\ARM_GCC_541\Debug\DMA_SPI_dma.o .\CortexM3\ARM_GCC_541\Debug\I2C_INTR.o .\CortexM3\ARM_GCC_541\Debug\I2C_DataReady.o .\CortexM3\ARM_GCC_541\Debug\Timer_1.o .\CortexM3\ARM_GCC_541\Debug\Timer_1_PM.o .\CortexM3\ARM_GCC_541\Debug\Timer_ISR.o .\CortexM3\ARM_GCC_541\Debug\Pin_Red_Led_1.o .\CortexM3\ARM_GCC_541\Debug\Pin_Blue_Led_1.o .\CortexM3\ARM_GCC_541\Debug\Pin_Green_Led_1.o .\CortexM3\ARM_GCC_541\Debug\Zeit.o .\CortexM3\ARM_GCC_541\Debug\Zeit_1.o .\CortexM3\ARM_GCC_541\Debug\PWM_ac.o .\CortexM3\ARM_GCC_541\Debug\PWM_ac_PM.o .\CortexM3\ARM_GCC_541\Debug\PWM_hb.o .\CortexM3\ARM_GCC_541\Debug\PWM_hb_PM.o .\CortexM3\ARM_GCC_541\Debug\PWM_bo.o .\CortexM3\ARM_GCC_541\Debug\PWM_bo_PM.o .\CortexM3\ARM_GCC_541\Debug\CyBootAsmGnu.o
+arm-none-eabi-ar.exe: creating .\CortexM3\ARM_GCC_541\Debug\esw_uCOS3_cykit.a
+arm-none-eabi-gcc.exe -Wl,--start-group -o C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\CortexM3\ARM_GCC_541\Debug\esw_uCOS3_cykit.elf .\CortexM3\ARM_GCC_541\Debug\app.o .\CortexM3\ARM_GCC_541\Debug\os_app_hooks.o .\CortexM3\ARM_GCC_541\Debug\log_task.o .\CortexM3\ARM_GCC_541\Debug\heartbeatSensor.o .\CortexM3\ARM_GCC_541\Debug\environmentSensor.o .\CortexM3\ARM_GCC_541\Debug\data_processing_task.o .\CortexM3\ARM_GCC_541\Debug\gpio_tasks.o .\CortexM3\ARM_GCC_541\Debug\bsp_os.o .\CortexM3\ARM_GCC_541\Debug\bsp.o .\CortexM3\ARM_GCC_541\Debug\cpu_bsp.o .\CortexM3\ARM_GCC_541\Debug\bsp_uart.o .\CortexM3\ARM_GCC_541\Debug\bsp_gpio.o .\CortexM3\ARM_GCC_541\Debug\bsp_i2c.o .\CortexM3\ARM_GCC_541\Debug\bsp_pwm.o .\CortexM3\ARM_GCC_541\Debug\cpu_c.o .\CortexM3\ARM_GCC_541\Debug\cpu_core.o .\CortexM3\ARM_GCC_541\Debug\lib_math.o .\CortexM3\ARM_GCC_541\Debug\lib_mem.o .\CortexM3\ARM_GCC_541\Debug\lib_str.o .\CortexM3\ARM_GCC_541\Debug\lib_ascii.o .\CortexM3\ARM_GCC_541\Debug\os_cpu_c.o .\CortexM3\ARM_GCC_541\Debug\os_pend_multi.o .\CortexM3\ARM_GCC_541\Debug\os_prio.o .\CortexM3\ARM_GCC_541\Debug\os_q.o .\CortexM3\ARM_GCC_541\Debug\os_sem.o .\CortexM3\ARM_GCC_541\Debug\os_stat.o .\CortexM3\ARM_GCC_541\Debug\os_task.o .\CortexM3\ARM_GCC_541\Debug\os_tick.o .\CortexM3\ARM_GCC_541\Debug\os_time.o .\CortexM3\ARM_GCC_541\Debug\os_tmr.o .\CortexM3\ARM_GCC_541\Debug\os_var.o .\CortexM3\ARM_GCC_541\Debug\os_cfg_app.o .\CortexM3\ARM_GCC_541\Debug\os_core.o .\CortexM3\ARM_GCC_541\Debug\os_dbg.o .\CortexM3\ARM_GCC_541\Debug\os_flag.o .\CortexM3\ARM_GCC_541\Debug\os_int.o .\CortexM3\ARM_GCC_541\Debug\os_mem.o .\CortexM3\ARM_GCC_541\Debug\os_msg.o .\CortexM3\ARM_GCC_541\Debug\os_mutex.o .\CortexM3\ARM_GCC_541\Debug\max30102_interface.o .\CortexM3\ARM_GCC_541\Debug\driver_max30102.o .\CortexM3\ARM_GCC_541\Debug\bme68x.o .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o .\CortexM3\ARM_GCC_541\Debug\cymetadata.o .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o .\CortexM3\ARM_GCC_541\Debug\cpu_a.o .\CortexM3\ARM_GCC_541\Debug\os_cpu_a.o .\CortexM3\ARM_GCC_541\Debug\esw_uCOS3_cykit.a "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM3\ARM_GCC_541\Debug\CyComponentLibrary.a" -mcpu=cortex-m3 -mthumb -L Generated_Source\PSoC5 -Wl,-Map,.\CortexM3\ARM_GCC_541\Debug/esw_uCOS3_cykit.map -T Generated_Source\PSoC5\cm3gcc.ld -specs=nano.specs -Wl,--gc-sections -g -ffunction-sections -Og -ffat-lto-objects -Wl,--end-group
+cyelftool.exe -C C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\CortexM3\ARM_GCC_541\Debug\esw_uCOS3_cykit.elf --flash_row_size 256 --flash_size 262144 --flash_offset 0x00000000
+No ELF section .cychecksum found, creating one
+Application checksum calculated and stored in ELF section .cychecksum
+Checksum calculated and stored in ELF section .cymeta
+cyelftool.exe -S C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\CortexM3\ARM_GCC_541\Debug\esw_uCOS3_cykit.elf
+Flash used: 40968 of 262144 bytes (15,6 %).
+SRAM used: 27785 of 65536 bytes (42,4 %). Stack: 2048 bytes. Heap: 128 bytes.
+--------------- Build Succeeded: 11/11/2024 08:57:44 ---------------

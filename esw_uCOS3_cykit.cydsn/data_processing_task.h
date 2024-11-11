@@ -88,7 +88,7 @@ CPU_BOOLEAN processRawOximeterData(DATA_SET_PACKAGE_OXIMETER *data_oximeter_pack
 CPU_BOOLEAN processRawEnvironmentData(DATA_SET_PACKAGE_ENVIRONMENT *data_environment_package);
 CPU_BOOLEAN retrieveSensorData(OS_Q *queue, CPU_INT08U *data_field, const char *sensor_name);
 CPU_BOOLEAN isEnvironmentDataInRange(DATA_SET_PACKAGE_ENVIRONMENT *data_environment_package);
-void initMessageQueues();
+void initializeMessageQueuesDataProcessing();
 
   
 #endif /* DATA_PROCESSING_TASK_H */

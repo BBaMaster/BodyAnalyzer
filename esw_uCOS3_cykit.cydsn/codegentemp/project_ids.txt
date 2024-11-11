@@ -1,6 +1,7 @@
-C:\Users\Kenne\Downloads\BodyAnalyzer-main(3)\BodyAnalyzer-main\esw_uCOS3_cykit.cydsn\esw_uCOS3_cykit.cyprj|80cc1931-a0a2-4b8f-92d9-599dadee3f82
-C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|e816fe8e-bb21-4e46-a308-d3d8d93c5540
-C:\Users\Kenne\Documents\PSoC Creator\4.4\Downloads ( 4.4).cylib\Downloads ( 4.4).cyprj|f2fa8ed1-e429-4613-9b5d-56ea1249d4a5
-C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|c7f836ce-c42d-4128-9fbd-aece2169ec20
-C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|a63abafa-1594-469a-89f6-130f77207ee0
-C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|daeed438-a4a1-4dc7-bf5d-5d073e445529
+C:\cypress\BodyAnalyzer\esw_uCOS3_cykit.cydsn\esw_uCOS3_cykit.cyprj|fcd7c250-f403-49af-9550-dbaa79f38628
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|a4b43e77-16c6-408a-a6d1-daff2a87ccda
+C:\Users\batuh\OneDrive\Dokumente\PSoC Creator\4.4\Downloads ( 4.4).cylib\Downloads ( 4.4).cyprj|98321471-80c9-479a-853e-ebcf1e051bc3
+C:\Users\batuh\OneDrive\Dokumente\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|784087b2-7e9f-4f3f-a6bb-928211c73e22
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|4a4bd5e1-ee25-48c2-9a96-142fab614832
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|306f5d67-52ea-45fb-939c-092e1f0fa9c2
+C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|fca05ac5-4d96-4505-a1ab-c5e2d5e5d763

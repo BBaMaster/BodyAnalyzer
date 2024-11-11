@@ -1,0 +1,1169 @@
+ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccNdtGuq.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"bsp_pwm.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.BSP_PWM_set_Halfperiod,"ax",%progbits
+  20              		.align	2
+  21              		.global	BSP_PWM_set_Halfperiod
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	BSP_PWM_set_Halfperiod, %function
+  25              	BSP_PWM_set_Halfperiod:
+  26              	.LFB0:
+  27              		.file 1 "bsp_pwm.c"
+   1:bsp_pwm.c     **** /* ========================================
+   2:bsp_pwm.c     ****  *
+   3:bsp_pwm.c     ****  * Copyright YOUR COMPANY, THE YEAR
+   4:bsp_pwm.c     ****  * All Rights Reserved
+   5:bsp_pwm.c     ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:bsp_pwm.c     ****  *
+   7:bsp_pwm.c     ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:bsp_pwm.c     ****  * WHICH IS THE PROPERTY OF your company.
+   9:bsp_pwm.c     ****  *
+  10:bsp_pwm.c     ****  * ========================================
+  11:bsp_pwm.c     **** */
+  12:bsp_pwm.c     **** 
+  13:bsp_pwm.c     **** #include <bsp_pwm.h>
+  14:bsp_pwm.c     **** 
+  15:bsp_pwm.c     **** /*
+  16:bsp_pwm.c     **** Beschreibung: Setzt die Wechselzeit des gewählten PWMs auf die gesendete
+  17:bsp_pwm.c     ****               Halbperiode am gewählten Ausgang
+  18:bsp_pwm.c     **** Argumente: PWM Ist der PWM
+  19:bsp_pwm.c     ****            Ausgang ist der Ausgang des PWMs
+  20:bsp_pwm.c     ****            halbperiode ist die Halbperiode die auf den Ausgang des PWMs
+  21:bsp_pwm.c     ****                        geschrieben werden soll
+  22:bsp_pwm.c     **** Rückgabe: Nichts
+  23:bsp_pwm.c     **** Rufer: App_TaskPWM
+  24:bsp_pwm.c     **** Notizen: Keine
+  25:bsp_pwm.c     **** */
+  26:bsp_pwm.c     **** void BSP_PWM_set_Halfperiod(CPU_INT08U pwm, CPU_INT08U halfperiod)
+  27:bsp_pwm.c     **** {
+  28              		.loc 1 27 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccNdtGuq.s 			page 2
+
+
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              	.LVL0:
+  33 0000 08B5     		push	{r3, lr}
+  34              		.cfi_def_cfa_offset 8
+  35              		.cfi_offset 3, -8
+  36              		.cfi_offset 14, -4
+  28:bsp_pwm.c     ****   if (pwm == PWM_ac) PWM_ac_WriteCompare(halfperiod);
+  37              		.loc 1 28 0
+  38 0002 0228     		cmp	r0, #2
+  39 0004 03D1     		bne	.L2
+  40              		.loc 1 28 0 is_stmt 0 discriminator 1
+  41 0006 0846     		mov	r0, r1
+  42              	.LVL1:
+  43 0008 FFF7FEFF 		bl	PWM_ac_WriteCompare
+  44              	.LVL2:
+  45 000c 08BD     		pop	{r3, pc}
+  46              	.LVL3:
+  47              	.L2:
+  29:bsp_pwm.c     ****   else if (pwm == PWM_bo) PWM_bo_WriteCompare(halfperiod);
+  48              		.loc 1 29 0 is_stmt 1
+  49 000e 0328     		cmp	r0, #3
+  50 0010 03D1     		bne	.L4
+  51              		.loc 1 29 0 is_stmt 0 discriminator 1
+  52 0012 0846     		mov	r0, r1
+  53              	.LVL4:
+  54 0014 FFF7FEFF 		bl	PWM_bo_WriteCompare
+  55              	.LVL5:
+  56 0018 08BD     		pop	{r3, pc}
+  57              	.LVL6:
+  58              	.L4:
+  30:bsp_pwm.c     ****   else if (pwm == PWM_hb) PWM_hb_WriteCompare(halfperiod);
+  59              		.loc 1 30 0 is_stmt 1
+  60 001a 0128     		cmp	r0, #1
+  61 001c 02D1     		bne	.L1
+  62              		.loc 1 30 0 is_stmt 0 discriminator 1
+  63 001e 0846     		mov	r0, r1
+  64              	.LVL7:
+  65 0020 FFF7FEFF 		bl	PWM_hb_WriteCompare
+  66              	.LVL8:
+  67              	.L1:
+  68 0024 08BD     		pop	{r3, pc}
+  69              		.cfi_endproc
+  70              	.LFE0:
+  71              		.size	BSP_PWM_set_Halfperiod, .-BSP_PWM_set_Halfperiod
+  72 0026 00BF     		.section	.text.BSP_PWM_set_Period,"ax",%progbits
+  73              		.align	2
+  74              		.global	BSP_PWM_set_Period
+  75              		.thumb
+  76              		.thumb_func
+  77              		.type	BSP_PWM_set_Period, %function
+  78              	BSP_PWM_set_Period:
+  79              	.LFB1:
+  31:bsp_pwm.c     **** }
+  32:bsp_pwm.c     **** 
+  33:bsp_pwm.c     **** void BSP_PWM_set_Period(CPU_INT08U pwm, CPU_INT08U period)
+  34:bsp_pwm.c     **** {
+  80              		.loc 1 34 0 is_stmt 1
+ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccNdtGuq.s 			page 3
+
+
+  81              		.cfi_startproc
+  82              		@ args = 0, pretend = 0, frame = 0
+  83              		@ frame_needed = 0, uses_anonymous_args = 0
+  84              	.LVL9:
+  85 0000 08B5     		push	{r3, lr}
+  86              		.cfi_def_cfa_offset 8
+  87              		.cfi_offset 3, -8
+  88              		.cfi_offset 14, -4
+  35:bsp_pwm.c     ****   if (pwm == PWM_ac) PWM_ac_WritePeriod(period);
+  89              		.loc 1 35 0
+  90 0002 0228     		cmp	r0, #2
+  91 0004 03D1     		bne	.L7
+  92              		.loc 1 35 0 is_stmt 0 discriminator 1
+  93 0006 0846     		mov	r0, r1
+  94              	.LVL10:
+  95 0008 FFF7FEFF 		bl	PWM_ac_WritePeriod
+  96              	.LVL11:
+  97 000c 08BD     		pop	{r3, pc}
+  98              	.LVL12:
+  99              	.L7:
+  36:bsp_pwm.c     ****   else if (pwm == PWM_bo) PWM_bo_WritePeriod(period);
+ 100              		.loc 1 36 0 is_stmt 1
+ 101 000e 0328     		cmp	r0, #3
+ 102 0010 03D1     		bne	.L9
+ 103              		.loc 1 36 0 is_stmt 0 discriminator 1
+ 104 0012 0846     		mov	r0, r1
+ 105              	.LVL13:
+ 106 0014 FFF7FEFF 		bl	PWM_bo_WritePeriod
+ 107              	.LVL14:
+ 108 0018 08BD     		pop	{r3, pc}
+ 109              	.LVL15:
+ 110              	.L9:
+  37:bsp_pwm.c     ****   else if (pwm == PWM_hb) PWM_hb_WritePeriod(period);
+ 111              		.loc 1 37 0 is_stmt 1
+ 112 001a 0128     		cmp	r0, #1
+ 113 001c 02D1     		bne	.L6
+ 114              		.loc 1 37 0 is_stmt 0 discriminator 1
+ 115 001e 0846     		mov	r0, r1
+ 116              	.LVL16:
+ 117 0020 FFF7FEFF 		bl	PWM_hb_WritePeriod
+ 118              	.LVL17:
+ 119              	.L6:
+ 120 0024 08BD     		pop	{r3, pc}
+ 121              		.cfi_endproc
+ 122              	.LFE1:
+ 123              		.size	BSP_PWM_set_Period, .-BSP_PWM_set_Period
+ 124 0026 00BF     		.section	.text.BSP_PWM_Start,"ax",%progbits
+ 125              		.align	2
+ 126              		.global	BSP_PWM_Start
+ 127              		.thumb
+ 128              		.thumb_func
+ 129              		.type	BSP_PWM_Start, %function
+ 130              	BSP_PWM_Start:
+ 131              	.LFB2:
+  38:bsp_pwm.c     **** }
+  39:bsp_pwm.c     **** 
+  40:bsp_pwm.c     **** /*
+ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccNdtGuq.s 			page 4
+
+
+  41:bsp_pwm.c     **** Beschreibung: Startet einen PWM
+  42:bsp_pwm.c     **** Argumente: Gewählter PWM
+  43:bsp_pwm.c     **** Rückgabe: Nichts
+  44:bsp_pwm.c     **** Rufer: App_ObjCreate()
+  45:bsp_pwm.c     **** Notizen: Keine
+  46:bsp_pwm.c     **** */
+  47:bsp_pwm.c     **** void BSP_PWM_Start(CPU_INT08U pwm)
+  48:bsp_pwm.c     **** {
+ 132              		.loc 1 48 0 is_stmt 1
+ 133              		.cfi_startproc
+ 134              		@ args = 0, pretend = 0, frame = 0
+ 135              		@ frame_needed = 0, uses_anonymous_args = 0
+ 136              	.LVL18:
+ 137 0000 08B5     		push	{r3, lr}
+ 138              		.cfi_def_cfa_offset 8
+ 139              		.cfi_offset 3, -8
+ 140              		.cfi_offset 14, -4
+  49:bsp_pwm.c     ****   if (pwm == PWM_ac) PWM_ac_Start();
+ 141              		.loc 1 49 0
+ 142 0002 0228     		cmp	r0, #2
+ 143 0004 02D1     		bne	.L12
+ 144              		.loc 1 49 0 is_stmt 0 discriminator 1
+ 145 0006 FFF7FEFF 		bl	PWM_ac_Start
+ 146              	.LVL19:
+ 147 000a 08BD     		pop	{r3, pc}
+ 148              	.LVL20:
+ 149              	.L12:
+  50:bsp_pwm.c     ****   else if (pwm == PWM_bo) PWM_bo_Start();
+ 150              		.loc 1 50 0 is_stmt 1
+ 151 000c 0328     		cmp	r0, #3
+ 152 000e 02D1     		bne	.L14
+ 153              		.loc 1 50 0 is_stmt 0 discriminator 1
+ 154 0010 FFF7FEFF 		bl	PWM_bo_Start
+ 155              	.LVL21:
+ 156 0014 08BD     		pop	{r3, pc}
+ 157              	.LVL22:
+ 158              	.L14:
+  51:bsp_pwm.c     ****   else if (pwm == PWM_hb) PWM_hb_Start();
+ 159              		.loc 1 51 0 is_stmt 1
+ 160 0016 0128     		cmp	r0, #1
+ 161 0018 01D1     		bne	.L11
+ 162              		.loc 1 51 0 is_stmt 0 discriminator 1
+ 163 001a FFF7FEFF 		bl	PWM_hb_Start
+ 164              	.LVL23:
+ 165              	.L11:
+ 166 001e 08BD     		pop	{r3, pc}
+ 167              		.cfi_endproc
+ 168              	.LFE2:
+ 169              		.size	BSP_PWM_Start, .-BSP_PWM_Start
+ 170              		.section	.text.BSP_PWM_Stop,"ax",%progbits
+ 171              		.align	2
+ 172              		.global	BSP_PWM_Stop
+ 173              		.thumb
+ 174              		.thumb_func
+ 175              		.type	BSP_PWM_Stop, %function
+ 176              	BSP_PWM_Stop:
+ 177              	.LFB3:
+ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccNdtGuq.s 			page 5
+
+
+  52:bsp_pwm.c     **** }
+  53:bsp_pwm.c     **** 
+  54:bsp_pwm.c     **** void BSP_PWM_Stop(CPU_INT08U pwm)
+  55:bsp_pwm.c     **** {
+ 178              		.loc 1 55 0 is_stmt 1
+ 179              		.cfi_startproc
+ 180              		@ args = 0, pretend = 0, frame = 0
+ 181              		@ frame_needed = 0, uses_anonymous_args = 0
+ 182              	.LVL24:
+ 183 0000 08B5     		push	{r3, lr}
+ 184              		.cfi_def_cfa_offset 8
+ 185              		.cfi_offset 3, -8
+ 186              		.cfi_offset 14, -4
+  56:bsp_pwm.c     ****   if (pwm == PWM_ac) PWM_ac_Stop();
+ 187              		.loc 1 56 0
+ 188 0002 0228     		cmp	r0, #2
+ 189 0004 02D1     		bne	.L17
+ 190              		.loc 1 56 0 is_stmt 0 discriminator 1
+ 191 0006 FFF7FEFF 		bl	PWM_ac_Stop
+ 192              	.LVL25:
+ 193 000a 08BD     		pop	{r3, pc}
+ 194              	.LVL26:
+ 195              	.L17:
+  57:bsp_pwm.c     ****   else if (pwm == PWM_bo) PWM_bo_Stop();
+ 196              		.loc 1 57 0 is_stmt 1
+ 197 000c 0328     		cmp	r0, #3
+ 198 000e 02D1     		bne	.L19
+ 199              		.loc 1 57 0 is_stmt 0 discriminator 1
+ 200 0010 FFF7FEFF 		bl	PWM_bo_Stop
+ 201              	.LVL27:
+ 202 0014 08BD     		pop	{r3, pc}
+ 203              	.LVL28:
+ 204              	.L19:
+  58:bsp_pwm.c     ****   else if (pwm == PWM_hb) PWM_hb_Stop();
+ 205              		.loc 1 58 0 is_stmt 1
+ 206 0016 0128     		cmp	r0, #1
+ 207 0018 01D1     		bne	.L16
+ 208              		.loc 1 58 0 is_stmt 0 discriminator 1
+ 209 001a FFF7FEFF 		bl	PWM_hb_Stop
+ 210              	.LVL29:
+ 211              	.L16:
+ 212 001e 08BD     		pop	{r3, pc}
+ 213              		.cfi_endproc
+ 214              	.LFE3:
+ 215              		.size	BSP_PWM_Stop, .-BSP_PWM_Stop
+ 216              		.text
+ 217              	.Letext0:
+ 218              		.file 2 "Generated_Source\\PSoC5/PWM_ac.h"
+ 219              		.file 3 "Generated_Source\\PSoC5/PWM_bo.h"
+ 220              		.file 4 "Generated_Source\\PSoC5/PWM_hb.h"
+ 221              		.file 5 ".\\uC-CPU\\ARM-Cortex-M3\\GNU/cpu.h"
+ 222              		.section	.debug_info,"",%progbits
+ 223              	.Ldebug_info0:
+ 224 0000 38020000 		.4byte	0x238
+ 225 0004 0400     		.2byte	0x4
+ 226 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 227 000a 04       		.byte	0x4
+ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccNdtGuq.s 			page 6
+
+
+ 228 000b 01       		.uleb128 0x1
+ 229 000c BE000000 		.4byte	.LASF32
+ 230 0010 0C       		.byte	0xc
+ 231 0011 4C010000 		.4byte	.LASF33
+ 232 0015 0C000000 		.4byte	.LASF34
+ 233 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 234 001d 00000000 		.4byte	0
+ 235 0021 00000000 		.4byte	.Ldebug_line0
+ 236 0025 02       		.uleb128 0x2
+ 237 0026 01       		.byte	0x1
+ 238 0027 08       		.byte	0x8
+ 239 0028 1B020000 		.4byte	.LASF0
+ 240 002c 02       		.uleb128 0x2
+ 241 002d 01       		.byte	0x1
+ 242 002e 08       		.byte	0x8
+ 243 002f B0000000 		.4byte	.LASF1
+ 244 0033 03       		.uleb128 0x3
+ 245 0034 68010000 		.4byte	.LASF35
+ 246 0038 05       		.byte	0x5
+ 247 0039 78       		.byte	0x78
+ 248 003a 2C000000 		.4byte	0x2c
+ 249 003e 02       		.uleb128 0x2
+ 250 003f 01       		.byte	0x1
+ 251 0040 06       		.byte	0x6
+ 252 0041 87020000 		.4byte	.LASF2
+ 253 0045 02       		.uleb128 0x2
+ 254 0046 02       		.byte	0x2
+ 255 0047 07       		.byte	0x7
+ 256 0048 41000000 		.4byte	.LASF3
+ 257 004c 02       		.uleb128 0x2
+ 258 004d 02       		.byte	0x2
+ 259 004e 05       		.byte	0x5
+ 260 004f 41020000 		.4byte	.LASF4
+ 261 0053 02       		.uleb128 0x2
+ 262 0054 04       		.byte	0x4
+ 263 0055 07       		.byte	0x7
+ 264 0056 54000000 		.4byte	.LASF5
+ 265 005a 04       		.uleb128 0x4
+ 266 005b 04       		.byte	0x4
+ 267 005c 05       		.byte	0x5
+ 268 005d 696E7400 		.ascii	"int\000"
+ 269 0061 02       		.uleb128 0x2
+ 270 0062 08       		.byte	0x8
+ 271 0063 07       		.byte	0x7
+ 272 0064 B7010000 		.4byte	.LASF6
+ 273 0068 02       		.uleb128 0x2
+ 274 0069 08       		.byte	0x8
+ 275 006a 05       		.byte	0x5
+ 276 006b F6010000 		.4byte	.LASF7
+ 277 006f 02       		.uleb128 0x2
+ 278 0070 04       		.byte	0x4
+ 279 0071 04       		.byte	0x4
+ 280 0072 97000000 		.4byte	.LASF8
+ 281 0076 02       		.uleb128 0x2
+ 282 0077 08       		.byte	0x8
+ 283 0078 04       		.byte	0x4
+ 284 0079 73010000 		.4byte	.LASF9
+ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccNdtGuq.s 			page 7
+
+
+ 285 007d 02       		.uleb128 0x2
+ 286 007e 04       		.byte	0x4
+ 287 007f 05       		.byte	0x5
+ 288 0080 4B020000 		.4byte	.LASF10
+ 289 0084 02       		.uleb128 0x2
+ 290 0085 04       		.byte	0x4
+ 291 0086 07       		.byte	0x7
+ 292 0087 56010000 		.4byte	.LASF11
+ 293 008b 02       		.uleb128 0x2
+ 294 008c 08       		.byte	0x8
+ 295 008d 04       		.byte	0x4
+ 296 008e 6E020000 		.4byte	.LASF12
+ 297 0092 02       		.uleb128 0x2
+ 298 0093 04       		.byte	0x4
+ 299 0094 07       		.byte	0x7
+ 300 0095 E1010000 		.4byte	.LASF13
+ 301 0099 05       		.uleb128 0x5
+ 302 009a 04020000 		.4byte	.LASF15
+ 303 009e 01       		.byte	0x1
+ 304 009f 1A       		.byte	0x1a
+ 305 00a0 00000000 		.4byte	.LFB0
+ 306 00a4 26000000 		.4byte	.LFE0-.LFB0
+ 307 00a8 01       		.uleb128 0x1
+ 308 00a9 9C       		.byte	0x9c
+ 309 00aa E8000000 		.4byte	0xe8
+ 310 00ae 06       		.uleb128 0x6
+ 311 00af 70776D00 		.ascii	"pwm\000"
+ 312 00b3 01       		.byte	0x1
+ 313 00b4 1A       		.byte	0x1a
+ 314 00b5 33000000 		.4byte	0x33
+ 315 00b9 00000000 		.4byte	.LLST0
+ 316 00bd 07       		.uleb128 0x7
+ 317 00be 7A010000 		.4byte	.LASF14
+ 318 00c2 01       		.byte	0x1
+ 319 00c3 1A       		.byte	0x1a
+ 320 00c4 33000000 		.4byte	0x33
+ 321 00c8 53000000 		.4byte	.LLST1
+ 322 00cc 08       		.uleb128 0x8
+ 323 00cd 0C000000 		.4byte	.LVL2
+ 324 00d1 B7010000 		.4byte	0x1b7
+ 325 00d5 08       		.uleb128 0x8
+ 326 00d6 18000000 		.4byte	.LVL5
+ 327 00da C2010000 		.4byte	0x1c2
+ 328 00de 08       		.uleb128 0x8
+ 329 00df 24000000 		.4byte	.LVL8
+ 330 00e3 CD010000 		.4byte	0x1cd
+ 331 00e7 00       		.byte	0
+ 332 00e8 05       		.uleb128 0x5
+ 333 00e9 CE010000 		.4byte	.LASF16
+ 334 00ed 01       		.byte	0x1
+ 335 00ee 21       		.byte	0x21
+ 336 00ef 00000000 		.4byte	.LFB1
+ 337 00f3 26000000 		.4byte	.LFE1-.LFB1
+ 338 00f7 01       		.uleb128 0x1
+ 339 00f8 9C       		.byte	0x9c
+ 340 00f9 37010000 		.4byte	0x137
+ 341 00fd 06       		.uleb128 0x6
+ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccNdtGuq.s 			page 8
+
+
+ 342 00fe 70776D00 		.ascii	"pwm\000"
+ 343 0102 01       		.byte	0x1
+ 344 0103 21       		.byte	0x21
+ 345 0104 33000000 		.4byte	0x33
+ 346 0108 A6000000 		.4byte	.LLST2
+ 347 010c 07       		.uleb128 0x7
+ 348 010d 3A000000 		.4byte	.LASF17
+ 349 0111 01       		.byte	0x1
+ 350 0112 21       		.byte	0x21
+ 351 0113 33000000 		.4byte	0x33
+ 352 0117 F9000000 		.4byte	.LLST3
+ 353 011b 08       		.uleb128 0x8
+ 354 011c 0C000000 		.4byte	.LVL11
+ 355 0120 D8010000 		.4byte	0x1d8
+ 356 0124 08       		.uleb128 0x8
+ 357 0125 18000000 		.4byte	.LVL14
+ 358 0129 E3010000 		.4byte	0x1e3
+ 359 012d 08       		.uleb128 0x8
+ 360 012e 24000000 		.4byte	.LVL17
+ 361 0132 EE010000 		.4byte	0x1ee
+ 362 0136 00       		.byte	0
+ 363 0137 05       		.uleb128 0x5
+ 364 0138 61000000 		.4byte	.LASF18
+ 365 013c 01       		.byte	0x1
+ 366 013d 2F       		.byte	0x2f
+ 367 013e 00000000 		.4byte	.LFB2
+ 368 0142 20000000 		.4byte	.LFE2-.LFB2
+ 369 0146 01       		.uleb128 0x1
+ 370 0147 9C       		.byte	0x9c
+ 371 0148 77010000 		.4byte	0x177
+ 372 014c 06       		.uleb128 0x6
+ 373 014d 70776D00 		.ascii	"pwm\000"
+ 374 0151 01       		.byte	0x1
+ 375 0152 2F       		.byte	0x2f
+ 376 0153 33000000 		.4byte	0x33
+ 377 0157 4C010000 		.4byte	.LLST4
+ 378 015b 08       		.uleb128 0x8
+ 379 015c 0A000000 		.4byte	.LVL19
+ 380 0160 F9010000 		.4byte	0x1f9
+ 381 0164 08       		.uleb128 0x8
+ 382 0165 14000000 		.4byte	.LVL21
+ 383 0169 04020000 		.4byte	0x204
+ 384 016d 08       		.uleb128 0x8
+ 385 016e 1E000000 		.4byte	.LVL23
+ 386 0172 0F020000 		.4byte	0x20f
+ 387 0176 00       		.byte	0
+ 388 0177 05       		.uleb128 0x5
+ 389 0178 54020000 		.4byte	.LASF19
+ 390 017c 01       		.byte	0x1
+ 391 017d 36       		.byte	0x36
+ 392 017e 00000000 		.4byte	.LFB3
+ 393 0182 20000000 		.4byte	.LFE3-.LFB3
+ 394 0186 01       		.uleb128 0x1
+ 395 0187 9C       		.byte	0x9c
+ 396 0188 B7010000 		.4byte	0x1b7
+ 397 018c 06       		.uleb128 0x6
+ 398 018d 70776D00 		.ascii	"pwm\000"
+ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccNdtGuq.s 			page 9
+
+
+ 399 0191 01       		.byte	0x1
+ 400 0192 36       		.byte	0x36
+ 401 0193 33000000 		.4byte	0x33
+ 402 0197 9F010000 		.4byte	.LLST5
+ 403 019b 08       		.uleb128 0x8
+ 404 019c 0A000000 		.4byte	.LVL25
+ 405 01a0 1A020000 		.4byte	0x21a
+ 406 01a4 08       		.uleb128 0x8
+ 407 01a5 14000000 		.4byte	.LVL27
+ 408 01a9 25020000 		.4byte	0x225
+ 409 01ad 08       		.uleb128 0x8
+ 410 01ae 1E000000 		.4byte	.LVL29
+ 411 01b2 30020000 		.4byte	0x230
+ 412 01b6 00       		.byte	0
+ 413 01b7 09       		.uleb128 0x9
+ 414 01b8 20020000 		.4byte	.LASF20
+ 415 01bc 20020000 		.4byte	.LASF20
+ 416 01c0 02       		.byte	0x2
+ 417 01c1 C3       		.byte	0xc3
+ 418 01c2 09       		.uleb128 0x9
+ 419 01c3 6F000000 		.4byte	.LASF21
+ 420 01c7 6F000000 		.4byte	.LASF21
+ 421 01cb 03       		.byte	0x3
+ 422 01cc C3       		.byte	0xc3
+ 423 01cd 09       		.uleb128 0x9
+ 424 01ce 83000000 		.4byte	.LASF22
+ 425 01d2 83000000 		.4byte	.LASF22
+ 426 01d6 04       		.byte	0x4
+ 427 01d7 C3       		.byte	0xc3
+ 428 01d8 09       		.uleb128 0x9
+ 429 01d9 A4010000 		.4byte	.LASF23
+ 430 01dd A4010000 		.4byte	.LASF23
+ 431 01e1 02       		.byte	0x2
+ 432 01e2 BE       		.byte	0xbe
+ 433 01e3 09       		.uleb128 0x9
+ 434 01e4 9D000000 		.4byte	.LASF24
+ 435 01e8 9D000000 		.4byte	.LASF24
+ 436 01ec 03       		.byte	0x3
+ 437 01ed BE       		.byte	0xbe
+ 438 01ee 09       		.uleb128 0x9
+ 439 01ef 91010000 		.4byte	.LASF25
+ 440 01f3 91010000 		.4byte	.LASF25
+ 441 01f7 04       		.byte	0x4
+ 442 01f8 BE       		.byte	0xbe
+ 443 01f9 09       		.uleb128 0x9
+ 444 01fa 7A020000 		.4byte	.LASF26
+ 445 01fe 7A020000 		.4byte	.LASF26
+ 446 0202 02       		.byte	0x2
+ 447 0203 92       		.byte	0x92
+ 448 0204 09       		.uleb128 0x9
+ 449 0205 34020000 		.4byte	.LASF27
+ 450 0209 34020000 		.4byte	.LASF27
+ 451 020d 03       		.byte	0x3
+ 452 020e 92       		.byte	0x92
+ 453 020f 09       		.uleb128 0x9
+ 454 0210 61020000 		.4byte	.LASF28
+ 455 0214 61020000 		.4byte	.LASF28
+ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccNdtGuq.s 			page 10
+
+
+ 456 0218 04       		.byte	0x4
+ 457 0219 92       		.byte	0x92
+ 458 021a 09       		.uleb128 0x9
+ 459 021b EA010000 		.4byte	.LASF29
+ 460 021f EA010000 		.4byte	.LASF29
+ 461 0223 02       		.byte	0x2
+ 462 0224 93       		.byte	0x93
+ 463 0225 09       		.uleb128 0x9
+ 464 0226 85010000 		.4byte	.LASF30
+ 465 022a 85010000 		.4byte	.LASF30
+ 466 022e 03       		.byte	0x3
+ 467 022f 93       		.byte	0x93
+ 468 0230 09       		.uleb128 0x9
+ 469 0231 00000000 		.4byte	.LASF31
+ 470 0235 00000000 		.4byte	.LASF31
+ 471 0239 04       		.byte	0x4
+ 472 023a 93       		.byte	0x93
+ 473 023b 00       		.byte	0
+ 474              		.section	.debug_abbrev,"",%progbits
+ 475              	.Ldebug_abbrev0:
+ 476 0000 01       		.uleb128 0x1
+ 477 0001 11       		.uleb128 0x11
+ 478 0002 01       		.byte	0x1
+ 479 0003 25       		.uleb128 0x25
+ 480 0004 0E       		.uleb128 0xe
+ 481 0005 13       		.uleb128 0x13
+ 482 0006 0B       		.uleb128 0xb
+ 483 0007 03       		.uleb128 0x3
+ 484 0008 0E       		.uleb128 0xe
+ 485 0009 1B       		.uleb128 0x1b
+ 486 000a 0E       		.uleb128 0xe
+ 487 000b 55       		.uleb128 0x55
+ 488 000c 17       		.uleb128 0x17
+ 489 000d 11       		.uleb128 0x11
+ 490 000e 01       		.uleb128 0x1
+ 491 000f 10       		.uleb128 0x10
+ 492 0010 17       		.uleb128 0x17
+ 493 0011 00       		.byte	0
+ 494 0012 00       		.byte	0
+ 495 0013 02       		.uleb128 0x2
+ 496 0014 24       		.uleb128 0x24
+ 497 0015 00       		.byte	0
+ 498 0016 0B       		.uleb128 0xb
+ 499 0017 0B       		.uleb128 0xb
+ 500 0018 3E       		.uleb128 0x3e
+ 501 0019 0B       		.uleb128 0xb
+ 502 001a 03       		.uleb128 0x3
+ 503 001b 0E       		.uleb128 0xe
+ 504 001c 00       		.byte	0
+ 505 001d 00       		.byte	0
+ 506 001e 03       		.uleb128 0x3
+ 507 001f 16       		.uleb128 0x16
+ 508 0020 00       		.byte	0
+ 509 0021 03       		.uleb128 0x3
+ 510 0022 0E       		.uleb128 0xe
+ 511 0023 3A       		.uleb128 0x3a
+ 512 0024 0B       		.uleb128 0xb
+ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccNdtGuq.s 			page 11
+
+
+ 513 0025 3B       		.uleb128 0x3b
+ 514 0026 0B       		.uleb128 0xb
+ 515 0027 49       		.uleb128 0x49
+ 516 0028 13       		.uleb128 0x13
+ 517 0029 00       		.byte	0
+ 518 002a 00       		.byte	0
+ 519 002b 04       		.uleb128 0x4
+ 520 002c 24       		.uleb128 0x24
+ 521 002d 00       		.byte	0
+ 522 002e 0B       		.uleb128 0xb
+ 523 002f 0B       		.uleb128 0xb
+ 524 0030 3E       		.uleb128 0x3e
+ 525 0031 0B       		.uleb128 0xb
+ 526 0032 03       		.uleb128 0x3
+ 527 0033 08       		.uleb128 0x8
+ 528 0034 00       		.byte	0
+ 529 0035 00       		.byte	0
+ 530 0036 05       		.uleb128 0x5
+ 531 0037 2E       		.uleb128 0x2e
+ 532 0038 01       		.byte	0x1
+ 533 0039 3F       		.uleb128 0x3f
+ 534 003a 19       		.uleb128 0x19
+ 535 003b 03       		.uleb128 0x3
+ 536 003c 0E       		.uleb128 0xe
+ 537 003d 3A       		.uleb128 0x3a
+ 538 003e 0B       		.uleb128 0xb
+ 539 003f 3B       		.uleb128 0x3b
+ 540 0040 0B       		.uleb128 0xb
+ 541 0041 27       		.uleb128 0x27
+ 542 0042 19       		.uleb128 0x19
+ 543 0043 11       		.uleb128 0x11
+ 544 0044 01       		.uleb128 0x1
+ 545 0045 12       		.uleb128 0x12
+ 546 0046 06       		.uleb128 0x6
+ 547 0047 40       		.uleb128 0x40
+ 548 0048 18       		.uleb128 0x18
+ 549 0049 9742     		.uleb128 0x2117
+ 550 004b 19       		.uleb128 0x19
+ 551 004c 01       		.uleb128 0x1
+ 552 004d 13       		.uleb128 0x13
+ 553 004e 00       		.byte	0
+ 554 004f 00       		.byte	0
+ 555 0050 06       		.uleb128 0x6
+ 556 0051 05       		.uleb128 0x5
+ 557 0052 00       		.byte	0
+ 558 0053 03       		.uleb128 0x3
+ 559 0054 08       		.uleb128 0x8
+ 560 0055 3A       		.uleb128 0x3a
+ 561 0056 0B       		.uleb128 0xb
+ 562 0057 3B       		.uleb128 0x3b
+ 563 0058 0B       		.uleb128 0xb
+ 564 0059 49       		.uleb128 0x49
+ 565 005a 13       		.uleb128 0x13
+ 566 005b 02       		.uleb128 0x2
+ 567 005c 17       		.uleb128 0x17
+ 568 005d 00       		.byte	0
+ 569 005e 00       		.byte	0
+ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccNdtGuq.s 			page 12
+
+
+ 570 005f 07       		.uleb128 0x7
+ 571 0060 05       		.uleb128 0x5
+ 572 0061 00       		.byte	0
+ 573 0062 03       		.uleb128 0x3
+ 574 0063 0E       		.uleb128 0xe
+ 575 0064 3A       		.uleb128 0x3a
+ 576 0065 0B       		.uleb128 0xb
+ 577 0066 3B       		.uleb128 0x3b
+ 578 0067 0B       		.uleb128 0xb
+ 579 0068 49       		.uleb128 0x49
+ 580 0069 13       		.uleb128 0x13
+ 581 006a 02       		.uleb128 0x2
+ 582 006b 17       		.uleb128 0x17
+ 583 006c 00       		.byte	0
+ 584 006d 00       		.byte	0
+ 585 006e 08       		.uleb128 0x8
+ 586 006f 898201   		.uleb128 0x4109
+ 587 0072 00       		.byte	0
+ 588 0073 11       		.uleb128 0x11
+ 589 0074 01       		.uleb128 0x1
+ 590 0075 31       		.uleb128 0x31
+ 591 0076 13       		.uleb128 0x13
+ 592 0077 00       		.byte	0
+ 593 0078 00       		.byte	0
+ 594 0079 09       		.uleb128 0x9
+ 595 007a 2E       		.uleb128 0x2e
+ 596 007b 00       		.byte	0
+ 597 007c 3F       		.uleb128 0x3f
+ 598 007d 19       		.uleb128 0x19
+ 599 007e 3C       		.uleb128 0x3c
+ 600 007f 19       		.uleb128 0x19
+ 601 0080 6E       		.uleb128 0x6e
+ 602 0081 0E       		.uleb128 0xe
+ 603 0082 03       		.uleb128 0x3
+ 604 0083 0E       		.uleb128 0xe
+ 605 0084 3A       		.uleb128 0x3a
+ 606 0085 0B       		.uleb128 0xb
+ 607 0086 3B       		.uleb128 0x3b
+ 608 0087 0B       		.uleb128 0xb
+ 609 0088 00       		.byte	0
+ 610 0089 00       		.byte	0
+ 611 008a 00       		.byte	0
+ 612              		.section	.debug_loc,"",%progbits
+ 613              	.Ldebug_loc0:
+ 614              	.LLST0:
+ 615 0000 00000000 		.4byte	.LVL0
+ 616 0004 08000000 		.4byte	.LVL1
+ 617 0008 0100     		.2byte	0x1
+ 618 000a 50       		.byte	0x50
+ 619 000b 08000000 		.4byte	.LVL1
+ 620 000f 0E000000 		.4byte	.LVL3
+ 621 0013 0400     		.2byte	0x4
+ 622 0015 F3       		.byte	0xf3
+ 623 0016 01       		.uleb128 0x1
+ 624 0017 50       		.byte	0x50
+ 625 0018 9F       		.byte	0x9f
+ 626 0019 0E000000 		.4byte	.LVL3
+ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccNdtGuq.s 			page 13
+
+
+ 627 001d 14000000 		.4byte	.LVL4
+ 628 0021 0100     		.2byte	0x1
+ 629 0023 50       		.byte	0x50
+ 630 0024 14000000 		.4byte	.LVL4
+ 631 0028 1A000000 		.4byte	.LVL6
+ 632 002c 0400     		.2byte	0x4
+ 633 002e F3       		.byte	0xf3
+ 634 002f 01       		.uleb128 0x1
+ 635 0030 50       		.byte	0x50
+ 636 0031 9F       		.byte	0x9f
+ 637 0032 1A000000 		.4byte	.LVL6
+ 638 0036 20000000 		.4byte	.LVL7
+ 639 003a 0100     		.2byte	0x1
+ 640 003c 50       		.byte	0x50
+ 641 003d 20000000 		.4byte	.LVL7
+ 642 0041 26000000 		.4byte	.LFE0
+ 643 0045 0400     		.2byte	0x4
+ 644 0047 F3       		.byte	0xf3
+ 645 0048 01       		.uleb128 0x1
+ 646 0049 50       		.byte	0x50
+ 647 004a 9F       		.byte	0x9f
+ 648 004b 00000000 		.4byte	0
+ 649 004f 00000000 		.4byte	0
+ 650              	.LLST1:
+ 651 0053 00000000 		.4byte	.LVL0
+ 652 0057 0B000000 		.4byte	.LVL2-1
+ 653 005b 0100     		.2byte	0x1
+ 654 005d 51       		.byte	0x51
+ 655 005e 0B000000 		.4byte	.LVL2-1
+ 656 0062 0E000000 		.4byte	.LVL3
+ 657 0066 0400     		.2byte	0x4
+ 658 0068 F3       		.byte	0xf3
+ 659 0069 01       		.uleb128 0x1
+ 660 006a 51       		.byte	0x51
+ 661 006b 9F       		.byte	0x9f
+ 662 006c 0E000000 		.4byte	.LVL3
+ 663 0070 17000000 		.4byte	.LVL5-1
+ 664 0074 0100     		.2byte	0x1
+ 665 0076 51       		.byte	0x51
+ 666 0077 17000000 		.4byte	.LVL5-1
+ 667 007b 1A000000 		.4byte	.LVL6
+ 668 007f 0400     		.2byte	0x4
+ 669 0081 F3       		.byte	0xf3
+ 670 0082 01       		.uleb128 0x1
+ 671 0083 51       		.byte	0x51
+ 672 0084 9F       		.byte	0x9f
+ 673 0085 1A000000 		.4byte	.LVL6
+ 674 0089 23000000 		.4byte	.LVL8-1
+ 675 008d 0100     		.2byte	0x1
+ 676 008f 51       		.byte	0x51
+ 677 0090 23000000 		.4byte	.LVL8-1
+ 678 0094 26000000 		.4byte	.LFE0
+ 679 0098 0400     		.2byte	0x4
+ 680 009a F3       		.byte	0xf3
+ 681 009b 01       		.uleb128 0x1
+ 682 009c 51       		.byte	0x51
+ 683 009d 9F       		.byte	0x9f
+ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccNdtGuq.s 			page 14
+
+
+ 684 009e 00000000 		.4byte	0
+ 685 00a2 00000000 		.4byte	0
+ 686              	.LLST2:
+ 687 00a6 00000000 		.4byte	.LVL9
+ 688 00aa 08000000 		.4byte	.LVL10
+ 689 00ae 0100     		.2byte	0x1
+ 690 00b0 50       		.byte	0x50
+ 691 00b1 08000000 		.4byte	.LVL10
+ 692 00b5 0E000000 		.4byte	.LVL12
+ 693 00b9 0400     		.2byte	0x4
+ 694 00bb F3       		.byte	0xf3
+ 695 00bc 01       		.uleb128 0x1
+ 696 00bd 50       		.byte	0x50
+ 697 00be 9F       		.byte	0x9f
+ 698 00bf 0E000000 		.4byte	.LVL12
+ 699 00c3 14000000 		.4byte	.LVL13
+ 700 00c7 0100     		.2byte	0x1
+ 701 00c9 50       		.byte	0x50
+ 702 00ca 14000000 		.4byte	.LVL13
+ 703 00ce 1A000000 		.4byte	.LVL15
+ 704 00d2 0400     		.2byte	0x4
+ 705 00d4 F3       		.byte	0xf3
+ 706 00d5 01       		.uleb128 0x1
+ 707 00d6 50       		.byte	0x50
+ 708 00d7 9F       		.byte	0x9f
+ 709 00d8 1A000000 		.4byte	.LVL15
+ 710 00dc 20000000 		.4byte	.LVL16
+ 711 00e0 0100     		.2byte	0x1
+ 712 00e2 50       		.byte	0x50
+ 713 00e3 20000000 		.4byte	.LVL16
+ 714 00e7 26000000 		.4byte	.LFE1
+ 715 00eb 0400     		.2byte	0x4
+ 716 00ed F3       		.byte	0xf3
+ 717 00ee 01       		.uleb128 0x1
+ 718 00ef 50       		.byte	0x50
+ 719 00f0 9F       		.byte	0x9f
+ 720 00f1 00000000 		.4byte	0
+ 721 00f5 00000000 		.4byte	0
+ 722              	.LLST3:
+ 723 00f9 00000000 		.4byte	.LVL9
+ 724 00fd 0B000000 		.4byte	.LVL11-1
+ 725 0101 0100     		.2byte	0x1
+ 726 0103 51       		.byte	0x51
+ 727 0104 0B000000 		.4byte	.LVL11-1
+ 728 0108 0E000000 		.4byte	.LVL12
+ 729 010c 0400     		.2byte	0x4
+ 730 010e F3       		.byte	0xf3
+ 731 010f 01       		.uleb128 0x1
+ 732 0110 51       		.byte	0x51
+ 733 0111 9F       		.byte	0x9f
+ 734 0112 0E000000 		.4byte	.LVL12
+ 735 0116 17000000 		.4byte	.LVL14-1
+ 736 011a 0100     		.2byte	0x1
+ 737 011c 51       		.byte	0x51
+ 738 011d 17000000 		.4byte	.LVL14-1
+ 739 0121 1A000000 		.4byte	.LVL15
+ 740 0125 0400     		.2byte	0x4
+ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccNdtGuq.s 			page 15
+
+
+ 741 0127 F3       		.byte	0xf3
+ 742 0128 01       		.uleb128 0x1
+ 743 0129 51       		.byte	0x51
+ 744 012a 9F       		.byte	0x9f
+ 745 012b 1A000000 		.4byte	.LVL15
+ 746 012f 23000000 		.4byte	.LVL17-1
+ 747 0133 0100     		.2byte	0x1
+ 748 0135 51       		.byte	0x51
+ 749 0136 23000000 		.4byte	.LVL17-1
+ 750 013a 26000000 		.4byte	.LFE1
+ 751 013e 0400     		.2byte	0x4
+ 752 0140 F3       		.byte	0xf3
+ 753 0141 01       		.uleb128 0x1
+ 754 0142 51       		.byte	0x51
+ 755 0143 9F       		.byte	0x9f
+ 756 0144 00000000 		.4byte	0
+ 757 0148 00000000 		.4byte	0
+ 758              	.LLST4:
+ 759 014c 00000000 		.4byte	.LVL18
+ 760 0150 09000000 		.4byte	.LVL19-1
+ 761 0154 0100     		.2byte	0x1
+ 762 0156 50       		.byte	0x50
+ 763 0157 09000000 		.4byte	.LVL19-1
+ 764 015b 0C000000 		.4byte	.LVL20
+ 765 015f 0400     		.2byte	0x4
+ 766 0161 F3       		.byte	0xf3
+ 767 0162 01       		.uleb128 0x1
+ 768 0163 50       		.byte	0x50
+ 769 0164 9F       		.byte	0x9f
+ 770 0165 0C000000 		.4byte	.LVL20
+ 771 0169 13000000 		.4byte	.LVL21-1
+ 772 016d 0100     		.2byte	0x1
+ 773 016f 50       		.byte	0x50
+ 774 0170 13000000 		.4byte	.LVL21-1
+ 775 0174 16000000 		.4byte	.LVL22
+ 776 0178 0400     		.2byte	0x4
+ 777 017a F3       		.byte	0xf3
+ 778 017b 01       		.uleb128 0x1
+ 779 017c 50       		.byte	0x50
+ 780 017d 9F       		.byte	0x9f
+ 781 017e 16000000 		.4byte	.LVL22
+ 782 0182 1D000000 		.4byte	.LVL23-1
+ 783 0186 0100     		.2byte	0x1
+ 784 0188 50       		.byte	0x50
+ 785 0189 1D000000 		.4byte	.LVL23-1
+ 786 018d 20000000 		.4byte	.LFE2
+ 787 0191 0400     		.2byte	0x4
+ 788 0193 F3       		.byte	0xf3
+ 789 0194 01       		.uleb128 0x1
+ 790 0195 50       		.byte	0x50
+ 791 0196 9F       		.byte	0x9f
+ 792 0197 00000000 		.4byte	0
+ 793 019b 00000000 		.4byte	0
+ 794              	.LLST5:
+ 795 019f 00000000 		.4byte	.LVL24
+ 796 01a3 09000000 		.4byte	.LVL25-1
+ 797 01a7 0100     		.2byte	0x1
+ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccNdtGuq.s 			page 16
+
+
+ 798 01a9 50       		.byte	0x50
+ 799 01aa 09000000 		.4byte	.LVL25-1
+ 800 01ae 0C000000 		.4byte	.LVL26
+ 801 01b2 0400     		.2byte	0x4
+ 802 01b4 F3       		.byte	0xf3
+ 803 01b5 01       		.uleb128 0x1
+ 804 01b6 50       		.byte	0x50
+ 805 01b7 9F       		.byte	0x9f
+ 806 01b8 0C000000 		.4byte	.LVL26
+ 807 01bc 13000000 		.4byte	.LVL27-1
+ 808 01c0 0100     		.2byte	0x1
+ 809 01c2 50       		.byte	0x50
+ 810 01c3 13000000 		.4byte	.LVL27-1
+ 811 01c7 16000000 		.4byte	.LVL28
+ 812 01cb 0400     		.2byte	0x4
+ 813 01cd F3       		.byte	0xf3
+ 814 01ce 01       		.uleb128 0x1
+ 815 01cf 50       		.byte	0x50
+ 816 01d0 9F       		.byte	0x9f
+ 817 01d1 16000000 		.4byte	.LVL28
+ 818 01d5 1D000000 		.4byte	.LVL29-1
+ 819 01d9 0100     		.2byte	0x1
+ 820 01db 50       		.byte	0x50
+ 821 01dc 1D000000 		.4byte	.LVL29-1
+ 822 01e0 20000000 		.4byte	.LFE3
+ 823 01e4 0400     		.2byte	0x4
+ 824 01e6 F3       		.byte	0xf3
+ 825 01e7 01       		.uleb128 0x1
+ 826 01e8 50       		.byte	0x50
+ 827 01e9 9F       		.byte	0x9f
+ 828 01ea 00000000 		.4byte	0
+ 829 01ee 00000000 		.4byte	0
+ 830              		.section	.debug_aranges,"",%progbits
+ 831 0000 34000000 		.4byte	0x34
+ 832 0004 0200     		.2byte	0x2
+ 833 0006 00000000 		.4byte	.Ldebug_info0
+ 834 000a 04       		.byte	0x4
+ 835 000b 00       		.byte	0
+ 836 000c 0000     		.2byte	0
+ 837 000e 0000     		.2byte	0
+ 838 0010 00000000 		.4byte	.LFB0
+ 839 0014 26000000 		.4byte	.LFE0-.LFB0
+ 840 0018 00000000 		.4byte	.LFB1
+ 841 001c 26000000 		.4byte	.LFE1-.LFB1
+ 842 0020 00000000 		.4byte	.LFB2
+ 843 0024 20000000 		.4byte	.LFE2-.LFB2
+ 844 0028 00000000 		.4byte	.LFB3
+ 845 002c 20000000 		.4byte	.LFE3-.LFB3
+ 846 0030 00000000 		.4byte	0
+ 847 0034 00000000 		.4byte	0
+ 848              		.section	.debug_ranges,"",%progbits
+ 849              	.Ldebug_ranges0:
+ 850 0000 00000000 		.4byte	.LFB0
+ 851 0004 26000000 		.4byte	.LFE0
+ 852 0008 00000000 		.4byte	.LFB1
+ 853 000c 26000000 		.4byte	.LFE1
+ 854 0010 00000000 		.4byte	.LFB2
+ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccNdtGuq.s 			page 17
+
+
+ 855 0014 20000000 		.4byte	.LFE2
+ 856 0018 00000000 		.4byte	.LFB3
+ 857 001c 20000000 		.4byte	.LFE3
+ 858 0020 00000000 		.4byte	0
+ 859 0024 00000000 		.4byte	0
+ 860              		.section	.debug_line,"",%progbits
+ 861              	.Ldebug_line0:
+ 862 0000 1D010000 		.section	.debug_str,"MS",%progbits,1
+ 862      02007F00 
+ 862      00000201 
+ 862      FB0E0D00 
+ 862      01010101 
+ 863              	.LASF31:
+ 864 0000 50574D5F 		.ascii	"PWM_hb_Stop\000"
+ 864      68625F53 
+ 864      746F7000 
+ 865              	.LASF34:
+ 866 000c 433A5C63 		.ascii	"C:\\cypress\\BodyAnalyzer\\esw_uCOS3_cykit.cydsn\000"
+ 866      79707265 
+ 866      73735C42 
+ 866      6F647941 
+ 866      6E616C79 
+ 867              	.LASF17:
+ 868 003a 70657269 		.ascii	"period\000"
+ 868      6F6400
+ 869              	.LASF3:
+ 870 0041 73686F72 		.ascii	"short unsigned int\000"
+ 870      7420756E 
+ 870      7369676E 
+ 870      65642069 
+ 870      6E7400
+ 871              	.LASF5:
+ 872 0054 756E7369 		.ascii	"unsigned int\000"
+ 872      676E6564 
+ 872      20696E74 
+ 872      00
+ 873              	.LASF18:
+ 874 0061 4253505F 		.ascii	"BSP_PWM_Start\000"
+ 874      50574D5F 
+ 874      53746172 
+ 874      7400
+ 875              	.LASF21:
+ 876 006f 50574D5F 		.ascii	"PWM_bo_WriteCompare\000"
+ 876      626F5F57 
+ 876      72697465 
+ 876      436F6D70 
+ 876      61726500 
+ 877              	.LASF22:
+ 878 0083 50574D5F 		.ascii	"PWM_hb_WriteCompare\000"
+ 878      68625F57 
+ 878      72697465 
+ 878      436F6D70 
+ 878      61726500 
+ 879              	.LASF8:
+ 880 0097 666C6F61 		.ascii	"float\000"
+ 880      7400
+ 881              	.LASF24:
+ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccNdtGuq.s 			page 18
+
+
+ 882 009d 50574D5F 		.ascii	"PWM_bo_WritePeriod\000"
+ 882      626F5F57 
+ 882      72697465 
+ 882      50657269 
+ 882      6F6400
+ 883              	.LASF1:
+ 884 00b0 756E7369 		.ascii	"unsigned char\000"
+ 884      676E6564 
+ 884      20636861 
+ 884      7200
+ 885              	.LASF32:
+ 886 00be 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 886      43313120 
+ 886      352E342E 
+ 886      31203230 
+ 886      31363036 
+ 887 00f1 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 887      20726576 
+ 887      6973696F 
+ 887      6E203233 
+ 887      37373135 
+ 888 0124 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 888      66756E63 
+ 888      74696F6E 
+ 888      2D736563 
+ 888      74696F6E 
+ 889              	.LASF33:
+ 890 014c 6273705F 		.ascii	"bsp_pwm.c\000"
+ 890      70776D2E 
+ 890      6300
+ 891              	.LASF11:
+ 892 0156 6C6F6E67 		.ascii	"long unsigned int\000"
+ 892      20756E73 
+ 892      69676E65 
+ 892      6420696E 
+ 892      7400
+ 893              	.LASF35:
+ 894 0168 4350555F 		.ascii	"CPU_INT08U\000"
+ 894      494E5430 
+ 894      385500
+ 895              	.LASF9:
+ 896 0173 646F7562 		.ascii	"double\000"
+ 896      6C6500
+ 897              	.LASF14:
+ 898 017a 68616C66 		.ascii	"halfperiod\000"
+ 898      70657269 
+ 898      6F6400
+ 899              	.LASF30:
+ 900 0185 50574D5F 		.ascii	"PWM_bo_Stop\000"
+ 900      626F5F53 
+ 900      746F7000 
+ 901              	.LASF25:
+ 902 0191 50574D5F 		.ascii	"PWM_hb_WritePeriod\000"
+ 902      68625F57 
+ 902      72697465 
+ 902      50657269 
+ 902      6F6400
+ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccNdtGuq.s 			page 19
+
+
+ 903              	.LASF23:
+ 904 01a4 50574D5F 		.ascii	"PWM_ac_WritePeriod\000"
+ 904      61635F57 
+ 904      72697465 
+ 904      50657269 
+ 904      6F6400
+ 905              	.LASF6:
+ 906 01b7 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 906      206C6F6E 
+ 906      6720756E 
+ 906      7369676E 
+ 906      65642069 
+ 907              	.LASF16:
+ 908 01ce 4253505F 		.ascii	"BSP_PWM_set_Period\000"
+ 908      50574D5F 
+ 908      7365745F 
+ 908      50657269 
+ 908      6F6400
+ 909              	.LASF13:
+ 910 01e1 73697A65 		.ascii	"sizetype\000"
+ 910      74797065 
+ 910      00
+ 911              	.LASF29:
+ 912 01ea 50574D5F 		.ascii	"PWM_ac_Stop\000"
+ 912      61635F53 
+ 912      746F7000 
+ 913              	.LASF7:
+ 914 01f6 6C6F6E67 		.ascii	"long long int\000"
+ 914      206C6F6E 
+ 914      6720696E 
+ 914      7400
+ 915              	.LASF15:
+ 916 0204 4253505F 		.ascii	"BSP_PWM_set_Halfperiod\000"
+ 916      50574D5F 
+ 916      7365745F 
+ 916      48616C66 
+ 916      70657269 
+ 917              	.LASF0:
+ 918 021b 63686172 		.ascii	"char\000"
+ 918      00
+ 919              	.LASF20:
+ 920 0220 50574D5F 		.ascii	"PWM_ac_WriteCompare\000"
+ 920      61635F57 
+ 920      72697465 
+ 920      436F6D70 
+ 920      61726500 
+ 921              	.LASF27:
+ 922 0234 50574D5F 		.ascii	"PWM_bo_Start\000"
+ 922      626F5F53 
+ 922      74617274 
+ 922      00
+ 923              	.LASF4:
+ 924 0241 73686F72 		.ascii	"short int\000"
+ 924      7420696E 
+ 924      7400
+ 925              	.LASF10:
+ 926 024b 6C6F6E67 		.ascii	"long int\000"
+ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccNdtGuq.s 			page 20
+
+
+ 926      20696E74 
+ 926      00
+ 927              	.LASF19:
+ 928 0254 4253505F 		.ascii	"BSP_PWM_Stop\000"
+ 928      50574D5F 
+ 928      53746F70 
+ 928      00
+ 929              	.LASF28:
+ 930 0261 50574D5F 		.ascii	"PWM_hb_Start\000"
+ 930      68625F53 
+ 930      74617274 
+ 930      00
+ 931              	.LASF12:
+ 932 026e 6C6F6E67 		.ascii	"long double\000"
+ 932      20646F75 
+ 932      626C6500 
+ 933              	.LASF26:
+ 934 027a 50574D5F 		.ascii	"PWM_ac_Start\000"
+ 934      61635F53 
+ 934      74617274 
+ 934      00
+ 935              	.LASF2:
+ 936 0287 7369676E 		.ascii	"signed char\000"
+ 936      65642063 
+ 936      68617200 
+ 937              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

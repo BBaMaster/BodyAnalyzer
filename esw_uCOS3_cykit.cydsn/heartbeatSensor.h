@@ -42,5 +42,6 @@ static void max30102_Task(void *p_arg);
 CPU_INT16S averageDCEstimator(CPU_INT32S *p, CPU_INT32U x);
 CPU_INT16S lowPassFIRFilter(CPU_INT16S din);
 CPU_INT32S mul16(CPU_INT16S x, CPU_INT16S y);
+void initializeMessageQueueOximiter(void);
 
 #endif /* HEARTBEAT_SENSOR_H */

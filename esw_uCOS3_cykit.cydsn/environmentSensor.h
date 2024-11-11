@@ -32,7 +32,7 @@ typedef struct{
 
 void BME688_Init_Task(void);
 static void bme688_Task(void *p_arg);
-void initMessageQueue(void);
+void initializeMessageQueueEnvironment(void);
   
 #endif /* ENVIRONMENT_SENSOR_H */
 /* [] END OF FILE */
