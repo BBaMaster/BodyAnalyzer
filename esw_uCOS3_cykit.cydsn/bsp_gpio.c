@@ -35,18 +35,28 @@ CPU_INT08U gpio_high(CPU_INT08U port, CPU_INT08U pin)
 {
   CPU_INT08U err = 0;
   
-  if(port == PORT1)
-  {
-    if (pin == PIN_GREEN_LED) Pin_Green_Led_Write(HIGH);
-    else err++;
+  if(port == PORT1){
+    if(pin == P1_6){
+      Pin_1_Write(HIGH);
+    }
+    else{
+      err++;
+    }
   }
-  else if(port == PORT2)
-  {
-    if (pin == PIN_BLUE_LED) Pin_Blue_Led_Write(HIGH);
-    else if (pin == PIN_RED_LED) Pin_Red_Led_Write(HIGH);
-    else err++;
+  else if(port == PORT2){
+    if(pin == P2_0){
+      Pin_2_Write(P2_0); 
+    }
+    else if(pin == P2_1){
+      Pin_2_Write(P2_1);
+    }
+    else{
+      err++;
+    }
   }
-  else err++;
+  else{
+    err++;
+  }
   return err;    
 }
 
@@ -73,19 +83,29 @@ CPU_INT08U gpio_low(CPU_INT08U port, CPU_INT08U pin)
 {
   CPU_INT08U err = 0;
   
-  if(port == PORT1)
-  {
-    if (pin == PIN_GREEN_LED) Pin_Green_Led_Write(LOW);
-    else err++;
+  if(port == PORT1){
+    if(pin == P1_6){
+      Pin_1_Write(LOW);
+    }
+    else{
+      err++;
+    }
   }
-  else if(port == PORT2)
-  {
-    if (pin == PIN_BLUE_LED) Pin_Blue_Led_Write(LOW);
-    else if (pin == PIN_RED_LED) Pin_Red_Led_Write(LOW);
-    else err++;
+  else if(port == PORT2){
+    if(pin == P2_0){
+      Pin_2_Write(!(P2_0)); 
+    }
+    else if(pin == P2_1){
+      Pin_2_Write(!(P2_1));
+    }
+    else{
+      err++;
+    }
   }
-  else err++;
-  return err;     
+  else{
+    err++;
+  }
+  return err;   
 }
 
 /*
@@ -108,8 +128,20 @@ CPU_INT08U gpio_low(CPU_INT08U port, CPU_INT08U pin)
 
 CPU_INT08S gpio_read(CPU_INT08U port, CPU_INT08U pin)
 {
-  if(port == PORT2 && pin == P2_2) return push_button_Read(); 
-  return -1;
+  CPU_INT08S err = 0;
+  
+  if(port == PORT2){
+    if(pin == P2_2){
+      err = push_button_Read();    
+    }
+    else{
+      err = -1;
+    }
+  }
+  else{
+    err = -1;
+  }
+  return err;
 }
 
 

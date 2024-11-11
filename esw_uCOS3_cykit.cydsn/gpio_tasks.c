@@ -12,34 +12,22 @@
 
 #include <gpio_tasks.h>
 
-
+CPU_BOOLEAN toggle_state = 0;
 /*
 initialises everything gpioness
 */
-CPU_VOID init_gpio(CPU_VOID)
+void init_gpio()
 {
-  Pin_1_SetDriveMode(Pin_1_DM_STRONG);
-  Pin_2_SetDriveMode(Pin_2_DM_STRONG);
-  push_button_SetDriveMode(push_button_DM_STRONG);
-  push_button_Write(1);
-  
-  Pin_Blue_Led_1_SetDriveMode(Pin_Blue_Led_DM_STRONG);
-  Pin_Green_Led_1_SetDriveMode(Pin_Green_Led_DM_STRONG);
-  Pin_Red_Led_1_SetDriveMode(Pin_Red_Led_DM_STRONG);
-  
-  BSP_PWM_set_Halfperiod(PWM_ac, 25);
-  BSP_PWM_set_Period(PWM_ac, 50);
-  BSP_PWM_Start(PWM_ac);
-  BSP_PWM_set_Halfperiod(PWM_bo, 1);
-  BSP_PWM_set_Period(PWM_bo, 100);
-  BSP_PWM_Start(PWM_bo);
-  BSP_PWM_set_Halfperiod(PWM_hb, 50);
-  BSP_PWM_set_Period(PWM_hb, 100);
-  BSP_PWM_Start(PWM_hb);
-  
-  OS_ERR os_err = {0};
-
-    /* Create the Button task */
+    Log_Write(LOG_LEVEL_INFO,"We are in the init");
+    OS_ERR os_err;
+    PWM_Environment_Start();
+    PWM_Heartbeat_Start();
+    Pin_1_SetDriveMode(Pin_1_DM_STRONG);
+    Pin_2_SetDriveMode(Pin_2_DM_STRONG);
+    push_button_SetDriveMode(push_button_DM_STRONG);
+    push_button_Write(1);
+    
+    
     OSTaskCreate((OS_TCB *)&BUT_Task_TCB,
                  (CPU_CHAR *)"BUT Task",
                  (OS_TASK_PTR)BUT_Task,
@@ -54,9 +42,9 @@ CPU_VOID init_gpio(CPU_VOID)
                  (OS_OPT)(OS_OPT_TASK_STK_CHK | OS_OPT_TASK_STK_CLR),
                  (OS_ERR *)&os_err);
     if (os_err == OS_ERR_NONE) Log_Write(LOG_LEVEL_BUT, "(init_gpio) But-Task created", os_err);
-    else Log_Write(LOG_LEVEL_ERROR, "Knopf: (init_gpio) Butt-Task not created", os_err);
+    else Log_Write(LOG_LEVEL_ERROR, "Knopf: (init_gpio) But-Task not created", os_err);
     
-     /* Create the LeD task */
+    /*
     OSTaskCreate((OS_TCB *)&LedG_Task_TCB,
                  (CPU_CHAR *)"LedG Task",
                  (OS_TASK_PTR)LedG_Task,
@@ -87,7 +75,8 @@ CPU_VOID init_gpio(CPU_VOID)
                  (OS_OPT)(OS_OPT_TASK_STK_CHK | OS_OPT_TASK_STK_CLR),
                  (OS_ERR *)&os_err);
     if (os_err == OS_ERR_NONE) Log_Write(LOG_LEVEL_LED, "(init_gpio) Led-Task created", os_err);
-    else Log_Write(LOG_LEVEL_ERROR, "Led: (init_gpio) Led-Task not created", os_err);
+    else Log_Write(LOG_LEVEL_ERROR, "Led: (init_gpio) Led-Task not created", os_err);\
+    */
 }
 
 /*
@@ -96,10 +85,34 @@ when not then not
 */
 static void BUT_Task(void *p_arg)
 {
-  (void)p_arg;
-  for (OS_ERR os_err; DEF_TRUE; OSTimeDlyHMSM(0, 0, 0, 100, OS_OPT_TIME_HMSM_STRICT, &os_err), button_variable = BSP_PB_StatusGet(P2_2));
-}
+    OS_ERR err;
+    (void)p_arg;
 
+    Log_Write(LOG_LEVEL_INFO, "Button Task initialized.\n");
+
+    CPU_BOOLEAN button_status = 0;
+    CPU_BOOLEAN last_button_status = 1; // Assume unpressed state initially
+
+    while (DEF_TRUE) {
+        button_status = BSP_PB_StatusGet(P2_2);
+
+        if (button_status == 0 && last_button_status == 1) {
+            toggle_state = !toggle_state;  // Toggle the state
+
+            if (toggle_state) {
+                Log_Write(LOG_LEVEL_INFO, "Button pressed: Activating tasks.\n");
+            } else {
+                Log_Write(LOG_LEVEL_INFO, "Button pressed: Deactivating tasks.\n");
+            }
+        }
+
+        last_button_status = button_status;
+        OSTimeDlyHMSM(0, 0, 0, 50, OS_OPT_TIME_HMSM_STRICT, &err);
+        if (err != OS_ERR_NONE) {
+            Log_Write(LOG_LEVEL_ERROR,"Failed to delay in Button Task\n");
+        }
+    }
+}
 /*
 calculates the heart rate from bpm to count of 50 Hz.
 */

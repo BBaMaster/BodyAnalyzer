@@ -20,7 +20,7 @@
 // Button-Task
 OS_TCB BUT_Task_TCB;
 CPU_STK BUT_TaskStk[APP_CFG_TASK_BUTTON_STK_SIZE];
-static void BUT_Task(void *p_arg);
+static void     BUT_Task(void *p_arg);
 static CPU_BOOLEAN button_variable;
 
 // LEDs
@@ -34,7 +34,12 @@ static void LedG_Task(void *p_arg);
 CPU_INT08U allCorrCalc(CPU_INT08U h);
 CPU_INT16U heartratecalc(CPU_INT08U p);
 
-CPU_VOID init_gpio(CPU_VOID);
+
+extern CPU_BOOLEAN toggle_state;
+
+
+
+void init_gpio();
 
 #endif
 

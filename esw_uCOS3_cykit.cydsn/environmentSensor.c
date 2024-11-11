@@ -102,7 +102,7 @@ void enqueueEnvironmentData(Environment_Data env_data) {
       }
     } else {
       // Log a message when the SPO2 value is successfully posted to the queue
-      Log_Write(LOG_LEVEL_SPI, "Sent raw environment value to processing task...", 0);
+      //Log_Write(LOG_LEVEL_SPI, "Sent raw environment value to processing task...", 0);
       previous_env_data = env_data;
     }
   }
@@ -225,7 +225,7 @@ static void bme688_Task(void *p_arg){
   initializeMessageQueueEnvironment();
     
   while(DEF_TRUE){
-    //place button semaphore
+    if (toggle_state) {
     //setting opmode to force mode to start measurement
     rslt = bme68x_set_op_mode(BME68X_FORCED_MODE, &bme688_handle);
     if(rslt != 0){
@@ -256,8 +256,8 @@ static void bme688_Task(void *p_arg){
     
     //wait for defined interval
     OSTimeDlyHMSM(0,0,MEASUREMENT_INTERVAL,0,OS_OPT_TIME_HMSM_NON_STRICT, &os_err);  
-  }
+    }    
+ }
 }
-
 
 /* [] END OF FILE */

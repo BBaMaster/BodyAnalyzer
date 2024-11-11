@@ -120,7 +120,7 @@ static void max30102_Task(void *p_arg) {
 
     // Infinite loop for continuous sensor data reading and processing
     while (DEF_TRUE) {
-        //place button semaphore
+        if (toggle_state) {
         // Attempt to read raw red and IR data from the MAX30102 sensor
         // If the read fails, log an error and continue to the next iteration
         if (max30102_read(&max30102_handle, &raw_red, &raw_ir, &data_len) != 0) {
@@ -138,9 +138,9 @@ static void max30102_Task(void *p_arg) {
         // Introduce a delay to control the sensor polling rate
         // POLLING_DELAY_MS defines the delay duration in milliseconds
         OSTimeDlyHMSM(0, 0, 0, POLLING_DELAY_MS, OS_OPT_TIME_HMSM_STRICT, &os_err);
-    }
+        }
 }
-
+}
 /**
  * @brief Processes raw IR and red signals to update DC and AC components.
  * 
@@ -278,7 +278,7 @@ void enqueueHeartRate(CPU_INT32S heart_rate) {
   static CPU_INT32S previous_heart_rate;
   
   if (previous_heart_rate == heart_rate){
-    Log_Write(LOG_LEVEL_ERROR, "I2C Task: Value is same as previous value. Do not send it.", 0);
+    //Log_Write(LOG_LEVEL_ERROR, "I2C Task: Value is same as previous value. Do not send it.", 0);
     return;
   }else{
     // Try to post to the queue
@@ -314,7 +314,7 @@ void enqueueSpO2(CPU_INT32S spO2) {
   OS_MSG_QTY entries;
 
   if (previous_spO2_rate == spO2){
-    Log_Write(LOG_LEVEL_ERROR, "I2C Task: Value is same as previous value. Do not send it.", 0);
+    //Log_Write(LOG_LEVEL_ERROR, "I2C Task: Value is same as previous value. Do not send it.", 0);
     return;
   }else{
     // Try to post to the queue
@@ -333,7 +333,7 @@ void enqueueSpO2(CPU_INT32S spO2) {
       }
     } else {
       // Log a message when the SPO2 value is successfully posted to the queue
-      Log_Write(LOG_LEVEL_I2C, "Sent SPO2 value to processing task...", 0);
+      //Log_Write(LOG_LEVEL_I2C, "Sent SPO2 value to processing task...", 0);
       previous_spO2_rate = spO2;
     }
   }

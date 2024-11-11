@@ -150,7 +150,6 @@ void BSP_PreInit (void)
 
 void  BSP_PostInit (void)
 {
-    init_gpio();
     init_uart();
 }
 

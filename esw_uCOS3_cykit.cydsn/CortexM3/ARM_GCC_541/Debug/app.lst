@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 1
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 1
   29:APP/app.c     **** *                                            LOCAL VARIABLES
   30:APP/app.c     **** ***************************************************************************************************
   31:APP/app.c     **** */
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 2
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 2
 
 
   32:APP/app.c     **** static OS_TCB App_TaskStartTCB;
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 1
   30              		@ frame_needed = 0, uses_anonymous_args = 0
   31              	.LVL0:
   32 0000 30B5     		push	{r4, r5, lr}
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 3
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 3
 
 
   33              		.cfi_def_cfa_offset 12
@@ -150,15 +150,14 @@ ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 1
   51 0018 2046     		mov	r0, r4
   52 001a FFF7FEFF 		bl	OSSemCreate
   53              	.LVL3:
-  91:APP/app.c     ****     
-  92:APP/app.c     ****     Log_Init();    /* Initializes and creates the log task */
-  54              		.loc 1 92 0
+  91:APP/app.c     ****     Log_Init();    /* Initializes and creates the log task */
+  54              		.loc 1 91 0
   55 001e FFF7FEFF 		bl	Log_Init
   56              	.LVL4:
-  93:APP/app.c     **** 
-  94:APP/app.c     ****     /* Wait for the log task to signal that it's ready */
-  95:APP/app.c     ****     OSSemPend(&LogTaskSem, 0, OS_OPT_PEND_BLOCKING, NULL, &err);
-  57              		.loc 1 95 0
+  92:APP/app.c     ****     
+  93:APP/app.c     ****     /* Wait for the log task to signal that it's ready */
+  94:APP/app.c     ****     OSSemPend(&LogTaskSem, 0, OS_OPT_PEND_BLOCKING, NULL, &err);
+  57              		.loc 1 94 0
   58 0022 0095     		str	r5, [sp]
   59 0024 0023     		movs	r3, #0
   60 0026 1A46     		mov	r2, r3
@@ -166,35 +165,36 @@ ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 1
   62 002a 2046     		mov	r0, r4
   63 002c FFF7FEFF 		bl	OSSemPend
   64              	.LVL5:
-  96:APP/app.c     ****     
-  97:APP/app.c     ****     Log_Write(LOG_LEVEL_INFO, "App_TaskStart: Log task initialized successfully");
-  65              		.loc 1 97 0
+  95:APP/app.c     ****     
+  96:APP/app.c     ****     Log_Write(LOG_LEVEL_INFO, "App_TaskStart: Log task initialized successfully");
+  65              		.loc 1 96 0
   66 0030 0F49     		ldr	r1, .L4+8
   67 0032 0120     		movs	r0, #1
   68 0034 FFF7FEFF 		bl	Log_Write
   69              	.LVL6:
+  97:APP/app.c     ****     init_gpio();
+  70              		.loc 1 97 0
+  71 0038 FFF7FEFF 		bl	init_gpio
+  72              	.LVL7:
   98:APP/app.c     ****     
   99:APP/app.c     **** 
- 100:APP/app.c     **** 
- 101:APP/app.c     ****     I2C_Init();    /* Initializes and creates the I2C task */
-  70              		.loc 1 101 0
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 4
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 4
 
 
-  71 0038 FFF7FEFF 		bl	I2C_Init
-  72              	.LVL7:
- 102:APP/app.c     ****     MAX30102_Init();
-  73              		.loc 1 102 0
-  74 003c FFF7FEFF 		bl	MAX30102_Init
+ 100:APP/app.c     ****     I2C_Init();    /* Initializes and creates the I2C task */
+  73              		.loc 1 100 0
+  74 003c FFF7FEFF 		bl	I2C_Init
   75              	.LVL8:
- 103:APP/app.c     ****     BME688_Init_Task();
-  76              		.loc 1 103 0
-  77 0040 FFF7FEFF 		bl	BME688_Init_Task
+ 101:APP/app.c     ****     
+ 102:APP/app.c     ****     MAX30102_Init();
+  76              		.loc 1 102 0
+  77 0040 FFF7FEFF 		bl	MAX30102_Init
   78              	.LVL9:
- 104:APP/app.c     ****     Data_Processing_Init();
-  79              		.loc 1 104 0
-  80 0044 FFF7FEFF 		bl	Data_Processing_Init
+ 103:APP/app.c     ****     BME688_Init_Task();
+  79              		.loc 1 103 0
+  80 0044 FFF7FEFF 		bl	BME688_Init_Task
   81              	.LVL10:
+ 104:APP/app.c     ****     //Data_Processing_Init();
  105:APP/app.c     ****     Log_Write(LOG_LEVEL_INFO, "App_TaskStart: Data Processing task initialized successfully");
   82              		.loc 1 105 0
   83 0048 0A49     		ldr	r1, .L4+12
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 1
  117              		.loc 1 50 0
  118              		.cfi_startproc
  119              		@ args = 0, pretend = 0, frame = 8
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 5
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 5
 
 
  120              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 1
  168              		.loc 1 73 0
  169 0046 2846     		mov	r0, r5
  170 0048 FFF7FEFF 		bl	OSStart
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 6
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 6
 
 
  171              	.LVL17:
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 1
  210              	.LC3:
  211 0088 53746172 		.ascii	"Start\000"
  211      7400
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 7
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 7
 
 
  212              		.bss
@@ -403,53 +403,53 @@ ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 1
  243 0006 00000000 		.4byte	.Ldebug_abbrev0
  244 000a 04       		.byte	0x4
  245 000b 01       		.uleb128 0x1
- 246 000c 6E030000 		.4byte	.LASF322
+ 246 000c 56030000 		.4byte	.LASF322
  247 0010 0C       		.byte	0xc
- 248 0011 4D030000 		.4byte	.LASF323
- 249 0015 10000000 		.4byte	.LASF324
+ 248 0011 35030000 		.4byte	.LASF323
+ 249 0015 A00F0000 		.4byte	.LASF324
  250 0019 00000000 		.4byte	.Ldebug_ranges0+0
  251 001d 00000000 		.4byte	0
  252 0021 00000000 		.4byte	.Ldebug_line0
  253 0025 02       		.uleb128 0x2
  254 0026 01       		.byte	0x1
  255 0027 06       		.byte	0x6
- 256 0028 9F040000 		.4byte	.LASF0
+ 256 0028 87040000 		.4byte	.LASF0
  257 002c 02       		.uleb128 0x2
  258 002d 01       		.byte	0x1
  259 002e 08       		.byte	0x8
- 260 002f 89050000 		.4byte	.LASF1
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 8
+ 260 002f 71050000 		.4byte	.LASF1
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 8
 
 
  261 0033 02       		.uleb128 0x2
  262 0034 02       		.byte	0x2
  263 0035 05       		.byte	0x5
- 264 0036 A9100000 		.4byte	.LASF2
+ 264 0036 CC100000 		.4byte	.LASF2
  265 003a 02       		.uleb128 0x2
  266 003b 02       		.byte	0x2
  267 003c 07       		.byte	0x7
- 268 003d ED120000 		.4byte	.LASF3
+ 268 003d FB120000 		.4byte	.LASF3
  269 0041 03       		.uleb128 0x3
- 270 0042 59130000 		.4byte	.LASF9
+ 270 0042 67130000 		.4byte	.LASF9
  271 0046 02       		.byte	0x2
  272 0047 3F       		.byte	0x3f
  273 0048 4C000000 		.4byte	0x4c
  274 004c 02       		.uleb128 0x2
  275 004d 04       		.byte	0x4
  276 004e 05       		.byte	0x5
- 277 004f DF020000 		.4byte	.LASF4
+ 277 004f C7020000 		.4byte	.LASF4
  278 0053 02       		.uleb128 0x2
  279 0054 04       		.byte	0x4
  280 0055 07       		.byte	0x7
- 281 0056 96090000 		.4byte	.LASF5
+ 281 0056 7E090000 		.4byte	.LASF5
  282 005a 02       		.uleb128 0x2
  283 005b 08       		.byte	0x8
  284 005c 05       		.byte	0x5
- 285 005d BF0A0000 		.4byte	.LASF6
+ 285 005d A70A0000 		.4byte	.LASF6
  286 0061 02       		.uleb128 0x2
  287 0062 08       		.byte	0x8
  288 0063 07       		.byte	0x7
- 289 0064 470E0000 		.4byte	.LASF7
+ 289 0064 230E0000 		.4byte	.LASF7
  290 0068 04       		.uleb128 0x4
  291 0069 04       		.byte	0x4
  292 006a 05       		.byte	0x5
@@ -457,59 +457,59 @@ ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 1
  294 006f 02       		.uleb128 0x2
  295 0070 04       		.byte	0x4
  296 0071 07       		.byte	0x7
- 297 0072 F30B0000 		.4byte	.LASF8
+ 297 0072 DB0B0000 		.4byte	.LASF8
  298 0076 03       		.uleb128 0x3
- 299 0077 E4000000 		.4byte	.LASF10
+ 299 0077 C2000000 		.4byte	.LASF10
  300 007b 03       		.byte	0x3
  301 007c 2C       		.byte	0x2c
  302 007d 41000000 		.4byte	0x41
  303 0081 02       		.uleb128 0x2
  304 0082 04       		.byte	0x4
  305 0083 04       		.byte	0x4
- 306 0084 860B0000 		.4byte	.LASF11
+ 306 0084 6E0B0000 		.4byte	.LASF11
  307 0088 02       		.uleb128 0x2
  308 0089 08       		.byte	0x8
  309 008a 04       		.byte	0x4
- 310 008b FA0A0000 		.4byte	.LASF12
+ 310 008b E20A0000 		.4byte	.LASF12
  311 008f 02       		.uleb128 0x2
  312 0090 01       		.byte	0x1
  313 0091 08       		.byte	0x8
- 314 0092 53060000 		.4byte	.LASF13
+ 314 0092 3B060000 		.4byte	.LASF13
  315 0096 02       		.uleb128 0x2
  316 0097 08       		.byte	0x8
  317 0098 04       		.byte	0x4
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 9
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 9
 
 
- 318 0099 1E0D0000 		.4byte	.LASF14
+ 318 0099 FA0C0000 		.4byte	.LASF14
  319 009d 02       		.uleb128 0x2
  320 009e 04       		.byte	0x4
  321 009f 07       		.byte	0x7
- 322 00a0 83000000 		.4byte	.LASF15
+ 322 00a0 61000000 		.4byte	.LASF15
  323 00a4 05       		.uleb128 0x5
  324 00a5 04       		.byte	0x4
  325 00a6 03       		.uleb128 0x3
- 326 00a7 19010000 		.4byte	.LASF16
+ 326 00a7 F7000000 		.4byte	.LASF16
  327 00ab 04       		.byte	0x4
  328 00ac 76       		.byte	0x76
  329 00ad 8F000000 		.4byte	0x8f
  330 00b1 03       		.uleb128 0x3
- 331 00b2 8C000000 		.4byte	.LASF17
+ 331 00b2 6A000000 		.4byte	.LASF17
  332 00b6 04       		.byte	0x4
  333 00b7 77       		.byte	0x77
  334 00b8 2C000000 		.4byte	0x2c
  335 00bc 03       		.uleb128 0x3
- 336 00bd 16120000 		.4byte	.LASF18
+ 336 00bd 39120000 		.4byte	.LASF18
  337 00c1 04       		.byte	0x4
  338 00c2 78       		.byte	0x78
  339 00c3 2C000000 		.4byte	0x2c
  340 00c7 03       		.uleb128 0x3
- 341 00c8 46010000 		.4byte	.LASF19
+ 341 00c8 2E010000 		.4byte	.LASF19
  342 00cc 04       		.byte	0x4
  343 00cd 7A       		.byte	0x7a
  344 00ce 3A000000 		.4byte	0x3a
  345 00d2 03       		.uleb128 0x3
- 346 00d3 7E070000 		.4byte	.LASF20
+ 346 00d3 66070000 		.4byte	.LASF20
  347 00d7 04       		.byte	0x4
  348 00d8 7C       		.byte	0x7c
  349 00d9 6F000000 		.4byte	0x6f
@@ -522,683 +522,683 @@ ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 1
  356 00e9 A4000000 		.4byte	0xa4
  357 00ed 00       		.byte	0
  358 00ee 03       		.uleb128 0x3
- 359 00ef E1070000 		.4byte	.LASF21
+ 359 00ef C9070000 		.4byte	.LASF21
  360 00f3 04       		.byte	0x4
  361 00f4 B5       		.byte	0xb5
  362 00f5 D2000000 		.4byte	0xd2
  363 00f9 03       		.uleb128 0x3
- 364 00fa DD010000 		.4byte	.LASF22
+ 364 00fa C5010000 		.4byte	.LASF22
  365 00fe 04       		.byte	0x4
  366 00ff D9       		.byte	0xd9
  367 0100 D2000000 		.4byte	0xd2
  368 0104 03       		.uleb128 0x3
- 369 0105 B80B0000 		.4byte	.LASF23
+ 369 0105 A00B0000 		.4byte	.LASF23
  370 0109 04       		.byte	0x4
  371 010a DA       		.byte	0xda
  372 010b EE000000 		.4byte	0xee
  373 010f 03       		.uleb128 0x3
- 374 0110 C6080000 		.4byte	.LASF24
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 10
+ 374 0110 AE080000 		.4byte	.LASF24
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 10
 
 
  375 0114 05       		.byte	0x5
  376 0115 C4       		.byte	0xc4
  377 0116 D2000000 		.4byte	0xd2
  378 011a 03       		.uleb128 0x3
- 379 011b 38040000 		.4byte	.LASF25
+ 379 011b 20040000 		.4byte	.LASF25
  380 011f 05       		.byte	0x5
  381 0120 C7       		.byte	0xc7
  382 0121 0F010000 		.4byte	0x10f
  383 0125 03       		.uleb128 0x3
- 384 0126 A8090000 		.4byte	.LASF26
+ 384 0126 90090000 		.4byte	.LASF26
  385 012a 06       		.byte	0x6
  386 012b 30       		.byte	0x30
  387 012c C7000000 		.4byte	0xc7
  388 0130 03       		.uleb128 0x3
- 389 0131 CF080000 		.4byte	.LASF27
+ 389 0131 B7080000 		.4byte	.LASF27
  390 0135 06       		.byte	0x6
  391 0136 34       		.byte	0x34
  392 0137 D2000000 		.4byte	0xd2
  393 013b 03       		.uleb128 0x3
- 394 013c 27060000 		.4byte	.LASF28
+ 394 013c 0F060000 		.4byte	.LASF28
  395 0140 06       		.byte	0x6
  396 0141 36       		.byte	0x36
  397 0142 D2000000 		.4byte	0xd2
  398 0146 03       		.uleb128 0x3
- 399 0147 92100000 		.4byte	.LASF29
+ 399 0147 B5100000 		.4byte	.LASF29
  400 014b 06       		.byte	0x6
  401 014c 38       		.byte	0x38
  402 014d D2000000 		.4byte	0xd2
  403 0151 03       		.uleb128 0x3
- 404 0152 FE110000 		.4byte	.LASF30
+ 404 0152 21120000 		.4byte	.LASF30
  405 0156 06       		.byte	0x6
  406 0157 3F       		.byte	0x3f
  407 0158 C7000000 		.4byte	0xc7
  408 015c 03       		.uleb128 0x3
- 409 015d 330C0000 		.4byte	.LASF31
+ 409 015d 1B0C0000 		.4byte	.LASF31
  410 0161 06       		.byte	0x6
  411 0162 40       		.byte	0x40
  412 0163 C7000000 		.4byte	0xc7
  413 0167 03       		.uleb128 0x3
- 414 0168 5E0B0000 		.4byte	.LASF32
+ 414 0168 460B0000 		.4byte	.LASF32
  415 016c 06       		.byte	0x6
  416 016d 42       		.byte	0x42
  417 016e BC000000 		.4byte	0xbc
  418 0172 03       		.uleb128 0x3
- 419 0173 6D0A0000 		.4byte	.LASF33
+ 419 0173 550A0000 		.4byte	.LASF33
  420 0177 06       		.byte	0x6
  421 0178 44       		.byte	0x44
  422 0179 C7000000 		.4byte	0xc7
  423 017d 03       		.uleb128 0x3
- 424 017e 31060000 		.4byte	.LASF34
+ 424 017e 19060000 		.4byte	.LASF34
  425 0182 06       		.byte	0x6
  426 0183 45       		.byte	0x45
  427 0184 D2000000 		.4byte	0xd2
  428 0188 03       		.uleb128 0x3
- 429 0189 28020000 		.4byte	.LASF35
+ 429 0189 10020000 		.4byte	.LASF35
  430 018d 06       		.byte	0x6
  431 018e 47       		.byte	0x47
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 11
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 11
 
 
  432 018f C7000000 		.4byte	0xc7
  433 0193 03       		.uleb128 0x3
- 434 0194 AE0A0000 		.4byte	.LASF36
+ 434 0194 960A0000 		.4byte	.LASF36
  435 0198 06       		.byte	0x6
  436 0199 49       		.byte	0x49
  437 019a BC000000 		.4byte	0xbc
  438 019e 03       		.uleb128 0x3
- 439 019f 0B080000 		.4byte	.LASF37
+ 439 019f F3070000 		.4byte	.LASF37
  440 01a3 06       		.byte	0x6
  441 01a4 4F       		.byte	0x4f
  442 01a5 D2000000 		.4byte	0xd2
  443 01a9 03       		.uleb128 0x3
- 444 01aa 340B0000 		.4byte	.LASF38
+ 444 01aa 1C0B0000 		.4byte	.LASF38
  445 01ae 06       		.byte	0x6
  446 01af 52       		.byte	0x52
  447 01b0 D2000000 		.4byte	0xd2
  448 01b4 03       		.uleb128 0x3
- 449 01b5 15060000 		.4byte	.LASF39
+ 449 01b5 FD050000 		.4byte	.LASF39
  450 01b9 06       		.byte	0x6
  451 01ba 54       		.byte	0x54
  452 01bb BC000000 		.4byte	0xbc
  453 01bf 03       		.uleb128 0x3
- 454 01c0 E90C0000 		.4byte	.LASF40
+ 454 01c0 C50C0000 		.4byte	.LASF40
  455 01c4 06       		.byte	0x6
  456 01c5 56       		.byte	0x56
  457 01c6 BC000000 		.4byte	0xbc
  458 01ca 03       		.uleb128 0x3
- 459 01cb CD0A0000 		.4byte	.LASF41
+ 459 01cb B50A0000 		.4byte	.LASF41
  460 01cf 06       		.byte	0x6
  461 01d0 58       		.byte	0x58
  462 01d1 D2000000 		.4byte	0xd2
  463 01d5 09       		.uleb128 0x9
- 464 01d6 530D0000 		.4byte	.LASF289
+ 464 01d6 2F0D0000 		.4byte	.LASF289
  465 01da 02       		.byte	0x2
  466 01db 3A000000 		.4byte	0x3a
  467 01df 07       		.byte	0x7
  468 01e0 A501     		.2byte	0x1a5
  469 01e2 4D060000 		.4byte	0x64d
  470 01e6 0A       		.uleb128 0xa
- 471 01e7 860A0000 		.4byte	.LASF42
+ 471 01e7 6E0A0000 		.4byte	.LASF42
  472 01eb 00       		.byte	0
  473 01ec 0B       		.uleb128 0xb
- 474 01ed 4E040000 		.4byte	.LASF43
+ 474 01ed 36040000 		.4byte	.LASF43
  475 01f1 1027     		.2byte	0x2710
  476 01f3 0B       		.uleb128 0xb
- 477 01f4 A4060000 		.4byte	.LASF44
+ 477 01f4 8C060000 		.4byte	.LASF44
  478 01f8 1127     		.2byte	0x2711
  479 01fa 0B       		.uleb128 0xb
- 480 01fb 57040000 		.4byte	.LASF45
+ 480 01fb 3F040000 		.4byte	.LASF45
  481 01ff F82A     		.2byte	0x2af8
  482 0201 0B       		.uleb128 0xb
- 483 0202 60040000 		.4byte	.LASF46
+ 483 0202 48040000 		.4byte	.LASF46
  484 0206 E02E     		.2byte	0x2ee0
  485 0208 0B       		.uleb128 0xb
- 486 0209 E0090000 		.4byte	.LASF47
+ 486 0209 C8090000 		.4byte	.LASF47
  487 020d E12E     		.2byte	0x2ee1
  488 020f 0B       		.uleb128 0xb
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 12
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 12
 
 
- 489 0210 69040000 		.4byte	.LASF48
+ 489 0210 51040000 		.4byte	.LASF48
  490 0214 C832     		.2byte	0x32c8
  491 0216 0B       		.uleb128 0xb
- 492 0217 BB100000 		.4byte	.LASF49
+ 492 0217 DE100000 		.4byte	.LASF49
  493 021b C932     		.2byte	0x32c9
  494 021d 0B       		.uleb128 0xb
- 495 021e 72040000 		.4byte	.LASF50
+ 495 021e 5A040000 		.4byte	.LASF50
  496 0222 B036     		.2byte	0x36b0
  497 0224 0B       		.uleb128 0xb
- 498 0225 7B040000 		.4byte	.LASF51
+ 498 0225 63040000 		.4byte	.LASF51
  499 0229 983A     		.2byte	0x3a98
  500 022b 0B       		.uleb128 0xb
- 501 022c 1C040000 		.4byte	.LASF52
+ 501 022c 04040000 		.4byte	.LASF52
  502 0230 993A     		.2byte	0x3a99
  503 0232 0B       		.uleb128 0xb
- 504 0233 AA0E0000 		.4byte	.LASF53
+ 504 0233 860E0000 		.4byte	.LASF53
  505 0237 FD3A     		.2byte	0x3afd
  506 0239 0B       		.uleb128 0xb
- 507 023a A1050000 		.4byte	.LASF54
+ 507 023a 89050000 		.4byte	.LASF54
  508 023e FE3A     		.2byte	0x3afe
  509 0240 0B       		.uleb128 0xb
- 510 0241 C4110000 		.4byte	.LASF55
+ 510 0241 E7110000 		.4byte	.LASF55
  511 0245 FF3A     		.2byte	0x3aff
  512 0247 0B       		.uleb128 0xb
- 513 0248 1E0E0000 		.4byte	.LASF56
+ 513 0248 FA0D0000 		.4byte	.LASF56
  514 024c 003B     		.2byte	0x3b00
  515 024e 0B       		.uleb128 0xb
- 516 024f 84040000 		.4byte	.LASF57
+ 516 024f 6C040000 		.4byte	.LASF57
  517 0253 803E     		.2byte	0x3e80
  518 0255 0B       		.uleb128 0xb
- 519 0256 8D040000 		.4byte	.LASF58
+ 519 0256 75040000 		.4byte	.LASF58
  520 025a 6842     		.2byte	0x4268
  521 025c 0B       		.uleb128 0xb
- 522 025d 96040000 		.4byte	.LASF59
+ 522 025d 7E040000 		.4byte	.LASF59
  523 0261 5046     		.2byte	0x4650
  524 0263 0B       		.uleb128 0xb
- 525 0264 C50B0000 		.4byte	.LASF60
+ 525 0264 AD0B0000 		.4byte	.LASF60
  526 0268 5146     		.2byte	0x4651
  527 026a 0B       		.uleb128 0xb
- 528 026b 33130000 		.4byte	.LASF61
+ 528 026b 41130000 		.4byte	.LASF61
  529 026f 5246     		.2byte	0x4652
  530 0271 0B       		.uleb128 0xb
- 531 0272 E8020000 		.4byte	.LASF62
+ 531 0272 D0020000 		.4byte	.LASF62
  532 0276 5346     		.2byte	0x4653
  533 0278 0B       		.uleb128 0xb
- 534 0279 A50F0000 		.4byte	.LASF63
+ 534 0279 810F0000 		.4byte	.LASF63
  535 027d 5446     		.2byte	0x4654
  536 027f 0B       		.uleb128 0xb
- 537 0280 2C080000 		.4byte	.LASF64
+ 537 0280 14080000 		.4byte	.LASF64
  538 0284 5546     		.2byte	0x4655
  539 0286 0B       		.uleb128 0xb
- 540 0287 45080000 		.4byte	.LASF65
+ 540 0287 2D080000 		.4byte	.LASF65
  541 028b 5646     		.2byte	0x4656
  542 028d 0B       		.uleb128 0xb
- 543 028e 98000000 		.4byte	.LASF66
+ 543 028e 76000000 		.4byte	.LASF66
  544 0292 384A     		.2byte	0x4a38
  545 0294 0B       		.uleb128 0xb
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 13
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 13
 
 
- 546 0295 AB040000 		.4byte	.LASF67
+ 546 0295 93040000 		.4byte	.LASF67
  547 0299 204E     		.2byte	0x4e20
  548 029b 0B       		.uleb128 0xb
- 549 029c B4040000 		.4byte	.LASF68
+ 549 029c 9C040000 		.4byte	.LASF68
  550 02a0 0852     		.2byte	0x5208
  551 02a2 0B       		.uleb128 0xb
- 552 02a3 04100000 		.4byte	.LASF69
+ 552 02a3 27100000 		.4byte	.LASF69
  553 02a7 0952     		.2byte	0x5209
  554 02a9 0B       		.uleb128 0xb
- 555 02aa BD040000 		.4byte	.LASF70
+ 555 02aa A5040000 		.4byte	.LASF70
  556 02ae F055     		.2byte	0x55f0
  557 02b0 0B       		.uleb128 0xb
- 558 02b1 3D060000 		.4byte	.LASF71
+ 558 02b1 25060000 		.4byte	.LASF71
  559 02b5 B956     		.2byte	0x56b9
  560 02b7 0B       		.uleb128 0xb
  561 02b8 00000000 		.4byte	.LASF72
  562 02bc BA56     		.2byte	0x56ba
  563 02be 0B       		.uleb128 0xb
- 564 02bf CB060000 		.4byte	.LASF73
+ 564 02bf B3060000 		.4byte	.LASF73
  565 02c3 BB56     		.2byte	0x56bb
  566 02c5 0B       		.uleb128 0xb
- 567 02c6 65060000 		.4byte	.LASF74
+ 567 02c6 4D060000 		.4byte	.LASF74
  568 02ca BC56     		.2byte	0x56bc
  569 02cc 0B       		.uleb128 0xb
- 570 02cd 7B080000 		.4byte	.LASF75
+ 570 02cd 63080000 		.4byte	.LASF75
  571 02d1 BD56     		.2byte	0x56bd
  572 02d3 0B       		.uleb128 0xb
- 573 02d4 050E0000 		.4byte	.LASF76
+ 573 02d4 E10D0000 		.4byte	.LASF76
  574 02d8 BE56     		.2byte	0x56be
  575 02da 0B       		.uleb128 0xb
- 576 02db B90D0000 		.4byte	.LASF77
+ 576 02db 950D0000 		.4byte	.LASF77
  577 02df BF56     		.2byte	0x56bf
  578 02e1 0B       		.uleb128 0xb
- 579 02e2 E50E0000 		.4byte	.LASF78
+ 579 02e2 C10E0000 		.4byte	.LASF78
  580 02e6 C056     		.2byte	0x56c0
  581 02e8 0B       		.uleb128 0xb
- 582 02e9 540F0000 		.4byte	.LASF79
+ 582 02e9 300F0000 		.4byte	.LASF79
  583 02ed C156     		.2byte	0x56c1
  584 02ef 0B       		.uleb128 0xb
- 585 02f0 87020000 		.4byte	.LASF80
+ 585 02f0 6F020000 		.4byte	.LASF80
  586 02f4 C256     		.2byte	0x56c2
  587 02f6 0B       		.uleb128 0xb
- 588 02f7 42020000 		.4byte	.LASF81
+ 588 02f7 2A020000 		.4byte	.LASF81
  589 02fb 1D57     		.2byte	0x571d
  590 02fd 0B       		.uleb128 0xb
- 591 02fe D9110000 		.4byte	.LASF82
+ 591 02fe FC110000 		.4byte	.LASF82
  592 0302 1E57     		.2byte	0x571e
  593 0304 0B       		.uleb128 0xb
- 594 0305 F3060000 		.4byte	.LASF83
+ 594 0305 DB060000 		.4byte	.LASF83
  595 0309 8157     		.2byte	0x5781
  596 030b 0B       		.uleb128 0xb
- 597 030c B7020000 		.4byte	.LASF84
+ 597 030c 9F020000 		.4byte	.LASF84
  598 0310 8257     		.2byte	0x5782
  599 0312 0B       		.uleb128 0xb
- 600 0313 E00D0000 		.4byte	.LASF85
+ 600 0313 BC0D0000 		.4byte	.LASF85
  601 0317 8357     		.2byte	0x5783
  602 0319 0B       		.uleb128 0xb
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 14
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 14
 
 
- 603 031a C6040000 		.4byte	.LASF86
+ 603 031a AE040000 		.4byte	.LASF86
  604 031e D859     		.2byte	0x59d8
  605 0320 0B       		.uleb128 0xb
- 606 0321 C40C0000 		.4byte	.LASF87
+ 606 0321 A00C0000 		.4byte	.LASF87
  607 0325 D959     		.2byte	0x59d9
  608 0327 0B       		.uleb128 0xb
- 609 0328 1E090000 		.4byte	.LASF88
+ 609 0328 06090000 		.4byte	.LASF88
  610 032c DA59     		.2byte	0x59da
  611 032e 0B       		.uleb128 0xb
- 612 032f CF040000 		.4byte	.LASF89
+ 612 032f B7040000 		.4byte	.LASF89
  613 0333 C05D     		.2byte	0x5dc0
  614 0335 0B       		.uleb128 0xb
- 615 0336 58020000 		.4byte	.LASF90
+ 615 0336 40020000 		.4byte	.LASF90
  616 033a C15D     		.2byte	0x5dc1
  617 033c 0B       		.uleb128 0xb
- 618 033d 9F080000 		.4byte	.LASF91
+ 618 033d 87080000 		.4byte	.LASF91
  619 0341 C25D     		.2byte	0x5dc2
  620 0343 0B       		.uleb128 0xb
- 621 0344 78120000 		.4byte	.LASF92
+ 621 0344 9B120000 		.4byte	.LASF92
  622 0348 C35D     		.2byte	0x5dc3
  623 034a 0B       		.uleb128 0xb
- 624 034b 63130000 		.4byte	.LASF93
+ 624 034b 71130000 		.4byte	.LASF93
  625 034f C45D     		.2byte	0x5dc4
  626 0351 0B       		.uleb128 0xb
- 627 0352 B1110000 		.4byte	.LASF94
+ 627 0352 D4110000 		.4byte	.LASF94
  628 0356 255E     		.2byte	0x5e25
  629 0358 0B       		.uleb128 0xb
- 630 0359 3F0C0000 		.4byte	.LASF95
+ 630 0359 270C0000 		.4byte	.LASF95
  631 035d 895E     		.2byte	0x5e89
  632 035f 0B       		.uleb128 0xb
- 633 0360 D70C0000 		.4byte	.LASF96
+ 633 0360 B30C0000 		.4byte	.LASF96
  634 0364 8A5E     		.2byte	0x5e8a
  635 0366 0B       		.uleb128 0xb
- 636 0367 D8040000 		.4byte	.LASF97
+ 636 0367 C0040000 		.4byte	.LASF97
  637 036b A861     		.2byte	0x61a8
  638 036d 0B       		.uleb128 0xb
- 639 036e 11070000 		.4byte	.LASF98
+ 639 036e F9060000 		.4byte	.LASF98
  640 0372 A961     		.2byte	0x61a9
  641 0374 0B       		.uleb128 0xb
- 642 0375 FE090000 		.4byte	.LASF99
+ 642 0375 E6090000 		.4byte	.LASF99
  643 0379 AA61     		.2byte	0x61aa
  644 037b 0B       		.uleb128 0xb
- 645 037c 9C010000 		.4byte	.LASF100
+ 645 037c 84010000 		.4byte	.LASF100
  646 0380 AB61     		.2byte	0x61ab
  647 0382 0B       		.uleb128 0xb
- 648 0383 E30A0000 		.4byte	.LASF101
+ 648 0383 CB0A0000 		.4byte	.LASF101
  649 0387 AC61     		.2byte	0x61ac
  650 0389 0B       		.uleb128 0xb
- 651 038a F50D0000 		.4byte	.LASF102
+ 651 038a D10D0000 		.4byte	.LASF102
  652 038e AD61     		.2byte	0x61ad
  653 0390 0B       		.uleb128 0xb
- 654 0391 FA020000 		.4byte	.LASF103
+ 654 0391 E2020000 		.4byte	.LASF103
  655 0395 AE61     		.2byte	0x61ae
  656 0397 0B       		.uleb128 0xb
- 657 0398 0B0D0000 		.4byte	.LASF104
+ 657 0398 E70C0000 		.4byte	.LASF104
  658 039c AF61     		.2byte	0x61af
  659 039e 0B       		.uleb128 0xb
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 15
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 15
 
 
- 660 039f BD130000 		.4byte	.LASF105
+ 660 039f CB130000 		.4byte	.LASF105
  661 03a3 B061     		.2byte	0x61b0
  662 03a5 0B       		.uleb128 0xb
- 663 03a6 8F0C0000 		.4byte	.LASF106
+ 663 03a6 6B0C0000 		.4byte	.LASF106
  664 03aa 0D62     		.2byte	0x620d
  665 03ac 0B       		.uleb128 0xb
- 666 03ad 6E050000 		.4byte	.LASF107
+ 666 03ad 56050000 		.4byte	.LASF107
  667 03b1 0E62     		.2byte	0x620e
  668 03b3 0B       		.uleb128 0xb
- 669 03b4 32110000 		.4byte	.LASF108
+ 669 03b4 55110000 		.4byte	.LASF108
  670 03b8 7162     		.2byte	0x6271
  671 03ba 0B       		.uleb128 0xb
- 672 03bb 27130000 		.4byte	.LASF109
+ 672 03bb 35130000 		.4byte	.LASF109
  673 03bf 7262     		.2byte	0x6272
  674 03c1 0B       		.uleb128 0xb
- 675 03c2 150F0000 		.4byte	.LASF110
+ 675 03c2 F10E0000 		.4byte	.LASF110
  676 03c6 7362     		.2byte	0x6273
  677 03c8 0B       		.uleb128 0xb
- 678 03c9 970E0000 		.4byte	.LASF111
+ 678 03c9 730E0000 		.4byte	.LASF111
  679 03cd D562     		.2byte	0x62d5
  680 03cf 0B       		.uleb128 0xb
- 681 03d0 E1040000 		.4byte	.LASF112
+ 681 03d0 C9040000 		.4byte	.LASF112
  682 03d4 9065     		.2byte	0x6590
  683 03d6 0B       		.uleb128 0xb
- 684 03d7 390E0000 		.4byte	.LASF113
+ 684 03d7 150E0000 		.4byte	.LASF113
  685 03db 9165     		.2byte	0x6591
  686 03dd 0B       		.uleb128 0xb
- 687 03de D3100000 		.4byte	.LASF114
+ 687 03de F6100000 		.4byte	.LASF114
  688 03e2 9265     		.2byte	0x6592
  689 03e4 0B       		.uleb128 0xb
- 690 03e5 09120000 		.4byte	.LASF115
+ 690 03e5 2C120000 		.4byte	.LASF115
  691 03e9 9365     		.2byte	0x6593
  692 03eb 0B       		.uleb128 0xb
- 693 03ec E5060000 		.4byte	.LASF116
+ 693 03ec CD060000 		.4byte	.LASF116
  694 03f0 9465     		.2byte	0x6594
  695 03f2 0B       		.uleb128 0xb
- 696 03f3 EA040000 		.4byte	.LASF117
+ 696 03f3 D2040000 		.4byte	.LASF117
  697 03f7 7869     		.2byte	0x6978
  698 03f9 0B       		.uleb128 0xb
- 699 03fa 300F0000 		.4byte	.LASF118
+ 699 03fa 0C0F0000 		.4byte	.LASF118
  700 03fe 7969     		.2byte	0x6979
  701 0400 0B       		.uleb128 0xb
- 702 0401 22010000 		.4byte	.LASF119
+ 702 0401 00010000 		.4byte	.LASF119
  703 0405 7A69     		.2byte	0x697a
  704 0407 0B       		.uleb128 0xb
- 705 0408 30120000 		.4byte	.LASF120
+ 705 0408 53120000 		.4byte	.LASF120
  706 040c 7B69     		.2byte	0x697b
  707 040e 0B       		.uleb128 0xb
- 708 040f F3040000 		.4byte	.LASF121
+ 708 040f DB040000 		.4byte	.LASF121
  709 0413 606D     		.2byte	0x6d60
  710 0415 0B       		.uleb128 0xb
- 711 0416 A40C0000 		.4byte	.LASF122
+ 711 0416 800C0000 		.4byte	.LASF122
  712 041a 616D     		.2byte	0x6d61
  713 041c 0B       		.uleb128 0xb
- 714 041d 10140000 		.4byte	.LASF123
+ 714 041d 1E140000 		.4byte	.LASF123
  715 0421 626D     		.2byte	0x6d62
  716 0423 0B       		.uleb128 0xb
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 16
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 16
 
 
- 717 0424 0A030000 		.4byte	.LASF124
+ 717 0424 F2020000 		.4byte	.LASF124
  718 0428 636D     		.2byte	0x6d63
  719 042a 0B       		.uleb128 0xb
- 720 042b AE080000 		.4byte	.LASF125
+ 720 042b 96080000 		.4byte	.LASF125
  721 042f 646D     		.2byte	0x6d64
  722 0431 0B       		.uleb128 0xb
- 723 0432 F3070000 		.4byte	.LASF126
+ 723 0432 DB070000 		.4byte	.LASF126
  724 0436 656D     		.2byte	0x6d65
  725 0438 0B       		.uleb128 0xb
- 726 0439 37010000 		.4byte	.LASF127
+ 726 0439 15010000 		.4byte	.LASF127
  727 043d C56D     		.2byte	0x6dc5
  728 043f 0B       		.uleb128 0xb
- 729 0440 360D0000 		.4byte	.LASF128
+ 729 0440 120D0000 		.4byte	.LASF128
  730 0444 C66D     		.2byte	0x6dc6
  731 0446 0B       		.uleb128 0xb
- 732 0447 E2100000 		.4byte	.LASF129
+ 732 0447 05110000 		.4byte	.LASF129
  733 044b 296E     		.2byte	0x6e29
  734 044d 0B       		.uleb128 0xb
- 735 044e 6D0B0000 		.4byte	.LASF130
+ 735 044e 550B0000 		.4byte	.LASF130
  736 0452 2A6E     		.2byte	0x6e2a
  737 0454 0B       		.uleb128 0xb
- 738 0455 65010000 		.4byte	.LASF131
+ 738 0455 4D010000 		.4byte	.LASF131
  739 0459 2B6E     		.2byte	0x6e2b
  740 045b 0B       		.uleb128 0xb
- 741 045c 55070000 		.4byte	.LASF132
+ 741 045c 3D070000 		.4byte	.LASF132
  742 0460 2C6E     		.2byte	0x6e2c
  743 0462 0B       		.uleb128 0xb
- 744 0463 00060000 		.4byte	.LASF133
+ 744 0463 E8050000 		.4byte	.LASF133
  745 0467 2D6E     		.2byte	0x6e2d
  746 0469 0B       		.uleb128 0xb
- 747 046a E00F0000 		.4byte	.LASF134
+ 747 046a 03100000 		.4byte	.LASF134
  748 046e 2E6E     		.2byte	0x6e2e
  749 0470 0B       		.uleb128 0xb
- 750 0471 83090000 		.4byte	.LASF135
+ 750 0471 6B090000 		.4byte	.LASF135
  751 0475 2F6E     		.2byte	0x6e2f
  752 0477 0B       		.uleb128 0xb
- 753 0478 23070000 		.4byte	.LASF136
+ 753 0478 0B070000 		.4byte	.LASF136
  754 047c 306E     		.2byte	0x6e30
  755 047e 0B       		.uleb128 0xb
- 756 047f 9F0B0000 		.4byte	.LASF137
+ 756 047f 870B0000 		.4byte	.LASF137
  757 0483 316E     		.2byte	0x6e31
  758 0485 0B       		.uleb128 0xb
- 759 0486 FC040000 		.4byte	.LASF138
+ 759 0486 E4040000 		.4byte	.LASF138
  760 048a 4871     		.2byte	0x7148
  761 048c 0B       		.uleb128 0xb
- 762 048d 7A130000 		.4byte	.LASF139
+ 762 048d 88130000 		.4byte	.LASF139
  763 0491 4971     		.2byte	0x7149
  764 0493 0B       		.uleb128 0xb
- 765 0494 36090000 		.4byte	.LASF140
+ 765 0494 1E090000 		.4byte	.LASF140
  766 0498 4A71     		.2byte	0x714a
  767 049a 0B       		.uleb128 0xb
- 768 049b 870D0000 		.4byte	.LASF141
+ 768 049b 630D0000 		.4byte	.LASF141
  769 049f 4B71     		.2byte	0x714b
  770 04a1 0B       		.uleb128 0xb
- 771 04a2 12130000 		.4byte	.LASF142
+ 771 04a2 20130000 		.4byte	.LASF142
  772 04a6 4C71     		.2byte	0x714c
  773 04a8 0B       		.uleb128 0xb
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 17
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 17
 
 
- 774 04a9 800F0000 		.4byte	.LASF143
+ 774 04a9 5C0F0000 		.4byte	.LASF143
  775 04ad 4D71     		.2byte	0x714d
  776 04af 0B       		.uleb128 0xb
- 777 04b0 200B0000 		.4byte	.LASF144
+ 777 04b0 080B0000 		.4byte	.LASF144
  778 04b4 4E71     		.2byte	0x714e
  779 04b6 0B       		.uleb128 0xb
- 780 04b7 F8100000 		.4byte	.LASF145
+ 780 04b7 1B110000 		.4byte	.LASF145
  781 04bb 4F71     		.2byte	0x714f
  782 04bd 0B       		.uleb128 0xb
- 783 04be 10020000 		.4byte	.LASF146
+ 783 04be F8010000 		.4byte	.LASF146
  784 04c2 5071     		.2byte	0x7150
  785 04c4 0B       		.uleb128 0xb
- 786 04c5 CC090000 		.4byte	.LASF147
+ 786 04c5 B4090000 		.4byte	.LASF147
  787 04c9 5171     		.2byte	0x7151
  788 04cb 0B       		.uleb128 0xb
- 789 04cc A30D0000 		.4byte	.LASF148
+ 789 04cc 7F0D0000 		.4byte	.LASF148
  790 04d0 5271     		.2byte	0x7152
  791 04d2 0B       		.uleb128 0xb
- 792 04d3 3B070000 		.4byte	.LASF149
+ 792 04d3 23070000 		.4byte	.LASF149
  793 04d7 5371     		.2byte	0x7153
  794 04d9 0B       		.uleb128 0xb
- 795 04da F0050000 		.4byte	.LASF150
+ 795 04da D8050000 		.4byte	.LASF150
  796 04de 5471     		.2byte	0x7154
  797 04e0 0B       		.uleb128 0xb
- 798 04e1 B5090000 		.4byte	.LASF151
+ 798 04e1 9D090000 		.4byte	.LASF151
  799 04e5 5571     		.2byte	0x7155
  800 04e7 0B       		.uleb128 0xb
- 801 04e8 C30E0000 		.4byte	.LASF152
+ 801 04e8 9F0E0000 		.4byte	.LASF152
  802 04ec 5671     		.2byte	0x7156
  803 04ee 0B       		.uleb128 0xb
- 804 04ef 5E0E0000 		.4byte	.LASF153
+ 804 04ef 3A0E0000 		.4byte	.LASF153
  805 04f3 5771     		.2byte	0x7157
  806 04f5 0B       		.uleb128 0xb
- 807 04f6 40130000 		.4byte	.LASF154
+ 807 04f6 4E130000 		.4byte	.LASF154
  808 04fa 5871     		.2byte	0x7158
  809 04fc 0B       		.uleb128 0xb
- 810 04fd 200A0000 		.4byte	.LASF155
+ 810 04fd 080A0000 		.4byte	.LASF155
  811 0501 5971     		.2byte	0x7159
  812 0503 0B       		.uleb128 0xb
- 813 0504 37030000 		.4byte	.LASF156
+ 813 0504 1F030000 		.4byte	.LASF156
  814 0508 5A71     		.2byte	0x715a
  815 050a 0B       		.uleb128 0xb
- 816 050b 620D0000 		.4byte	.LASF157
+ 816 050b 3E0D0000 		.4byte	.LASF157
  817 050f 5B71     		.2byte	0x715b
  818 0511 0B       		.uleb128 0xb
- 819 0512 1C100000 		.4byte	.LASF158
+ 819 0512 3F100000 		.4byte	.LASF158
  820 0516 5C71     		.2byte	0x715c
  821 0518 0B       		.uleb128 0xb
- 822 0519 63080000 		.4byte	.LASF159
+ 822 0519 4B080000 		.4byte	.LASF159
  823 051d 5D71     		.2byte	0x715d
  824 051f 0B       		.uleb128 0xb
- 825 0520 D4120000 		.4byte	.LASF160
+ 825 0520 E2120000 		.4byte	.LASF160
  826 0524 5E71     		.2byte	0x715e
  827 0526 0B       		.uleb128 0xb
- 828 0527 6C0F0000 		.4byte	.LASF161
+ 828 0527 480F0000 		.4byte	.LASF161
  829 052b 5F71     		.2byte	0x715f
  830 052d 0B       		.uleb128 0xb
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 18
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 18
 
 
- 831 052e 2F020000 		.4byte	.LASF162
+ 831 052e 17020000 		.4byte	.LASF162
  832 0532 AD71     		.2byte	0x71ad
  833 0534 0B       		.uleb128 0xb
- 834 0535 86010000 		.4byte	.LASF163
+ 834 0535 6E010000 		.4byte	.LASF163
  835 0539 C071     		.2byte	0x71c0
  836 053b 0B       		.uleb128 0xb
- 837 053c A8020000 		.4byte	.LASF164
+ 837 053c 90020000 		.4byte	.LASF164
  838 0540 C171     		.2byte	0x71c1
  839 0542 0B       		.uleb128 0xb
- 840 0543 380A0000 		.4byte	.LASF165
+ 840 0543 200A0000 		.4byte	.LASF165
  841 0547 C271     		.2byte	0x71c2
  842 0549 0B       		.uleb128 0xb
- 843 054a 00130000 		.4byte	.LASF166
+ 843 054a 0E130000 		.4byte	.LASF166
  844 054e C371     		.2byte	0x71c3
  845 0550 0B       		.uleb128 0xb
- 846 0551 C4070000 		.4byte	.LASF167
+ 846 0551 AC070000 		.4byte	.LASF167
  847 0555 C471     		.2byte	0x71c4
  848 0557 0B       		.uleb128 0xb
- 849 0558 96130000 		.4byte	.LASF168
+ 849 0558 A4130000 		.4byte	.LASF168
  850 055c 1172     		.2byte	0x7211
  851 055e 0B       		.uleb128 0xb
- 852 055f 4C120000 		.4byte	.LASF169
+ 852 055f 6F120000 		.4byte	.LASF169
  853 0563 1272     		.2byte	0x7212
  854 0565 0B       		.uleb128 0xb
- 855 0566 C1050000 		.4byte	.LASF170
+ 855 0566 A9050000 		.4byte	.LASF170
  856 056a 1372     		.2byte	0x7213
  857 056c 0B       		.uleb128 0xb
- 858 056d 8C120000 		.4byte	.LASF171
+ 858 056d AF120000 		.4byte	.LASF171
  859 0571 1472     		.2byte	0x7214
  860 0573 0B       		.uleb128 0xb
- 861 0574 A3120000 		.4byte	.LASF172
+ 861 0574 C6120000 		.4byte	.LASF172
  862 0578 7572     		.2byte	0x7275
  863 057a 0B       		.uleb128 0xb
- 864 057b 89070000 		.4byte	.LASF173
+ 864 057b 71070000 		.4byte	.LASF173
  865 057f 7672     		.2byte	0x7276
  866 0581 0B       		.uleb128 0xb
- 867 0582 FC130000 		.4byte	.LASF174
+ 867 0582 0A140000 		.4byte	.LASF174
  868 0586 7772     		.2byte	0x7277
  869 0588 0B       		.uleb128 0xb
- 870 0589 12080000 		.4byte	.LASF175
+ 870 0589 FA070000 		.4byte	.LASF175
  871 058d 7872     		.2byte	0x7278
  872 058f 0B       		.uleb128 0xb
- 873 0590 510A0000 		.4byte	.LASF176
+ 873 0590 390A0000 		.4byte	.LASF176
  874 0594 7972     		.2byte	0x7279
  875 0596 0B       		.uleb128 0xb
- 876 0597 EA080000 		.4byte	.LASF177
+ 876 0597 D2080000 		.4byte	.LASF177
  877 059b 7A72     		.2byte	0x727a
  878 059d 0B       		.uleb128 0xb
- 879 059e 3C100000 		.4byte	.LASF178
+ 879 059e 5F100000 		.4byte	.LASF178
  880 05a2 7B72     		.2byte	0x727b
  881 05a4 0B       		.uleb128 0xb
- 882 05a5 FC010000 		.4byte	.LASF179
+ 882 05a5 E4010000 		.4byte	.LASF179
  883 05a9 7C72     		.2byte	0x727c
  884 05ab 0B       		.uleb128 0xb
- 885 05ac 64120000 		.4byte	.LASF180
+ 885 05ac 87120000 		.4byte	.LASF180
  886 05b0 7D72     		.2byte	0x727d
  887 05b2 0B       		.uleb128 0xb
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 19
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 19
 
 
- 888 05b3 59050000 		.4byte	.LASF181
+ 888 05b3 41050000 		.4byte	.LASF181
  889 05b7 7E72     		.2byte	0x727e
  890 05b9 0B       		.uleb128 0xb
- 891 05ba 0F090000 		.4byte	.LASF182
+ 891 05ba F7080000 		.4byte	.LASF182
  892 05be D972     		.2byte	0x72d9
  893 05c0 0B       		.uleb128 0xb
- 894 05c1 13110000 		.4byte	.LASF183
+ 894 05c1 36110000 		.4byte	.LASF183
  895 05c5 3D73     		.2byte	0x733d
  896 05c7 0B       		.uleb128 0xb
- 897 05c8 4D090000 		.4byte	.LASF184
+ 897 05c8 35090000 		.4byte	.LASF184
  898 05cc 3E73     		.2byte	0x733e
  899 05ce 0B       		.uleb128 0xb
- 900 05cf 060C0000 		.4byte	.LASF185
+ 900 05cf EE0B0000 		.4byte	.LASF185
  901 05d3 3F73     		.2byte	0x733f
  902 05d5 0B       		.uleb128 0xb
- 903 05d6 5C110000 		.4byte	.LASF186
+ 903 05d6 7F110000 		.4byte	.LASF186
  904 05da 4073     		.2byte	0x7340
  905 05dc 0B       		.uleb128 0xb
- 906 05dd AB070000 		.4byte	.LASF187
+ 906 05dd 93070000 		.4byte	.LASF187
  907 05e1 4173     		.2byte	0x7341
  908 05e3 0B       		.uleb128 0xb
- 909 05e4 3F0B0000 		.4byte	.LASF188
+ 909 05e4 270B0000 		.4byte	.LASF188
  910 05e8 4273     		.2byte	0x7342
  911 05ea 0B       		.uleb128 0xb
- 912 05eb 21120000 		.4byte	.LASF189
+ 912 05eb 44120000 		.4byte	.LASF189
  913 05ef 4373     		.2byte	0x7343
  914 05f1 0B       		.uleb128 0xb
- 915 05f2 760E0000 		.4byte	.LASF190
+ 915 05f2 520E0000 		.4byte	.LASF190
  916 05f6 4473     		.2byte	0x7344
  917 05f8 0B       		.uleb128 0xb
- 918 05f9 6E090000 		.4byte	.LASF191
+ 918 05f9 56090000 		.4byte	.LASF191
  919 05fd 4573     		.2byte	0x7345
  920 05ff 0B       		.uleb128 0xb
- 921 0600 CC000000 		.4byte	.LASF192
+ 921 0600 AA000000 		.4byte	.LASF192
  922 0604 4673     		.2byte	0x7346
  923 0606 0B       		.uleb128 0xb
- 924 0607 6C000000 		.4byte	.LASF193
+ 924 0607 4A000000 		.4byte	.LASF193
  925 060b 4773     		.2byte	0x7347
  926 060d 0B       		.uleb128 0xb
- 927 060e 7D060000 		.4byte	.LASF194
+ 927 060e 65060000 		.4byte	.LASF194
  928 0612 4873     		.2byte	0x7348
  929 0614 0B       		.uleb128 0xb
- 930 0615 A1000000 		.4byte	.LASF195
+ 930 0615 7F000000 		.4byte	.LASF195
  931 0619 4973     		.2byte	0x7349
  932 061b 0B       		.uleb128 0xb
- 933 061c 05050000 		.4byte	.LASF196
+ 933 061c ED040000 		.4byte	.LASF196
  934 0620 3075     		.2byte	0x7530
  935 0622 0B       		.uleb128 0xb
- 936 0623 0E050000 		.4byte	.LASF197
+ 936 0623 F6040000 		.4byte	.LASF197
  937 0627 1879     		.2byte	0x7918
  938 0629 0B       		.uleb128 0xb
- 939 062a 17050000 		.4byte	.LASF198
+ 939 062a FF040000 		.4byte	.LASF198
  940 062e 007D     		.2byte	0x7d00
  941 0630 0B       		.uleb128 0xb
- 942 0631 20050000 		.4byte	.LASF199
+ 942 0631 08050000 		.4byte	.LASF199
  943 0635 E880     		.2byte	0x80e8
  944 0637 0B       		.uleb128 0xb
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 20
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 20
 
 
- 945 0638 29050000 		.4byte	.LASF200
+ 945 0638 11050000 		.4byte	.LASF200
  946 063c D084     		.2byte	0x84d0
  947 063e 0B       		.uleb128 0xb
- 948 063f 0F0B0000 		.4byte	.LASF201
+ 948 063f F70A0000 		.4byte	.LASF201
  949 0643 D184     		.2byte	0x84d1
  950 0645 0B       		.uleb128 0xb
- 951 0646 32050000 		.4byte	.LASF202
+ 951 0646 1A050000 		.4byte	.LASF202
  952 064a B888     		.2byte	0x88b8
  953 064c 00       		.byte	0
  954 064d 0C       		.uleb128 0xc
- 955 064e 25030000 		.4byte	.LASF203
+ 955 064e 0D030000 		.4byte	.LASF203
  956 0652 07       		.byte	0x7
  957 0653 7202     		.2byte	0x272
  958 0655 D5010000 		.4byte	0x1d5
  959 0659 0C       		.uleb128 0xc
- 960 065a 5D100000 		.4byte	.LASF204
+ 960 065a 80100000 		.4byte	.LASF204
  961 065e 07       		.byte	0x7
  962 065f 8202     		.2byte	0x282
  963 0661 65060000 		.4byte	0x665
  964 0665 0D       		.uleb128 0xd
- 965 0666 0A070000 		.4byte	.LASF210
+ 965 0666 F2060000 		.4byte	.LASF210
  966 066a 10       		.byte	0x10
  967 066b 07       		.byte	0x7
  968 066c 4003     		.2byte	0x340
  969 066e A7060000 		.4byte	0x6a7
  970 0672 0E       		.uleb128 0xe
- 971 0673 64100000 		.4byte	.LASF205
+ 971 0673 87100000 		.4byte	.LASF205
  972 0677 07       		.byte	0x7
  973 0678 4103     		.2byte	0x341
  974 067a 380C0000 		.4byte	0xc38
  975 067e 00       		.byte	0
  976 067f 0E       		.uleb128 0xe
- 977 0680 05010000 		.4byte	.LASF206
+ 977 0680 E3000000 		.4byte	.LASF206
  978 0684 07       		.byte	0x7
  979 0685 4203     		.2byte	0x342
  980 0687 A4000000 		.4byte	0xa4
  981 068b 04       		.byte	0x4
  982 068c 0E       		.uleb128 0xe
- 983 068d 44110000 		.4byte	.LASF207
+ 983 068d 67110000 		.4byte	.LASF207
  984 0691 07       		.byte	0x7
  985 0692 4303     		.2byte	0x343
  986 0694 5C010000 		.4byte	0x15c
  987 0698 08       		.byte	0x8
  988 0699 0E       		.uleb128 0xe
- 989 069a B6060000 		.4byte	.LASF208
+ 989 069a 9E060000 		.4byte	.LASF208
  990 069e 07       		.byte	0x7
  991 069f 4403     		.2byte	0x344
  992 06a1 1A010000 		.4byte	0x11a
  993 06a5 0C       		.byte	0xc
  994 06a6 00       		.byte	0
  995 06a7 0C       		.uleb128 0xc
- 996 06a8 1E060000 		.4byte	.LASF209
+ 996 06a8 06060000 		.4byte	.LASF209
  997 06ac 07       		.byte	0x7
  998 06ad 8402     		.2byte	0x284
  999 06af B3060000 		.4byte	0x6b3
  1000 06b3 0D       		.uleb128 0xd
- 1001 06b4 CA100000 		.4byte	.LASF211
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 21
+ 1001 06b4 ED100000 		.4byte	.LASF211
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 21
 
 
  1002 06b8 10       		.byte	0x10
@@ -1206,119 +1206,119 @@ ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 1
  1004 06ba 5303     		.2byte	0x353
  1005 06bc 02070000 		.4byte	0x702
  1006 06c0 0E       		.uleb128 0xe
- 1007 06c1 9B100000 		.4byte	.LASF212
+ 1007 06c1 BE100000 		.4byte	.LASF212
  1008 06c5 07       		.byte	0x7
  1009 06c6 5403     		.2byte	0x354
  1010 06c8 380C0000 		.4byte	0xc38
  1011 06cc 00       		.byte	0
  1012 06cd 0E       		.uleb128 0xe
- 1013 06ce 0C110000 		.4byte	.LASF213
+ 1013 06ce 2F110000 		.4byte	.LASF213
  1014 06d2 07       		.byte	0x7
  1015 06d3 5503     		.2byte	0x355
  1016 06d5 380C0000 		.4byte	0xc38
  1017 06d9 04       		.byte	0x4
  1018 06da 0E       		.uleb128 0xe
- 1019 06db 78020000 		.4byte	.LASF214
+ 1019 06db 60020000 		.4byte	.LASF214
  1020 06df 07       		.byte	0x7
  1021 06e0 5603     		.2byte	0x356
  1022 06e2 51010000 		.4byte	0x151
  1023 06e6 08       		.byte	0x8
  1024 06e7 0E       		.uleb128 0xe
- 1025 06e8 27110000 		.4byte	.LASF215
+ 1025 06e8 4A110000 		.4byte	.LASF215
  1026 06ec 07       		.byte	0x7
  1027 06ed 5703     		.2byte	0x357
  1028 06ef 51010000 		.4byte	0x151
  1029 06f3 0A       		.byte	0xa
  1030 06f4 0E       		.uleb128 0xe
- 1031 06f5 D20D0000 		.4byte	.LASF216
+ 1031 06f5 AE0D0000 		.4byte	.LASF216
  1032 06f9 07       		.byte	0x7
  1033 06fa 5803     		.2byte	0x358
  1034 06fc 51010000 		.4byte	0x151
  1035 0700 0C       		.byte	0xc
  1036 0701 00       		.byte	0
  1037 0702 0C       		.uleb128 0xc
- 1038 0703 76110000 		.4byte	.LASF217
+ 1038 0703 99110000 		.4byte	.LASF217
  1039 0707 07       		.byte	0x7
  1040 0708 8A02     		.2byte	0x28a
  1041 070a 0E070000 		.4byte	0x70e
  1042 070e 0D       		.uleb128 0xd
- 1043 070f 810A0000 		.4byte	.LASF218
+ 1043 070f 690A0000 		.4byte	.LASF218
  1044 0713 30       		.byte	0x30
  1045 0714 07       		.byte	0x7
  1046 0715 7E03     		.2byte	0x37e
  1047 0717 77070000 		.4byte	0x777
  1048 071b 0E       		.uleb128 0xe
- 1049 071c 6E0C0000 		.4byte	.LASF219
+ 1049 071c 560C0000 		.4byte	.LASF219
  1050 0720 07       		.byte	0x7
  1051 0721 8003     		.2byte	0x380
  1052 0723 7D010000 		.4byte	0x17d
  1053 0727 00       		.byte	0
  1054 0728 0E       		.uleb128 0xe
- 1055 0729 B3100000 		.4byte	.LASF220
+ 1055 0729 D6100000 		.4byte	.LASF220
  1056 072d 07       		.byte	0x7
  1057 072e 8103     		.2byte	0x381
  1058 0730 320C0000 		.4byte	0xc32
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 22
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 22
 
 
  1059 0734 04       		.byte	0x4
  1060 0735 0E       		.uleb128 0xe
- 1061 0736 06090000 		.4byte	.LASF221
+ 1061 0736 EE080000 		.4byte	.LASF221
  1062 073a 07       		.byte	0x7
  1063 073b 8203     		.2byte	0x382
  1064 073d 770B0000 		.4byte	0xb77
  1065 0741 08       		.byte	0x8
  1066 0742 0E       		.uleb128 0xe
- 1067 0743 DE050000 		.4byte	.LASF222
+ 1067 0743 C6050000 		.4byte	.LASF222
  1068 0747 07       		.byte	0x7
  1069 0748 8403     		.2byte	0x384
  1070 074a 3E0C0000 		.4byte	0xc3e
  1071 074e 14       		.byte	0x14
  1072 074f 0E       		.uleb128 0xe
- 1073 0750 A6110000 		.4byte	.LASF223
+ 1073 0750 C9110000 		.4byte	.LASF223
  1074 0754 07       		.byte	0x7
  1075 0755 8503     		.2byte	0x385
  1076 0757 3E0C0000 		.4byte	0xc3e
  1077 075b 18       		.byte	0x18
  1078 075c 0E       		.uleb128 0xe
- 1079 075d 7E050000 		.4byte	.LASF224
+ 1079 075d 66050000 		.4byte	.LASF224
  1080 0761 07       		.byte	0x7
  1081 0762 8603     		.2byte	0x386
  1082 0764 320C0000 		.4byte	0xc32
  1083 0768 1C       		.byte	0x1c
  1084 0769 0E       		.uleb128 0xe
- 1085 076a EE0B0000 		.4byte	.LASF225
+ 1085 076a D60B0000 		.4byte	.LASF225
  1086 076e 07       		.byte	0x7
  1087 076f 8903     		.2byte	0x389
  1088 0771 A7060000 		.4byte	0x6a7
  1089 0775 20       		.byte	0x20
  1090 0776 00       		.byte	0
  1091 0777 0C       		.uleb128 0xc
- 1092 0778 C40F0000 		.4byte	.LASF226
+ 1092 0778 E70F0000 		.4byte	.LASF226
  1093 077c 07       		.byte	0x7
  1094 077d 8C02     		.2byte	0x28c
  1095 077f 83070000 		.4byte	0x783
  1096 0783 0D       		.uleb128 0xd
- 1097 0784 51010000 		.4byte	.LASF227
+ 1097 0784 39010000 		.4byte	.LASF227
  1098 0788 28       		.byte	0x28
  1099 0789 07       		.byte	0x7
  1100 078a 9503     		.2byte	0x395
  1101 078c F8070000 		.4byte	0x7f8
  1102 0790 0E       		.uleb128 0xe
- 1103 0791 6E0C0000 		.4byte	.LASF219
+ 1103 0791 560C0000 		.4byte	.LASF219
  1104 0795 07       		.byte	0x7
  1105 0796 9703     		.2byte	0x397
  1106 0798 7D010000 		.4byte	0x17d
  1107 079c 00       		.byte	0
  1108 079d 0E       		.uleb128 0xe
- 1109 079e B3100000 		.4byte	.LASF220
+ 1109 079e D6100000 		.4byte	.LASF220
  1110 07a2 07       		.byte	0x7
  1111 07a3 9803     		.2byte	0x398
  1112 07a5 320C0000 		.4byte	0xc32
  1113 07a9 04       		.byte	0x4
  1114 07aa 0E       		.uleb128 0xe
- 1115 07ab 06090000 		.4byte	.LASF221
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 23
+ 1115 07ab EE080000 		.4byte	.LASF221
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 23
 
 
  1116 07af 07       		.byte	0x7
@@ -1326,19 +1326,19 @@ ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 1
  1118 07b2 770B0000 		.4byte	0xb77
  1119 07b6 08       		.byte	0x8
  1120 07b7 0E       		.uleb128 0xe
- 1121 07b8 DE050000 		.4byte	.LASF222
+ 1121 07b8 C6050000 		.4byte	.LASF222
  1122 07bc 07       		.byte	0x7
  1123 07bd 9B03     		.2byte	0x39b
  1124 07bf 440C0000 		.4byte	0xc44
  1125 07c3 14       		.byte	0x14
  1126 07c4 0E       		.uleb128 0xe
- 1127 07c5 A6110000 		.4byte	.LASF223
+ 1127 07c5 C9110000 		.4byte	.LASF223
  1128 07c9 07       		.byte	0x7
  1129 07ca 9C03     		.2byte	0x39c
  1130 07cc 440C0000 		.4byte	0xc44
  1131 07d0 18       		.byte	0x18
  1132 07d1 0E       		.uleb128 0xe
- 1133 07d2 7E050000 		.4byte	.LASF224
+ 1133 07d2 66050000 		.4byte	.LASF224
  1134 07d6 07       		.byte	0x7
  1135 07d7 9D03     		.2byte	0x39d
  1136 07d9 320C0000 		.4byte	0xc32
@@ -1357,131 +1357,131 @@ ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 1
  1149 07f6 24       		.byte	0x24
  1150 07f7 00       		.byte	0
  1151 07f8 0C       		.uleb128 0xc
- 1152 07f9 F2110000 		.4byte	.LASF228
+ 1152 07f9 15120000 		.4byte	.LASF228
  1153 07fd 07       		.byte	0x7
  1154 07fe 8E02     		.2byte	0x28e
  1155 0800 DD000000 		.4byte	0xdd
  1156 0804 0C       		.uleb128 0xc
- 1157 0805 B4000000 		.4byte	.LASF229
+ 1157 0805 92000000 		.4byte	.LASF229
  1158 0809 07       		.byte	0x7
  1159 080a 9002     		.2byte	0x290
  1160 080c 10080000 		.4byte	0x810
  1161 0810 0D       		.uleb128 0xd
- 1162 0811 FC030000 		.4byte	.LASF230
+ 1162 0811 E4030000 		.4byte	.LASF230
  1163 0815 C0       		.byte	0xc0
  1164 0816 07       		.byte	0x7
  1165 0817 AB03     		.2byte	0x3ab
  1166 0819 B40A0000 		.4byte	0xab4
  1167 081d 0E       		.uleb128 0xe
- 1168 081e E9050000 		.4byte	.LASF231
+ 1168 081e D1050000 		.4byte	.LASF231
  1169 0822 07       		.byte	0x7
  1170 0823 AC03     		.2byte	0x3ac
  1171 0825 4A0C0000 		.4byte	0xc4a
  1172 0829 00       		.byte	0
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 24
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 24
 
 
  1173 082a 0E       		.uleb128 0xe
- 1174 082b D00C0000 		.4byte	.LASF232
+ 1174 082b AC0C0000 		.4byte	.LASF232
  1175 082f 07       		.byte	0x7
  1176 0830 AE03     		.2byte	0x3ae
  1177 0832 A4000000 		.4byte	0xa4
  1178 0836 04       		.byte	0x4
  1179 0837 0E       		.uleb128 0xe
- 1180 0838 72070000 		.4byte	.LASF233
+ 1180 0838 5A070000 		.4byte	.LASF233
  1181 083c 07       		.byte	0x7
  1182 083d B003     		.2byte	0x3b0
  1183 083f 4A0C0000 		.4byte	0xc4a
  1184 0843 08       		.byte	0x8
  1185 0844 0E       		.uleb128 0xe
- 1186 0845 64100000 		.4byte	.LASF205
+ 1186 0845 87100000 		.4byte	.LASF205
  1187 0849 07       		.byte	0x7
  1188 084a B203     		.2byte	0x3b2
  1189 084c 200C0000 		.4byte	0xc20
  1190 0850 0C       		.byte	0xc
  1191 0851 0E       		.uleb128 0xe
- 1192 0852 CB0F0000 		.4byte	.LASF234
+ 1192 0852 EE0F0000 		.4byte	.LASF234
  1193 0856 07       		.byte	0x7
  1194 0857 B303     		.2byte	0x3b3
  1195 0859 200C0000 		.4byte	0xc20
  1196 085d 10       		.byte	0x10
  1197 085e 0E       		.uleb128 0xe
- 1198 085f 730C0000 		.4byte	.LASF235
+ 1198 085f 10000000 		.4byte	.LASF235
  1199 0863 07       		.byte	0x7
  1200 0864 B503     		.2byte	0x3b5
  1201 0866 200C0000 		.4byte	0xc20
  1202 086a 14       		.byte	0x14
  1203 086b 0E       		.uleb128 0xe
- 1204 086c 93080000 		.4byte	.LASF236
+ 1204 086c 7B080000 		.4byte	.LASF236
  1205 0870 07       		.byte	0x7
  1206 0871 B603     		.2byte	0x3b6
  1207 0873 200C0000 		.4byte	0xc20
  1208 0877 18       		.byte	0x18
  1209 0878 0E       		.uleb128 0xe
- 1210 0879 D30F0000 		.4byte	.LASF237
+ 1210 0879 F60F0000 		.4byte	.LASF237
  1211 087d 07       		.byte	0x7
  1212 087e B803     		.2byte	0x3b8
  1213 0880 500C0000 		.4byte	0xc50
  1214 0884 1C       		.byte	0x1c
  1215 0885 0E       		.uleb128 0xe
- 1216 0886 B3100000 		.4byte	.LASF220
+ 1216 0886 D6100000 		.4byte	.LASF220
  1217 088a 07       		.byte	0x7
  1218 088b BA03     		.2byte	0x3ba
  1219 088d 320C0000 		.4byte	0xc32
  1220 0891 20       		.byte	0x20
  1221 0892 0E       		.uleb128 0xe
- 1222 0893 9B110000 		.4byte	.LASF238
+ 1222 0893 BE110000 		.4byte	.LASF238
  1223 0897 07       		.byte	0x7
  1224 0898 BC03     		.2byte	0x3bc
  1225 089a 4A0C0000 		.4byte	0xc4a
  1226 089e 24       		.byte	0x24
  1227 089f 0E       		.uleb128 0xe
- 1228 08a0 450D0000 		.4byte	.LASF239
+ 1228 08a0 210D0000 		.4byte	.LASF239
  1229 08a4 07       		.byte	0x7
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 25
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 25
 
 
  1230 08a5 C203     		.2byte	0x3c2
  1231 08a7 F8070000 		.4byte	0x7f8
  1232 08ab 28       		.byte	0x28
  1233 08ac 0E       		.uleb128 0xe
- 1234 08ad 980F0000 		.4byte	.LASF240
+ 1234 08ad 740F0000 		.4byte	.LASF240
  1235 08b1 07       		.byte	0x7
  1236 08b2 C303     		.2byte	0x3c3
  1237 08b4 A4000000 		.4byte	0xa4
  1238 08b8 2C       		.byte	0x2c
  1239 08b9 0E       		.uleb128 0xe
- 1240 08ba BC060000 		.4byte	.LASF241
+ 1240 08ba A4060000 		.4byte	.LASF241
  1241 08be 07       		.byte	0x7
  1242 08bf C503     		.2byte	0x3c5
  1243 08c1 260C0000 		.4byte	0xc26
  1244 08c5 30       		.byte	0x30
  1245 08c6 0E       		.uleb128 0xe
- 1246 08c7 290F0000 		.4byte	.LASF242
+ 1246 08c7 050F0000 		.4byte	.LASF242
  1247 08cb 07       		.byte	0x7
  1248 08cc C603     		.2byte	0x3c6
  1249 08ce B4010000 		.4byte	0x1b4
  1250 08d2 34       		.byte	0x34
  1251 08d3 0E       		.uleb128 0xe
- 1252 08d4 7B110000 		.4byte	.LASF243
+ 1252 08d4 9E110000 		.4byte	.LASF243
  1253 08d8 07       		.byte	0x7
  1254 08d9 C703     		.2byte	0x3c7
  1255 08db BF010000 		.4byte	0x1bf
  1256 08df 35       		.byte	0x35
  1257 08e0 0E       		.uleb128 0xe
- 1258 08e1 E40B0000 		.4byte	.LASF244
+ 1258 08e1 CC0B0000 		.4byte	.LASF244
  1259 08e5 07       		.byte	0x7
  1260 08e6 C903     		.2byte	0x3c9
  1261 08e8 B4010000 		.4byte	0x1b4
  1262 08ec 36       		.byte	0x36
  1263 08ed 0E       		.uleb128 0xe
- 1264 08ee 54130000 		.4byte	.LASF245
+ 1264 08ee 62130000 		.4byte	.LASF245
  1265 08f2 07       		.byte	0x7
  1266 08f3 CA03     		.2byte	0x3ca
  1267 08f5 93010000 		.4byte	0x193
  1268 08f9 37       		.byte	0x37
  1269 08fa 0E       		.uleb128 0xe
- 1270 08fb 30040000 		.4byte	.LASF246
+ 1270 08fb 18040000 		.4byte	.LASF246
  1271 08ff 07       		.byte	0x7
  1272 0900 CB03     		.2byte	0x3cb
  1273 0902 04010000 		.4byte	0x104
@@ -1493,12 +1493,12 @@ ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 1
  1279 090f 88010000 		.4byte	0x188
  1280 0913 3C       		.byte	0x3c
  1281 0914 0E       		.uleb128 0xe
- 1282 0915 3E000000 		.4byte	.LASF247
+ 1282 0915 1C000000 		.4byte	.LASF247
  1283 0919 07       		.byte	0x7
  1284 091a CE03     		.2byte	0x3ce
  1285 091c 72010000 		.4byte	0x172
  1286 0920 3E       		.byte	0x3e
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 26
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 26
 
 
  1287 0921 0F       		.uleb128 0xf
@@ -1508,367 +1508,367 @@ ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 1
  1291 0928 1A010000 		.4byte	0x11a
  1292 092c 40       		.byte	0x40
  1293 092d 0E       		.uleb128 0xe
- 1294 092e 73130000 		.4byte	.LASF248
+ 1294 092e 81130000 		.4byte	.LASF248
  1295 0932 07       		.byte	0x7
  1296 0933 D203     		.2byte	0x3d2
  1297 0935 A9010000 		.4byte	0x1a9
  1298 0939 44       		.byte	0x44
  1299 093a 0E       		.uleb128 0xe
- 1300 093b F0010000 		.4byte	.LASF249
+ 1300 093b D8010000 		.4byte	.LASF249
  1301 093f 07       		.byte	0x7
  1302 0940 D503     		.2byte	0x3d5
  1303 0942 CA010000 		.4byte	0x1ca
  1304 0946 48       		.byte	0x48
  1305 0947 0E       		.uleb128 0xe
- 1306 0948 FE0C0000 		.4byte	.LASF250
+ 1306 0948 DA0C0000 		.4byte	.LASF250
  1307 094c 07       		.byte	0x7
  1308 094d D603     		.2byte	0x3d6
  1309 094f CA010000 		.4byte	0x1ca
  1310 0953 4C       		.byte	0x4c
  1311 0954 0E       		.uleb128 0xe
- 1312 0955 99060000 		.4byte	.LASF251
+ 1312 0955 81060000 		.4byte	.LASF251
  1313 0959 07       		.byte	0x7
  1314 095a D703     		.2byte	0x3d7
  1315 095c CA010000 		.4byte	0x1ca
  1316 0960 50       		.byte	0x50
  1317 0961 0E       		.uleb128 0xe
- 1318 0962 920A0000 		.4byte	.LASF252
+ 1318 0962 7A0A0000 		.4byte	.LASF252
  1319 0966 07       		.byte	0x7
  1320 0967 D903     		.2byte	0x3d9
  1321 0969 CA010000 		.4byte	0x1ca
  1322 096d 54       		.byte	0x54
  1323 096e 0E       		.uleb128 0xe
- 1324 096f CA020000 		.4byte	.LASF253
+ 1324 096f B2020000 		.4byte	.LASF253
  1325 0973 07       		.byte	0x7
  1326 0974 DA03     		.2byte	0x3da
  1327 0976 CA010000 		.4byte	0x1ca
  1328 097a 58       		.byte	0x58
  1329 097b 0E       		.uleb128 0xe
- 1330 097c 05010000 		.4byte	.LASF206
+ 1330 097c E3000000 		.4byte	.LASF206
  1331 0980 07       		.byte	0x7
  1332 0981 DD03     		.2byte	0x3dd
  1333 0983 A4000000 		.4byte	0xa4
  1334 0987 5C       		.byte	0x5c
  1335 0988 0E       		.uleb128 0xe
- 1336 0989 44110000 		.4byte	.LASF207
+ 1336 0989 67110000 		.4byte	.LASF207
  1337 098d 07       		.byte	0x7
  1338 098e DE03     		.2byte	0x3de
  1339 0990 5C010000 		.4byte	0x15c
  1340 0994 60       		.byte	0x60
  1341 0995 0E       		.uleb128 0xe
- 1342 0996 EE0B0000 		.4byte	.LASF225
+ 1342 0996 D60B0000 		.4byte	.LASF225
  1343 099a 07       		.byte	0x7
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 27
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 27
 
 
  1344 099b E203     		.2byte	0x3e2
  1345 099d A7060000 		.4byte	0x6a7
  1346 09a1 64       		.byte	0x64
  1347 09a2 0E       		.uleb128 0xe
- 1348 09a3 58060000 		.4byte	.LASF254
+ 1348 09a3 40060000 		.4byte	.LASF254
  1349 09a7 07       		.byte	0x7
  1350 09a8 E403     		.2byte	0x3e4
  1351 09aa 1A010000 		.4byte	0x11a
  1352 09ae 74       		.byte	0x74
  1353 09af 0E       		.uleb128 0xe
- 1354 09b0 D5130000 		.4byte	.LASF255
+ 1354 09b0 E3130000 		.4byte	.LASF255
  1355 09b4 07       		.byte	0x7
  1356 09b5 E503     		.2byte	0x3e5
  1357 09b7 1A010000 		.4byte	0x11a
  1358 09bb 78       		.byte	0x78
  1359 09bc 0E       		.uleb128 0xe
- 1360 09bd D8020000 		.4byte	.LASF256
+ 1360 09bd C0020000 		.4byte	.LASF256
  1361 09c1 07       		.byte	0x7
  1362 09c2 EA03     		.2byte	0x3ea
  1363 09c4 560C0000 		.4byte	0xc56
  1364 09c8 7C       		.byte	0x7c
  1365 09c9 0E       		.uleb128 0xe
- 1366 09ca 97050000 		.4byte	.LASF257
+ 1366 09ca 7F050000 		.4byte	.LASF257
  1367 09ce 07       		.byte	0x7
  1368 09cf EE03     		.2byte	0x3ee
  1369 09d1 46010000 		.4byte	0x146
  1370 09d5 80       		.byte	0x80
  1371 09d6 0E       		.uleb128 0xe
- 1372 09d7 86110000 		.4byte	.LASF258
+ 1372 09d7 A9110000 		.4byte	.LASF258
  1373 09db 07       		.byte	0x7
  1374 09dc EF03     		.2byte	0x3ef
  1375 09de 46010000 		.4byte	0x146
  1376 09e2 84       		.byte	0x84
  1377 09e3 0E       		.uleb128 0xe
- 1378 09e4 B60A0000 		.4byte	.LASF259
+ 1378 09e4 9E0A0000 		.4byte	.LASF259
  1379 09e8 07       		.byte	0x7
  1380 09e9 F003     		.2byte	0x3f0
  1381 09eb 88010000 		.4byte	0x188
  1382 09ef 88       		.byte	0x88
  1383 09f0 0E       		.uleb128 0xe
- 1384 09f1 E5010000 		.4byte	.LASF260
+ 1384 09f1 CD010000 		.4byte	.LASF260
  1385 09f5 07       		.byte	0x7
  1386 09f6 F403     		.2byte	0x3f4
  1387 09f8 67010000 		.4byte	0x167
  1388 09fc 8A       		.byte	0x8a
  1389 09fd 0E       		.uleb128 0xe
- 1390 09fe 9F020000 		.4byte	.LASF261
+ 1390 09fe 87020000 		.4byte	.LASF261
  1391 0a02 07       		.byte	0x7
  1392 0a03 F803     		.2byte	0x3f8
  1393 0a05 25010000 		.4byte	0x125
  1394 0a09 8C       		.byte	0x8c
  1395 0a0a 0E       		.uleb128 0xe
- 1396 0a0b 090F0000 		.4byte	.LASF262
+ 1396 0a0b E50E0000 		.4byte	.LASF262
  1397 0a0f 07       		.byte	0x7
  1398 0a10 F903     		.2byte	0x3f9
  1399 0a12 25010000 		.4byte	0x125
  1400 0a16 8E       		.byte	0x8e
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 28
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 28
 
 
  1401 0a17 0E       		.uleb128 0xe
- 1402 0a18 65090000 		.4byte	.LASF263
+ 1402 0a18 4D090000 		.4byte	.LASF263
  1403 0a1c 07       		.byte	0x7
  1404 0a1d FA03     		.2byte	0x3fa
  1405 0a1f 30010000 		.4byte	0x130
  1406 0a23 90       		.byte	0x90
  1407 0a24 0E       		.uleb128 0xe
- 1408 0a25 7B0D0000 		.4byte	.LASF264
+ 1408 0a25 570D0000 		.4byte	.LASF264
  1409 0a29 07       		.byte	0x7
  1410 0a2a FB03     		.2byte	0x3fb
  1411 0a2c 1A010000 		.4byte	0x11a
  1412 0a30 94       		.byte	0x94
  1413 0a31 0E       		.uleb128 0xe
- 1414 0a32 2A0D0000 		.4byte	.LASF265
+ 1414 0a32 060D0000 		.4byte	.LASF265
  1415 0a36 07       		.byte	0x7
  1416 0a37 FC03     		.2byte	0x3fc
  1417 0a39 1A010000 		.4byte	0x11a
  1418 0a3d 98       		.byte	0x98
  1419 0a3e 0E       		.uleb128 0xe
- 1420 0a3f B5050000 		.4byte	.LASF266
+ 1420 0a3f 9D050000 		.4byte	.LASF266
  1421 0a43 07       		.byte	0x7
  1422 0a44 FD03     		.2byte	0x3fd
  1423 0a46 3B010000 		.4byte	0x13b
  1424 0a4a 9C       		.byte	0x9c
  1425 0a4b 0E       		.uleb128 0xe
- 1426 0a4c 4C110000 		.4byte	.LASF267
+ 1426 0a4c 6F110000 		.4byte	.LASF267
  1427 0a50 07       		.byte	0x7
  1428 0a51 FE03     		.2byte	0x3fe
  1429 0a53 3B010000 		.4byte	0x13b
  1430 0a57 A0       		.byte	0xa0
  1431 0a58 0E       		.uleb128 0xe
- 1432 0a59 520B0000 		.4byte	.LASF268
+ 1432 0a59 3A0B0000 		.4byte	.LASF268
  1433 0a5d 07       		.byte	0x7
  1434 0a5e 0004     		.2byte	0x400
  1435 0a60 1A010000 		.4byte	0x11a
  1436 0a64 A4       		.byte	0xa4
  1437 0a65 0E       		.uleb128 0xe
- 1438 0a66 3F040000 		.4byte	.LASF269
+ 1438 0a66 27040000 		.4byte	.LASF269
  1439 0a6a 07       		.byte	0x7
  1440 0a6b 0104     		.2byte	0x401
  1441 0a6d 1A010000 		.4byte	0x11a
  1442 0a71 A8       		.byte	0xa8
  1443 0a72 0E       		.uleb128 0xe
- 1444 0a73 A1100000 		.4byte	.LASF270
+ 1444 0a73 C4100000 		.4byte	.LASF270
  1445 0a77 07       		.byte	0x7
  1446 0a78 0504     		.2byte	0x405
  1447 0a7a 04010000 		.4byte	0x104
  1448 0a7e AC       		.byte	0xac
  1449 0a7f 0E       		.uleb128 0xe
- 1450 0a80 FD000000 		.4byte	.LASF271
+ 1450 0a80 DB000000 		.4byte	.LASF271
  1451 0a84 07       		.byte	0x7
  1452 0a85 0604     		.2byte	0x406
  1453 0a87 04010000 		.4byte	0x104
  1454 0a8b B0       		.byte	0xb0
  1455 0a8c 0E       		.uleb128 0xe
- 1456 0a8d DE050000 		.4byte	.LASF222
+ 1456 0a8d C6050000 		.4byte	.LASF222
  1457 0a91 07       		.byte	0x7
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 29
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 29
 
 
  1458 0a92 1104     		.2byte	0x411
  1459 0a94 200C0000 		.4byte	0xc20
  1460 0a98 B4       		.byte	0xb4
  1461 0a99 0E       		.uleb128 0xe
- 1462 0a9a A6110000 		.4byte	.LASF223
+ 1462 0a9a C9110000 		.4byte	.LASF223
  1463 0a9e 07       		.byte	0x7
  1464 0a9f 1204     		.2byte	0x412
  1465 0aa1 200C0000 		.4byte	0xc20
  1466 0aa5 B8       		.byte	0xb8
  1467 0aa6 0E       		.uleb128 0xe
- 1468 0aa7 7E050000 		.4byte	.LASF224
+ 1468 0aa7 66050000 		.4byte	.LASF224
  1469 0aab 07       		.byte	0x7
  1470 0aac 1304     		.2byte	0x413
  1471 0aae 320C0000 		.4byte	0xc32
  1472 0ab2 BC       		.byte	0xbc
  1473 0ab3 00       		.byte	0
  1474 0ab4 0C       		.uleb128 0xc
- 1475 0ab5 460F0000 		.4byte	.LASF272
+ 1475 0ab5 220F0000 		.4byte	.LASF272
  1476 0ab9 07       		.byte	0x7
  1477 0aba 9E02     		.2byte	0x29e
  1478 0abc C00A0000 		.4byte	0xac0
  1479 0ac0 0D       		.uleb128 0xd
- 1480 0ac1 010B0000 		.4byte	.LASF273
+ 1480 0ac1 E90A0000 		.4byte	.LASF273
  1481 0ac5 08       		.byte	0x8
  1482 0ac6 07       		.byte	0x7
  1483 0ac7 1E04     		.2byte	0x41e
  1484 0ac9 F50A0000 		.4byte	0xaf5
  1485 0acd 0E       		.uleb128 0xe
- 1486 0ace 1D0C0000 		.4byte	.LASF274
+ 1486 0ace 050C0000 		.4byte	.LASF274
  1487 0ad2 07       		.byte	0x7
  1488 0ad3 1F04     		.2byte	0x41f
  1489 0ad5 200C0000 		.4byte	0xc20
  1490 0ad9 00       		.byte	0
  1491 0ada 0E       		.uleb128 0xe
- 1492 0adb 27110000 		.4byte	.LASF215
+ 1492 0adb 4A110000 		.4byte	.LASF215
  1493 0adf 07       		.byte	0x7
  1494 0ae0 2004     		.2byte	0x420
  1495 0ae2 72010000 		.4byte	0x172
  1496 0ae6 04       		.byte	0x4
  1497 0ae7 0E       		.uleb128 0xe
- 1498 0ae8 D20D0000 		.4byte	.LASF216
+ 1498 0ae8 AE0D0000 		.4byte	.LASF216
  1499 0aec 07       		.byte	0x7
  1500 0aed 2104     		.2byte	0x421
  1501 0aef 72010000 		.4byte	0x172
  1502 0af3 06       		.byte	0x6
  1503 0af4 00       		.byte	0
  1504 0af5 0C       		.uleb128 0xc
- 1505 0af6 DD080000 		.4byte	.LASF275
+ 1505 0af6 C5080000 		.4byte	.LASF275
  1506 0afa 07       		.byte	0x7
  1507 0afb A502     		.2byte	0x2a5
  1508 0afd 010B0000 		.4byte	0xb01
  1509 0b01 0D       		.uleb128 0xd
- 1510 0b02 6B020000 		.4byte	.LASF276
+ 1510 0b02 53020000 		.4byte	.LASF276
  1511 0b06 20       		.byte	0x20
  1512 0b07 07       		.byte	0x7
  1513 0b08 DD02     		.2byte	0x2dd
  1514 0b0a 770B0000 		.4byte	0xb77
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 30
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 30
 
 
  1515 0b0e 0E       		.uleb128 0xe
- 1516 0b0f CB0F0000 		.4byte	.LASF234
+ 1516 0b0f EE0F0000 		.4byte	.LASF234
  1517 0b13 07       		.byte	0x7
  1518 0b14 DE02     		.2byte	0x2de
  1519 0b16 260C0000 		.4byte	0xc26
  1520 0b1a 00       		.byte	0
  1521 0b1b 0E       		.uleb128 0xe
- 1522 0b1c 64100000 		.4byte	.LASF205
+ 1522 0b1c 87100000 		.4byte	.LASF205
  1523 0b20 07       		.byte	0x7
  1524 0b21 DF02     		.2byte	0x2df
  1525 0b23 260C0000 		.4byte	0xc26
  1526 0b27 04       		.byte	0x4
  1527 0b28 0E       		.uleb128 0xe
- 1528 0b29 1E030000 		.4byte	.LASF277
+ 1528 0b29 06030000 		.4byte	.LASF277
  1529 0b2d 07       		.byte	0x7
  1530 0b2e E002     		.2byte	0x2e0
  1531 0b30 200C0000 		.4byte	0xc20
  1532 0b34 08       		.byte	0x8
  1533 0b35 0E       		.uleb128 0xe
- 1534 0b36 87100000 		.4byte	.LASF278
+ 1534 0b36 AA100000 		.4byte	.LASF278
  1535 0b3a 07       		.byte	0x7
  1536 0b3b E102     		.2byte	0x2e1
  1537 0b3d 2C0C0000 		.4byte	0xc2c
  1538 0b41 0C       		.byte	0xc
  1539 0b42 0E       		.uleb128 0xe
- 1540 0b43 2F0E0000 		.4byte	.LASF279
+ 1540 0b43 0B0E0000 		.4byte	.LASF279
  1541 0b47 07       		.byte	0x7
  1542 0b48 E202     		.2byte	0x2e2
  1543 0b4a 2C0C0000 		.4byte	0xc2c
  1544 0b4e 10       		.byte	0x10
  1545 0b4f 0E       		.uleb128 0xe
- 1546 0b50 F2130000 		.4byte	.LASF280
+ 1546 0b50 00140000 		.4byte	.LASF280
  1547 0b54 07       		.byte	0x7
  1548 0b55 E302     		.2byte	0x2e3
  1549 0b57 A4000000 		.4byte	0xa4
  1550 0b5b 14       		.byte	0x14
  1551 0b5c 0E       		.uleb128 0xe
- 1552 0b5d F30C0000 		.4byte	.LASF281
+ 1552 0b5d CF0C0000 		.4byte	.LASF281
  1553 0b61 07       		.byte	0x7
  1554 0b62 E402     		.2byte	0x2e4
  1555 0b64 5C010000 		.4byte	0x15c
  1556 0b68 18       		.byte	0x18
  1557 0b69 0E       		.uleb128 0xe
- 1558 0b6a 000C0000 		.4byte	.LASF282
+ 1558 0b6a E80B0000 		.4byte	.LASF282
  1559 0b6e 07       		.byte	0x7
  1560 0b6f E502     		.2byte	0x2e5
  1561 0b71 1A010000 		.4byte	0x11a
  1562 0b75 1C       		.byte	0x1c
  1563 0b76 00       		.byte	0
  1564 0b77 0C       		.uleb128 0xc
- 1565 0b78 51000000 		.4byte	.LASF283
+ 1565 0b78 2F000000 		.4byte	.LASF283
  1566 0b7c 07       		.byte	0x7
  1567 0b7d A602     		.2byte	0x2a6
  1568 0b7f 830B0000 		.4byte	0xb83
  1569 0b83 0D       		.uleb128 0xd
- 1570 0b84 B70F0000 		.4byte	.LASF284
+ 1570 0b84 930F0000 		.4byte	.LASF284
  1571 0b88 0C       		.byte	0xc
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 31
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 31
 
 
  1572 0b89 07       		.byte	0x7
  1573 0b8a E902     		.2byte	0x2e9
  1574 0b8c B80B0000 		.4byte	0xbb8
  1575 0b90 0E       		.uleb128 0xe
- 1576 0b91 5A0D0000 		.4byte	.LASF285
+ 1576 0b91 360D0000 		.4byte	.LASF285
  1577 0b95 07       		.byte	0x7
  1578 0b96 EA02     		.2byte	0x2ea
  1579 0b98 260C0000 		.4byte	0xc26
  1580 0b9c 00       		.byte	0
  1581 0b9d 0E       		.uleb128 0xe
- 1582 0b9e 550C0000 		.4byte	.LASF286
+ 1582 0b9e 3D0C0000 		.4byte	.LASF286
  1583 0ba2 07       		.byte	0x7
  1584 0ba3 EB02     		.2byte	0x2eb
  1585 0ba5 260C0000 		.4byte	0xc26
  1586 0ba9 04       		.byte	0x4
  1587 0baa 0E       		.uleb128 0xe
- 1588 0bab 27110000 		.4byte	.LASF215
+ 1588 0bab 4A110000 		.4byte	.LASF215
  1589 0baf 07       		.byte	0x7
  1590 0bb0 EC02     		.2byte	0x2ec
  1591 0bb2 72010000 		.4byte	0x172
  1592 0bb6 08       		.byte	0x8
  1593 0bb7 00       		.byte	0
  1594 0bb8 0C       		.uleb128 0xc
- 1595 0bb9 F2090000 		.4byte	.LASF287
+ 1595 0bb9 DA090000 		.4byte	.LASF287
  1596 0bbd 07       		.byte	0x7
  1597 0bbe A702     		.2byte	0x2a7
  1598 0bc0 C40B0000 		.4byte	0xbc4
  1599 0bc4 0D       		.uleb128 0xd
- 1600 0bc5 970D0000 		.4byte	.LASF288
+ 1600 0bc5 730D0000 		.4byte	.LASF288
  1601 0bc9 20       		.byte	0x20
  1602 0bca 07       		.byte	0x7
  1603 0bcb FF02     		.2byte	0x2ff
  1604 0bcd 200C0000 		.4byte	0xc20
  1605 0bd1 0E       		.uleb128 0xe
- 1606 0bd2 6E0C0000 		.4byte	.LASF219
+ 1606 0bd2 560C0000 		.4byte	.LASF219
  1607 0bd6 07       		.byte	0x7
  1608 0bd7 0003     		.2byte	0x300
  1609 0bd9 7D010000 		.4byte	0x17d
  1610 0bdd 00       		.byte	0
  1611 0bde 0E       		.uleb128 0xe
- 1612 0bdf B3100000 		.4byte	.LASF220
+ 1612 0bdf D6100000 		.4byte	.LASF220
  1613 0be3 07       		.byte	0x7
  1614 0be4 0103     		.2byte	0x301
  1615 0be6 320C0000 		.4byte	0xc32
  1616 0bea 04       		.byte	0x4
  1617 0beb 0E       		.uleb128 0xe
- 1618 0bec 06090000 		.4byte	.LASF221
+ 1618 0bec EE080000 		.4byte	.LASF221
  1619 0bf0 07       		.byte	0x7
  1620 0bf1 0203     		.2byte	0x302
  1621 0bf3 770B0000 		.4byte	0xb77
  1622 0bf7 08       		.byte	0x8
  1623 0bf8 0E       		.uleb128 0xe
- 1624 0bf9 DE050000 		.4byte	.LASF222
+ 1624 0bf9 C6050000 		.4byte	.LASF222
  1625 0bfd 07       		.byte	0x7
  1626 0bfe 0403     		.2byte	0x304
  1627 0c00 A4000000 		.4byte	0xa4
  1628 0c04 14       		.byte	0x14
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 32
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 32
 
 
  1629 0c05 0E       		.uleb128 0xe
- 1630 0c06 A6110000 		.4byte	.LASF223
+ 1630 0c06 C9110000 		.4byte	.LASF223
  1631 0c0a 07       		.byte	0x7
  1632 0c0b 0503     		.2byte	0x305
  1633 0c0d A4000000 		.4byte	0xa4
  1634 0c11 18       		.byte	0x18
  1635 0c12 0E       		.uleb128 0xe
- 1636 0c13 7E050000 		.4byte	.LASF224
+ 1636 0c13 66050000 		.4byte	.LASF224
  1637 0c17 07       		.byte	0x7
  1638 0c18 0603     		.2byte	0x306
  1639 0c1a 320C0000 		.4byte	0xc32
@@ -1909,7 +1909,7 @@ ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 1
  1674 0c64 00       		.byte	0
  1675 0c65 00       		.byte	0
  1676 0c66 12       		.uleb128 0x12
- 1677 0c67 CF010000 		.4byte	.LASF325
+ 1677 0c67 B7010000 		.4byte	.LASF325
  1678 0c6b 01       		.byte	0x1
  1679 0c6c 52       		.byte	0x52
  1680 0c6d 00000000 		.4byte	.LFB65
@@ -1918,10 +1918,10 @@ ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 1
  1683 0c76 9C       		.byte	0x9c
  1684 0c77 8D0D0000 		.4byte	0xd8d
  1685 0c7b 13       		.uleb128 0x13
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 33
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 33
 
 
- 1686 0c7c 8C0B0000 		.4byte	.LASF326
+ 1686 0c7c 740B0000 		.4byte	.LASF326
  1687 0c80 01       		.byte	0x1
  1688 0c81 52       		.byte	0x52
  1689 0c82 A4000000 		.4byte	0xa4
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 1
  1740 0ce8 17       		.uleb128 0x17
  1741 0ce9 01       		.uleb128 0x1
  1742 0cea 50       		.byte	0x50
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 34
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 34
 
 
  1743 0ceb 02       		.uleb128 0x2
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 1
  1797 0d45 16       		.uleb128 0x16
  1798 0d46 50000000 		.4byte	.LVL11
  1799 0d4a 41100000 		.4byte	0x1041
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 35
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 35
 
 
  1800 0d4e 610D0000 		.4byte	0xd61
@@ -2093,12 +2093,12 @@ ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 1
  1849 0d8b 00       		.byte	0
  1850 0d8c 00       		.byte	0
  1851 0d8d 19       		.uleb128 0x19
- 1852 0d8e 57030000 		.4byte	.LASF327
+ 1852 0d8e 3F030000 		.4byte	.LASF327
  1853 0d92 01       		.byte	0x1
  1854 0d93 31       		.byte	0x31
  1855 0d94 68000000 		.4byte	0x68
  1856 0d98 00000000 		.4byte	.LFB64
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 36
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 36
 
 
  1857 0d9c 60000000 		.4byte	.LFE64-.LFB64
@@ -2106,7 +2106,7 @@ ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 1
  1859 0da1 9C       		.byte	0x9c
  1860 0da2 5A0E0000 		.4byte	0xe5a
  1861 0da6 1A       		.uleb128 0x1a
- 1862 0da7 530D0000 		.4byte	.LASF289
+ 1862 0da7 2F0D0000 		.4byte	.LASF289
  1863 0dab 01       		.byte	0x1
  1864 0dac 33       		.byte	0x33
  1865 0dad 4D060000 		.4byte	0x64d
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 1
  1911 0e05 02       		.uleb128 0x2
  1912 0e06 74       		.byte	0x74
  1913 0e07 00       		.sleb128 0
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 37
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 37
 
 
  1914 0e08 17       		.uleb128 0x17
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 1
  1968 0e42 02       		.uleb128 0x2
  1969 0e43 7D       		.byte	0x7d
  1970 0e44 20       		.sleb128 32
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 38
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 38
 
 
  1971 0e45 02       		.uleb128 0x2
@@ -2237,7 +2237,7 @@ ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 1
  1984 0e58 00       		.byte	0
  1985 0e59 00       		.byte	0
  1986 0e5a 1B       		.uleb128 0x1b
- 1987 0e5b 7F0C0000 		.4byte	.LASF328
+ 1987 0e5b 5B0C0000 		.4byte	.LASF328
  1988 0e5f 0C       		.byte	0xc
  1989 0e60 18       		.byte	0x18
  1990 0e61 B1000000 		.4byte	0xb1
@@ -2251,7 +2251,7 @@ ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 1
  1998 0e75 1C       		.uleb128 0x1c
  1999 0e76 C7000000 		.4byte	0xc7
  2000 0e7a 1D       		.uleb128 0x1d
- 2001 0e7b FF0E0000 		.4byte	.LASF290
+ 2001 0e7b DB0E0000 		.4byte	.LASF290
  2002 0e7f 08       		.byte	0x8
  2003 0e80 1F       		.byte	0x1f
  2004 0e81 EA0E0000 		.4byte	0xeea
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 1
  2025 0e99 02       		.byte	0x2
  2026 0e9a 0D       		.byte	0xd
  2027 0e9b 02       		.byte	0x2
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 39
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 39
 
 
  2028 0e9c D6       		.byte	0xd6
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 1
  2082 0ed2 5A       		.byte	0x5a
  2083 0ed3 06       		.byte	0x6
  2084 0ed4 4E       		.byte	0x4e
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 40
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 40
 
 
  2085 0ed5 07       		.byte	0x7
@@ -2365,7 +2365,7 @@ ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 1
  2106 0eea 1C       		.uleb128 0x1c
  2107 0eeb 650E0000 		.4byte	0xe65
  2108 0eef 1A       		.uleb128 0x1a
- 2109 0ef0 5D0C0000 		.4byte	.LASF291
+ 2109 0ef0 450C0000 		.4byte	.LASF291
  2110 0ef4 01       		.byte	0x1
  2111 0ef5 20       		.byte	0x20
  2112 0ef6 04080000 		.4byte	0x804
@@ -2380,7 +2380,7 @@ ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 1
  2121 0f0e FF       		.byte	0xff
  2122 0f0f 00       		.byte	0
  2123 0f10 1A       		.uleb128 0x1a
- 2124 0f11 BB000000 		.4byte	.LASF292
+ 2124 0f11 99000000 		.4byte	.LASF292
  2125 0f15 01       		.byte	0x1
  2126 0f16 21       		.byte	0x21
  2127 0f17 000F0000 		.4byte	0xf00
@@ -2388,22 +2388,22 @@ ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 1
  2129 0f1c 03       		.byte	0x3
  2130 0f1d C0000000 		.4byte	App_TaskStartStk
  2131 0f21 1E       		.uleb128 0x1e
- 2132 0f22 03040000 		.4byte	.LASF293
+ 2132 0f22 EB030000 		.4byte	.LASF293
  2133 0f26 09       		.byte	0x9
  2134 0f27 1207     		.2byte	0x712
  2135 0f29 2D0F0000 		.4byte	0xf2d
  2136 0f2d 1F       		.uleb128 0x1f
  2137 0f2e 76000000 		.4byte	0x76
  2138 0f32 20       		.uleb128 0x20
- 2139 0f33 2C030000 		.4byte	.LASF294
+ 2139 0f33 14030000 		.4byte	.LASF294
  2140 0f37 0A       		.byte	0xa
  2141 0f38 1C       		.byte	0x1c
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 41
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 41
 
 
  2142 0f39 77070000 		.4byte	0x777
  2143 0f3d 21       		.uleb128 0x21
- 2144 0f3e 0C010000 		.4byte	.LASF295
+ 2144 0f3e EA000000 		.4byte	.LASF295
  2145 0f42 0B       		.byte	0xb
  2146 0f43 34       		.byte	0x34
  2147 0f44 02070000 		.4byte	0x702
@@ -2411,7 +2411,7 @@ ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 1
  2149 0f49 03       		.byte	0x3
  2150 0f4a 00000000 		.4byte	CommQI2CSPO2
  2151 0f4e 21       		.uleb128 0x21
- 2152 0f4f 5C030000 		.4byte	.LASF296
+ 2152 0f4f 44030000 		.4byte	.LASF296
  2153 0f53 0B       		.byte	0xb
  2154 0f54 35       		.byte	0x35
  2155 0f55 02070000 		.4byte	0x702
@@ -2419,7 +2419,7 @@ ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 1
  2157 0f5a 03       		.byte	0x3
  2158 0f5b 00000000 		.4byte	CommQI2CHeartRate
  2159 0f5f 21       		.uleb128 0x21
- 2160 0f60 260C0000 		.4byte	.LASF297
+ 2160 0f60 0E0C0000 		.4byte	.LASF297
  2161 0f64 0B       		.byte	0xb
  2162 0f65 36       		.byte	0x36
  2163 0f66 02070000 		.4byte	0x702
@@ -2427,7 +2427,7 @@ ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 1
  2165 0f6b 03       		.byte	0x3
  2166 0f6c 00000000 		.4byte	CommQSPIData
  2167 0f70 21       		.uleb128 0x21
- 2168 0f71 6C100000 		.4byte	.LASF298
+ 2168 0f71 8F100000 		.4byte	.LASF298
  2169 0f75 0B       		.byte	0xb
  2170 0f76 37       		.byte	0x37
  2171 0f77 02070000 		.4byte	0x702
@@ -2435,7 +2435,7 @@ ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 1
  2173 0f7c 03       		.byte	0x3
  2174 0f7d 00000000 		.4byte	CommQProcessedOximeterData
  2175 0f81 21       		.uleb128 0x21
- 2176 0f82 3B050000 		.4byte	.LASF299
+ 2176 0f82 23050000 		.4byte	.LASF299
  2177 0f86 0B       		.byte	0xb
  2178 0f87 38       		.byte	0x38
  2179 0f88 02070000 		.4byte	0x702
@@ -2443,7 +2443,7 @@ ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 1
  2181 0f8d 03       		.byte	0x3
  2182 0f8e 00000000 		.4byte	CommQProcessedEnvironmentData
  2183 0f92 21       		.uleb128 0x21
- 2184 0f93 C2010000 		.4byte	.LASF300
+ 2184 0f93 AA010000 		.4byte	.LASF300
  2185 0f97 0C       		.byte	0xc
  2186 0f98 15       		.byte	0x15
  2187 0f99 04080000 		.4byte	0x804
@@ -2458,10 +2458,10 @@ ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 1
  2196 0fb1 3F       		.byte	0x3f
  2197 0fb2 00       		.byte	0
  2198 0fb3 21       		.uleb128 0x21
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 42
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 42
 
 
- 2199 0fb4 140A0000 		.4byte	.LASF301
+ 2199 0fb4 FC090000 		.4byte	.LASF301
  2200 0fb8 0C       		.byte	0xc
  2201 0fb9 16       		.byte	0x16
  2202 0fba A30F0000 		.4byte	0xfa3
@@ -2469,7 +2469,7 @@ ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 1
  2204 0fbf 03       		.byte	0x3
  2205 0fc0 00000000 		.4byte	BUT_TaskStk
  2206 0fc4 21       		.uleb128 0x21
- 2207 0fc5 B3010000 		.4byte	.LASF302
+ 2207 0fc5 9B010000 		.4byte	.LASF302
  2208 0fc9 0C       		.byte	0xc
  2209 0fca 1B       		.byte	0x1b
  2210 0fcb 04080000 		.4byte	0x804
@@ -2477,7 +2477,7 @@ ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 1
  2212 0fd0 03       		.byte	0x3
  2213 0fd1 00000000 		.4byte	LedRB_Task_TCB
  2214 0fd5 21       		.uleb128 0x21
- 2215 0fd6 AF130000 		.4byte	.LASF303
+ 2215 0fd6 BD130000 		.4byte	.LASF303
  2216 0fda 0C       		.byte	0xc
  2217 0fdb 1C       		.byte	0x1c
  2218 0fdc A30F0000 		.4byte	0xfa3
@@ -2485,7 +2485,7 @@ ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 1
  2220 0fe1 03       		.byte	0x3
  2221 0fe2 00000000 		.4byte	LedRB_TaskStk
  2222 0fe6 21       		.uleb128 0x21
- 2223 0fe7 F60F0000 		.4byte	.LASF304
+ 2223 0fe7 19100000 		.4byte	.LASF304
  2224 0feb 0C       		.byte	0xc
  2225 0fec 1E       		.byte	0x1e
  2226 0fed 04080000 		.4byte	0x804
@@ -2493,7 +2493,7 @@ ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 1
  2228 0ff2 03       		.byte	0x3
  2229 0ff3 00000000 		.4byte	LedG_Task_TCB
  2230 0ff7 21       		.uleb128 0x21
- 2231 0ff8 E5130000 		.4byte	.LASF305
+ 2231 0ff8 F3130000 		.4byte	.LASF305
  2232 0ffc 0C       		.byte	0xc
  2233 0ffd 1F       		.byte	0x1f
  2234 0ffe A30F0000 		.4byte	0xfa3
@@ -2501,89 +2501,89 @@ ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 1
  2236 1003 03       		.byte	0x3
  2237 1004 00000000 		.4byte	LedG_TaskStk
  2238 1008 22       		.uleb128 0x22
- 2239 1009 920B0000 		.4byte	.LASF306
- 2240 100d 920B0000 		.4byte	.LASF306
+ 2239 1009 7A0B0000 		.4byte	.LASF306
+ 2240 100d 7A0B0000 		.4byte	.LASF306
  2241 1011 0D       		.byte	0xd
  2242 1012 6F       		.byte	0x6f
  2243 1013 22       		.uleb128 0x22
- 2244 1014 9D0A0000 		.4byte	.LASF307
- 2245 1018 9D0A0000 		.4byte	.LASF307
+ 2244 1014 850A0000 		.4byte	.LASF307
+ 2245 1018 850A0000 		.4byte	.LASF307
  2246 101c 0D       		.byte	0xd
  2247 101d 71       		.byte	0x71
  2248 101e 23       		.uleb128 0x23
- 2249 101f 8F110000 		.4byte	.LASF308
- 2250 1023 8F110000 		.4byte	.LASF308
+ 2249 101f B2110000 		.4byte	.LASF308
+ 2250 1023 B2110000 		.4byte	.LASF308
  2251 1027 07       		.byte	0x7
  2252 1028 3106     		.2byte	0x631
  2253 102a 22       		.uleb128 0x22
- 2254 102b EA070000 		.4byte	.LASF309
- 2255 102f EA070000 		.4byte	.LASF309
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 43
+ 2254 102b D2070000 		.4byte	.LASF309
+ 2255 102f D2070000 		.4byte	.LASF309
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 43
 
 
  2256 1033 0A       		.byte	0xa
  2257 1034 37       		.byte	0x37
  2258 1035 23       		.uleb128 0x23
- 2259 1036 8D0E0000 		.4byte	.LASF310
- 2260 103a 8D0E0000 		.4byte	.LASF310
+ 2259 1036 690E0000 		.4byte	.LASF310
+ 2260 103a 690E0000 		.4byte	.LASF310
  2261 103e 07       		.byte	0x7
  2262 103f 3A06     		.2byte	0x63a
  2263 1041 22       		.uleb128 0x22
- 2264 1042 DB0E0000 		.4byte	.LASF311
- 2265 1046 DB0E0000 		.4byte	.LASF311
+ 2264 1042 B70E0000 		.4byte	.LASF311
+ 2265 1046 B70E0000 		.4byte	.LASF311
  2266 104a 0A       		.byte	0xa
  2267 104b 38       		.byte	0x38
  2268 104c 22       		.uleb128 0x22
- 2269 104d 780A0000 		.4byte	.LASF312
- 2270 1051 780A0000 		.4byte	.LASF312
- 2271 1055 0E       		.byte	0xe
- 2272 1056 1B       		.byte	0x1b
+ 2269 104d 24010000 		.4byte	.LASF312
+ 2270 1051 24010000 		.4byte	.LASF312
+ 2271 1055 0C       		.byte	0xc
+ 2272 1056 2A       		.byte	0x2a
  2273 1057 22       		.uleb128 0x22
- 2274 1058 D50A0000 		.4byte	.LASF313
- 2275 105c D50A0000 		.4byte	.LASF313
- 2276 1060 08       		.byte	0x8
- 2277 1061 28       		.byte	0x28
+ 2274 1058 600A0000 		.4byte	.LASF313
+ 2275 105c 600A0000 		.4byte	.LASF313
+ 2276 1060 0E       		.byte	0xe
+ 2277 1061 1B       		.byte	0x1b
  2278 1062 22       		.uleb128 0x22
- 2279 1063 EC000000 		.4byte	.LASF314
- 2280 1067 EC000000 		.4byte	.LASF314
- 2281 106b 0F       		.byte	0xf
- 2282 106c 21       		.byte	0x21
+ 2279 1063 BD0A0000 		.4byte	.LASF314
+ 2280 1067 BD0A0000 		.4byte	.LASF314
+ 2281 106b 08       		.byte	0x8
+ 2282 106c 28       		.byte	0x28
  2283 106d 22       		.uleb128 0x22
- 2284 106e B7120000 		.4byte	.LASF315
- 2285 1072 B7120000 		.4byte	.LASF315
- 2286 1076 0B       		.byte	0xb
- 2287 1077 56       		.byte	0x56
+ 2284 106e CA000000 		.4byte	.LASF315
+ 2285 1072 CA000000 		.4byte	.LASF315
+ 2286 1076 0F       		.byte	0xf
+ 2287 1077 21       		.byte	0x21
  2288 1078 23       		.uleb128 0x23
- 2289 1079 5E000000 		.4byte	.LASF316
- 2290 107d 5E000000 		.4byte	.LASF316
+ 2289 1079 3C000000 		.4byte	.LASF316
+ 2290 107d 3C000000 		.4byte	.LASF316
  2291 1081 07       		.byte	0x7
  2292 1082 1C07     		.2byte	0x71c
  2293 1084 22       		.uleb128 0x22
- 2294 1085 10040000 		.4byte	.LASF317
- 2295 1089 10040000 		.4byte	.LASF317
+ 2294 1085 F8030000 		.4byte	.LASF317
+ 2295 1089 F8030000 		.4byte	.LASF317
  2296 108d 0D       		.byte	0xd
  2297 108e 6D       		.byte	0x6d
  2298 108f 23       		.uleb128 0x23
- 2299 1090 7D010000 		.4byte	.LASF318
- 2300 1094 7D010000 		.4byte	.LASF318
+ 2299 1090 65010000 		.4byte	.LASF318
+ 2300 1094 65010000 		.4byte	.LASF318
  2301 1098 05       		.byte	0x5
  2302 1099 FE01     		.2byte	0x1fe
  2303 109b 23       		.uleb128 0x23
- 2304 109c A4070000 		.4byte	.LASF319
- 2305 10a0 A4070000 		.4byte	.LASF319
+ 2304 109c 8C070000 		.4byte	.LASF319
+ 2305 10a0 8C070000 		.4byte	.LASF319
  2306 10a4 07       		.byte	0x7
  2307 10a5 6C07     		.2byte	0x76c
  2308 10a7 23       		.uleb128 0x23
- 2309 10a8 58010000 		.4byte	.LASF320
- 2310 10ac 58010000 		.4byte	.LASF320
+ 2309 10a8 40010000 		.4byte	.LASF320
+ 2310 10ac 40010000 		.4byte	.LASF320
  2311 10b0 07       		.byte	0x7
  2312 10b1 6D06     		.2byte	0x66d
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 44
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 44
 
 
  2313 10b3 23       		.uleb128 0x23
- 2314 10b4 CC120000 		.4byte	.LASF321
- 2315 10b8 CC120000 		.4byte	.LASF321
+ 2314 10b4 DA120000 		.4byte	.LASF321
+ 2315 10b8 DA120000 		.4byte	.LASF321
  2316 10bc 07       		.byte	0x7
  2317 10bd 8307     		.2byte	0x783
  2318 10bf 00       		.byte	0
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 1
  2367 002e 0B       		.uleb128 0xb
  2368 002f 0B       		.uleb128 0xb
  2369 0030 3E       		.uleb128 0x3e
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 45
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 45
 
 
  2370 0031 0B       		.uleb128 0xb
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 1
  2424 0067 0A       		.uleb128 0xa
  2425 0068 28       		.uleb128 0x28
  2426 0069 00       		.byte	0
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 46
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 46
 
 
  2427 006a 03       		.uleb128 0x3
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 1
  2481 00a0 38       		.uleb128 0x38
  2482 00a1 0B       		.uleb128 0xb
  2483 00a2 00       		.byte	0
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 47
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 47
 
 
  2484 00a3 00       		.byte	0
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 1
  2538 00db 19       		.uleb128 0x19
  2539 00dc 01       		.uleb128 0x1
  2540 00dd 13       		.uleb128 0x13
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 48
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 48
 
 
  2541 00de 00       		.byte	0
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 1
  2595 011a 00       		.byte	0
  2596 011b 02       		.uleb128 0x2
  2597 011c 18       		.uleb128 0x18
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 49
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 49
 
 
  2598 011d 9142     		.uleb128 0x2111
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 1
  2652 0157 00       		.byte	0
  2653 0158 1B       		.uleb128 0x1b
  2654 0159 34       		.uleb128 0x34
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 50
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 50
 
 
  2655 015a 00       		.byte	0
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 1
  2709 0190 13       		.uleb128 0x13
  2710 0191 00       		.byte	0
  2711 0192 00       		.byte	0
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 51
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 51
 
 
  2712 0193 20       		.uleb128 0x20
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 1
  2766 01c9 3F       		.uleb128 0x3f
  2767 01ca 19       		.uleb128 0x19
  2768 01cb 3C       		.uleb128 0x3c
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 52
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 52
 
 
  2769 01cc 19       		.uleb128 0x19
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 1
  2821      00000201 
  2821      FB0E0D00 
  2821      01010101 
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 53
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 53
 
 
  2822              	.LASF72:
@@ -3126,1671 +3126,1674 @@ ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 1
  2823      52525F4D 
  2823      454D5F46 
  2823      554C4C00 
- 2824              	.LASF324:
- 2825 0010 433A5C63 		.ascii	"C:\\cypress\\BodyAnalyzer\\esw_uCOS3_cykit.cydsn\000"
- 2825      79707265 
- 2825      73735C42 
- 2825      6F647941 
- 2825      6E616C79 
+ 2824              	.LASF235:
+ 2825 0010 5469636B 		.ascii	"TickNextPtr\000"
+ 2825      4E657874 
+ 2825      50747200 
  2826              	.LASF247:
- 2827 003e 50656E64 		.ascii	"PendDataTblEntries\000"
+ 2827 001c 50656E64 		.ascii	"PendDataTblEntries\000"
  2827      44617461 
  2827      54626C45 
  2827      6E747269 
  2827      657300
  2828              	.LASF283:
- 2829 0051 4F535F50 		.ascii	"OS_PEND_LIST\000"
+ 2829 002f 4F535F50 		.ascii	"OS_PEND_LIST\000"
  2829      454E445F 
  2829      4C495354 
  2829      00
  2830              	.LASF316:
- 2831 005e 4F535469 		.ascii	"OSTimeDlyHMSM\000"
+ 2831 003c 4F535469 		.ascii	"OSTimeDlyHMSM\000"
  2831      6D65446C 
  2831      79484D53 
  2831      4D00
  2832              	.LASF193:
- 2833 006c 4F535F45 		.ascii	"OS_ERR_TMR_STK_INVALID\000"
+ 2833 004a 4F535F45 		.ascii	"OS_ERR_TMR_STK_INVALID\000"
  2833      52525F54 
  2833      4D525F53 
  2833      544B5F49 
  2833      4E56414C 
  2834              	.LASF15:
- 2835 0083 73697A65 		.ascii	"sizetype\000"
+ 2835 0061 73697A65 		.ascii	"sizetype\000"
  2835      74797065 
  2835      00
  2836              	.LASF17:
- 2837 008c 4350555F 		.ascii	"CPU_BOOLEAN\000"
+ 2837 006a 4350555F 		.ascii	"CPU_BOOLEAN\000"
  2837      424F4F4C 
  2837      45414E00 
  2838              	.LASF66:
- 2839 0098 4F535F45 		.ascii	"OS_ERR_J\000"
+ 2839 0076 4F535F45 		.ascii	"OS_ERR_J\000"
  2839      52525F4A 
  2839      00
  2840              	.LASF195:
- 2841 00a1 4F535F45 		.ascii	"OS_ERR_TMR_STOPPED\000"
+ 2841 007f 4F535F45 		.ascii	"OS_ERR_TMR_STOPPED\000"
  2841      52525F54 
  2841      4D525F53 
  2841      544F5050 
  2841      454400
  2842              	.LASF229:
- 2843 00b4 4F535F54 		.ascii	"OS_TCB\000"
+ 2843 0092 4F535F54 		.ascii	"OS_TCB\000"
  2843      434200
  2844              	.LASF292:
- 2845 00bb 4170705F 		.ascii	"App_TaskStartStk\000"
+ 2845 0099 4170705F 		.ascii	"App_TaskStartStk\000"
  2845      5461736B 
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 54
-
-
  2845      53746172 
  2845      7453746B 
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 54
+
+
  2845      00
  2846              	.LASF192:
- 2847 00cc 4F535F45 		.ascii	"OS_ERR_TMR_PRIO_INVALID\000"
+ 2847 00aa 4F535F45 		.ascii	"OS_ERR_TMR_PRIO_INVALID\000"
  2847      52525F54 
  2847      4D525F50 
  2847      52494F5F 
  2847      494E5641 
  2848              	.LASF10:
- 2849 00e4 696E7433 		.ascii	"int32_t\000"
+ 2849 00c2 696E7433 		.ascii	"int32_t\000"
  2849      325F7400 
- 2850              	.LASF314:
- 2851 00ec 424D4536 		.ascii	"BME688_Init_Task\000"
+ 2850              	.LASF315:
+ 2851 00ca 424D4536 		.ascii	"BME688_Init_Task\000"
  2851      38385F49 
  2851      6E69745F 
  2851      5461736B 
  2851      00
  2852              	.LASF271:
- 2853 00fd 53746B46 		.ascii	"StkFree\000"
+ 2853 00db 53746B46 		.ascii	"StkFree\000"
  2853      72656500 
  2854              	.LASF206:
- 2855 0105 4D736750 		.ascii	"MsgPtr\000"
+ 2855 00e3 4D736750 		.ascii	"MsgPtr\000"
  2855      747200
  2856              	.LASF295:
- 2857 010c 436F6D6D 		.ascii	"CommQI2CSPO2\000"
+ 2857 00ea 436F6D6D 		.ascii	"CommQI2CSPO2\000"
  2857      51493243 
  2857      53504F32 
  2857      00
  2858              	.LASF16:
- 2859 0119 4350555F 		.ascii	"CPU_CHAR\000"
+ 2859 00f7 4350555F 		.ascii	"CPU_CHAR\000"
  2859      43484152 
  2859      00
  2860              	.LASF119:
- 2861 0122 4F535F45 		.ascii	"OS_ERR_ROUND_ROBIN_1\000"
+ 2861 0100 4F535F45 		.ascii	"OS_ERR_ROUND_ROBIN_1\000"
  2861      52525F52 
  2861      4F554E44 
  2861      5F524F42 
  2861      494E5F31 
  2862              	.LASF127:
- 2863 0137 4F535F45 		.ascii	"OS_ERR_SEM_OVF\000"
+ 2863 0115 4F535F45 		.ascii	"OS_ERR_SEM_OVF\000"
  2863      52525F53 
  2863      454D5F4F 
  2863      564600
- 2864              	.LASF19:
- 2865 0146 4350555F 		.ascii	"CPU_INT16U\000"
- 2865      494E5431 
- 2865      365500
- 2866              	.LASF227:
- 2867 0151 6F735F73 		.ascii	"os_sem\000"
- 2867      656D00
- 2868              	.LASF320:
- 2869 0158 4F535461 		.ascii	"OSTaskCreate\000"
- 2869      736B4372 
- 2869      65617465 
- 2869      00
- 2870              	.LASF131:
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 55
+ 2864              	.LASF312:
+ 2865 0124 696E6974 		.ascii	"init_gpio\000"
+ 2865      5F677069 
+ 2865      6F00
+ 2866              	.LASF19:
+ 2867 012e 4350555F 		.ascii	"CPU_INT16U\000"
+ 2867      494E5431 
+ 2867      365500
+ 2868              	.LASF227:
+ 2869 0139 6F735F73 		.ascii	"os_sem\000"
+ 2869      656D00
+ 2870              	.LASF320:
+ 2871 0140 4F535461 		.ascii	"OSTaskCreate\000"
+ 2871      736B4372 
+ 2871      65617465 
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 55
 
 
- 2871 0165 4F535F45 		.ascii	"OS_ERR_STAT_STK_INVALID\000"
- 2871      52525F53 
- 2871      5441545F 
- 2871      53544B5F 
- 2871      494E5641 
- 2872              	.LASF318:
- 2873 017d 4350555F 		.ascii	"CPU_Init\000"
- 2873      496E6974 
- 2873      00
- 2874              	.LASF163:
- 2875 0186 4F535F45 		.ascii	"OS_ERR_TLS_ID_INVALID\000"
- 2875      52525F54 
- 2875      4C535F49 
- 2875      445F494E 
- 2875      56414C49 
- 2876              	.LASF100:
- 2877 019c 4F535F45 		.ascii	"OS_ERR_PEND_ABORT_NONE\000"
- 2877      52525F50 
- 2877      454E445F 
- 2877      41424F52 
- 2877      545F4E4F 
- 2878              	.LASF302:
- 2879 01b3 4C656452 		.ascii	"LedRB_Task_TCB\000"
- 2879      425F5461 
- 2879      736B5F54 
- 2879      434200
- 2880              	.LASF300:
- 2881 01c2 4255545F 		.ascii	"BUT_Task_TCB\000"
- 2881      5461736B 
- 2881      5F544342 
- 2881      00
- 2882              	.LASF325:
- 2883 01cf 4170705F 		.ascii	"App_TaskStart\000"
+ 2871      00
+ 2872              	.LASF131:
+ 2873 014d 4F535F45 		.ascii	"OS_ERR_STAT_STK_INVALID\000"
+ 2873      52525F53 
+ 2873      5441545F 
+ 2873      53544B5F 
+ 2873      494E5641 
+ 2874              	.LASF318:
+ 2875 0165 4350555F 		.ascii	"CPU_Init\000"
+ 2875      496E6974 
+ 2875      00
+ 2876              	.LASF163:
+ 2877 016e 4F535F45 		.ascii	"OS_ERR_TLS_ID_INVALID\000"
+ 2877      52525F54 
+ 2877      4C535F49 
+ 2877      445F494E 
+ 2877      56414C49 
+ 2878              	.LASF100:
+ 2879 0184 4F535F45 		.ascii	"OS_ERR_PEND_ABORT_NONE\000"
+ 2879      52525F50 
+ 2879      454E445F 
+ 2879      41424F52 
+ 2879      545F4E4F 
+ 2880              	.LASF302:
+ 2881 019b 4C656452 		.ascii	"LedRB_Task_TCB\000"
+ 2881      425F5461 
+ 2881      736B5F54 
+ 2881      434200
+ 2882              	.LASF300:
+ 2883 01aa 4255545F 		.ascii	"BUT_Task_TCB\000"
  2883      5461736B 
- 2883      53746172 
- 2883      7400
- 2884              	.LASF22:
- 2885 01dd 4350555F 		.ascii	"CPU_STK\000"
- 2885      53544B00 
- 2886              	.LASF260:
- 2887 01e5 53757370 		.ascii	"SuspendCtr\000"
- 2887      656E6443 
- 2887      747200
- 2888              	.LASF249:
- 2889 01f0 5469636B 		.ascii	"TickCtrPrev\000"
- 2889      43747250 
- 2889      72657600 
- 2890              	.LASF179:
- 2891 01fc 4F535F45 		.ascii	"OS_ERR_TIME_NOT_DLY\000"
- 2891      52525F54 
- 2891      494D455F 
- 2891      4E4F545F 
- 2891      444C5900 
- 2892              	.LASF146:
- 2893 0210 4F535F45 		.ascii	"OS_ERR_TASK_NO_MORE_TCB\000"
+ 2883      5F544342 
+ 2883      00
+ 2884              	.LASF325:
+ 2885 01b7 4170705F 		.ascii	"App_TaskStart\000"
+ 2885      5461736B 
+ 2885      53746172 
+ 2885      7400
+ 2886              	.LASF22:
+ 2887 01c5 4350555F 		.ascii	"CPU_STK\000"
+ 2887      53544B00 
+ 2888              	.LASF260:
+ 2889 01cd 53757370 		.ascii	"SuspendCtr\000"
+ 2889      656E6443 
+ 2889      747200
+ 2890              	.LASF249:
+ 2891 01d8 5469636B 		.ascii	"TickCtrPrev\000"
+ 2891      43747250 
+ 2891      72657600 
+ 2892              	.LASF179:
+ 2893 01e4 4F535F45 		.ascii	"OS_ERR_TIME_NOT_DLY\000"
  2893      52525F54 
- 2893      41534B5F 
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 56
+ 2893      494D455F 
+ 2893      4E4F545F 
+ 2893      444C5900 
+ 2894              	.LASF146:
+ 2895 01f8 4F535F45 		.ascii	"OS_ERR_TASK_NO_MORE_TCB\000"
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 56
 
 
- 2893      4E4F5F4D 
- 2893      4F52455F 
- 2894              	.LASF35:
- 2895 0228 4F535F4F 		.ascii	"OS_OPT\000"
- 2895      505400
- 2896              	.LASF162:
- 2897 022f 4F535F45 		.ascii	"OS_ERR_TCB_INVALID\000"
- 2897      52525F54 
- 2897      43425F49 
- 2897      4E56414C 
- 2897      494400
- 2898              	.LASF81:
- 2899 0242 4F535F45 		.ascii	"OS_ERR_MSG_POOL_EMPTY\000"
- 2899      52525F4D 
- 2899      53475F50 
- 2899      4F4F4C5F 
- 2899      454D5054 
- 2900              	.LASF90:
- 2901 0258 4F535F45 		.ascii	"OS_ERR_OBJ_CREATED\000"
- 2901      52525F4F 
- 2901      424A5F43 
- 2901      52454154 
- 2901      454400
- 2902              	.LASF276:
- 2903 026b 6F735F70 		.ascii	"os_pend_data\000"
- 2903      656E645F 
- 2903      64617461 
- 2903      00
- 2904              	.LASF214:
- 2905 0278 4E627245 		.ascii	"NbrEntriesSize\000"
- 2905      6E747269 
- 2905      65735369 
- 2905      7A6500
- 2906              	.LASF80:
- 2907 0287 4F535F45 		.ascii	"OS_ERR_MEM_NO_FREE_BLKS\000"
- 2907      52525F4D 
- 2907      454D5F4E 
- 2907      4F5F4652 
- 2907      45455F42 
- 2908              	.LASF261:
- 2909 029f 43505555 		.ascii	"CPUUsage\000"
- 2909      73616765 
- 2909      00
- 2910              	.LASF164:
- 2911 02a8 4F535F45 		.ascii	"OS_ERR_TLS_ISR\000"
- 2911      52525F54 
- 2911      4C535F49 
- 2911      535200
- 2912              	.LASF84:
- 2913 02b7 4F535F45 		.ascii	"OS_ERR_MUTEX_OWNER\000"
- 2913      52525F4D 
- 2913      55544558 
- 2913      5F4F574E 
- 2913      455200
- 2914              	.LASF253:
- 2915 02ca 54696D65 		.ascii	"TimeQuantaCtr\000"
- 2915      5175616E 
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 57
+ 2895      52525F54 
+ 2895      41534B5F 
+ 2895      4E4F5F4D 
+ 2895      4F52455F 
+ 2896              	.LASF35:
+ 2897 0210 4F535F4F 		.ascii	"OS_OPT\000"
+ 2897      505400
+ 2898              	.LASF162:
+ 2899 0217 4F535F45 		.ascii	"OS_ERR_TCB_INVALID\000"
+ 2899      52525F54 
+ 2899      43425F49 
+ 2899      4E56414C 
+ 2899      494400
+ 2900              	.LASF81:
+ 2901 022a 4F535F45 		.ascii	"OS_ERR_MSG_POOL_EMPTY\000"
+ 2901      52525F4D 
+ 2901      53475F50 
+ 2901      4F4F4C5F 
+ 2901      454D5054 
+ 2902              	.LASF90:
+ 2903 0240 4F535F45 		.ascii	"OS_ERR_OBJ_CREATED\000"
+ 2903      52525F4F 
+ 2903      424A5F43 
+ 2903      52454154 
+ 2903      454400
+ 2904              	.LASF276:
+ 2905 0253 6F735F70 		.ascii	"os_pend_data\000"
+ 2905      656E645F 
+ 2905      64617461 
+ 2905      00
+ 2906              	.LASF214:
+ 2907 0260 4E627245 		.ascii	"NbrEntriesSize\000"
+ 2907      6E747269 
+ 2907      65735369 
+ 2907      7A6500
+ 2908              	.LASF80:
+ 2909 026f 4F535F45 		.ascii	"OS_ERR_MEM_NO_FREE_BLKS\000"
+ 2909      52525F4D 
+ 2909      454D5F4E 
+ 2909      4F5F4652 
+ 2909      45455F42 
+ 2910              	.LASF261:
+ 2911 0287 43505555 		.ascii	"CPUUsage\000"
+ 2911      73616765 
+ 2911      00
+ 2912              	.LASF164:
+ 2913 0290 4F535F45 		.ascii	"OS_ERR_TLS_ISR\000"
+ 2913      52525F54 
+ 2913      4C535F49 
+ 2913      535200
+ 2914              	.LASF84:
+ 2915 029f 4F535F45 		.ascii	"OS_ERR_MUTEX_OWNER\000"
+ 2915      52525F4D 
+ 2915      55544558 
+ 2915      5F4F574E 
+ 2915      455200
+ 2916              	.LASF253:
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 57
 
 
- 2915      74614374 
- 2915      7200
- 2916              	.LASF256:
- 2917 02d8 52656754 		.ascii	"RegTbl\000"
- 2917      626C00
- 2918              	.LASF4:
- 2919 02df 6C6F6E67 		.ascii	"long int\000"
- 2919      20696E74 
- 2919      00
- 2920              	.LASF62:
- 2921 02e8 4F535F45 		.ascii	"OS_ERR_INT_Q_FULL\000"
- 2921      52525F49 
- 2921      4E545F51 
- 2921      5F46554C 
- 2921      4C00
- 2922              	.LASF103:
- 2923 02fa 4F535F45 		.ascii	"OS_ERR_PEND_ISR\000"
- 2923      52525F50 
- 2923      454E445F 
- 2923      49535200 
- 2924              	.LASF124:
- 2925 030a 4F535F45 		.ascii	"OS_ERR_SCHED_LOCKED\000"
- 2925      52525F53 
- 2925      43484544 
- 2925      5F4C4F43 
- 2925      4B454400 
- 2926              	.LASF277:
- 2927 031e 54434250 		.ascii	"TCBPtr\000"
- 2927      747200
- 2928              	.LASF203:
- 2929 0325 4F535F45 		.ascii	"OS_ERR\000"
- 2929      525200
- 2930              	.LASF294:
- 2931 032c 4C6F6754 		.ascii	"LogTaskSem\000"
- 2931      61736B53 
- 2931      656D00
- 2932              	.LASF156:
- 2933 0337 4F535F45 		.ascii	"OS_ERR_TASK_SUSPENDED\000"
- 2933      52525F54 
- 2933      41534B5F 
- 2933      53555350 
- 2933      454E4445 
- 2934              	.LASF323:
- 2935 034d 4150505C 		.ascii	"APP\\app.c\000"
- 2935      6170702E 
- 2935      6300
- 2936              	.LASF327:
- 2937 0357 6D61696E 		.ascii	"main\000"
- 2937      00
- 2938              	.LASF296:
- 2939 035c 436F6D6D 		.ascii	"CommQI2CHeartRate\000"
- 2939      51493243 
- 2939      48656172 
- 2939      74526174 
- 2939      6500
- 2940              	.LASF322:
- 2941 036e 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 58
+ 2917 02b2 54696D65 		.ascii	"TimeQuantaCtr\000"
+ 2917      5175616E 
+ 2917      74614374 
+ 2917      7200
+ 2918              	.LASF256:
+ 2919 02c0 52656754 		.ascii	"RegTbl\000"
+ 2919      626C00
+ 2920              	.LASF4:
+ 2921 02c7 6C6F6E67 		.ascii	"long int\000"
+ 2921      20696E74 
+ 2921      00
+ 2922              	.LASF62:
+ 2923 02d0 4F535F45 		.ascii	"OS_ERR_INT_Q_FULL\000"
+ 2923      52525F49 
+ 2923      4E545F51 
+ 2923      5F46554C 
+ 2923      4C00
+ 2924              	.LASF103:
+ 2925 02e2 4F535F45 		.ascii	"OS_ERR_PEND_ISR\000"
+ 2925      52525F50 
+ 2925      454E445F 
+ 2925      49535200 
+ 2926              	.LASF124:
+ 2927 02f2 4F535F45 		.ascii	"OS_ERR_SCHED_LOCKED\000"
+ 2927      52525F53 
+ 2927      43484544 
+ 2927      5F4C4F43 
+ 2927      4B454400 
+ 2928              	.LASF277:
+ 2929 0306 54434250 		.ascii	"TCBPtr\000"
+ 2929      747200
+ 2930              	.LASF203:
+ 2931 030d 4F535F45 		.ascii	"OS_ERR\000"
+ 2931      525200
+ 2932              	.LASF294:
+ 2933 0314 4C6F6754 		.ascii	"LogTaskSem\000"
+ 2933      61736B53 
+ 2933      656D00
+ 2934              	.LASF156:
+ 2935 031f 4F535F45 		.ascii	"OS_ERR_TASK_SUSPENDED\000"
+ 2935      52525F54 
+ 2935      41534B5F 
+ 2935      53555350 
+ 2935      454E4445 
+ 2936              	.LASF323:
+ 2937 0335 4150505C 		.ascii	"APP\\app.c\000"
+ 2937      6170702E 
+ 2937      6300
+ 2938              	.LASF327:
+ 2939 033f 6D61696E 		.ascii	"main\000"
+ 2939      00
+ 2940              	.LASF296:
+ 2941 0344 436F6D6D 		.ascii	"CommQI2CHeartRate\000"
+ 2941      51493243 
+ 2941      48656172 
+ 2941      74526174 
+ 2941      6500
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 58
 
 
- 2941      43313120 
- 2941      352E342E 
- 2941      31203230 
- 2941      31363036 
- 2942 03a1 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
- 2942      20726576 
- 2942      6973696F 
- 2942      6E203233 
- 2942      37373135 
- 2943 03d4 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
- 2943      66756E63 
- 2943      74696F6E 
- 2943      2D736563 
- 2943      74696F6E 
- 2944              	.LASF230:
- 2945 03fc 6F735F74 		.ascii	"os_tcb\000"
- 2945      636200
- 2946              	.LASF293:
- 2947 0403 49544D5F 		.ascii	"ITM_RxBuffer\000"
- 2947      52784275 
- 2947      66666572 
- 2947      00
- 2948              	.LASF317:
- 2949 0410 4253505F 		.ascii	"BSP_PreInit\000"
- 2949      50726549 
- 2949      6E697400 
- 2950              	.LASF52:
- 2951 041c 4F535F45 		.ascii	"OS_ERR_FATAL_RETURN\000"
- 2951      52525F46 
- 2951      4154414C 
- 2951      5F524554 
- 2951      55524E00 
- 2952              	.LASF246:
- 2953 0430 53746B53 		.ascii	"StkSize\000"
- 2953      697A6500 
- 2954              	.LASF25:
- 2955 0438 4350555F 		.ascii	"CPU_TS\000"
- 2955      545300
- 2956              	.LASF269:
- 2957 043f 53656D50 		.ascii	"SemPendTimeMax\000"
- 2957      656E6454 
- 2957      696D654D 
- 2957      617800
- 2958              	.LASF43:
- 2959 044e 4F535F45 		.ascii	"OS_ERR_A\000"
- 2959      52525F41 
- 2959      00
- 2960              	.LASF45:
- 2961 0457 4F535F45 		.ascii	"OS_ERR_B\000"
- 2961      52525F42 
+ 2942              	.LASF322:
+ 2943 0356 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 2943      43313120 
+ 2943      352E342E 
+ 2943      31203230 
+ 2943      31363036 
+ 2944 0389 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 2944      20726576 
+ 2944      6973696F 
+ 2944      6E203233 
+ 2944      37373135 
+ 2945 03bc 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 2945      66756E63 
+ 2945      74696F6E 
+ 2945      2D736563 
+ 2945      74696F6E 
+ 2946              	.LASF230:
+ 2947 03e4 6F735F74 		.ascii	"os_tcb\000"
+ 2947      636200
+ 2948              	.LASF293:
+ 2949 03eb 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 2949      52784275 
+ 2949      66666572 
+ 2949      00
+ 2950              	.LASF317:
+ 2951 03f8 4253505F 		.ascii	"BSP_PreInit\000"
+ 2951      50726549 
+ 2951      6E697400 
+ 2952              	.LASF52:
+ 2953 0404 4F535F45 		.ascii	"OS_ERR_FATAL_RETURN\000"
+ 2953      52525F46 
+ 2953      4154414C 
+ 2953      5F524554 
+ 2953      55524E00 
+ 2954              	.LASF246:
+ 2955 0418 53746B53 		.ascii	"StkSize\000"
+ 2955      697A6500 
+ 2956              	.LASF25:
+ 2957 0420 4350555F 		.ascii	"CPU_TS\000"
+ 2957      545300
+ 2958              	.LASF269:
+ 2959 0427 53656D50 		.ascii	"SemPendTimeMax\000"
+ 2959      656E6454 
+ 2959      696D654D 
+ 2959      617800
+ 2960              	.LASF43:
+ 2961 0436 4F535F45 		.ascii	"OS_ERR_A\000"
+ 2961      52525F41 
  2961      00
- 2962              	.LASF46:
- 2963 0460 4F535F45 		.ascii	"OS_ERR_C\000"
- 2963      52525F43 
+ 2962              	.LASF45:
+ 2963 043f 4F535F45 		.ascii	"OS_ERR_B\000"
+ 2963      52525F42 
  2963      00
- 2964              	.LASF48:
- 2965 0469 4F535F45 		.ascii	"OS_ERR_D\000"
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 59
-
-
- 2965      52525F44 
+ 2964              	.LASF46:
+ 2965 0448 4F535F45 		.ascii	"OS_ERR_C\000"
+ 2965      52525F43 
  2965      00
- 2966              	.LASF50:
- 2967 0472 4F535F45 		.ascii	"OS_ERR_E\000"
- 2967      52525F45 
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 59
+
+
+ 2966              	.LASF48:
+ 2967 0451 4F535F45 		.ascii	"OS_ERR_D\000"
+ 2967      52525F44 
  2967      00
- 2968              	.LASF51:
- 2969 047b 4F535F45 		.ascii	"OS_ERR_F\000"
- 2969      52525F46 
+ 2968              	.LASF50:
+ 2969 045a 4F535F45 		.ascii	"OS_ERR_E\000"
+ 2969      52525F45 
  2969      00
- 2970              	.LASF57:
- 2971 0484 4F535F45 		.ascii	"OS_ERR_G\000"
- 2971      52525F47 
+ 2970              	.LASF51:
+ 2971 0463 4F535F45 		.ascii	"OS_ERR_F\000"
+ 2971      52525F46 
  2971      00
- 2972              	.LASF58:
- 2973 048d 4F535F45 		.ascii	"OS_ERR_H\000"
- 2973      52525F48 
+ 2972              	.LASF57:
+ 2973 046c 4F535F45 		.ascii	"OS_ERR_G\000"
+ 2973      52525F47 
  2973      00
- 2974              	.LASF59:
- 2975 0496 4F535F45 		.ascii	"OS_ERR_I\000"
- 2975      52525F49 
+ 2974              	.LASF58:
+ 2975 0475 4F535F45 		.ascii	"OS_ERR_H\000"
+ 2975      52525F48 
  2975      00
- 2976              	.LASF0:
- 2977 049f 7369676E 		.ascii	"signed char\000"
- 2977      65642063 
- 2977      68617200 
- 2978              	.LASF67:
- 2979 04ab 4F535F45 		.ascii	"OS_ERR_K\000"
- 2979      52525F4B 
- 2979      00
- 2980              	.LASF68:
- 2981 04b4 4F535F45 		.ascii	"OS_ERR_L\000"
- 2981      52525F4C 
+ 2976              	.LASF59:
+ 2977 047e 4F535F45 		.ascii	"OS_ERR_I\000"
+ 2977      52525F49 
+ 2977      00
+ 2978              	.LASF0:
+ 2979 0487 7369676E 		.ascii	"signed char\000"
+ 2979      65642063 
+ 2979      68617200 
+ 2980              	.LASF67:
+ 2981 0493 4F535F45 		.ascii	"OS_ERR_K\000"
+ 2981      52525F4B 
  2981      00
- 2982              	.LASF70:
- 2983 04bd 4F535F45 		.ascii	"OS_ERR_M\000"
- 2983      52525F4D 
+ 2982              	.LASF68:
+ 2983 049c 4F535F45 		.ascii	"OS_ERR_L\000"
+ 2983      52525F4C 
  2983      00
- 2984              	.LASF86:
- 2985 04c6 4F535F45 		.ascii	"OS_ERR_N\000"
- 2985      52525F4E 
+ 2984              	.LASF70:
+ 2985 04a5 4F535F45 		.ascii	"OS_ERR_M\000"
+ 2985      52525F4D 
  2985      00
- 2986              	.LASF89:
- 2987 04cf 4F535F45 		.ascii	"OS_ERR_O\000"
- 2987      52525F4F 
+ 2986              	.LASF86:
+ 2987 04ae 4F535F45 		.ascii	"OS_ERR_N\000"
+ 2987      52525F4E 
  2987      00
- 2988              	.LASF97:
- 2989 04d8 4F535F45 		.ascii	"OS_ERR_P\000"
- 2989      52525F50 
+ 2988              	.LASF89:
+ 2989 04b7 4F535F45 		.ascii	"OS_ERR_O\000"
+ 2989      52525F4F 
  2989      00
- 2990              	.LASF112:
- 2991 04e1 4F535F45 		.ascii	"OS_ERR_Q\000"
- 2991      52525F51 
+ 2990              	.LASF97:
+ 2991 04c0 4F535F45 		.ascii	"OS_ERR_P\000"
+ 2991      52525F50 
  2991      00
- 2992              	.LASF117:
- 2993 04ea 4F535F45 		.ascii	"OS_ERR_R\000"
- 2993      52525F52 
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 60
-
-
+ 2992              	.LASF112:
+ 2993 04c9 4F535F45 		.ascii	"OS_ERR_Q\000"
+ 2993      52525F51 
  2993      00
- 2994              	.LASF121:
- 2995 04f3 4F535F45 		.ascii	"OS_ERR_S\000"
- 2995      52525F53 
+ 2994              	.LASF117:
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 60
+
+
+ 2995 04d2 4F535F45 		.ascii	"OS_ERR_R\000"
+ 2995      52525F52 
  2995      00
- 2996              	.LASF138:
- 2997 04fc 4F535F45 		.ascii	"OS_ERR_T\000"
- 2997      52525F54 
+ 2996              	.LASF121:
+ 2997 04db 4F535F45 		.ascii	"OS_ERR_S\000"
+ 2997      52525F53 
  2997      00
- 2998              	.LASF196:
- 2999 0505 4F535F45 		.ascii	"OS_ERR_U\000"
- 2999      52525F55 
+ 2998              	.LASF138:
+ 2999 04e4 4F535F45 		.ascii	"OS_ERR_T\000"
+ 2999      52525F54 
  2999      00
- 3000              	.LASF197:
- 3001 050e 4F535F45 		.ascii	"OS_ERR_V\000"
- 3001      52525F56 
+ 3000              	.LASF196:
+ 3001 04ed 4F535F45 		.ascii	"OS_ERR_U\000"
+ 3001      52525F55 
  3001      00
- 3002              	.LASF198:
- 3003 0517 4F535F45 		.ascii	"OS_ERR_W\000"
- 3003      52525F57 
+ 3002              	.LASF197:
+ 3003 04f6 4F535F45 		.ascii	"OS_ERR_V\000"
+ 3003      52525F56 
  3003      00
- 3004              	.LASF199:
- 3005 0520 4F535F45 		.ascii	"OS_ERR_X\000"
- 3005      52525F58 
+ 3004              	.LASF198:
+ 3005 04ff 4F535F45 		.ascii	"OS_ERR_W\000"
+ 3005      52525F57 
  3005      00
- 3006              	.LASF200:
- 3007 0529 4F535F45 		.ascii	"OS_ERR_Y\000"
- 3007      52525F59 
+ 3006              	.LASF199:
+ 3007 0508 4F535F45 		.ascii	"OS_ERR_X\000"
+ 3007      52525F58 
  3007      00
- 3008              	.LASF202:
- 3009 0532 4F535F45 		.ascii	"OS_ERR_Z\000"
- 3009      52525F5A 
+ 3008              	.LASF200:
+ 3009 0511 4F535F45 		.ascii	"OS_ERR_Y\000"
+ 3009      52525F59 
  3009      00
- 3010              	.LASF299:
- 3011 053b 436F6D6D 		.ascii	"CommQProcessedEnvironmentData\000"
- 3011      5150726F 
- 3011      63657373 
- 3011      6564456E 
- 3011      7669726F 
- 3012              	.LASF181:
- 3013 0559 4F535F45 		.ascii	"OS_ERR_TIME_ZERO_DLY\000"
- 3013      52525F54 
- 3013      494D455F 
- 3013      5A45524F 
- 3013      5F444C59 
- 3014              	.LASF107:
- 3015 056e 4F535F45 		.ascii	"OS_ERR_POST_ISR\000"
- 3015      52525F50 
- 3015      4F53545F 
- 3015      49535200 
- 3016              	.LASF224:
- 3017 057e 4462674E 		.ascii	"DbgNamePtr\000"
- 3017      616D6550 
- 3017      747200
- 3018              	.LASF1:
- 3019 0589 756E7369 		.ascii	"unsigned char\000"
- 3019      676E6564 
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 61
+ 3010              	.LASF202:
+ 3011 051a 4F535F45 		.ascii	"OS_ERR_Z\000"
+ 3011      52525F5A 
+ 3011      00
+ 3012              	.LASF299:
+ 3013 0523 436F6D6D 		.ascii	"CommQProcessedEnvironmentData\000"
+ 3013      5150726F 
+ 3013      63657373 
+ 3013      6564456E 
+ 3013      7669726F 
+ 3014              	.LASF181:
+ 3015 0541 4F535F45 		.ascii	"OS_ERR_TIME_ZERO_DLY\000"
+ 3015      52525F54 
+ 3015      494D455F 
+ 3015      5A45524F 
+ 3015      5F444C59 
+ 3016              	.LASF107:
+ 3017 0556 4F535F45 		.ascii	"OS_ERR_POST_ISR\000"
+ 3017      52525F50 
+ 3017      4F53545F 
+ 3017      49535200 
+ 3018              	.LASF224:
+ 3019 0566 4462674E 		.ascii	"DbgNamePtr\000"
+ 3019      616D6550 
+ 3019      747200
+ 3020              	.LASF1:
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 61
 
 
- 3019      20636861 
- 3019      7200
- 3020              	.LASF257:
- 3021 0597 466C6167 		.ascii	"FlagsPend\000"
- 3021      7350656E 
- 3021      6400
- 3022              	.LASF54:
- 3023 05a1 4F535F45 		.ascii	"OS_ERR_FLAG_NOT_RDY\000"
- 3023      52525F46 
- 3023      4C41475F 
- 3023      4E4F545F 
- 3023      52445900 
- 3024              	.LASF266:
- 3025 05b5 4379636C 		.ascii	"CyclesTotal\000"
- 3025      6573546F 
- 3025      74616C00 
- 3026              	.LASF170:
- 3027 05c1 4F535F45 		.ascii	"OS_ERR_TICK_STK_SIZE_INVALID\000"
- 3027      52525F54 
- 3027      49434B5F 
- 3027      53544B5F 
- 3027      53495A45 
- 3028              	.LASF222:
- 3029 05de 44626750 		.ascii	"DbgPrevPtr\000"
- 3029      72657650 
- 3029      747200
- 3030              	.LASF231:
- 3031 05e9 53746B50 		.ascii	"StkPtr\000"
+ 3021 0571 756E7369 		.ascii	"unsigned char\000"
+ 3021      676E6564 
+ 3021      20636861 
+ 3021      7200
+ 3022              	.LASF257:
+ 3023 057f 466C6167 		.ascii	"FlagsPend\000"
+ 3023      7350656E 
+ 3023      6400
+ 3024              	.LASF54:
+ 3025 0589 4F535F45 		.ascii	"OS_ERR_FLAG_NOT_RDY\000"
+ 3025      52525F46 
+ 3025      4C41475F 
+ 3025      4E4F545F 
+ 3025      52445900 
+ 3026              	.LASF266:
+ 3027 059d 4379636C 		.ascii	"CyclesTotal\000"
+ 3027      6573546F 
+ 3027      74616C00 
+ 3028              	.LASF170:
+ 3029 05a9 4F535F45 		.ascii	"OS_ERR_TICK_STK_SIZE_INVALID\000"
+ 3029      52525F54 
+ 3029      49434B5F 
+ 3029      53544B5F 
+ 3029      53495A45 
+ 3030              	.LASF222:
+ 3031 05c6 44626750 		.ascii	"DbgPrevPtr\000"
+ 3031      72657650 
  3031      747200
- 3032              	.LASF150:
- 3033 05f0 4F535F45 		.ascii	"OS_ERR_TASK_OPT\000"
- 3033      52525F54 
- 3033      41534B5F 
- 3033      4F505400 
- 3034              	.LASF133:
- 3035 0600 4F535F45 		.ascii	"OS_ERR_STATE_INVALID\000"
- 3035      52525F53 
- 3035      54415445 
- 3035      5F494E56 
- 3035      414C4944 
- 3036              	.LASF39:
- 3037 0615 4F535F53 		.ascii	"OS_STATE\000"
+ 3032              	.LASF231:
+ 3033 05d1 53746B50 		.ascii	"StkPtr\000"
+ 3033      747200
+ 3034              	.LASF150:
+ 3035 05d8 4F535F45 		.ascii	"OS_ERR_TASK_OPT\000"
+ 3035      52525F54 
+ 3035      41534B5F 
+ 3035      4F505400 
+ 3036              	.LASF133:
+ 3037 05e8 4F535F45 		.ascii	"OS_ERR_STATE_INVALID\000"
+ 3037      52525F53 
  3037      54415445 
- 3037      00
- 3038              	.LASF209:
- 3039 061e 4F535F4D 		.ascii	"OS_MSG_Q\000"
- 3039      53475F51 
+ 3037      5F494E56 
+ 3037      414C4944 
+ 3038              	.LASF39:
+ 3039 05fd 4F535F53 		.ascii	"OS_STATE\000"
+ 3039      54415445 
  3039      00
- 3040              	.LASF28:
- 3041 0627 4F535F43 		.ascii	"OS_CYCLES\000"
- 3041      59434C45 
- 3041      5300
- 3042              	.LASF34:
- 3043 0631 4F535F4F 		.ascii	"OS_OBJ_TYPE\000"
- 3043      424A5F54 
- 3043      59504500 
- 3044              	.LASF71:
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 62
+ 3040              	.LASF209:
+ 3041 0606 4F535F4D 		.ascii	"OS_MSG_Q\000"
+ 3041      53475F51 
+ 3041      00
+ 3042              	.LASF28:
+ 3043 060f 4F535F43 		.ascii	"OS_CYCLES\000"
+ 3043      59434C45 
+ 3043      5300
+ 3044              	.LASF34:
+ 3045 0619 4F535F4F 		.ascii	"OS_OBJ_TYPE\000"
+ 3045      424A5F54 
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 62
 
 
- 3045 063d 4F535F45 		.ascii	"OS_ERR_MEM_CREATE_ISR\000"
- 3045      52525F4D 
- 3045      454D5F43 
- 3045      52454154 
- 3045      455F4953 
- 3046              	.LASF13:
- 3047 0653 63686172 		.ascii	"char\000"
- 3047      00
- 3048              	.LASF254:
- 3049 0658 4D736751 		.ascii	"MsgQPendTime\000"
- 3049      50656E64 
- 3049      54696D65 
+ 3045      59504500 
+ 3046              	.LASF71:
+ 3047 0625 4F535F45 		.ascii	"OS_ERR_MEM_CREATE_ISR\000"
+ 3047      52525F4D 
+ 3047      454D5F43 
+ 3047      52454154 
+ 3047      455F4953 
+ 3048              	.LASF13:
+ 3049 063b 63686172 		.ascii	"char\000"
  3049      00
- 3050              	.LASF74:
- 3051 0665 4F535F45 		.ascii	"OS_ERR_MEM_INVALID_BLKS\000"
- 3051      52525F4D 
- 3051      454D5F49 
- 3051      4E56414C 
- 3051      49445F42 
- 3052              	.LASF194:
- 3053 067d 4F535F45 		.ascii	"OS_ERR_TMR_STK_SIZE_INVALID\000"
- 3053      52525F54 
- 3053      4D525F53 
- 3053      544B5F53 
- 3053      495A455F 
- 3054              	.LASF251:
- 3055 0699 5469636B 		.ascii	"TickRemain\000"
- 3055      52656D61 
- 3055      696E00
- 3056              	.LASF44:
- 3057 06a4 4F535F45 		.ascii	"OS_ERR_ACCEPT_ISR\000"
- 3057      52525F41 
- 3057      43434550 
- 3057      545F4953 
- 3057      5200
- 3058              	.LASF208:
- 3059 06b6 4D736754 		.ascii	"MsgTS\000"
- 3059      5300
- 3060              	.LASF241:
- 3061 06bc 50656E64 		.ascii	"PendDataTblPtr\000"
- 3061      44617461 
- 3061      54626C50 
- 3061      747200
- 3062              	.LASF73:
- 3063 06cb 4F535F45 		.ascii	"OS_ERR_MEM_INVALID_P_ADDR\000"
- 3063      52525F4D 
- 3063      454D5F49 
- 3063      4E56414C 
- 3063      49445F50 
- 3064              	.LASF116:
- 3065 06e5 4F535F45 		.ascii	"OS_ERR_Q_SIZE\000"
- 3065      52525F51 
- 3065      5F53495A 
- 3065      4500
- 3066              	.LASF83:
- 3067 06f3 4F535F45 		.ascii	"OS_ERR_MUTEX_NOT_OWNER\000"
- 3067      52525F4D 
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 63
+ 3050              	.LASF254:
+ 3051 0640 4D736751 		.ascii	"MsgQPendTime\000"
+ 3051      50656E64 
+ 3051      54696D65 
+ 3051      00
+ 3052              	.LASF74:
+ 3053 064d 4F535F45 		.ascii	"OS_ERR_MEM_INVALID_BLKS\000"
+ 3053      52525F4D 
+ 3053      454D5F49 
+ 3053      4E56414C 
+ 3053      49445F42 
+ 3054              	.LASF194:
+ 3055 0665 4F535F45 		.ascii	"OS_ERR_TMR_STK_SIZE_INVALID\000"
+ 3055      52525F54 
+ 3055      4D525F53 
+ 3055      544B5F53 
+ 3055      495A455F 
+ 3056              	.LASF251:
+ 3057 0681 5469636B 		.ascii	"TickRemain\000"
+ 3057      52656D61 
+ 3057      696E00
+ 3058              	.LASF44:
+ 3059 068c 4F535F45 		.ascii	"OS_ERR_ACCEPT_ISR\000"
+ 3059      52525F41 
+ 3059      43434550 
+ 3059      545F4953 
+ 3059      5200
+ 3060              	.LASF208:
+ 3061 069e 4D736754 		.ascii	"MsgTS\000"
+ 3061      5300
+ 3062              	.LASF241:
+ 3063 06a4 50656E64 		.ascii	"PendDataTblPtr\000"
+ 3063      44617461 
+ 3063      54626C50 
+ 3063      747200
+ 3064              	.LASF73:
+ 3065 06b3 4F535F45 		.ascii	"OS_ERR_MEM_INVALID_P_ADDR\000"
+ 3065      52525F4D 
+ 3065      454D5F49 
+ 3065      4E56414C 
+ 3065      49445F50 
+ 3066              	.LASF116:
+ 3067 06cd 4F535F45 		.ascii	"OS_ERR_Q_SIZE\000"
+ 3067      52525F51 
+ 3067      5F53495A 
+ 3067      4500
+ 3068              	.LASF83:
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 63
 
 
- 3067      55544558 
- 3067      5F4E4F54 
- 3067      5F4F574E 
- 3068              	.LASF210:
- 3069 070a 6F735F6D 		.ascii	"os_msg\000"
- 3069      736700
- 3070              	.LASF98:
- 3071 0711 4F535F45 		.ascii	"OS_ERR_PEND_ABORT\000"
- 3071      52525F50 
- 3071      454E445F 
- 3071      41424F52 
- 3071      5400
- 3072              	.LASF136:
- 3073 0723 4F535F45 		.ascii	"OS_ERR_STK_SIZE_INVALID\000"
- 3073      52525F53 
- 3073      544B5F53 
- 3073      495A455F 
- 3073      494E5641 
- 3074              	.LASF149:
- 3075 073b 4F535F45 		.ascii	"OS_ERR_TASK_NOT_SUSPENDED\000"
- 3075      52525F54 
- 3075      41534B5F 
- 3075      4E4F545F 
- 3075      53555350 
- 3076              	.LASF132:
- 3077 0755 4F535F45 		.ascii	"OS_ERR_STAT_STK_SIZE_INVALID\000"
- 3077      52525F53 
- 3077      5441545F 
- 3077      53544B5F 
- 3077      53495A45 
- 3078              	.LASF233:
- 3079 0772 53746B4C 		.ascii	"StkLimitPtr\000"
- 3079      696D6974 
- 3079      50747200 
- 3080              	.LASF20:
- 3081 077e 4350555F 		.ascii	"CPU_INT32U\000"
- 3081      494E5433 
- 3081      325500
- 3082              	.LASF173:
- 3083 0789 4F535F45 		.ascii	"OS_ERR_TIME_DLY_RESUME_ISR\000"
- 3083      52525F54 
- 3083      494D455F 
- 3083      444C595F 
- 3083      52455355 
- 3084              	.LASF319:
- 3085 07a4 4F53496E 		.ascii	"OSInit\000"
- 3085      697400
- 3086              	.LASF187:
- 3087 07ab 4F535F45 		.ascii	"OS_ERR_TMR_INVALID_STATE\000"
- 3087      52525F54 
- 3087      4D525F49 
- 3087      4E56414C 
- 3087      49445F53 
- 3088              	.LASF167:
- 3089 07c4 4F535F45 		.ascii	"OS_ERR_TLS_DESTRUCT_ASSIGNED\000"
+ 3069 06db 4F535F45 		.ascii	"OS_ERR_MUTEX_NOT_OWNER\000"
+ 3069      52525F4D 
+ 3069      55544558 
+ 3069      5F4E4F54 
+ 3069      5F4F574E 
+ 3070              	.LASF210:
+ 3071 06f2 6F735F6D 		.ascii	"os_msg\000"
+ 3071      736700
+ 3072              	.LASF98:
+ 3073 06f9 4F535F45 		.ascii	"OS_ERR_PEND_ABORT\000"
+ 3073      52525F50 
+ 3073      454E445F 
+ 3073      41424F52 
+ 3073      5400
+ 3074              	.LASF136:
+ 3075 070b 4F535F45 		.ascii	"OS_ERR_STK_SIZE_INVALID\000"
+ 3075      52525F53 
+ 3075      544B5F53 
+ 3075      495A455F 
+ 3075      494E5641 
+ 3076              	.LASF149:
+ 3077 0723 4F535F45 		.ascii	"OS_ERR_TASK_NOT_SUSPENDED\000"
+ 3077      52525F54 
+ 3077      41534B5F 
+ 3077      4E4F545F 
+ 3077      53555350 
+ 3078              	.LASF132:
+ 3079 073d 4F535F45 		.ascii	"OS_ERR_STAT_STK_SIZE_INVALID\000"
+ 3079      52525F53 
+ 3079      5441545F 
+ 3079      53544B5F 
+ 3079      53495A45 
+ 3080              	.LASF233:
+ 3081 075a 53746B4C 		.ascii	"StkLimitPtr\000"
+ 3081      696D6974 
+ 3081      50747200 
+ 3082              	.LASF20:
+ 3083 0766 4350555F 		.ascii	"CPU_INT32U\000"
+ 3083      494E5433 
+ 3083      325500
+ 3084              	.LASF173:
+ 3085 0771 4F535F45 		.ascii	"OS_ERR_TIME_DLY_RESUME_ISR\000"
+ 3085      52525F54 
+ 3085      494D455F 
+ 3085      444C595F 
+ 3085      52455355 
+ 3086              	.LASF319:
+ 3087 078c 4F53496E 		.ascii	"OSInit\000"
+ 3087      697400
+ 3088              	.LASF187:
+ 3089 0793 4F535F45 		.ascii	"OS_ERR_TMR_INVALID_STATE\000"
  3089      52525F54 
- 3089      4C535F44 
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 64
+ 3089      4D525F49 
+ 3089      4E56414C 
+ 3089      49445F53 
+ 3090              	.LASF167:
+ 3091 07ac 4F535F45 		.ascii	"OS_ERR_TLS_DESTRUCT_ASSIGNED\000"
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 64
 
 
- 3089      45535452 
- 3089      5543545F 
- 3090              	.LASF21:
- 3091 07e1 4350555F 		.ascii	"CPU_ADDR\000"
- 3091      41444452 
- 3091      00
- 3092              	.LASF309:
- 3093 07ea 4C6F675F 		.ascii	"Log_Init\000"
- 3093      496E6974 
+ 3091      52525F54 
+ 3091      4C535F44 
+ 3091      45535452 
+ 3091      5543545F 
+ 3092              	.LASF21:
+ 3093 07c9 4350555F 		.ascii	"CPU_ADDR\000"
+ 3093      41444452 
  3093      00
- 3094              	.LASF126:
- 3095 07f3 4F535F45 		.ascii	"OS_ERR_SCHED_UNLOCK_ISR\000"
- 3095      52525F53 
- 3095      43484544 
- 3095      5F554E4C 
- 3095      4F434B5F 
- 3096              	.LASF37:
- 3097 080b 4F535F52 		.ascii	"OS_REG\000"
- 3097      454700
- 3098              	.LASF175:
- 3099 0812 4F535F45 		.ascii	"OS_ERR_TIME_INVALID_HOURS\000"
- 3099      52525F54 
- 3099      494D455F 
- 3099      494E5641 
- 3099      4C49445F 
- 3100              	.LASF64:
- 3101 082c 4F535F45 		.ascii	"OS_ERR_INT_Q_STK_INVALID\000"
- 3101      52525F49 
- 3101      4E545F51 
- 3101      5F53544B 
- 3101      5F494E56 
- 3102              	.LASF65:
- 3103 0845 4F535F45 		.ascii	"OS_ERR_INT_Q_STK_SIZE_INVALID\000"
+ 3094              	.LASF309:
+ 3095 07d2 4C6F675F 		.ascii	"Log_Init\000"
+ 3095      496E6974 
+ 3095      00
+ 3096              	.LASF126:
+ 3097 07db 4F535F45 		.ascii	"OS_ERR_SCHED_UNLOCK_ISR\000"
+ 3097      52525F53 
+ 3097      43484544 
+ 3097      5F554E4C 
+ 3097      4F434B5F 
+ 3098              	.LASF37:
+ 3099 07f3 4F535F52 		.ascii	"OS_REG\000"
+ 3099      454700
+ 3100              	.LASF175:
+ 3101 07fa 4F535F45 		.ascii	"OS_ERR_TIME_INVALID_HOURS\000"
+ 3101      52525F54 
+ 3101      494D455F 
+ 3101      494E5641 
+ 3101      4C49445F 
+ 3102              	.LASF64:
+ 3103 0814 4F535F45 		.ascii	"OS_ERR_INT_Q_STK_INVALID\000"
  3103      52525F49 
  3103      4E545F51 
  3103      5F53544B 
- 3103      5F53495A 
- 3104              	.LASF159:
- 3105 0863 4F535F45 		.ascii	"OS_ERR_TASK_SUSPEND_ISR\000"
- 3105      52525F54 
- 3105      41534B5F 
- 3105      53555350 
- 3105      454E445F 
- 3106              	.LASF75:
- 3107 087b 4F535F45 		.ascii	"OS_ERR_MEM_INVALID_PART\000"
- 3107      52525F4D 
- 3107      454D5F49 
- 3107      4E56414C 
- 3107      49445F50 
- 3108              	.LASF236:
- 3109 0893 5469636B 		.ascii	"TickPrevPtr\000"
- 3109      50726576 
- 3109      50747200 
- 3110              	.LASF91:
- 3111 089f 4F535F45 		.ascii	"OS_ERR_OBJ_DEL\000"
- 3111      52525F4F 
- 3111      424A5F44 
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 65
+ 3103      5F494E56 
+ 3104              	.LASF65:
+ 3105 082d 4F535F45 		.ascii	"OS_ERR_INT_Q_STK_SIZE_INVALID\000"
+ 3105      52525F49 
+ 3105      4E545F51 
+ 3105      5F53544B 
+ 3105      5F53495A 
+ 3106              	.LASF159:
+ 3107 084b 4F535F45 		.ascii	"OS_ERR_TASK_SUSPEND_ISR\000"
+ 3107      52525F54 
+ 3107      41534B5F 
+ 3107      53555350 
+ 3107      454E445F 
+ 3108              	.LASF75:
+ 3109 0863 4F535F45 		.ascii	"OS_ERR_MEM_INVALID_PART\000"
+ 3109      52525F4D 
+ 3109      454D5F49 
+ 3109      4E56414C 
+ 3109      49445F50 
+ 3110              	.LASF236:
+ 3111 087b 5469636B 		.ascii	"TickPrevPtr\000"
+ 3111      50726576 
+ 3111      50747200 
+ 3112              	.LASF91:
+ 3113 0887 4F535F45 		.ascii	"OS_ERR_OBJ_DEL\000"
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 65
 
 
- 3111      454C00
- 3112              	.LASF125:
- 3113 08ae 4F535F45 		.ascii	"OS_ERR_SCHED_NOT_LOCKED\000"
- 3113      52525F53 
- 3113      43484544 
- 3113      5F4E4F54 
- 3113      5F4C4F43 
- 3114              	.LASF24:
- 3115 08c6 4350555F 		.ascii	"CPU_TS32\000"
- 3115      54533332 
- 3115      00
- 3116              	.LASF27:
- 3117 08cf 4F535F43 		.ascii	"OS_CTX_SW_CTR\000"
- 3117      54585F53 
- 3117      575F4354 
- 3117      5200
- 3118              	.LASF275:
- 3119 08dd 4F535F50 		.ascii	"OS_PEND_DATA\000"
- 3119      454E445F 
- 3119      44415441 
- 3119      00
- 3120              	.LASF177:
- 3121 08ea 4F535F45 		.ascii	"OS_ERR_TIME_INVALID_SECONDS\000"
- 3121      52525F54 
- 3121      494D455F 
- 3121      494E5641 
- 3121      4C49445F 
- 3122              	.LASF221:
- 3123 0906 50656E64 		.ascii	"PendList\000"
- 3123      4C697374 
- 3123      00
- 3124              	.LASF182:
- 3125 090f 4F535F45 		.ascii	"OS_ERR_TIMEOUT\000"
- 3125      52525F54 
- 3125      494D454F 
- 3125      555400
- 3126              	.LASF88:
- 3127 091e 4F535F45 		.ascii	"OS_ERR_NO_MORE_ID_AVAIL\000"
- 3127      52525F4E 
- 3127      4F5F4D4F 
- 3127      52455F49 
- 3127      445F4156 
- 3128              	.LASF140:
- 3129 0936 4F535F45 		.ascii	"OS_ERR_TASK_CREATE_ISR\000"
- 3129      52525F54 
- 3129      41534B5F 
- 3129      43524541 
- 3129      54455F49 
- 3130              	.LASF184:
- 3131 094d 4F535F45 		.ascii	"OS_ERR_TMR_INVALID_DEST\000"
+ 3113      52525F4F 
+ 3113      424A5F44 
+ 3113      454C00
+ 3114              	.LASF125:
+ 3115 0896 4F535F45 		.ascii	"OS_ERR_SCHED_NOT_LOCKED\000"
+ 3115      52525F53 
+ 3115      43484544 
+ 3115      5F4E4F54 
+ 3115      5F4C4F43 
+ 3116              	.LASF24:
+ 3117 08ae 4350555F 		.ascii	"CPU_TS32\000"
+ 3117      54533332 
+ 3117      00
+ 3118              	.LASF27:
+ 3119 08b7 4F535F43 		.ascii	"OS_CTX_SW_CTR\000"
+ 3119      54585F53 
+ 3119      575F4354 
+ 3119      5200
+ 3120              	.LASF275:
+ 3121 08c5 4F535F50 		.ascii	"OS_PEND_DATA\000"
+ 3121      454E445F 
+ 3121      44415441 
+ 3121      00
+ 3122              	.LASF177:
+ 3123 08d2 4F535F45 		.ascii	"OS_ERR_TIME_INVALID_SECONDS\000"
+ 3123      52525F54 
+ 3123      494D455F 
+ 3123      494E5641 
+ 3123      4C49445F 
+ 3124              	.LASF221:
+ 3125 08ee 50656E64 		.ascii	"PendList\000"
+ 3125      4C697374 
+ 3125      00
+ 3126              	.LASF182:
+ 3127 08f7 4F535F45 		.ascii	"OS_ERR_TIMEOUT\000"
+ 3127      52525F54 
+ 3127      494D454F 
+ 3127      555400
+ 3128              	.LASF88:
+ 3129 0906 4F535F45 		.ascii	"OS_ERR_NO_MORE_ID_AVAIL\000"
+ 3129      52525F4E 
+ 3129      4F5F4D4F 
+ 3129      52455F49 
+ 3129      445F4156 
+ 3130              	.LASF140:
+ 3131 091e 4F535F45 		.ascii	"OS_ERR_TASK_CREATE_ISR\000"
  3131      52525F54 
- 3131      4D525F49 
- 3131      4E56414C 
- 3131      49445F44 
- 3132              	.LASF263:
- 3133 0965 43747853 		.ascii	"CtxSwCtr\000"
- 3133      77437472 
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 66
+ 3131      41534B5F 
+ 3131      43524541 
+ 3131      54455F49 
+ 3132              	.LASF184:
+ 3133 0935 4F535F45 		.ascii	"OS_ERR_TMR_INVALID_DEST\000"
+ 3133      52525F54 
+ 3133      4D525F49 
+ 3133      4E56414C 
+ 3133      49445F44 
+ 3134              	.LASF263:
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 66
 
 
- 3133      00
- 3134              	.LASF191:
- 3135 096e 4F535F45 		.ascii	"OS_ERR_TMR_NON_AVAIL\000"
- 3135      52525F54 
- 3135      4D525F4E 
- 3135      4F4E5F41 
- 3135      5641494C 
- 3136              	.LASF135:
- 3137 0983 4F535F45 		.ascii	"OS_ERR_STK_INVALID\000"
- 3137      52525F53 
- 3137      544B5F49 
- 3137      4E56414C 
- 3137      494400
- 3138              	.LASF5:
- 3139 0996 6C6F6E67 		.ascii	"long unsigned int\000"
- 3139      20756E73 
- 3139      69676E65 
- 3139      6420696E 
- 3139      7400
- 3140              	.LASF26:
- 3141 09a8 4F535F43 		.ascii	"OS_CPU_USAGE\000"
- 3141      50555F55 
- 3141      53414745 
- 3141      00
- 3142              	.LASF151:
- 3143 09b5 4F535F45 		.ascii	"OS_ERR_TASK_RESUME_ISR\000"
- 3143      52525F54 
- 3143      41534B5F 
- 3143      52455355 
- 3143      4D455F49 
- 3144              	.LASF147:
- 3145 09cc 4F535F45 		.ascii	"OS_ERR_TASK_NOT_DLY\000"
+ 3135 094d 43747853 		.ascii	"CtxSwCtr\000"
+ 3135      77437472 
+ 3135      00
+ 3136              	.LASF191:
+ 3137 0956 4F535F45 		.ascii	"OS_ERR_TMR_NON_AVAIL\000"
+ 3137      52525F54 
+ 3137      4D525F4E 
+ 3137      4F4E5F41 
+ 3137      5641494C 
+ 3138              	.LASF135:
+ 3139 096b 4F535F45 		.ascii	"OS_ERR_STK_INVALID\000"
+ 3139      52525F53 
+ 3139      544B5F49 
+ 3139      4E56414C 
+ 3139      494400
+ 3140              	.LASF5:
+ 3141 097e 6C6F6E67 		.ascii	"long unsigned int\000"
+ 3141      20756E73 
+ 3141      69676E65 
+ 3141      6420696E 
+ 3141      7400
+ 3142              	.LASF26:
+ 3143 0990 4F535F43 		.ascii	"OS_CPU_USAGE\000"
+ 3143      50555F55 
+ 3143      53414745 
+ 3143      00
+ 3144              	.LASF151:
+ 3145 099d 4F535F45 		.ascii	"OS_ERR_TASK_RESUME_ISR\000"
  3145      52525F54 
  3145      41534B5F 
- 3145      4E4F545F 
- 3145      444C5900 
- 3146              	.LASF47:
- 3147 09e0 4F535F45 		.ascii	"OS_ERR_CREATE_ISR\000"
- 3147      52525F43 
- 3147      52454154 
- 3147      455F4953 
- 3147      5200
- 3148              	.LASF287:
- 3149 09f2 4F535F50 		.ascii	"OS_PEND_OBJ\000"
- 3149      454E445F 
- 3149      4F424A00 
- 3150              	.LASF99:
- 3151 09fe 4F535F45 		.ascii	"OS_ERR_PEND_ABORT_ISR\000"
- 3151      52525F50 
+ 3145      52455355 
+ 3145      4D455F49 
+ 3146              	.LASF147:
+ 3147 09b4 4F535F45 		.ascii	"OS_ERR_TASK_NOT_DLY\000"
+ 3147      52525F54 
+ 3147      41534B5F 
+ 3147      4E4F545F 
+ 3147      444C5900 
+ 3148              	.LASF47:
+ 3149 09c8 4F535F45 		.ascii	"OS_ERR_CREATE_ISR\000"
+ 3149      52525F43 
+ 3149      52454154 
+ 3149      455F4953 
+ 3149      5200
+ 3150              	.LASF287:
+ 3151 09da 4F535F50 		.ascii	"OS_PEND_OBJ\000"
  3151      454E445F 
- 3151      41424F52 
- 3151      545F4953 
- 3152              	.LASF301:
- 3153 0a14 4255545F 		.ascii	"BUT_TaskStk\000"
- 3153      5461736B 
- 3153      53746B00 
- 3154              	.LASF155:
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 67
+ 3151      4F424A00 
+ 3152              	.LASF99:
+ 3153 09e6 4F535F45 		.ascii	"OS_ERR_PEND_ABORT_ISR\000"
+ 3153      52525F50 
+ 3153      454E445F 
+ 3153      41424F52 
+ 3153      545F4953 
+ 3154              	.LASF301:
+ 3155 09fc 4255545F 		.ascii	"BUT_TaskStk\000"
+ 3155      5461736B 
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 67
 
 
- 3155 0a20 4F535F45 		.ascii	"OS_ERR_TASK_STK_CHK_ISR\000"
- 3155      52525F54 
- 3155      41534B5F 
- 3155      53544B5F 
- 3155      43484B5F 
- 3156              	.LASF165:
- 3157 0a38 4F535F45 		.ascii	"OS_ERR_TLS_NO_MORE_AVAIL\000"
+ 3155      53746B00 
+ 3156              	.LASF155:
+ 3157 0a08 4F535F45 		.ascii	"OS_ERR_TASK_STK_CHK_ISR\000"
  3157      52525F54 
- 3157      4C535F4E 
- 3157      4F5F4D4F 
- 3157      52455F41 
- 3158              	.LASF176:
- 3159 0a51 4F535F45 		.ascii	"OS_ERR_TIME_INVALID_MINUTES\000"
+ 3157      41534B5F 
+ 3157      53544B5F 
+ 3157      43484B5F 
+ 3158              	.LASF165:
+ 3159 0a20 4F535F45 		.ascii	"OS_ERR_TLS_NO_MORE_AVAIL\000"
  3159      52525F54 
- 3159      494D455F 
- 3159      494E5641 
- 3159      4C49445F 
- 3160              	.LASF33:
- 3161 0a6d 4F535F4F 		.ascii	"OS_OBJ_QTY\000"
- 3161      424A5F51 
- 3161      545900
- 3162              	.LASF312:
- 3163 0a78 4932435F 		.ascii	"I2C_Init\000"
- 3163      496E6974 
- 3163      00
- 3164              	.LASF218:
- 3165 0a81 6F735F71 		.ascii	"os_q\000"
+ 3159      4C535F4E 
+ 3159      4F5F4D4F 
+ 3159      52455F41 
+ 3160              	.LASF176:
+ 3161 0a39 4F535F45 		.ascii	"OS_ERR_TIME_INVALID_MINUTES\000"
+ 3161      52525F54 
+ 3161      494D455F 
+ 3161      494E5641 
+ 3161      4C49445F 
+ 3162              	.LASF33:
+ 3163 0a55 4F535F4F 		.ascii	"OS_OBJ_QTY\000"
+ 3163      424A5F51 
+ 3163      545900
+ 3164              	.LASF313:
+ 3165 0a60 4932435F 		.ascii	"I2C_Init\000"
+ 3165      496E6974 
  3165      00
- 3166              	.LASF42:
- 3167 0a86 4F535F45 		.ascii	"OS_ERR_NONE\000"
- 3167      52525F4E 
- 3167      4F4E4500 
- 3168              	.LASF252:
- 3169 0a92 54696D65 		.ascii	"TimeQuanta\000"
- 3169      5175616E 
- 3169      746100
- 3170              	.LASF307:
- 3171 0a9d 4253505F 		.ascii	"BSP_CPU_TickInit\000"
- 3171      4350555F 
- 3171      5469636B 
- 3171      496E6974 
- 3171      00
- 3172              	.LASF36:
- 3173 0aae 4F535F50 		.ascii	"OS_PRIO\000"
- 3173      52494F00 
- 3174              	.LASF259:
- 3175 0ab6 466C6167 		.ascii	"FlagsOpt\000"
- 3175      734F7074 
- 3175      00
- 3176              	.LASF6:
- 3177 0abf 6C6F6E67 		.ascii	"long long int\000"
- 3177      206C6F6E 
- 3177      6720696E 
- 3177      7400
- 3178              	.LASF41:
- 3179 0acd 4F535F54 		.ascii	"OS_TICK\000"
- 3179      49434B00 
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 68
+ 3166              	.LASF218:
+ 3167 0a69 6F735F71 		.ascii	"os_q\000"
+ 3167      00
+ 3168              	.LASF42:
+ 3169 0a6e 4F535F45 		.ascii	"OS_ERR_NONE\000"
+ 3169      52525F4E 
+ 3169      4F4E4500 
+ 3170              	.LASF252:
+ 3171 0a7a 54696D65 		.ascii	"TimeQuanta\000"
+ 3171      5175616E 
+ 3171      746100
+ 3172              	.LASF307:
+ 3173 0a85 4253505F 		.ascii	"BSP_CPU_TickInit\000"
+ 3173      4350555F 
+ 3173      5469636B 
+ 3173      496E6974 
+ 3173      00
+ 3174              	.LASF36:
+ 3175 0a96 4F535F50 		.ascii	"OS_PRIO\000"
+ 3175      52494F00 
+ 3176              	.LASF259:
+ 3177 0a9e 466C6167 		.ascii	"FlagsOpt\000"
+ 3177      734F7074 
+ 3177      00
+ 3178              	.LASF6:
+ 3179 0aa7 6C6F6E67 		.ascii	"long long int\000"
+ 3179      206C6F6E 
+ 3179      6720696E 
+ 3179      7400
+ 3180              	.LASF41:
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 68
 
 
- 3180              	.LASF313:
- 3181 0ad5 4D415833 		.ascii	"MAX30102_Init\000"
- 3181      30313032 
- 3181      5F496E69 
- 3181      7400
- 3182              	.LASF101:
- 3183 0ae3 4F535F45 		.ascii	"OS_ERR_PEND_ABORT_SELF\000"
- 3183      52525F50 
- 3183      454E445F 
- 3183      41424F52 
- 3183      545F5345 
- 3184              	.LASF12:
- 3185 0afa 646F7562 		.ascii	"double\000"
- 3185      6C6500
- 3186              	.LASF273:
- 3187 0b01 6F735F74 		.ascii	"os_tick_spoke\000"
- 3187      69636B5F 
- 3187      73706F6B 
- 3187      6500
- 3188              	.LASF201:
- 3189 0b0f 4F535F45 		.ascii	"OS_ERR_YIELD_ISR\000"
- 3189      52525F59 
- 3189      49454C44 
- 3189      5F495352 
- 3189      00
- 3190              	.LASF144:
- 3191 0b20 4F535F45 		.ascii	"OS_ERR_TASK_DEL_ISR\000"
- 3191      52525F54 
- 3191      41534B5F 
- 3191      44454C5F 
- 3191      49535200 
- 3192              	.LASF38:
- 3193 0b34 4F535F53 		.ascii	"OS_SEM_CTR\000"
- 3193      454D5F43 
- 3193      545200
- 3194              	.LASF188:
- 3195 0b3f 4F535F45 		.ascii	"OS_ERR_TMR_INVALID\000"
- 3195      52525F54 
- 3195      4D525F49 
- 3195      4E56414C 
- 3195      494400
- 3196              	.LASF268:
- 3197 0b52 53656D50 		.ascii	"SemPendTime\000"
- 3197      656E6454 
- 3197      696D6500 
- 3198              	.LASF32:
- 3199 0b5e 4F535F4E 		.ascii	"OS_NESTING_CTR\000"
- 3199      45535449 
- 3199      4E475F43 
- 3199      545200
- 3200              	.LASF130:
- 3201 0b6d 4F535F45 		.ascii	"OS_ERR_STAT_PRIO_INVALID\000"
- 3201      52525F53 
- 3201      5441545F 
- 3201      5052494F 
- 3201      5F494E56 
- 3202              	.LASF11:
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 69
+ 3181 0ab5 4F535F54 		.ascii	"OS_TICK\000"
+ 3181      49434B00 
+ 3182              	.LASF314:
+ 3183 0abd 4D415833 		.ascii	"MAX30102_Init\000"
+ 3183      30313032 
+ 3183      5F496E69 
+ 3183      7400
+ 3184              	.LASF101:
+ 3185 0acb 4F535F45 		.ascii	"OS_ERR_PEND_ABORT_SELF\000"
+ 3185      52525F50 
+ 3185      454E445F 
+ 3185      41424F52 
+ 3185      545F5345 
+ 3186              	.LASF12:
+ 3187 0ae2 646F7562 		.ascii	"double\000"
+ 3187      6C6500
+ 3188              	.LASF273:
+ 3189 0ae9 6F735F74 		.ascii	"os_tick_spoke\000"
+ 3189      69636B5F 
+ 3189      73706F6B 
+ 3189      6500
+ 3190              	.LASF201:
+ 3191 0af7 4F535F45 		.ascii	"OS_ERR_YIELD_ISR\000"
+ 3191      52525F59 
+ 3191      49454C44 
+ 3191      5F495352 
+ 3191      00
+ 3192              	.LASF144:
+ 3193 0b08 4F535F45 		.ascii	"OS_ERR_TASK_DEL_ISR\000"
+ 3193      52525F54 
+ 3193      41534B5F 
+ 3193      44454C5F 
+ 3193      49535200 
+ 3194              	.LASF38:
+ 3195 0b1c 4F535F53 		.ascii	"OS_SEM_CTR\000"
+ 3195      454D5F43 
+ 3195      545200
+ 3196              	.LASF188:
+ 3197 0b27 4F535F45 		.ascii	"OS_ERR_TMR_INVALID\000"
+ 3197      52525F54 
+ 3197      4D525F49 
+ 3197      4E56414C 
+ 3197      494400
+ 3198              	.LASF268:
+ 3199 0b3a 53656D50 		.ascii	"SemPendTime\000"
+ 3199      656E6454 
+ 3199      696D6500 
+ 3200              	.LASF32:
+ 3201 0b46 4F535F4E 		.ascii	"OS_NESTING_CTR\000"
+ 3201      45535449 
+ 3201      4E475F43 
+ 3201      545200
+ 3202              	.LASF130:
+ 3203 0b55 4F535F45 		.ascii	"OS_ERR_STAT_PRIO_INVALID\000"
+ 3203      52525F53 
+ 3203      5441545F 
+ 3203      5052494F 
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 69
 
 
- 3203 0b86 666C6F61 		.ascii	"float\000"
- 3203      7400
- 3204              	.LASF326:
- 3205 0b8c 705F6172 		.ascii	"p_arg\000"
- 3205      6700
- 3206              	.LASF306:
- 3207 0b92 4253505F 		.ascii	"BSP_PostInit\000"
- 3207      506F7374 
- 3207      496E6974 
- 3207      00
- 3208              	.LASF137:
- 3209 0b9f 4F535F45 		.ascii	"OS_ERR_STK_LIMIT_INVALID\000"
- 3209      52525F53 
- 3209      544B5F4C 
- 3209      494D4954 
- 3209      5F494E56 
- 3210              	.LASF23:
- 3211 0bb8 4350555F 		.ascii	"CPU_STK_SIZE\000"
- 3211      53544B5F 
- 3211      53495A45 
- 3211      00
- 3212              	.LASF60:
- 3213 0bc5 4F535F45 		.ascii	"OS_ERR_ILLEGAL_CREATE_RUN_TIME\000"
- 3213      52525F49 
- 3213      4C4C4547 
- 3213      414C5F43 
- 3213      52454154 
- 3214              	.LASF244:
- 3215 0be4 5461736B 		.ascii	"TaskState\000"
- 3215      53746174 
- 3215      6500
- 3216              	.LASF225:
- 3217 0bee 4D736751 		.ascii	"MsgQ\000"
- 3217      00
- 3218              	.LASF8:
- 3219 0bf3 756E7369 		.ascii	"unsigned int\000"
- 3219      676E6564 
- 3219      20696E74 
+ 3203      5F494E56 
+ 3204              	.LASF11:
+ 3205 0b6e 666C6F61 		.ascii	"float\000"
+ 3205      7400
+ 3206              	.LASF326:
+ 3207 0b74 705F6172 		.ascii	"p_arg\000"
+ 3207      6700
+ 3208              	.LASF306:
+ 3209 0b7a 4253505F 		.ascii	"BSP_PostInit\000"
+ 3209      506F7374 
+ 3209      496E6974 
+ 3209      00
+ 3210              	.LASF137:
+ 3211 0b87 4F535F45 		.ascii	"OS_ERR_STK_LIMIT_INVALID\000"
+ 3211      52525F53 
+ 3211      544B5F4C 
+ 3211      494D4954 
+ 3211      5F494E56 
+ 3212              	.LASF23:
+ 3213 0ba0 4350555F 		.ascii	"CPU_STK_SIZE\000"
+ 3213      53544B5F 
+ 3213      53495A45 
+ 3213      00
+ 3214              	.LASF60:
+ 3215 0bad 4F535F45 		.ascii	"OS_ERR_ILLEGAL_CREATE_RUN_TIME\000"
+ 3215      52525F49 
+ 3215      4C4C4547 
+ 3215      414C5F43 
+ 3215      52454154 
+ 3216              	.LASF244:
+ 3217 0bcc 5461736B 		.ascii	"TaskState\000"
+ 3217      53746174 
+ 3217      6500
+ 3218              	.LASF225:
+ 3219 0bd6 4D736751 		.ascii	"MsgQ\000"
  3219      00
- 3220              	.LASF282:
- 3221 0c00 52647954 		.ascii	"RdyTS\000"
- 3221      5300
- 3222              	.LASF185:
- 3223 0c06 4F535F45 		.ascii	"OS_ERR_TMR_INVALID_DLY\000"
- 3223      52525F54 
- 3223      4D525F49 
- 3223      4E56414C 
- 3223      49445F44 
- 3224              	.LASF274:
- 3225 0c1d 46697273 		.ascii	"FirstPtr\000"
- 3225      74507472 
- 3225      00
- 3226              	.LASF297:
- 3227 0c26 436F6D6D 		.ascii	"CommQSPIData\000"
- 3227      51535049 
- 3227      44617461 
+ 3220              	.LASF8:
+ 3221 0bdb 756E7369 		.ascii	"unsigned int\000"
+ 3221      676E6564 
+ 3221      20696E74 
+ 3221      00
+ 3222              	.LASF282:
+ 3223 0be8 52647954 		.ascii	"RdyTS\000"
+ 3223      5300
+ 3224              	.LASF185:
+ 3225 0bee 4F535F45 		.ascii	"OS_ERR_TMR_INVALID_DLY\000"
+ 3225      52525F54 
+ 3225      4D525F49 
+ 3225      4E56414C 
+ 3225      49445F44 
+ 3226              	.LASF274:
+ 3227 0c05 46697273 		.ascii	"FirstPtr\000"
+ 3227      74507472 
  3227      00
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 70
+ 3228              	.LASF297:
+ 3229 0c0e 436F6D6D 		.ascii	"CommQSPIData\000"
+ 3229      51535049 
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 70
 
 
- 3228              	.LASF31:
- 3229 0c33 4F535F4D 		.ascii	"OS_MSG_SIZE\000"
- 3229      53475F53 
- 3229      495A4500 
- 3230              	.LASF95:
- 3231 0c3f 4F535F45 		.ascii	"OS_ERR_OS_NOT_RUNNING\000"
- 3231      52525F4F 
- 3231      535F4E4F 
- 3231      545F5255 
- 3231      4E4E494E 
- 3232              	.LASF286:
- 3233 0c55 5461696C 		.ascii	"TailPtr\000"
- 3233      50747200 
- 3234              	.LASF291:
- 3235 0c5d 4170705F 		.ascii	"App_TaskStartTCB\000"
- 3235      5461736B 
- 3235      53746172 
- 3235      74544342 
- 3235      00
- 3236              	.LASF219:
- 3237 0c6e 54797065 		.ascii	"Type\000"
+ 3229      44617461 
+ 3229      00
+ 3230              	.LASF31:
+ 3231 0c1b 4F535F4D 		.ascii	"OS_MSG_SIZE\000"
+ 3231      53475F53 
+ 3231      495A4500 
+ 3232              	.LASF95:
+ 3233 0c27 4F535F45 		.ascii	"OS_ERR_OS_NOT_RUNNING\000"
+ 3233      52525F4F 
+ 3233      535F4E4F 
+ 3233      545F5255 
+ 3233      4E4E494E 
+ 3234              	.LASF286:
+ 3235 0c3d 5461696C 		.ascii	"TailPtr\000"
+ 3235      50747200 
+ 3236              	.LASF291:
+ 3237 0c45 4170705F 		.ascii	"App_TaskStartTCB\000"
+ 3237      5461736B 
+ 3237      53746172 
+ 3237      74544342 
  3237      00
- 3238              	.LASF235:
- 3239 0c73 5469636B 		.ascii	"TickNextPtr\000"
- 3239      4E657874 
- 3239      50747200 
+ 3238              	.LASF219:
+ 3239 0c56 54797065 		.ascii	"Type\000"
+ 3239      00
  3240              	.LASF328:
- 3241 0c7f 62757474 		.ascii	"button_variable\000"
+ 3241 0c5b 62757474 		.ascii	"button_variable\000"
  3241      6F6E5F76 
  3241      61726961 
  3241      626C6500 
  3242              	.LASF106:
- 3243 0c8f 4F535F45 		.ascii	"OS_ERR_POST_NULL_PTR\000"
+ 3243 0c6b 4F535F45 		.ascii	"OS_ERR_POST_NULL_PTR\000"
  3243      52525F50 
  3243      4F53545F 
  3243      4E554C4C 
  3243      5F505452 
  3244              	.LASF122:
- 3245 0ca4 4F535F45 		.ascii	"OS_ERR_SCHED_INVALID_TIME_SLICE\000"
+ 3245 0c80 4F535F45 		.ascii	"OS_ERR_SCHED_INVALID_TIME_SLICE\000"
  3245      52525F53 
  3245      43484544 
  3245      5F494E56 
  3245      414C4944 
  3246              	.LASF87:
- 3247 0cc4 4F535F45 		.ascii	"OS_ERR_NAME\000"
+ 3247 0ca0 4F535F45 		.ascii	"OS_ERR_NAME\000"
  3247      52525F4E 
  3247      414D4500 
  3248              	.LASF232:
- 3249 0cd0 45787450 		.ascii	"ExtPtr\000"
+ 3249 0cac 45787450 		.ascii	"ExtPtr\000"
  3249      747200
  3250              	.LASF96:
- 3251 0cd7 4F535F45 		.ascii	"OS_ERR_OS_RUNNING\000"
+ 3251 0cb3 4F535F45 		.ascii	"OS_ERR_OS_RUNNING\000"
  3251      52525F4F 
  3251      535F5255 
  3251      4E4E494E 
  3251      4700
  3252              	.LASF40:
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 71
-
-
- 3253 0ce9 4F535F53 		.ascii	"OS_STATUS\000"
+ 3253 0cc5 4F535F53 		.ascii	"OS_STATUS\000"
  3253      54415455 
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 71
+
+
  3253      5300
  3254              	.LASF281:
- 3255 0cf3 5264794D 		.ascii	"RdyMsgSize\000"
+ 3255 0ccf 5264794D 		.ascii	"RdyMsgSize\000"
  3255      73675369 
  3255      7A6500
  3256              	.LASF250:
- 3257 0cfe 5469636B 		.ascii	"TickCtrMatch\000"
+ 3257 0cda 5469636B 		.ascii	"TickCtrMatch\000"
  3257      4374724D 
  3257      61746368 
  3257      00
  3258              	.LASF104:
- 3259 0d0b 4F535F45 		.ascii	"OS_ERR_PEND_LOCKED\000"
+ 3259 0ce7 4F535F45 		.ascii	"OS_ERR_PEND_LOCKED\000"
  3259      52525F50 
  3259      454E445F 
  3259      4C4F434B 
  3259      454400
  3260              	.LASF14:
- 3261 0d1e 6C6F6E67 		.ascii	"long double\000"
+ 3261 0cfa 6C6F6E67 		.ascii	"long double\000"
  3261      20646F75 
  3261      626C6500 
  3262              	.LASF265:
- 3263 0d2a 4379636C 		.ascii	"CyclesStart\000"
+ 3263 0d06 4379636C 		.ascii	"CyclesStart\000"
  3263      65735374 
  3263      61727400 
  3264              	.LASF128:
- 3265 0d36 4F535F45 		.ascii	"OS_ERR_SET_ISR\000"
+ 3265 0d12 4F535F45 		.ascii	"OS_ERR_SET_ISR\000"
  3265      52525F53 
  3265      45545F49 
  3265      535200
  3266              	.LASF239:
- 3267 0d45 5461736B 		.ascii	"TaskEntryAddr\000"
+ 3267 0d21 5461736B 		.ascii	"TaskEntryAddr\000"
  3267      456E7472 
  3267      79416464 
  3267      7200
  3268              	.LASF289:
- 3269 0d53 6F735F65 		.ascii	"os_err\000"
+ 3269 0d2f 6F735F65 		.ascii	"os_err\000"
  3269      727200
  3270              	.LASF285:
- 3271 0d5a 48656164 		.ascii	"HeadPtr\000"
+ 3271 0d36 48656164 		.ascii	"HeadPtr\000"
  3271      50747200 
  3272              	.LASF157:
- 3273 0d62 4F535F45 		.ascii	"OS_ERR_TASK_SUSPEND_IDLE\000"
+ 3273 0d3e 4F535F45 		.ascii	"OS_ERR_TASK_SUSPEND_IDLE\000"
  3273      52525F54 
  3273      41534B5F 
  3273      53555350 
  3273      454E445F 
  3274              	.LASF264:
- 3275 0d7b 4379636C 		.ascii	"CyclesDelta\000"
+ 3275 0d57 4379636C 		.ascii	"CyclesDelta\000"
  3275      65734465 
  3275      6C746100 
  3276              	.LASF141:
- 3277 0d87 4F535F45 		.ascii	"OS_ERR_TASK_DEL\000"
+ 3277 0d63 4F535F45 		.ascii	"OS_ERR_TASK_DEL\000"
  3277      52525F54 
  3277      41534B5F 
  3277      44454C00 
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 72
-
-
  3278              	.LASF288:
- 3279 0d97 6F735F70 		.ascii	"os_pend_obj\000"
+ 3279 0d73 6F735F70 		.ascii	"os_pend_obj\000"
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 72
+
+
  3279      656E645F 
  3279      6F626A00 
  3280              	.LASF148:
- 3281 0da3 4F535F45 		.ascii	"OS_ERR_TASK_NOT_EXIST\000"
+ 3281 0d7f 4F535F45 		.ascii	"OS_ERR_TASK_NOT_EXIST\000"
  3281      52525F54 
  3281      41534B5F 
  3281      4E4F545F 
  3281      45584953 
  3282              	.LASF77:
- 3283 0db9 4F535F45 		.ascii	"OS_ERR_MEM_INVALID_P_MEM\000"
+ 3283 0d95 4F535F45 		.ascii	"OS_ERR_MEM_INVALID_P_MEM\000"
  3283      52525F4D 
  3283      454D5F49 
  3283      4E56414C 
  3283      49445F50 
  3284              	.LASF216:
- 3285 0dd2 4E627245 		.ascii	"NbrEntriesMax\000"
+ 3285 0dae 4E627245 		.ascii	"NbrEntriesMax\000"
  3285      6E747269 
  3285      65734D61 
  3285      7800
  3286              	.LASF85:
- 3287 0de0 4F535F45 		.ascii	"OS_ERR_MUTEX_NESTING\000"
+ 3287 0dbc 4F535F45 		.ascii	"OS_ERR_MUTEX_NESTING\000"
  3287      52525F4D 
  3287      55544558 
  3287      5F4E4553 
  3287      54494E47 
  3288              	.LASF102:
- 3289 0df5 4F535F45 		.ascii	"OS_ERR_PEND_DEL\000"
+ 3289 0dd1 4F535F45 		.ascii	"OS_ERR_PEND_DEL\000"
  3289      52525F50 
  3289      454E445F 
  3289      44454C00 
  3290              	.LASF76:
- 3291 0e05 4F535F45 		.ascii	"OS_ERR_MEM_INVALID_P_BLK\000"
+ 3291 0de1 4F535F45 		.ascii	"OS_ERR_MEM_INVALID_P_BLK\000"
  3291      52525F4D 
  3291      454D5F49 
  3291      4E56414C 
  3291      49445F50 
  3292              	.LASF56:
- 3293 0e1e 4F535F45 		.ascii	"OS_ERR_FLUSH_ISR\000"
+ 3293 0dfa 4F535F45 		.ascii	"OS_ERR_FLUSH_ISR\000"
  3293      52525F46 
  3293      4C555348 
  3293      5F495352 
  3293      00
  3294              	.LASF279:
- 3295 0e2f 5264794F 		.ascii	"RdyObjPtr\000"
+ 3295 0e0b 5264794F 		.ascii	"RdyObjPtr\000"
  3295      626A5074 
  3295      7200
  3296              	.LASF113:
- 3297 0e39 4F535F45 		.ascii	"OS_ERR_Q_FULL\000"
+ 3297 0e15 4F535F45 		.ascii	"OS_ERR_Q_FULL\000"
  3297      52525F51 
  3297      5F46554C 
  3297      4C00
  3298              	.LASF7:
- 3299 0e47 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 3299 0e23 6C6F6E67 		.ascii	"long long unsigned int\000"
  3299      206C6F6E 
  3299      6720756E 
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 73
-
-
  3299      7369676E 
  3299      65642069 
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 73
+
+
  3300              	.LASF153:
- 3301 0e5e 4F535F45 		.ascii	"OS_ERR_TASK_RESUME_SELF\000"
+ 3301 0e3a 4F535F45 		.ascii	"OS_ERR_TASK_RESUME_SELF\000"
  3301      52525F54 
  3301      41534B5F 
  3301      52455355 
  3301      4D455F53 
  3302              	.LASF190:
- 3303 0e76 4F535F45 		.ascii	"OS_ERR_TMR_NO_CALLBACK\000"
+ 3303 0e52 4F535F45 		.ascii	"OS_ERR_TMR_NO_CALLBACK\000"
  3303      52525F54 
  3303      4D525F4E 
  3303      4F5F4341 
  3303      4C4C4241 
  3304              	.LASF310:
- 3305 0e8d 4F535365 		.ascii	"OSSemPend\000"
+ 3305 0e69 4F535365 		.ascii	"OSSemPend\000"
  3305      6D50656E 
  3305      6400
  3306              	.LASF111:
- 3307 0e97 4F535F45 		.ascii	"OS_ERR_PTR_INVALID\000"
+ 3307 0e73 4F535F45 		.ascii	"OS_ERR_PTR_INVALID\000"
  3307      52525F50 
  3307      54525F49 
  3307      4E56414C 
  3307      494400
  3308              	.LASF53:
- 3309 0eaa 4F535F45 		.ascii	"OS_ERR_FLAG_GRP_DEPLETED\000"
+ 3309 0e86 4F535F45 		.ascii	"OS_ERR_FLAG_GRP_DEPLETED\000"
  3309      52525F46 
  3309      4C41475F 
  3309      4752505F 
  3309      4445504C 
  3310              	.LASF152:
- 3311 0ec3 4F535F45 		.ascii	"OS_ERR_TASK_RESUME_PRIO\000"
+ 3311 0e9f 4F535F45 		.ascii	"OS_ERR_TASK_RESUME_PRIO\000"
  3311      52525F54 
  3311      41534B5F 
  3311      52455355 
  3311      4D455F50 
  3312              	.LASF311:
- 3313 0edb 4C6F675F 		.ascii	"Log_Write\000"
+ 3313 0eb7 4C6F675F 		.ascii	"Log_Write\000"
  3313      57726974 
  3313      6500
  3314              	.LASF78:
- 3315 0ee5 4F535F45 		.ascii	"OS_ERR_MEM_INVALID_P_DATA\000"
+ 3315 0ec1 4F535F45 		.ascii	"OS_ERR_MEM_INVALID_P_DATA\000"
  3315      52525F4D 
  3315      454D5F49 
  3315      4E56414C 
  3315      49445F50 
  3316              	.LASF290:
- 3317 0eff 46495243 		.ascii	"FIRCoeffs\000"
+ 3317 0edb 46495243 		.ascii	"FIRCoeffs\000"
  3317      6F656666 
  3317      7300
  3318              	.LASF262:
- 3319 0f09 43505555 		.ascii	"CPUUsageMax\000"
+ 3319 0ee5 43505555 		.ascii	"CPUUsageMax\000"
  3319      73616765 
  3319      4D617800 
  3320              	.LASF110:
- 3321 0f15 4F535F45 		.ascii	"OS_ERR_PRIO_INVALID\000"
+ 3321 0ef1 4F535F45 		.ascii	"OS_ERR_PRIO_INVALID\000"
  3321      52525F50 
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 74
-
-
  3321      52494F5F 
  3321      494E5641 
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 74
+
+
  3321      4C494400 
  3322              	.LASF242:
- 3323 0f29 50656E64 		.ascii	"PendOn\000"
+ 3323 0f05 50656E64 		.ascii	"PendOn\000"
  3323      4F6E00
  3324              	.LASF118:
- 3325 0f30 4F535F45 		.ascii	"OS_ERR_REG_ID_INVALID\000"
+ 3325 0f0c 4F535F45 		.ascii	"OS_ERR_REG_ID_INVALID\000"
  3325      52525F52 
  3325      45475F49 
  3325      445F494E 
  3325      56414C49 
  3326              	.LASF272:
- 3327 0f46 4F535F54 		.ascii	"OS_TICK_SPOKE\000"
+ 3327 0f22 4F535F54 		.ascii	"OS_TICK_SPOKE\000"
  3327      49434B5F 
  3327      53504F4B 
  3327      4500
  3328              	.LASF79:
- 3329 0f54 4F535F45 		.ascii	"OS_ERR_MEM_INVALID_SIZE\000"
+ 3329 0f30 4F535F45 		.ascii	"OS_ERR_MEM_INVALID_SIZE\000"
  3329      52525F4D 
  3329      454D5F49 
  3329      4E56414C 
  3329      49445F53 
  3330              	.LASF161:
- 3331 0f6c 4F535F45 		.ascii	"OS_ERR_TASK_WAITING\000"
+ 3331 0f48 4F535F45 		.ascii	"OS_ERR_TASK_WAITING\000"
  3331      52525F54 
  3331      41534B5F 
  3331      57414954 
  3331      494E4700 
  3332              	.LASF143:
- 3333 0f80 4F535F45 		.ascii	"OS_ERR_TASK_DEL_INVALID\000"
+ 3333 0f5c 4F535F45 		.ascii	"OS_ERR_TASK_DEL_INVALID\000"
  3333      52525F54 
  3333      41534B5F 
  3333      44454C5F 
  3333      494E5641 
  3334              	.LASF240:
- 3335 0f98 5461736B 		.ascii	"TaskEntryArg\000"
+ 3335 0f74 5461736B 		.ascii	"TaskEntryArg\000"
  3335      456E7472 
  3335      79417267 
  3335      00
  3336              	.LASF63:
- 3337 0fa5 4F535F45 		.ascii	"OS_ERR_INT_Q_SIZE\000"
+ 3337 0f81 4F535F45 		.ascii	"OS_ERR_INT_Q_SIZE\000"
  3337      52525F49 
  3337      4E545F51 
  3337      5F53495A 
  3337      4500
  3338              	.LASF284:
- 3339 0fb7 6F735F70 		.ascii	"os_pend_list\000"
+ 3339 0f93 6F735F70 		.ascii	"os_pend_list\000"
  3339      656E645F 
  3339      6C697374 
  3339      00
- 3340              	.LASF226:
- 3341 0fc4 4F535F53 		.ascii	"OS_SEM\000"
- 3341      454D00
- 3342              	.LASF234:
- 3343 0fcb 50726576 		.ascii	"PrevPtr\000"
- 3343      50747200 
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 75
+ 3340              	.LASF324:
+ 3341 0fa0 433A5C55 		.ascii	"C:\\Users\\Chronikle\\Documents\\GitHub\\BodyAnalyz"
+ 3341      73657273 
+ 3341      5C436872 
+ 3341      6F6E696B 
+ 3341      6C655C44 
+ 3342 0fce 65725C65 		.ascii	"er\\esw_uCOS3_cykit.cydsn\000"
+ 3342      73775F75 
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 75
 
 
- 3344              	.LASF237:
- 3345 0fd3 5469636B 		.ascii	"TickSpokePtr\000"
- 3345      53706F6B 
- 3345      65507472 
- 3345      00
- 3346              	.LASF134:
- 3347 0fe0 4F535F45 		.ascii	"OS_ERR_STATUS_INVALID\000"
- 3347      52525F53 
- 3347      54415455 
- 3347      535F494E 
- 3347      56414C49 
- 3348              	.LASF304:
- 3349 0ff6 4C656447 		.ascii	"LedG_Task_TCB\000"
- 3349      5F546173 
- 3349      6B5F5443 
- 3349      4200
- 3350              	.LASF69:
- 3351 1004 4F535F45 		.ascii	"OS_ERR_LOCK_NESTING_OVF\000"
- 3351      52525F4C 
- 3351      4F434B5F 
- 3351      4E455354 
- 3351      494E475F 
- 3352              	.LASF158:
- 3353 101c 4F535F45 		.ascii	"OS_ERR_TASK_SUSPEND_INT_HANDLER\000"
- 3353      52525F54 
- 3353      41534B5F 
- 3353      53555350 
- 3353      454E445F 
- 3354              	.LASF178:
- 3355 103c 4F535F45 		.ascii	"OS_ERR_TIME_INVALID_MILLISECONDS\000"
- 3355      52525F54 
- 3355      494D455F 
- 3355      494E5641 
- 3355      4C49445F 
- 3356              	.LASF204:
- 3357 105d 4F535F4D 		.ascii	"OS_MSG\000"
- 3357      534700
- 3358              	.LASF205:
- 3359 1064 4E657874 		.ascii	"NextPtr\000"
- 3359      50747200 
- 3360              	.LASF298:
- 3361 106c 436F6D6D 		.ascii	"CommQProcessedOximeterData\000"
- 3361      5150726F 
- 3361      63657373 
- 3361      65644F78 
- 3361      696D6574 
- 3362              	.LASF278:
- 3363 1087 50656E64 		.ascii	"PendObjPtr\000"
- 3363      4F626A50 
- 3363      747200
- 3364              	.LASF29:
- 3365 1092 4F535F46 		.ascii	"OS_FLAGS\000"
- 3365      4C414753 
- 3365      00
- 3366              	.LASF212:
- 3367 109b 496E5074 		.ascii	"InPtr\000"
- 3367      7200
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 76
+ 3342      434F5333 
+ 3342      5F63796B 
+ 3342      69742E63 
+ 3343              	.LASF226:
+ 3344 0fe7 4F535F53 		.ascii	"OS_SEM\000"
+ 3344      454D00
+ 3345              	.LASF234:
+ 3346 0fee 50726576 		.ascii	"PrevPtr\000"
+ 3346      50747200 
+ 3347              	.LASF237:
+ 3348 0ff6 5469636B 		.ascii	"TickSpokePtr\000"
+ 3348      53706F6B 
+ 3348      65507472 
+ 3348      00
+ 3349              	.LASF134:
+ 3350 1003 4F535F45 		.ascii	"OS_ERR_STATUS_INVALID\000"
+ 3350      52525F53 
+ 3350      54415455 
+ 3350      535F494E 
+ 3350      56414C49 
+ 3351              	.LASF304:
+ 3352 1019 4C656447 		.ascii	"LedG_Task_TCB\000"
+ 3352      5F546173 
+ 3352      6B5F5443 
+ 3352      4200
+ 3353              	.LASF69:
+ 3354 1027 4F535F45 		.ascii	"OS_ERR_LOCK_NESTING_OVF\000"
+ 3354      52525F4C 
+ 3354      4F434B5F 
+ 3354      4E455354 
+ 3354      494E475F 
+ 3355              	.LASF158:
+ 3356 103f 4F535F45 		.ascii	"OS_ERR_TASK_SUSPEND_INT_HANDLER\000"
+ 3356      52525F54 
+ 3356      41534B5F 
+ 3356      53555350 
+ 3356      454E445F 
+ 3357              	.LASF178:
+ 3358 105f 4F535F45 		.ascii	"OS_ERR_TIME_INVALID_MILLISECONDS\000"
+ 3358      52525F54 
+ 3358      494D455F 
+ 3358      494E5641 
+ 3358      4C49445F 
+ 3359              	.LASF204:
+ 3360 1080 4F535F4D 		.ascii	"OS_MSG\000"
+ 3360      534700
+ 3361              	.LASF205:
+ 3362 1087 4E657874 		.ascii	"NextPtr\000"
+ 3362      50747200 
+ 3363              	.LASF298:
+ 3364 108f 436F6D6D 		.ascii	"CommQProcessedOximeterData\000"
+ 3364      5150726F 
+ 3364      63657373 
+ 3364      65644F78 
+ 3364      696D6574 
+ 3365              	.LASF278:
+ 3366 10aa 50656E64 		.ascii	"PendObjPtr\000"
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 76
 
 
- 3368              	.LASF270:
- 3369 10a1 53746B55 		.ascii	"StkUsed\000"
- 3369      73656400 
- 3370              	.LASF2:
- 3371 10a9 73686F72 		.ascii	"short int\000"
- 3371      7420696E 
- 3371      7400
- 3372              	.LASF220:
- 3373 10b3 4E616D65 		.ascii	"NamePtr\000"
- 3373      50747200 
- 3374              	.LASF49:
- 3375 10bb 4F535F45 		.ascii	"OS_ERR_DEL_ISR\000"
- 3375      52525F44 
- 3375      454C5F49 
- 3375      535200
- 3376              	.LASF211:
- 3377 10ca 6F735F6D 		.ascii	"os_msg_q\000"
- 3377      73675F71 
- 3377      00
- 3378              	.LASF114:
- 3379 10d3 4F535F45 		.ascii	"OS_ERR_Q_EMPTY\000"
- 3379      52525F51 
- 3379      5F454D50 
- 3379      545900
- 3380              	.LASF129:
- 3381 10e2 4F535F45 		.ascii	"OS_ERR_STAT_RESET_ISR\000"
- 3381      52525F53 
- 3381      5441545F 
- 3381      52455345 
- 3381      545F4953 
- 3382              	.LASF145:
- 3383 10f8 4F535F45 		.ascii	"OS_ERR_TASK_INVALID\000"
- 3383      52525F54 
- 3383      41534B5F 
- 3383      494E5641 
- 3383      4C494400 
- 3384              	.LASF213:
- 3385 110c 4F757450 		.ascii	"OutPtr\000"
- 3385      747200
- 3386              	.LASF183:
- 3387 1113 4F535F45 		.ascii	"OS_ERR_TMR_INACTIVE\000"
- 3387      52525F54 
- 3387      4D525F49 
- 3387      4E414354 
- 3387      49564500 
- 3388              	.LASF215:
- 3389 1127 4E627245 		.ascii	"NbrEntries\000"
- 3389      6E747269 
- 3389      657300
- 3390              	.LASF108:
- 3391 1132 4F535F45 		.ascii	"OS_ERR_PRIO_EXIST\000"
- 3391      52525F50 
- 3391      52494F5F 
- 3391      45584953 
- 3391      5400
- 3392              	.LASF207:
- 3393 1144 4D736753 		.ascii	"MsgSize\000"
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 77
+ 3366      4F626A50 
+ 3366      747200
+ 3367              	.LASF29:
+ 3368 10b5 4F535F46 		.ascii	"OS_FLAGS\000"
+ 3368      4C414753 
+ 3368      00
+ 3369              	.LASF212:
+ 3370 10be 496E5074 		.ascii	"InPtr\000"
+ 3370      7200
+ 3371              	.LASF270:
+ 3372 10c4 53746B55 		.ascii	"StkUsed\000"
+ 3372      73656400 
+ 3373              	.LASF2:
+ 3374 10cc 73686F72 		.ascii	"short int\000"
+ 3374      7420696E 
+ 3374      7400
+ 3375              	.LASF220:
+ 3376 10d6 4E616D65 		.ascii	"NamePtr\000"
+ 3376      50747200 
+ 3377              	.LASF49:
+ 3378 10de 4F535F45 		.ascii	"OS_ERR_DEL_ISR\000"
+ 3378      52525F44 
+ 3378      454C5F49 
+ 3378      535200
+ 3379              	.LASF211:
+ 3380 10ed 6F735F6D 		.ascii	"os_msg_q\000"
+ 3380      73675F71 
+ 3380      00
+ 3381              	.LASF114:
+ 3382 10f6 4F535F45 		.ascii	"OS_ERR_Q_EMPTY\000"
+ 3382      52525F51 
+ 3382      5F454D50 
+ 3382      545900
+ 3383              	.LASF129:
+ 3384 1105 4F535F45 		.ascii	"OS_ERR_STAT_RESET_ISR\000"
+ 3384      52525F53 
+ 3384      5441545F 
+ 3384      52455345 
+ 3384      545F4953 
+ 3385              	.LASF145:
+ 3386 111b 4F535F45 		.ascii	"OS_ERR_TASK_INVALID\000"
+ 3386      52525F54 
+ 3386      41534B5F 
+ 3386      494E5641 
+ 3386      4C494400 
+ 3387              	.LASF213:
+ 3388 112f 4F757450 		.ascii	"OutPtr\000"
+ 3388      747200
+ 3389              	.LASF183:
+ 3390 1136 4F535F45 		.ascii	"OS_ERR_TMR_INACTIVE\000"
+ 3390      52525F54 
+ 3390      4D525F49 
+ 3390      4E414354 
+ 3390      49564500 
+ 3391              	.LASF215:
+ 3392 114a 4E627245 		.ascii	"NbrEntries\000"
+ 3392      6E747269 
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 77
 
 
- 3393      697A6500 
- 3394              	.LASF267:
- 3395 114c 4379636C 		.ascii	"CyclesTotalPrev\000"
- 3395      6573546F 
- 3395      74616C50 
- 3395      72657600 
- 3396              	.LASF186:
- 3397 115c 4F535F45 		.ascii	"OS_ERR_TMR_INVALID_PERIOD\000"
- 3397      52525F54 
- 3397      4D525F49 
- 3397      4E56414C 
- 3397      49445F50 
- 3398              	.LASF217:
- 3399 1176 4F535F51 		.ascii	"OS_Q\000"
- 3399      00
- 3400              	.LASF243:
- 3401 117b 50656E64 		.ascii	"PendStatus\000"
- 3401      53746174 
- 3401      757300
- 3402              	.LASF258:
- 3403 1186 466C6167 		.ascii	"FlagsRdy\000"
- 3403      73526479 
- 3403      00
- 3404              	.LASF308:
- 3405 118f 4F535365 		.ascii	"OSSemCreate\000"
- 3405      6D437265 
- 3405      61746500 
- 3406              	.LASF238:
- 3407 119b 53746B42 		.ascii	"StkBasePtr\000"
- 3407      61736550 
- 3407      747200
- 3408              	.LASF223:
- 3409 11a6 4462674E 		.ascii	"DbgNextPtr\000"
- 3409      65787450 
- 3409      747200
- 3410              	.LASF94:
- 3411 11b1 4F535F45 		.ascii	"OS_ERR_OPT_INVALID\000"
- 3411      52525F4F 
- 3411      50545F49 
- 3411      4E56414C 
- 3411      494400
- 3412              	.LASF55:
- 3413 11c4 4F535F45 		.ascii	"OS_ERR_FLAG_PEND_OPT\000"
- 3413      52525F46 
- 3413      4C41475F 
- 3413      50454E44 
- 3413      5F4F5054 
- 3414              	.LASF82:
- 3415 11d9 4F535F45 		.ascii	"OS_ERR_MSG_POOL_NULL_PTR\000"
- 3415      52525F4D 
- 3415      53475F50 
- 3415      4F4F4C5F 
- 3415      4E554C4C 
- 3416              	.LASF228:
- 3417 11f2 4F535F54 		.ascii	"OS_TASK_PTR\000"
- 3417      41534B5F 
- 3417      50545200 
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 78
+ 3392      657300
+ 3393              	.LASF108:
+ 3394 1155 4F535F45 		.ascii	"OS_ERR_PRIO_EXIST\000"
+ 3394      52525F50 
+ 3394      52494F5F 
+ 3394      45584953 
+ 3394      5400
+ 3395              	.LASF207:
+ 3396 1167 4D736753 		.ascii	"MsgSize\000"
+ 3396      697A6500 
+ 3397              	.LASF267:
+ 3398 116f 4379636C 		.ascii	"CyclesTotalPrev\000"
+ 3398      6573546F 
+ 3398      74616C50 
+ 3398      72657600 
+ 3399              	.LASF186:
+ 3400 117f 4F535F45 		.ascii	"OS_ERR_TMR_INVALID_PERIOD\000"
+ 3400      52525F54 
+ 3400      4D525F49 
+ 3400      4E56414C 
+ 3400      49445F50 
+ 3401              	.LASF217:
+ 3402 1199 4F535F51 		.ascii	"OS_Q\000"
+ 3402      00
+ 3403              	.LASF243:
+ 3404 119e 50656E64 		.ascii	"PendStatus\000"
+ 3404      53746174 
+ 3404      757300
+ 3405              	.LASF258:
+ 3406 11a9 466C6167 		.ascii	"FlagsRdy\000"
+ 3406      73526479 
+ 3406      00
+ 3407              	.LASF308:
+ 3408 11b2 4F535365 		.ascii	"OSSemCreate\000"
+ 3408      6D437265 
+ 3408      61746500 
+ 3409              	.LASF238:
+ 3410 11be 53746B42 		.ascii	"StkBasePtr\000"
+ 3410      61736550 
+ 3410      747200
+ 3411              	.LASF223:
+ 3412 11c9 4462674E 		.ascii	"DbgNextPtr\000"
+ 3412      65787450 
+ 3412      747200
+ 3413              	.LASF94:
+ 3414 11d4 4F535F45 		.ascii	"OS_ERR_OPT_INVALID\000"
+ 3414      52525F4F 
+ 3414      50545F49 
+ 3414      4E56414C 
+ 3414      494400
+ 3415              	.LASF55:
+ 3416 11e7 4F535F45 		.ascii	"OS_ERR_FLAG_PEND_OPT\000"
+ 3416      52525F46 
+ 3416      4C41475F 
+ 3416      50454E44 
+ 3416      5F4F5054 
+ 3417              	.LASF82:
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 78
 
 
- 3418              	.LASF30:
- 3419 11fe 4F535F4D 		.ascii	"OS_MSG_QTY\000"
- 3419      53475F51 
- 3419      545900
- 3420              	.LASF115:
- 3421 1209 4F535F45 		.ascii	"OS_ERR_Q_MAX\000"
- 3421      52525F51 
- 3421      5F4D4158 
- 3421      00
- 3422              	.LASF18:
- 3423 1216 4350555F 		.ascii	"CPU_INT08U\000"
- 3423      494E5430 
- 3423      385500
- 3424              	.LASF189:
- 3425 1221 4F535F45 		.ascii	"OS_ERR_TMR_ISR\000"
- 3425      52525F54 
- 3425      4D525F49 
- 3425      535200
- 3426              	.LASF120:
- 3427 1230 4F535F45 		.ascii	"OS_ERR_ROUND_ROBIN_DISABLED\000"
- 3427      52525F52 
- 3427      4F554E44 
- 3427      5F524F42 
- 3427      494E5F44 
- 3428              	.LASF169:
- 3429 124c 4F535F45 		.ascii	"OS_ERR_TICK_STK_INVALID\000"
- 3429      52525F54 
- 3429      49434B5F 
- 3429      53544B5F 
- 3429      494E5641 
- 3430              	.LASF180:
- 3431 1264 4F535F45 		.ascii	"OS_ERR_TIME_SET_ISR\000"
- 3431      52525F54 
- 3431      494D455F 
- 3431      5345545F 
- 3431      49535200 
- 3432              	.LASF92:
- 3433 1278 4F535F45 		.ascii	"OS_ERR_OBJ_PTR_NULL\000"
- 3433      52525F4F 
- 3433      424A5F50 
- 3433      54525F4E 
- 3433      554C4C00 
- 3434              	.LASF171:
- 3435 128c 4F535F45 		.ascii	"OS_ERR_TICK_WHEEL_SIZE\000"
- 3435      52525F54 
- 3435      49434B5F 
- 3435      57484545 
- 3435      4C5F5349 
- 3436              	.LASF172:
- 3437 12a3 4F535F45 		.ascii	"OS_ERR_TIME_DLY_ISR\000"
- 3437      52525F54 
- 3437      494D455F 
- 3437      444C595F 
- 3437      49535200 
- 3438              	.LASF315:
- 3439 12b7 44617461 		.ascii	"Data_Processing_Init\000"
- 3439      5F50726F 
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 79
+ 3418 11fc 4F535F45 		.ascii	"OS_ERR_MSG_POOL_NULL_PTR\000"
+ 3418      52525F4D 
+ 3418      53475F50 
+ 3418      4F4F4C5F 
+ 3418      4E554C4C 
+ 3419              	.LASF228:
+ 3420 1215 4F535F54 		.ascii	"OS_TASK_PTR\000"
+ 3420      41534B5F 
+ 3420      50545200 
+ 3421              	.LASF30:
+ 3422 1221 4F535F4D 		.ascii	"OS_MSG_QTY\000"
+ 3422      53475F51 
+ 3422      545900
+ 3423              	.LASF115:
+ 3424 122c 4F535F45 		.ascii	"OS_ERR_Q_MAX\000"
+ 3424      52525F51 
+ 3424      5F4D4158 
+ 3424      00
+ 3425              	.LASF18:
+ 3426 1239 4350555F 		.ascii	"CPU_INT08U\000"
+ 3426      494E5430 
+ 3426      385500
+ 3427              	.LASF189:
+ 3428 1244 4F535F45 		.ascii	"OS_ERR_TMR_ISR\000"
+ 3428      52525F54 
+ 3428      4D525F49 
+ 3428      535200
+ 3429              	.LASF120:
+ 3430 1253 4F535F45 		.ascii	"OS_ERR_ROUND_ROBIN_DISABLED\000"
+ 3430      52525F52 
+ 3430      4F554E44 
+ 3430      5F524F42 
+ 3430      494E5F44 
+ 3431              	.LASF169:
+ 3432 126f 4F535F45 		.ascii	"OS_ERR_TICK_STK_INVALID\000"
+ 3432      52525F54 
+ 3432      49434B5F 
+ 3432      53544B5F 
+ 3432      494E5641 
+ 3433              	.LASF180:
+ 3434 1287 4F535F45 		.ascii	"OS_ERR_TIME_SET_ISR\000"
+ 3434      52525F54 
+ 3434      494D455F 
+ 3434      5345545F 
+ 3434      49535200 
+ 3435              	.LASF92:
+ 3436 129b 4F535F45 		.ascii	"OS_ERR_OBJ_PTR_NULL\000"
+ 3436      52525F4F 
+ 3436      424A5F50 
+ 3436      54525F4E 
+ 3436      554C4C00 
+ 3437              	.LASF171:
+ 3438 12af 4F535F45 		.ascii	"OS_ERR_TICK_WHEEL_SIZE\000"
+ 3438      52525F54 
+ 3438      49434B5F 
+ 3438      57484545 
+ 3438      4C5F5349 
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 79
 
 
- 3439      63657373 
- 3439      696E675F 
- 3439      496E6974 
- 3440              	.LASF321:
- 3441 12cc 4F535374 		.ascii	"OSStart\000"
- 3441      61727400 
- 3442              	.LASF160:
- 3443 12d4 4F535F45 		.ascii	"OS_ERR_TASK_SUSPEND_PRIO\000"
- 3443      52525F54 
- 3443      41534B5F 
- 3443      53555350 
- 3443      454E445F 
- 3444              	.LASF3:
- 3445 12ed 73686F72 		.ascii	"short unsigned int\000"
- 3445      7420756E 
- 3445      7369676E 
- 3445      65642069 
- 3445      6E7400
- 3446              	.LASF166:
- 3447 1300 4F535F45 		.ascii	"OS_ERR_TLS_NOT_EN\000"
- 3447      52525F54 
- 3447      4C535F4E 
- 3447      4F545F45 
- 3447      4E00
- 3448              	.LASF142:
- 3449 1312 4F535F45 		.ascii	"OS_ERR_TASK_DEL_IDLE\000"
- 3449      52525F54 
- 3449      41534B5F 
- 3449      44454C5F 
- 3449      49444C45 
- 3450              	.LASF109:
- 3451 1327 4F535F45 		.ascii	"OS_ERR_PRIO\000"
- 3451      52525F50 
- 3451      52494F00 
- 3452              	.LASF61:
- 3453 1333 4F535F45 		.ascii	"OS_ERR_INT_Q\000"
- 3453      52525F49 
- 3453      4E545F51 
- 3453      00
- 3454              	.LASF154:
- 3455 1340 4F535F45 		.ascii	"OS_ERR_TASK_RUNNING\000"
- 3455      52525F54 
- 3455      41534B5F 
- 3455      52554E4E 
- 3455      494E4700 
- 3456              	.LASF245:
- 3457 1354 5072696F 		.ascii	"Prio\000"
- 3457      00
- 3458              	.LASF9:
- 3459 1359 5F5F696E 		.ascii	"__int32_t\000"
- 3459      7433325F 
- 3459      7400
- 3460              	.LASF93:
- 3461 1363 4F535F45 		.ascii	"OS_ERR_OBJ_TYPE\000"
- 3461      52525F4F 
- 3461      424A5F54 
- 3461      59504500 
-ARM GAS  C:\Users\batuh\AppData\Local\Temp\ccQ961gC.s 			page 80
+ 3439              	.LASF172:
+ 3440 12c6 4F535F45 		.ascii	"OS_ERR_TIME_DLY_ISR\000"
+ 3440      52525F54 
+ 3440      494D455F 
+ 3440      444C595F 
+ 3440      49535200 
+ 3441              	.LASF321:
+ 3442 12da 4F535374 		.ascii	"OSStart\000"
+ 3442      61727400 
+ 3443              	.LASF160:
+ 3444 12e2 4F535F45 		.ascii	"OS_ERR_TASK_SUSPEND_PRIO\000"
+ 3444      52525F54 
+ 3444      41534B5F 
+ 3444      53555350 
+ 3444      454E445F 
+ 3445              	.LASF3:
+ 3446 12fb 73686F72 		.ascii	"short unsigned int\000"
+ 3446      7420756E 
+ 3446      7369676E 
+ 3446      65642069 
+ 3446      6E7400
+ 3447              	.LASF166:
+ 3448 130e 4F535F45 		.ascii	"OS_ERR_TLS_NOT_EN\000"
+ 3448      52525F54 
+ 3448      4C535F4E 
+ 3448      4F545F45 
+ 3448      4E00
+ 3449              	.LASF142:
+ 3450 1320 4F535F45 		.ascii	"OS_ERR_TASK_DEL_IDLE\000"
+ 3450      52525F54 
+ 3450      41534B5F 
+ 3450      44454C5F 
+ 3450      49444C45 
+ 3451              	.LASF109:
+ 3452 1335 4F535F45 		.ascii	"OS_ERR_PRIO\000"
+ 3452      52525F50 
+ 3452      52494F00 
+ 3453              	.LASF61:
+ 3454 1341 4F535F45 		.ascii	"OS_ERR_INT_Q\000"
+ 3454      52525F49 
+ 3454      4E545F51 
+ 3454      00
+ 3455              	.LASF154:
+ 3456 134e 4F535F45 		.ascii	"OS_ERR_TASK_RUNNING\000"
+ 3456      52525F54 
+ 3456      41534B5F 
+ 3456      52554E4E 
+ 3456      494E4700 
+ 3457              	.LASF245:
+ 3458 1362 5072696F 		.ascii	"Prio\000"
+ 3458      00
+ 3459              	.LASF9:
+ 3460 1367 5F5F696E 		.ascii	"__int32_t\000"
+ 3460      7433325F 
+ 3460      7400
+ 3461              	.LASF93:
+ 3462 1371 4F535F45 		.ascii	"OS_ERR_OBJ_TYPE\000"
+ARM GAS  C:\Users\CHRONI~1\AppData\Local\Temp\ccg7JPJN.s 			page 80
 
 
- 3462              	.LASF248:
- 3463 1373 53656D43 		.ascii	"SemCtr\000"
- 3463      747200
- 3464              	.LASF139:
- 3465 137a 4F535F45 		.ascii	"OS_ERR_TASK_CHANGE_PRIO_ISR\000"
- 3465      52525F54 
- 3465      41534B5F 
- 3465      4348414E 
- 3465      47455F50 
- 3466              	.LASF168:
- 3467 1396 4F535F45 		.ascii	"OS_ERR_TICK_PRIO_INVALID\000"
- 3467      52525F54 
- 3467      49434B5F 
- 3467      5052494F 
- 3467      5F494E56 
- 3468              	.LASF303:
- 3469 13af 4C656452 		.ascii	"LedRB_TaskStk\000"
- 3469      425F5461 
- 3469      736B5374 
- 3469      6B00
- 3470              	.LASF105:
- 3471 13bd 4F535F45 		.ascii	"OS_ERR_PEND_WOULD_BLOCK\000"
- 3471      52525F50 
- 3471      454E445F 
- 3471      574F554C 
- 3471      445F424C 
- 3472              	.LASF255:
- 3473 13d5 4D736751 		.ascii	"MsgQPendTimeMax\000"
- 3473      50656E64 
- 3473      54696D65 
- 3473      4D617800 
- 3474              	.LASF305:
- 3475 13e5 4C656447 		.ascii	"LedG_TaskStk\000"
- 3475      5F546173 
- 3475      6B53746B 
- 3475      00
- 3476              	.LASF280:
- 3477 13f2 5264794D 		.ascii	"RdyMsgPtr\000"
- 3477      73675074 
- 3477      7200
- 3478              	.LASF174:
- 3479 13fc 4F535F45 		.ascii	"OS_ERR_TIME_GET_ISR\000"
- 3479      52525F54 
- 3479      494D455F 
- 3479      4745545F 
- 3479      49535200 
- 3480              	.LASF123:
- 3481 1410 4F535F45 		.ascii	"OS_ERR_SCHED_LOCK_ISR\000"
- 3481      52525F53 
- 3481      43484544 
- 3481      5F4C4F43 
- 3481      4B5F4953 
- 3482              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
+ 3462      52525F4F 
+ 3462      424A5F54 
+ 3462      59504500 
+ 3463              	.LASF248:
+ 3464 1381 53656D43 		.ascii	"SemCtr\000"
+ 3464      747200
+ 3465              	.LASF139:
+ 3466 1388 4F535F45 		.ascii	"OS_ERR_TASK_CHANGE_PRIO_ISR\000"
+ 3466      52525F54 
+ 3466      41534B5F 
+ 3466      4348414E 
+ 3466      47455F50 
+ 3467              	.LASF168:
+ 3468 13a4 4F535F45 		.ascii	"OS_ERR_TICK_PRIO_INVALID\000"
+ 3468      52525F54 
+ 3468      49434B5F 
+ 3468      5052494F 
+ 3468      5F494E56 
+ 3469              	.LASF303:
+ 3470 13bd 4C656452 		.ascii	"LedRB_TaskStk\000"
+ 3470      425F5461 
+ 3470      736B5374 
+ 3470      6B00
+ 3471              	.LASF105:
+ 3472 13cb 4F535F45 		.ascii	"OS_ERR_PEND_WOULD_BLOCK\000"
+ 3472      52525F50 
+ 3472      454E445F 
+ 3472      574F554C 
+ 3472      445F424C 
+ 3473              	.LASF255:
+ 3474 13e3 4D736751 		.ascii	"MsgQPendTimeMax\000"
+ 3474      50656E64 
+ 3474      54696D65 
+ 3474      4D617800 
+ 3475              	.LASF305:
+ 3476 13f3 4C656447 		.ascii	"LedG_TaskStk\000"
+ 3476      5F546173 
+ 3476      6B53746B 
+ 3476      00
+ 3477              	.LASF280:
+ 3478 1400 5264794D 		.ascii	"RdyMsgPtr\000"
+ 3478      73675074 
+ 3478      7200
+ 3479              	.LASF174:
+ 3480 140a 4F535F45 		.ascii	"OS_ERR_TIME_GET_ISR\000"
+ 3480      52525F54 
+ 3480      494D455F 
+ 3480      4745545F 
+ 3480      49535200 
+ 3481              	.LASF123:
+ 3482 141e 4F535F45 		.ascii	"OS_ERR_SCHED_LOCK_ISR\000"
+ 3482      52525F53 
+ 3482      43484544 
+ 3482      5F4C4F43 
+ 3482      4B5F4953 
+ 3483              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

@@ -111,7 +111,7 @@ static void Data_Processing_Task(void *p_arg) {
       // Delay to allow for periodic processing
       //OSTimeDlyHMSM(0, 0, 0, 100, OS_OPT_TIME_HMSM_STRICT, &os_err);
     } else if(processRawEnvironmentData(&processed_data_environment)){
-      Log_Write(LOG_LEVEL_DATA_PROCESSING, "Processing environment data for LED control...", 0);
+      //Log_Write(LOG_LEVEL_DATA_PROCESSING, "Processing environment data for LED control...", 0);
             
         // Set the command for the green LED based on environmental data range
         led_control_message.led_cmd = CMD_GREEN_LED;
@@ -135,7 +135,7 @@ static void Data_Processing_Task(void *p_arg) {
         else if (os_err != OS_ERR_NONE) {
             Log_Write(LOG_LEVEL_ERROR, "Data Processing Task: Failed to send environment LED command with error", os_err);
         } else {
-            Log_Write(LOG_LEVEL_DATA_PROCESSING, "Environment LED command sent to LED control task.", 0);
+            //Log_Write(LOG_LEVEL_DATA_PROCESSING, "Environment LED command sent to LED control task.", 0);
         }
       }
     }
@@ -171,7 +171,7 @@ CPU_BOOLEAN retrieveSensorData(OS_Q *queue, CPU_INT08U *data_field, const char *
     *data_field = (CPU_INT08S)(*p_msg_I2C & 0xFF);
 
     // Log the received data
-    Log_Write(LOG_LEVEL_DATA_PROCESSING, "Data Processing Task: Received %s -> %d", sensor_name, *data_field);
+    //Log_Write(LOG_LEVEL_DATA_PROCESSING, "Data Processing Task: Received %s -> %d", sensor_name, *data_field);
     return DEF_TRUE;
 }
 
@@ -248,10 +248,10 @@ CPU_BOOLEAN processRawEnvironmentData(DATA_SET_PACKAGE_ENVIRONMENT *data_environ
       data_environment_package->gas_in_ohm = (p_msg_SPI_data->gas_raw * 1000) / 65535;
       
       // Log each converted environmental value
-      Log_Write(LOG_LEVEL_DATA_PROCESSING, "Data Processing Task: Received Temperature -> %d.%02d deg C", data_environment_package->temperature_in_celsius / 100, data_environment_package->temperature_in_celsius % 100);
-      Log_Write(LOG_LEVEL_DATA_PROCESSING, "Data Processing Task: Received Humidity -> %d.%02d %%", data_environment_package->humidity_in_percentage / 100, data_environment_package->humidity_in_percentage % 100);
-      Log_Write(LOG_LEVEL_DATA_PROCESSING, "Data Processing Task: Received Pressure -> %d.%1d hPa", data_environment_package->pressure_in_bar / 10, data_environment_package->pressure_in_bar % 10);
-      Log_Write(LOG_LEVEL_DATA_PROCESSING, "Data Processing Task: Received Gas Concentration -> %d ppm", data_environment_package->gas_in_ohm);
+      //Log_Write(LOG_LEVEL_DATA_PROCESSING, "Data Processing Task: Received Temperature -> %d.%02d deg C", data_environment_package->temperature_in_celsius / 100, data_environment_package->temperature_in_celsius % 100);
+      //Log_Write(LOG_LEVEL_DATA_PROCESSING, "Data Processing Task: Received Humidity -> %d.%02d %%", data_environment_package->humidity_in_percentage / 100, data_environment_package->humidity_in_percentage % 100);
+      //Log_Write(LOG_LEVEL_DATA_PROCESSING, "Data Processing Task: Received Pressure -> %d.%1d hPa", data_environment_package->pressure_in_bar / 10, data_environment_package->pressure_in_bar % 10);
+      //Log_Write(LOG_LEVEL_DATA_PROCESSING, "Data Processing Task: Received Gas Concentration -> %d ppm", data_environment_package->gas_in_ohm);
 
       return DEF_TRUE;
     }
