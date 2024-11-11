@@ -27,7 +27,6 @@ CPU_VOID init_gpio(CPU_VOID)
   BSP_PWM_Start(PWM_hb);
   
   OS_ERR os_err = {0};
-  Log_Write(LOG_LEVEL_BUT, "(init_gpio) Knopf-Task wird erstellt", os_err);
 
     /* Create the Button task */
     OSTaskCreate((OS_TCB *)&BUT_Task_TCB,
@@ -43,8 +42,8 @@ CPU_VOID init_gpio(CPU_VOID)
                  (void *)0,
                  (OS_OPT)(OS_OPT_TASK_STK_CHK | OS_OPT_TASK_STK_CLR),
                  (OS_ERR *)&os_err);
-    if (os_err == OS_ERR_NONE) Log_Write(LOG_LEVEL_BUT, "(init_gpio) Knopf-Task erstellt", os_err);
-    else Log_Write(LOG_LEVEL_ERROR, "Knopf: (init_gpio) Knopf-Task nicht erstellt", os_err);
+    if (os_err == OS_ERR_NONE) Log_Write(LOG_LEVEL_BUT, "(init_gpio) But-Task created", os_err);
+    else Log_Write(LOG_LEVEL_ERROR, "Knopf: (init_gpio) Butt-Task not created", os_err);
     
      /* Create the LeD task */
     OSTaskCreate((OS_TCB *)&LedG_Task_TCB,
@@ -60,8 +59,8 @@ CPU_VOID init_gpio(CPU_VOID)
                  (void *)0,
                  (OS_OPT)(OS_OPT_TASK_STK_CHK | OS_OPT_TASK_STK_CLR),
                  (OS_ERR *)&os_err);
-    if (os_err == OS_ERR_NONE) Log_Write(LOG_LEVEL_LED, "(init_gpio) Led-Task erstellt", os_err);
-    else Log_Write(LOG_LEVEL_ERROR, "Led: (init_gpio) Led-Task nicht erstellt", os_err);
+    if (os_err == OS_ERR_NONE) Log_Write(LOG_LEVEL_LED, "(init_gpio) Led-Task created", os_err);
+    else Log_Write(LOG_LEVEL_ERROR, "Led: (init_gpio) Led-Task not created", os_err);
 
     OSTaskCreate((OS_TCB *)&LedRB_Task_TCB,
                  (CPU_CHAR *)"LedRB Task",
@@ -76,8 +75,8 @@ CPU_VOID init_gpio(CPU_VOID)
                  (void *)0,
                  (OS_OPT)(OS_OPT_TASK_STK_CHK | OS_OPT_TASK_STK_CLR),
                  (OS_ERR *)&os_err);
-    if (os_err == OS_ERR_NONE) Log_Write(LOG_LEVEL_LED, "(init_gpio) Led-Task erstellt", os_err);
-    else Log_Write(LOG_LEVEL_ERROR, "Led: (init_gpio) Led-Task nicht erstellt", os_err);
+    if (os_err == OS_ERR_NONE) Log_Write(LOG_LEVEL_LED, "(init_gpio) Led-Task created", os_err);
+    else Log_Write(LOG_LEVEL_ERROR, "Led: (init_gpio) Led-Task not created", os_err);
 }
 
 static void BUT_Task(void *p_arg)
@@ -86,26 +85,35 @@ static void BUT_Task(void *p_arg)
   for (OS_ERR os_err; DEF_TRUE; OSTimeDlyHMSM(0, 0, 0, 100, OS_OPT_TIME_HMSM_STRICT, &os_err), button_variable = BSP_PB_StatusGet(P2_2));
 }
 
+CPU_INT16U BloodOxyCalc(CPU_INT08U p)
+{
+  return 1800/p;
+}
+
 static void LedRB_Task(void *p_arg)
 {
   (void)p_arg;
   OS_ERR os_err;
   CPU_TS ts;
   DATA_SET_PACKAGE_OXIMETER *data;
-  OS_MSG_SIZE *data_size;
+  OS_MSG_SIZE *data_size = NULL;
   for (OS_ERR os_err; DEF_TRUE; OSTimeDlyHMSM(0, 0, 0, 100, OS_OPT_TIME_HMSM_STRICT, &os_err))
     if (button_variable == DEF_TRUE)
     {
       if (0 != (data = OSQPend(&CommQProcessedOximeterData, 0, OS_OPT_PEND_BLOCKING, data_size, &ts, &os_err)))
       {
-        if (*data_size == sizeof(LED_CONTROL_MESSAGE))
+        if (os_err == OS_ERR_NONE)
         {
-          BSP_PWM_set_Period(PWM_hb, data->average_heart_rate_in_bpm);
-          BSP_PWM_set_Halfperiod(PWM_bo, data->blood_oxygen_level_in_percentage);
+          if (*data_size == sizeof(LED_CONTROL_MESSAGE))
+          {
+            BSP_PWM_set_Period(PWM_hb, data->average_heart_rate_in_bpm);
+            BSP_PWM_set_Halfperiod(PWM_bo, BloodOxyCalc(data->blood_oxygen_level_in_percentage));
+          }
+          else Log_Write(LOG_LEVEL_ERROR, "LedRB_Task: msg wrong size", os_err);
         }
-        else Log_Write(LOG_LEVEL_ERROR, "LedB_Task: Nachricht hat falsche grxsze", os_err);
+        else Log_Write(LOG_LEVEL_ERROR, "LedRB_Task: unknown", os_err);
       }
-      else Log_Write(LOG_LEVEL_ERROR, "LedB_Task: keine Q-Nachricht", os_err);
+      else Log_Write(LOG_LEVEL_ERROR, "LedRB_Task: no Q-Nachricht", os_err);
     }
 }
 
@@ -122,19 +130,23 @@ static void LedG_Task(void *p_arg)
   OS_ERR os_err;
   CPU_TS ts;
   LED_CONTROL_MESSAGE *lcm;
-  OS_MSG_SIZE *lcm_size; 
+  OS_MSG_SIZE *lcm_size = NULL;
   for (OS_ERR os_err; DEF_TRUE; OSTimeDlyHMSM(0, 0, 0, 100, OS_OPT_TIME_HMSM_STRICT, &os_err))
     if (button_variable == DEF_TRUE)
     {
       if (0 != (lcm = OSQPend(&CommQProcessedEnvironmentData, 0, OS_OPT_PEND_BLOCKING, lcm_size, &ts, &os_err)))
       {
-        if (*lcm_size == sizeof(LED_CONTROL_MESSAGE))
-          BSP_PWM_set_Halfperiod(PWM_ac, allCorrCalc(lcm->mode_data));
-        else
-          Log_Write(LOG_LEVEL_ERROR, "LedB_Task: Nachricht hat falsche grxsze", os_err);
+        if (os_err == OS_ERR_NONE)
+        {
+          if (*lcm_size == sizeof(LED_CONTROL_MESSAGE))
+            BSP_PWM_set_Halfperiod(PWM_ac, allCorrCalc(lcm->mode_data));
+          else
+            Log_Write(LOG_LEVEL_ERROR, "LedG_Task: msg wrong size", os_err);
+        }
+        else Log_Write(LOG_LEVEL_ERROR, "LedG_Task: unknown", os_err);
       }
       else
-        Log_Write(LOG_LEVEL_ERROR, "LedB_Task: keine Q-Nachricht", os_err);
+        Log_Write(LOG_LEVEL_ERROR, "LedG_Task: no Q-msg", os_err);
     }
 }
 /* [] END OF FILE */

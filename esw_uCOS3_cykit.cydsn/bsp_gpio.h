@@ -12,8 +12,9 @@
 
 #include <os.h>
 
-#include <push_button.h>
+#include <gpio_tasks.h>
 
+#include <push_button.h>
 #include <Pin_Blue_Led.h>
 #include <Pin_Green_Led.h>
 #include <Pin_Red_Led.h>
