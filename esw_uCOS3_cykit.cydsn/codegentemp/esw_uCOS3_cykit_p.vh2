@@ -1,5 +1,5 @@
 -- Project:   esw_uCOS3_cykit
--- Generated: 11/12/2024 00:17:38
+-- Generated: 11/12/2024 00:53:34
 -- PSoC Creator  4.4
 
 ENTITY esw_uCOS3_cykit IS
@@ -45,7 +45,6 @@ ARCHITECTURE __DEFAULT__ OF esw_uCOS3_cykit IS
     SIGNAL Net_2 : bit;
     SIGNAL Net_41 : bit;
     SIGNAL Net_42 : bit;
-    SIGNAL Net_589 : bit;
     SIGNAL Net_652 : bit;
     ATTRIBUTE udbclken_assigned OF Net_652 : SIGNAL IS "True";
     ATTRIBUTE global_signal OF Net_652 : SIGNAL IS true;
@@ -216,7 +215,6 @@ ARCHITECTURE __DEFAULT__ OF esw_uCOS3_cykit IS
     ATTRIBUTE lib_model OF \PWM_Environment:PWMUDB:runmode_enable\ : LABEL IS "macrocell32";
     ATTRIBUTE lib_model OF \PWM_Environment:PWMUDB:prevCompare1\ : LABEL IS "macrocell33";
     ATTRIBUTE lib_model OF \PWM_Environment:PWMUDB:status_0\ : LABEL IS "macrocell34";
-    ATTRIBUTE lib_model OF Net_589 : LABEL IS "macrocell35";
     COMPONENT clockblockcell
         PORT (
             dclk_0 : OUT std_ulogic;
@@ -1540,7 +1538,7 @@ BEGIN
             oe_sync => "0",
             output_clk_en => 0,
             output_clock_mode => "0",
-            output_conn => "1",
+            output_conn => "0",
             output_mode => "0",
             output_reset => 0,
             output_sync => "0",
@@ -1594,12 +1592,10 @@ BEGIN
             oe_sync_mode => 0,
             logicalport => "Pin_Green_Led_1",
             logicalport_pin_id => 0,
-            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000101")
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000001")
         PORT MAP(
             pa_out => Pin_Green_Led_1(0)__PA,
             oe => open,
-            pin_input => Net_589,
-            pad_out => Pin_Green_Led_1(0)_PAD,
             pad_in => Pin_Green_Led_1(0)_PAD,
             in_clock => open,
             in_clock_en => '1',
@@ -2437,18 +2433,6 @@ BEGIN
             q => \PWM_Environment:PWMUDB:status_0\,
             clock_0 => Net_652,
             main_0 => \PWM_Environment:PWMUDB:prevCompare1\,
-            main_1 => \PWM_Environment:PWMUDB:cmp1_less\);
-
-    Net_589:macrocell
-        GENERIC MAP(
-            eqn_main => "(main_0 * main_1)",
-            regmode => 1,
-            clk_inv => '0',
-            clken_mode => 1)
-        PORT MAP(
-            q => Net_589,
-            clock_0 => Net_652,
-            main_0 => \PWM_Environment:PWMUDB:runmode_enable\,
             main_1 => \PWM_Environment:PWMUDB:cmp1_less\);
 
 END __DEFAULT__;

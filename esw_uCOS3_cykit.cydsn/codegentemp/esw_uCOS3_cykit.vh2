@@ -2,7 +2,7 @@
 --	Conversion of esw_uCOS3_cykit.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Tue Nov 12 00:17:37 2024
+--	Tue Nov 12 00:53:34 2024
 --
 
 USE cypress.cypress.all;
@@ -442,7 +442,6 @@ SIGNAL tmpIO_0__Pin_Blue_Led_1_net_0 : bit;
 TERMINAL tmpSIOVREF__Pin_Blue_Led_1_net_0 : bit;
 SIGNAL tmpINTERRUPT_0__Pin_Blue_Led_1_net_0 : bit;
 SIGNAL tmpOE__Pin_Green_Led_1_net_0 : bit;
-SIGNAL Net_589 : bit;
 SIGNAL tmpFB_0__Pin_Green_Led_1_net_0 : bit;
 SIGNAL tmpIO_0__Pin_Green_Led_1_net_0 : bit;
 TERMINAL tmpSIOVREF__Pin_Green_Led_1_net_0 : bit;
@@ -1142,6 +1141,7 @@ SIGNAL \PWM_Environment:PWMUDB:MODULE_7:g2:a0:g1:z1:s0:g1:u0:c_2\ : bit;
 SIGNAL \PWM_Environment:PWMUDB:MODULE_7:g2:a0:g1:z1:s0:g1:u0:c_1\ : bit;
 SIGNAL \PWM_Environment:PWMUDB:MODULE_7:g2:a0:g1:z1:s0:g1:u0:c_0\ : bit;
 SIGNAL \PWM_Environment:PWMUDB:MODULE_7:g2:a0:g1:z1:s0:g1:u0:b_0\ : bit;
+SIGNAL Net_589 : bit;
 SIGNAL Net_585 : bit;
 SIGNAL Net_593 : bit;
 SIGNAL \PWM_Environment:Net_113\ : bit;
@@ -2453,7 +2453,7 @@ Pin_Green_Led_1:cy_psoc3_pins_v1_10
 		invert_out_reset=>'0',
 		io_voltage=>"",
 		layout_mode=>"CONTIGUOUS",
-		output_conn=>"1",
+		output_conn=>"0",
 		output_sync=>"0",
 		output_clk_en=>'0',
 		output_mode=>"0",
@@ -2493,7 +2493,7 @@ Pin_Green_Led_1:cy_psoc3_pins_v1_10
 		ovt_hyst_trim=>"0",
 		input_buffer_sel=>"00")
 	PORT MAP(oe=>(one),
-		y=>Net_589,
+		y=>(zero),
 		fb=>(tmpFB_0__Pin_Green_Led_1_net_0),
 		analog=>(open),
 		io=>(tmpIO_0__Pin_Green_Led_1_net_0),
@@ -3007,7 +3007,7 @@ Net_38:cy_dff
 \PWM_Environment:PWMUDB:pwm_i_reg\:cy_dff
 	PORT MAP(d=>\PWM_Environment:PWMUDB:pwm_i\,
 		clk=>\PWM_Environment:PWMUDB:ClockOutFromEnBlock\,
-		q=>Net_589);
+		q=>\PWM_Environment:PWMUDB:pwm_i_reg\);
 \PWM_Environment:PWMUDB:pwm1_i_reg\:cy_dff
 	PORT MAP(d=>zero,
 		clk=>\PWM_Environment:PWMUDB:ClockOutFromEnBlock\,

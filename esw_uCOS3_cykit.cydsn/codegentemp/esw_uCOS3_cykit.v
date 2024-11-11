@@ -1,6 +1,6 @@
 // ======================================================================
 // esw_uCOS3_cykit.v generated from TopDesign.cysch
-// 11/12/2024 at 00:17
+// 11/12/2024 at 00:53
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -746,6 +746,7 @@ module top ;
           wire  Net_592;
           wire  Net_591;
           wire  Net_590;
+          wire  Net_589;
           wire  Net_588;
           wire  Net_587;
           wire  Net_586;
@@ -765,7 +766,6 @@ module top ;
           wire  Net_654;
           wire  Net_653;
           wire  Net_651;
-          wire  Net_589;
           wire  Net_659;
           wire  Net_668;
           wire  Net_163;
@@ -1677,7 +1677,7 @@ module top ;
 		  .oe_sync(1'b0),
 		  .output_clk_en(0),
 		  .output_clock_mode(1'b0),
-		  .output_conn(1'b1),
+		  .output_conn(1'b0),
 		  .output_mode(1'b0),
 		  .output_reset(0),
 		  .output_sync(1'b0),
@@ -1710,7 +1710,7 @@ module top ;
 		  .input_buffer_sel(2'b00))
 		Pin_Green_Led_1
 		 (.oe(tmpOE__Pin_Green_Led_1_net),
-		  .y({Net_589}),
+		  .y({1'b0}),
 		  .fb({tmpFB_0__Pin_Green_Led_1_net[0:0]}),
 		  .io({tmpIO_0__Pin_Green_Led_1_net[0:0]}),
 		  .siovref(tmpSIOVREF__Pin_Green_Led_1_net),

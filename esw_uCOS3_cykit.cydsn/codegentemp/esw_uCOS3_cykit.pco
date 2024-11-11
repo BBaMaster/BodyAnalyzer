@@ -1,5 +1,5 @@
 # esw_uCOS3_cykit
-# 2024-11-11 23:17:39Z
+# 2024-11-11 23:53:36Z
 
 # IO_0@[IOP=(1)][IoId=(0)] is reserved: SWDDebugEnabled
 dont_use_io iocell 1 0
@@ -21,24 +21,24 @@ set_io "I2C_INTR(0)" iocell 1 4
 set_io "Pin_Red_Led_1(0)" iocell 2 7
 set_io "Pin_Blue_Led_1(0)" iocell 2 1
 set_io "Pin_Green_Led_1(0)" iocell 1 2
-set_location "Net_2" 0 0 0 0
-set_location "\UART_1:BUART:counter_load_not\" 1 0 1 1
-set_location "\UART_1:BUART:tx_status_0\" 1 0 1 0
-set_location "\UART_1:BUART:tx_status_2\" 1 0 1 3
-set_location "\UART_1:BUART:rx_counter_load\" 0 1 0 1
-set_location "\UART_1:BUART:rx_postpoll\" 0 0 0 2
-set_location "\UART_1:BUART:rx_status_4\" 0 0 1 3
-set_location "\UART_1:BUART:rx_status_5\" 0 2 1 3
-set_location "\PWM_Heartbeat:PWMUDB:status_2\" 1 2 1 2
-set_location "\PWM_Environment:PWMUDB:status_2\" 0 2 0 2
+set_location "Net_2" 0 2 0 2
+set_location "\UART_1:BUART:counter_load_not\" 1 2 1 1
+set_location "\UART_1:BUART:tx_status_0\" 1 1 0 1
+set_location "\UART_1:BUART:tx_status_2\" 0 1 0 3
+set_location "\UART_1:BUART:rx_counter_load\" 1 1 1 1
+set_location "\UART_1:BUART:rx_postpoll\" 1 0 0 1
+set_location "\UART_1:BUART:rx_status_4\" 0 0 0 3
+set_location "\UART_1:BUART:rx_status_5\" 0 0 0 2
+set_location "\PWM_Heartbeat:PWMUDB:status_2\" 0 2 0 1
+set_location "\PWM_Environment:PWMUDB:status_2\" 0 1 1 1
 set_location "\UART_1:TXInternalInterrupt\" interrupt -1 -1 2
 set_location "\UART_1:RXInternalInterrupt\" interrupt -1 -1 1
-set_location "__ONE__" 3 2 1 3
+set_location "__ONE__" 3 2 1 2
 set_location "\UART_1:BUART:sTX:TxShifter:u0\" 1 1 2
-set_location "\UART_1:BUART:sTX:sCLOCK:TxBitClkGen\" 1 0 2
-set_location "\UART_1:BUART:sTX:TxSts\" 1 0 4
-set_location "\UART_1:BUART:sRX:RxShifter:u0\" 0 0 2
-set_location "\UART_1:BUART:sRX:RxBitCounter\" 0 1 7
+set_location "\UART_1:BUART:sTX:sCLOCK:TxBitClkGen\" 1 2 2
+set_location "\UART_1:BUART:sTX:TxSts\" 1 1 4
+set_location "\UART_1:BUART:sRX:RxShifter:u0\" 1 0 2
+set_location "\UART_1:BUART:sRX:RxBitCounter\" 1 0 7
 set_location "\UART_1:BUART:sRX:RxSts\" 0 0 4
 set_location "\I2C_1:I2C_IRQ\" interrupt -1 -1 15
 set_location "\I2C_1:I2C_FF\" i2ccell -1 -1 0
@@ -46,32 +46,31 @@ set_location "I2C_DataReady" interrupt -1 -1 5
 set_location "\Timer_1:TimerHW\" timercell -1 -1 0
 set_location "Timer_ISR" interrupt -1 -1 0
 set_location "\PWM_Heartbeat:PWMUDB:genblk1:ctrlreg\" 1 2 6
-set_location "\PWM_Heartbeat:PWMUDB:genblk8:stsreg\" 1 2 4
-set_location "\PWM_Heartbeat:PWMUDB:sP8:pwmdp:u0\" 1 2 2
+set_location "\PWM_Heartbeat:PWMUDB:genblk8:stsreg\" 0 2 4
+set_location "\PWM_Heartbeat:PWMUDB:sP8:pwmdp:u0\" 0 2 2
 set_location "\PWM_Environment:PWMUDB:genblk1:ctrlreg\" 0 2 6
-set_location "\PWM_Environment:PWMUDB:genblk8:stsreg\" 0 2 4
-set_location "\PWM_Environment:PWMUDB:sP8:pwmdp:u0\" 0 2 2
-set_location "\UART_1:BUART:txn\" 1 1 0 0
-set_location "\UART_1:BUART:tx_state_1\" 1 1 0 1
-set_location "\UART_1:BUART:tx_state_0\" 1 0 0 1
-set_location "\UART_1:BUART:tx_state_2\" 1 0 0 0
-set_location "\UART_1:BUART:tx_bitclk\" 1 0 1 2
-set_location "\UART_1:BUART:tx_ctrl_mark_last\" 1 1 1 3
-set_location "\UART_1:BUART:rx_state_0\" 0 1 0 0
-set_location "\UART_1:BUART:rx_load_fifo\" 0 1 1 1
-set_location "\UART_1:BUART:rx_state_3\" 0 1 0 2
-set_location "\UART_1:BUART:rx_state_2\" 0 1 1 0
+set_location "\PWM_Environment:PWMUDB:genblk8:stsreg\" 0 1 4
+set_location "\PWM_Environment:PWMUDB:sP8:pwmdp:u0\" 0 1 2
+set_location "\UART_1:BUART:txn\" 1 2 0 0
+set_location "\UART_1:BUART:tx_state_1\" 1 2 0 1
+set_location "\UART_1:BUART:tx_state_0\" 1 1 0 0
+set_location "\UART_1:BUART:tx_state_2\" 1 2 1 0
+set_location "\UART_1:BUART:tx_bitclk\" 1 2 1 2
+set_location "\UART_1:BUART:tx_ctrl_mark_last\" 1 2 1 3
+set_location "\UART_1:BUART:rx_state_0\" 1 0 0 0
+set_location "\UART_1:BUART:rx_load_fifo\" 1 0 1 1
+set_location "\UART_1:BUART:rx_state_3\" 1 0 0 2
+set_location "\UART_1:BUART:rx_state_2\" 1 0 1 0
 set_location "\UART_1:BUART:rx_bitclk_enable\" 0 2 0 0
-set_location "\UART_1:BUART:rx_state_stop1_reg\" 0 1 0 3
-set_location "\UART_1:BUART:pollcount_1\" 0 0 1 1
-set_location "\UART_1:BUART:pollcount_0\" 0 0 1 2
-set_location "\UART_1:BUART:rx_status_3\" 0 1 1 2
-set_location "\UART_1:BUART:rx_last\" 0 0 1 0
-set_location "\PWM_Heartbeat:PWMUDB:runmode_enable\" 1 2 1 1
-set_location "\PWM_Heartbeat:PWMUDB:prevCompare1\" 1 2 0 1
-set_location "\PWM_Heartbeat:PWMUDB:status_0\" 1 2 0 0
-set_location "Net_659" 1 2 1 3
-set_location "\PWM_Environment:PWMUDB:runmode_enable\" 0 2 1 2
-set_location "\PWM_Environment:PWMUDB:prevCompare1\" 1 2 0 3
-set_location "\PWM_Environment:PWMUDB:status_0\" 1 2 0 2
-set_location "Net_589" 0 2 1 0
+set_location "\UART_1:BUART:rx_state_stop1_reg\" 1 1 1 0
+set_location "\UART_1:BUART:pollcount_1\" 1 1 0 2
+set_location "\UART_1:BUART:pollcount_0\" 1 1 1 2
+set_location "\UART_1:BUART:rx_status_3\" 1 0 1 2
+set_location "\UART_1:BUART:rx_last\" 1 0 0 3
+set_location "\PWM_Heartbeat:PWMUDB:runmode_enable\" 0 2 1 1
+set_location "\PWM_Heartbeat:PWMUDB:prevCompare1\" 0 2 1 0
+set_location "\PWM_Heartbeat:PWMUDB:status_0\" 0 2 1 2
+set_location "Net_659" 0 2 1 3
+set_location "\PWM_Environment:PWMUDB:runmode_enable\" 0 1 0 2
+set_location "\PWM_Environment:PWMUDB:prevCompare1\" 0 1 0 1
+set_location "\PWM_Environment:PWMUDB:status_0\" 0 1 0 0
