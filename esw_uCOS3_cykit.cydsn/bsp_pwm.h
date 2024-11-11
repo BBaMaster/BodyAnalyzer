@@ -11,8 +11,9 @@
 */
 
 #include <cpu.h>
-#include <PWM1.h>
-#include <PWM2.h>
+#include <PWM_hb.h>
+#include <PWM_ac.h>
+#include <PWM_bo.h>
 
 #define PWM_hb 1
 #define PWM_ac 2
