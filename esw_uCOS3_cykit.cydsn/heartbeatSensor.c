@@ -94,36 +94,36 @@ static void max30102_Task(void *p_arg) {
     CPU_INT08U data_len = 2;           // Expected number of samples to read from the sensor
 
     // Initialize the MAX30102 sensor
-    // If initialization fails, log an error message and exit the task
     if (max30102_sensor_init(&max30102_handle) != 0) {
         Log_Write(LOG_LEVEL_ERROR, "Failed to initialize MAX30102 sensor", 0);
         return;
     }
-    
 
     // Infinite loop for continuous sensor data reading and processing
     while (DEF_TRUE) {
+        // Only read and process data if `toggle_state` is ON
         if (toggle_state) {
-          // Attempt to read raw red and IR data from the MAX30102 sensor
-          // If the read fails, log an error and continue to the next iteration
-          if (max30102_read(&max30102_handle, &raw_red, &raw_ir, &data_len) != 0) {
-              Log_Write(LOG_LEVEL_ERROR, "Failed to read from MAX30102", 0);
-              continue;
-          }
-          //Log_Write(LOG_LEVEL_ERROR, "Red: %d, IR: %d",raw_red, raw_ir);
+            if (max30102_read(&max30102_handle, &raw_red, &raw_ir, &data_len) != 0) {
+                Log_Write(LOG_LEVEL_ERROR, "Failed to read from MAX30102", 0);
+                continue;
+            }
 
-          // Check if the raw IR and red values exceed the threshold (100000)
-          // If they do, process the signals for further analysis
-          if (raw_ir > INITIAL_THRESHOLD && raw_red > INITIAL_THRESHOLD) {
-              processSignals(raw_ir, raw_red);
-          }
+            if (raw_ir > INITIAL_THRESHOLD && raw_red > INITIAL_THRESHOLD) {
+                processSignals(raw_ir, raw_red);
+            }
 
-          // Introduce a delay to control the sensor polling rate
-          // POLLING_DELAY_MS defines the delay duration in milliseconds
-          OSTimeDlyHMSM(0, 0, 0, POLLING_DELAY_MS, OS_OPT_TIME_HMSM_STRICT, &os_err);
+            OSTimeDlyHMSM(0, 0, 0, POLLING_DELAY_MS, OS_OPT_TIME_HMSM_STRICT, &os_err);
+        } else {
+            // If `toggle_state` is off, reset `Global_heart_rate` and `Global_spO2` to 0
+            Global_heart_rate = 0;
+            Global_spO2 = 0;
+
+            // Short delay to avoid continuous checking
+            OSTimeDlyHMSM(0, 0, 0, 100, OS_OPT_TIME_HMSM_NON_STRICT, &os_err);
         }
+    }
 }
-}
+
 /**
  * @brief Processes raw IR and red signals to update DC and AC components.
  * 
@@ -263,8 +263,12 @@ void enqueueHeartRate(CPU_INT32S heart_rate) {
         Log_Write(LOG_LEVEL_ERROR, "I2C Task: Value is the same as previous value. Do not send it.", 0);
         return;
     }
-    Global_heart_rate = heart_rate;
-    previous_heart_rate = heart_rate;  // Update previous heart rate
+
+    // Update the global heart rate only if toggle_state is ON
+    if (toggle_state) {
+        Global_heart_rate = heart_rate;
+        previous_heart_rate = heart_rate;  // Update previous heart rate
+    }
 }
 
 /**
@@ -279,8 +283,12 @@ void enqueueSpO2(CPU_INT32S spO2) {
     if (previous_spO2_rate == spO2) {
         return;  // Only send if the value has changed
     }
-    previous_spO2_rate = spO2;
-    Global_spO2 = spO2;
+
+    // Update the global SpO2 only if toggle_state is ON
+    if (toggle_state) {
+        previous_spO2_rate = spO2;
+        Global_spO2 = spO2;
+    }
 }
 
 

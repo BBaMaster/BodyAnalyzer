@@ -8,3 +8,11 @@ C:/Users/Chronikle/Documents/GitHub/BodyAnalyzer/esw_uCOS3_cykit.cydsn/Generated
 
 C:/Users/Chronikle/Documents/GitHub/BodyAnalyzer/esw_uCOS3_cykit.cydsn/Generated_Source/PSoC5/cyfittergnu.inc : 
 
+C:/Users/Chronikle/Documents/GitHub/BodyAnalyzer/esw_uCOS3_cykit.cydsn/CortexM3/ARM_GCC_541/Debug/cpu_a.o : C:/Users/Chronikle/Documents/GitHub/BodyAnalyzer/esw_uCOS3_cykit.cydsn/uC-CPU/ARM-Cortex-M3/GNU/cpu_a.s 
+
+C:/Users/Chronikle/Documents/GitHub/BodyAnalyzer/esw_uCOS3_cykit.cydsn/uC-CPU/ARM-Cortex-M3/GNU/cpu_a.s : 
+
+C:/Users/Chronikle/Documents/GitHub/BodyAnalyzer/esw_uCOS3_cykit.cydsn/CortexM3/ARM_GCC_541/Debug/os_cpu_a.o : C:/Users/Chronikle/Documents/GitHub/BodyAnalyzer/esw_uCOS3_cykit.cydsn/uCOS-III/Ports/ARM-Cortex-M3/Generic/GNU/os_cpu_a.s 
+
+C:/Users/Chronikle/Documents/GitHub/BodyAnalyzer/esw_uCOS3_cykit.cydsn/uCOS-III/Ports/ARM-Cortex-M3/Generic/GNU/os_cpu_a.s : 
+

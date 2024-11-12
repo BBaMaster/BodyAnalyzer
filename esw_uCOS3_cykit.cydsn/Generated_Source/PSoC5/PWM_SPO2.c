@@ -61,7 +61,7 @@ void PWM_SPO2_Start(void)
         PWM_SPO2_initVar = 1u;
     }
     PWM_SPO2_Enable();
-    PWM_SPO2_WriteCompare(0);
+
 }
 
 

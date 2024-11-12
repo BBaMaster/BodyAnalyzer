@@ -107,11 +107,15 @@ static void BUT_Task(void *p_arg) {
         if (button_status == 0 && last_button_status == 1) {
             toggle_state = !toggle_state;  // Toggle the state
 
+            // Confirm `toggle_state` status immediately
             if (toggle_state) {
-                Log_Write(LOG_LEVEL_INFO, "Button pressed: Activating tasks.\n");
+                Log_Write(LOG_LEVEL_INFO, "Button pressed: Activating tasks. toggle_state=%d\n", toggle_state);
             } else {
-                Log_Write(LOG_LEVEL_INFO, "Button pressed: Deactivating tasks.\n");
+                Log_Write(LOG_LEVEL_INFO, "Button pressed: Deactivating tasks. toggle_state=%d\n", toggle_state);
             }
+
+            // Log `toggle_state` change
+            Log_Write(LOG_LEVEL_INFO, "BUT_Task: toggle_state changed to %d.\n", toggle_state);
         }
 
         last_button_status = button_status;
@@ -130,42 +134,60 @@ static void LedRB_Task(void *p_arg) {
     (void)p_arg; // Unused parameter
     OS_ERR os_err;
 
-    while (DEF_TRUE) {
-        // Calculate PWM value for SpO2
-        CPU_INT08U pwm_spo2 = (CPU_INT08U)((Global_spO2 * 255) / 100);
-        
+    Log_Write(LOG_LEVEL_INFO, "LedRB Task initialized.\n");
 
-        // Update the PWM compare value based on SpO2, ensuring proper scaling
-        if (Global_spO2 > 0) {
-            PWM_SPO2_WriteCompare(pwm_spo2);  // Set PWM for SpO2
-        } else {
-            PWM_SPO2_WriteCompare(0);  // Set PWM to 0 if SpO2 is zero
+    while (DEF_TRUE) {
+        // Check toggle_state at the beginning of each loop iteration
+        if (!toggle_state) {
+            // Set global variables to 0
+            Global_spO2 = 0;
+            Global_heart_rate = 0;
+
+            // Force PWM output to zero and stop the PWM modules to turn off both LEDs
+            PWM_SPO2_WriteCompare(0);
+            PWM_Heartbeat_WriteCompare(0);
+
+
+            // Log the LED state change
+
+            // Delay to ensure LED output remains off and recheck toggle_state
+            OSTimeDlyHMSM(0, 0, 0, 100, OS_OPT_TIME_HMSM_NON_STRICT, &os_err);
+            continue;
         }
 
-        // Heartbeat effect for red LED
+        // Existing logic for controlling LEDs based on heart rate and SpO2
+        CPU_INT08U pwm_spo2 = (CPU_INT08U)((Global_spO2 * 255) / 100);
+        if (Global_spO2 > 0) {
+            PWM_SPO2_WriteCompare(pwm_spo2);
+        } else {
+            PWM_SPO2_WriteCompare(0);
+        }
+
         if (Global_heart_rate > 0) {
             CPU_INT16U half_beat_period_ms = (60000 / Global_heart_rate) / 2;
+            half_beat_period_ms = half_beat_period_ms > 500 ? 500 : half_beat_period_ms;
 
-            if (half_beat_period_ms > 500) {
-                half_beat_period_ms = 500;  // Cap the delay to avoid excessive waits
+
+            PWM_Heartbeat_WriteCompare(255);
+            OSTimeDlyHMSM(0, 0, 0, half_beat_period_ms, OS_OPT_TIME_HMSM_STRICT, &os_err);
+
+            if (!toggle_state) {
+                PWM_Heartbeat_WriteCompare(0);
+                PWM_SPO2_Stop();
+                PWM_Heartbeat_Stop();
+                continue;
             }
 
-            PWM_Heartbeat_WriteCompare(255);  // Full brightness
+            PWM_Heartbeat_WriteCompare(0);
             OSTimeDlyHMSM(0, 0, 0, half_beat_period_ms, OS_OPT_TIME_HMSM_STRICT, &os_err);
-
-            PWM_Heartbeat_WriteCompare(0);  // Off
-            OSTimeDlyHMSM(0, 0, 0, half_beat_period_ms, OS_OPT_TIME_HMSM_STRICT, &os_err);
-
         } else {
-            PWM_Heartbeat_WriteCompare(0);  // Turn off if no heart rate
+            PWM_Heartbeat_WriteCompare(0);
         }
 
-        // Short delay to avoid excessive CPU usage
+        // Short delay for the main task loop
         OSTimeDlyHMSM(0, 0, 0, 10, OS_OPT_TIME_HMSM_NON_STRICT, &os_err);
     }
 }
-
-
 
 
 /**
@@ -177,24 +199,32 @@ static void LedG_Task(void *p_arg) {
     OS_ERR os_err;
 
     while (DEF_TRUE) {
-        // Check if we are in blink mode
+        if (!toggle_state) {
+            // Set global variable to 0
+            GlobalGreen = 0;
+
+            // Force the green LED off
+            gpio_low(PORT1, P1_2);
+
+            // Delay to keep LED output consistently off
+            OSTimeDlyHMSM(0, 0, 0, 100, OS_OPT_TIME_HMSM_NON_STRICT, &os_err);
+            continue;  // Restart loop, continually checking `toggle_state`
+        }
+
         if (GlobalGreen == GREEN_LED_BLINK) {
-            // Toggle LED state
             if (gpio_read(PORT1, P1_2) == 1) {
-                gpio_low(PORT1, P1_2);  // Turn LED off
+                gpio_low(PORT1, P1_2);
             } else {
-                gpio_high(PORT1, P1_2); // Turn LED on
+                gpio_high(PORT1, P1_2);
             }
-            
-            // Delay to control blink rate
             OSTimeDlyHMSM(0, 0, 0, 250, OS_OPT_TIME_HMSM_NON_STRICT, &os_err);
         } else {
-            // Keep LED on in non-blink mode
             gpio_high(PORT1, P1_2);
-            
-            // Delay to avoid unnecessary CPU usage
             OSTimeDlyHMSM(0, 0, 0, 100, OS_OPT_TIME_HMSM_NON_STRICT, &os_err);
         }
     }
 }
+
+
+
 
