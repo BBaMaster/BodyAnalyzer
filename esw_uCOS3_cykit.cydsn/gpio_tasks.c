@@ -13,6 +13,8 @@
 #include <gpio_tasks.h>
 
 CPU_BOOLEAN toggle_state = 0;
+OS_MEM OximeterDataProcessed;
+OS_MEM EnvSensorDataProcessed;
 /*
 initialises everything gpioness
 */
@@ -27,6 +29,11 @@ void init_gpio()
     push_button_SetDriveMode(push_button_DM_STRONG);
     push_button_Write(1);
     
+
+    uint8_t EnvSensorDataPart[100][sizeof(LED_CONTROL_MESSAGE) * 8];
+    uint8_t OximeterDataProcessedData[100][sizeof(DATA_SET_PACKAGE_OXIMETER) * 8];
+    OSMemCreate(&EnvSensorDataProcessed, "evnironment sensor data block", &EnvSensorDataPart[0][0], 100, sizeof(LED_CONTROL_MESSAGE) * 8, &os_err);
+    OSMemCreate(&OximeterDataProcessed, "evnironment sensor data block", &OximeterDataProcessedData[0][0], 100, sizeof(DATA_SET_PACKAGE_OXIMETER) * 8, &os_err);
     
     OSTaskCreate((OS_TCB *)&BUT_Task_TCB,
                  (CPU_CHAR *)"BUT Task",
@@ -129,6 +136,7 @@ static void LedRB_Task(void *p_arg)
   OS_ERR os_err;
   CPU_TS ts;
   DATA_SET_PACKAGE_OXIMETER *data;
+  DATA_SET_PACKAGE_OXIMETER oxi_data;
   OS_MSG_SIZE *data_size = NULL;
   for (OS_ERR os_err; DEF_TRUE; OSTimeDlyHMSM(0, 0, 0, 100, OS_OPT_TIME_HMSM_STRICT, &os_err))
     if (button_variable == DEF_TRUE)
@@ -137,10 +145,16 @@ static void LedRB_Task(void *p_arg)
       {
         if (os_err == OS_ERR_NONE)
         {
-          if (*data_size == sizeof(LED_CONTROL_MESSAGE))
+          if (*data_size == sizeof(DATA_SET_PACKAGE_OXIMETER))
           {
-            BSP_PWM_set_Period(PWM_hb, heartratecalc(data->average_heart_rate_in_bpm));
-            BSP_PWM_set_Halfperiod(PWM_bo, data->blood_oxygen_level_in_percentage);
+            memcpy(&oxi_data, data, sizeof(DATA_SET_PACKAGE_OXIMETER));
+            OSMemPut(&OximeterDataProcessed, data, &os_err);
+            if(os_err != OS_ERR_NONE){
+              Log_Write(LOG_LEVEL_ERROR, "Error putting memory space in LED_RBTask", 0);
+            }
+            
+            BSP_PWM_set_Period(PWM_hb, heartratecalc(oxi_data.average_heart_rate_in_bpm));
+            BSP_PWM_set_Halfperiod(PWM_bo, oxi_data.blood_oxygen_level_in_percentage);
           }
           else Log_Write(LOG_LEVEL_ERROR, "LedRB_Task: msg wrong size", os_err);
         }
@@ -179,6 +193,10 @@ static void LedG_Task(void *p_arg)
       //wait if led state changes
       if((command_message = OSQPend(&CommQProcessedEnvironmentData, 10, OS_OPT_PEND_NON_BLOCKING, &message_size, &ts, &os_err)) != NULL && os_err == 0){
         memcpy(&env_data, command_message, sizeof(LED_CONTROL_MESSAGE));
+        OSMemPut(&EnvSensorDataProcessed, command_message, &os_err);
+        if(os_err != OS_ERR_NONE){
+          Log_Write(LOG_LEVEL_ERROR, "Error putting memory space in processRawEnvironmentData", 0);
+        }
       }
       //check LED mode to change to
       if(env_data.mode_data == GREEN_LED_BLINK){

@@ -36,6 +36,9 @@ CPU_INT32S heart_rate_history[MAX_HEART_RATE_HISTORY] = {0};
 CPU_INT32U heart_rate_index = 0;
 CPU_INT32S heart_rate_sum = 0;
 
+OS_MEM HeartRateData;
+OS_MEM SPO2Data;
+
 
 
 /* Task Control Block and Stack Declaration for MAX30102 Task */
@@ -67,7 +70,12 @@ void initializeMessageQueueOximiter(){
  */
 void MAX30102_Init(void) {
     OS_ERR os_err;
-
+    uint8_t HeartRateDataPart[250][sizeof(uint32_t)*8];
+    uint8_t SPO2DataPart[250][sizeof(uint32_t)*8];
+    
+    OSMemCreate(&HeartRateData, "HEartrate data block", & HeartRateDataPart[0][0], 250, sizeof(uint32_t)*8, &os_err);
+    OSMemCreate(&SPO2Data, "SPO2 data block", & SPO2DataPart[0][0], 250, sizeof(uint32_t)*8, &os_err);
+  
     Log_Write(LOG_LEVEL_I2C, "MAX30102 Init: Creating MAX30102 task", 0);
 
     OSTaskCreate((OS_TCB *)&MAX30102_Task_TCB,           // Task Control Block
@@ -274,6 +282,7 @@ void updateSpO2(void) {
 void enqueueHeartRate(CPU_INT32S heart_rate) {
   OS_ERR os_err;
   OS_MSG_QTY entries;
+  CPU_INT32S * heart_rate_message = NULL;
   
   static CPU_INT32S previous_heart_rate;
   
@@ -282,7 +291,13 @@ void enqueueHeartRate(CPU_INT32S heart_rate) {
     return;
   }else{
     // Try to post to the queue
-    OSQPost(&CommQI2CHeartRate, &heart_rate, sizeof(heart_rate), OS_OPT_POST_FIFO + OS_OPT_POST_ALL, &os_err); 
+    heart_rate_message = (CPU_INT32S *) OSMemGet(&HeartRateData, &os_err);
+    if(os_err != OS_ERR_NONE){
+        return;
+    }
+    
+    memcpy(heart_rate_message, &heart_rate, sizeof(CPU_INT32S));
+    OSQPost(&CommQI2CHeartRate, heart_rate_message, sizeof(CPU_INT32S), OS_OPT_POST_FIFO + OS_OPT_POST_ALL, &os_err); 
     if (os_err != OS_ERR_NONE) {
       if (os_err == OS_ERR_Q_MAX) {
         // Log an error if the queue is full
@@ -312,13 +327,20 @@ void enqueueSpO2(CPU_INT32S spO2) {
   OS_ERR os_err;
   static CPU_INT32S previous_spO2_rate = -1;
   OS_MSG_QTY entries;
+  CPU_INT32S * spo2_message = NULL;
 
   if (previous_spO2_rate == spO2){
     //Log_Write(LOG_LEVEL_ERROR, "I2C Task: Value is same as previous value. Do not send it.", 0);
     return;
   }else{
     // Try to post to the queue
-    OSQPost(&CommQI2CSPO2, &spO2, sizeof(spO2), OS_OPT_POST_FIFO + OS_OPT_POST_ALL, &os_err); 
+    
+    spo2_message = (CPU_INT32S *) OSMemGet(&SPO2Data, &os_err);
+    if(os_err != OS_ERR_NONE){
+        return;
+    }
+    memcpy(spo2_message, &spO2, sizeof(CPU_INT32S));
+    OSQPost(&CommQI2CSPO2, &spo2_message, sizeof(CPU_INT32S), OS_OPT_POST_FIFO + OS_OPT_POST_ALL, &os_err); 
     if (os_err != OS_ERR_NONE) {
       if (os_err == OS_ERR_Q_MAX) {
         // Log an error if the queue is full

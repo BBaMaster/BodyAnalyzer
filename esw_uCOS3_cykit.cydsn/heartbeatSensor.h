@@ -36,6 +36,9 @@ static const CPU_INT16U FIRCoeffs[50] = {
     2069, 2211, 2288, 2295, 2226, 2077, 1847, 1535, 1144, 681
 };
 
+extern OS_MEM HeartRateData;
+extern OS_MEM SPO2Data;
+
 // Function Prototypes
 void MAX30102_Init(void);
 static void max30102_Task(void *p_arg);

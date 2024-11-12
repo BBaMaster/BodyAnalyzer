@@ -22,6 +22,8 @@
   
 #define MEASUREMENT_INTERVAL 1
   
+extern OS_MEM EnvSensorData;  
+  
   
 typedef struct{
   int16_t temperature; //temperature in °C * 100

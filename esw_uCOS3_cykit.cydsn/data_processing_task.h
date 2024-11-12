@@ -4,6 +4,9 @@
 // Include necessary headers
 #include <includes.h>
 #include <log_task.h>
+#include <environmentSensor.h>
+#include <heartbeatSensor.h>
+#include <gpio_tasks.h>
   
 /* Maximum number of messages in the log queue */
 #define MESSAGE_QUEUE_SIZE  250u

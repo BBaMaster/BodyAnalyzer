@@ -82,8 +82,10 @@ static void Data_Processing_Task(void *p_arg) {
   OS_ERR os_err;
   OS_MSG_QTY entries;
   DATA_SET_PACKAGE_OXIMETER processed_data_oximeter;
+  DATA_SET_PACKAGE_OXIMETER * processed_data_oximeter_pointer;
   DATA_SET_PACKAGE_ENVIRONMENT processed_data_environment;
   LED_CONTROL_MESSAGE led_control_message;
+  LED_CONTROL_MESSAGE * led_control_message_pointer;
   (void)p_arg;
 
   Log_Write(LOG_LEVEL_DATA_PROCESSING, "Data Processing Task: Initializing message queues ...", 0);
@@ -95,7 +97,12 @@ static void Data_Processing_Task(void *p_arg) {
     if(processRawOximeterData(&processed_data_oximeter)){
 
       // Post to queue for further processing
-      OSQPost(&CommQProcessedOximeterData, &processed_data_oximeter, sizeof(processed_data_oximeter), OS_OPT_POST_FIFO, &os_err);
+      
+      processed_data_oximeter_pointer = (DATA_SET_PACKAGE_OXIMETER *) OSMemGet(&OximeterDataProcessed, &os_err);
+      if(os_err != OS_ERR_NONE){
+          continue;
+      }
+      OSQPost(&CommQProcessedOximeterData, processed_data_oximeter_pointer, sizeof(DATA_SET_PACKAGE_OXIMETER)*8, OS_OPT_POST_FIFO, &os_err);
       if (os_err == OS_ERR_Q_MAX) {
           Log_Write(LOG_LEVEL_ERROR, "Data Processing Task: Queue is full, can't send the value to further task...", 0);
           entries = OSQFlush(&CommQProcessedOximeterData, &os_err);  // Flush queue if full
@@ -124,6 +131,12 @@ static void Data_Processing_Task(void *p_arg) {
         }
 
         // Send the green LED command to the LED control task
+        led_control_message_pointer = (LED_CONTROL_MESSAGE *) OSMemGet(&EnvSensorDataProcessed, &os_err);
+        if(os_err != OS_ERR_NONE){
+            continue;
+        }
+        
+        memcpy(led_control_message_pointer, led_control_message_pointer, sizeof(LED_CONTROL_MESSAGE));
         OSQPost(&CommQProcessedEnvironmentData, &led_control_message, sizeof(led_control_message), OS_OPT_POST_FIFO, &os_err);
         if (os_err == OS_ERR_Q_MAX) {
             Log_Write(LOG_LEVEL_ERROR, "Data Processing Task: Queue is full, can't send the value to further task...", 0);
@@ -157,14 +170,27 @@ CPU_BOOLEAN retrieveSensorData(OS_Q *queue, CPU_INT08U *data_field, const char *
 
     // Wait for data from the specified queue
     p_msg_I2C = OSQPend(queue, 100, OS_OPT_PEND_BLOCKING, &msg_size, &raw_timestamp, &os_err);
-
+    
     // Handle potential errors or timeouts
     if (os_err == OS_ERR_TIMEOUT) {
         // No errors, queue was just empty; no further action needed
         return DEF_FALSE;
     } else if (os_err != OS_ERR_NONE) {
-        Log_Write(LOG_LEVEL_ERROR, "Data Processing Task: OSQPend() failed for %s with error code %d", sensor_name, os_err);
-        return DEF_FALSE;
+      memcpy(data_field, p_msg_I2C, sizeof(CPU_INT32S));
+      
+      if(queue == &CommQI2CHeartRate){
+          OSMemPut(&HeartRateData, p_msg_I2C, &os_err);
+          if(os_err != OS_ERR_NONE){
+            Log_Write(LOG_LEVEL_ERROR, "Error putting memory space in processRawEnvironmentData", 0);
+          }
+      }else{
+          OSMemPut(&SPO2Data, p_msg_I2C, &os_err);
+          if(os_err != OS_ERR_NONE){
+            Log_Write(LOG_LEVEL_ERROR, "Error putting memory space in processRawEnvironmentData", 0);
+          }
+      }
+      Log_Write(LOG_LEVEL_ERROR, "Data Processing Task: OSQPend() failed for %s with error code %d", sensor_name, os_err);
+      return DEF_FALSE;
     }
 
     // Successfully received data, process and store the least significant 8 bits
@@ -222,10 +248,13 @@ CPU_BOOLEAN processRawEnvironmentData(DATA_SET_PACKAGE_ENVIRONMENT *data_environ
     
     // Define a variable to hold the received data
     RAW_ENVIRONMENT_DATA *p_msg_SPI_data;
+    RAW_ENVIRONMENT_DATA env_data;
 
+    
+    
     // Wait for environmental data from the queue
     p_msg_SPI_data = (RAW_ENVIRONMENT_DATA *)OSQPend(&CommQSPIData, 100, OS_OPT_PEND_BLOCKING, &msg_size, &raw_timestamp, &os_err);
-
+    
     if (os_err == OS_ERR_TIMEOUT) {
         // Queue was empty, no hints necessary
         return DEF_FALSE;
@@ -233,19 +262,24 @@ CPU_BOOLEAN processRawEnvironmentData(DATA_SET_PACKAGE_ENVIRONMENT *data_environ
         Log_Write(LOG_LEVEL_ERROR, "Data Processing Task: OSQPend() operation failed for environmental data with error code", os_err);
         return DEF_FALSE;
     } else {
+      memcpy(&env_data, p_msg_SPI_data, sizeof(RAW_ENVIRONMENT_DATA));
+      OSMemPut(&EnvSensorData, p_msg_SPI_data, &os_err);
+      if(os_err != OS_ERR_NONE){
+        Log_Write(LOG_LEVEL_ERROR, "Error putting memory space in processRawEnvironmentData", 0);
+      }
       // Convert and scale each environmental parameter
       
       // Convert and scale temperature
-      data_environment_package->temperature_in_celsius = ((p_msg_SPI_data->temperature_raw * 12500) / 4095) - 4000;
+      data_environment_package->temperature_in_celsius = ((env_data.temperature_raw * 12500) / 4095) - 4000;
       
       // Convert and scale humidity
-      data_environment_package->humidity_in_percentage = (p_msg_SPI_data->humidity_raw * 10000) / 65535;
+      data_environment_package->humidity_in_percentage = (env_data.humidity_raw * 10000) / 65535;
       
       // Convert and scale pressure
-      data_environment_package->pressure_in_bar = ((p_msg_SPI_data->pressure_raw * 8000) / 65535) + 3000;
+      data_environment_package->pressure_in_bar = ((env_data.pressure_raw * 8000) / 65535) + 3000;
       
       // Convert gas concentration
-      data_environment_package->gas_in_ohm = (p_msg_SPI_data->gas_raw * 1000) / 65535;
+      data_environment_package->gas_in_ohm = (env_data.gas_raw * 1000) / 65535;
       
       // Log each converted environmental value
       //Log_Write(LOG_LEVEL_DATA_PROCESSING, "Data Processing Task: Received Temperature -> %d.%02d deg C", data_environment_package->temperature_in_celsius / 100, data_environment_package->temperature_in_celsius % 100);

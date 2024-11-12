@@ -34,7 +34,8 @@ static void LedG_Task(void *p_arg);
 CPU_INT08U allCorrCalc(CPU_INT08U h);
 CPU_INT16U heartratecalc(CPU_INT08U p);
 
-
+extern OS_MEM EnvSensorDataProcessed; 
+extern OS_MEM OximeterDataProcessed; 
 extern CPU_BOOLEAN toggle_state;
 
 

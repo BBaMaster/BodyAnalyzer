@@ -15,6 +15,8 @@
 OS_TCB BME688_Task_TCB;                              // Task Control Block for BME688 task
 CPU_STK BME688_TaskStk[APP_CFG_TASK_BME688_STK_SIZE]; // Stack for BME688 task
 
+OS_MEM EnvSensorData;
+
 /* Initialize the message queue to process send the environment values to processing tasks*/
 void initializeMessageQueueEnvironment(){
   OS_ERR   os_err;
@@ -28,7 +30,11 @@ void initializeMessageQueueEnvironment(){
 
 void BME688_Init_Task(void) {
     OS_ERR os_err;
-
+    uint8_t EnvSensorDataPart[250][sizeof(Environment_Data) * 8];
+    
+    OSMemCreate(&EnvSensorData, "evnironment sensor data block", &EnvSensorDataPart[0][0], 250, sizeof(Environment_Data) * 8, &os_err);
+  
+  
     Log_Write(LOG_LEVEL_BME688, "BME688 Init: Creating BME688 task", 0);
 
     /* Create the MAX30102 task */
@@ -82,11 +88,17 @@ void enqueueEnvironmentData(Environment_Data env_data) {
   OS_MSG_QTY entries;
   OS_ERR os_err;
   static Environment_Data previous_env_data;
+  Environment_Data * data_message = NULL;
   
   if (memcpy(&previous_env_data, &env_data, sizeof(Environment_Data)) == DEF_FALSE){
     Log_Write(LOG_LEVEL_ERROR, "SPI Task: Values are same as previous values. Do not send them.", 0);
     return;
   } else {
+    data_message = (Environment_Data *) OSMemGet(&EnvSensorData, &os_err);
+    if(os_err != OS_ERR_NONE){
+        return;
+    }
+    
     OSQPost(&CommQSPIData, &env_data, sizeof(env_data), OS_OPT_POST_FIFO + OS_OPT_POST_ALL, &os_err); 
     if (os_err != OS_ERR_NONE) {
       if (os_err == OS_ERR_Q_MAX) {
