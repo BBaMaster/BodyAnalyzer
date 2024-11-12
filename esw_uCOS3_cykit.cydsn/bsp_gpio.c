@@ -88,7 +88,7 @@ CPU_INT08U gpio_low(CPU_INT08U port, CPU_INT08U pin)
   if(port == PORT1){
     if(pin == P1_6){
       Pin_1_Write(LOW);
-    }else if(pin == P2_1){
+    }else if(pin == P1_2){
       Pin_Green_Led_1_Write(LOW);
     }else{
       err++;

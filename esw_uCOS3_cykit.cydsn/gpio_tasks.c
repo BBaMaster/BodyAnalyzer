@@ -22,14 +22,17 @@ void init_gpio()
 {
     Log_Write(LOG_LEVEL_INFO,"We are in the init");
     OS_ERR os_err;
-    PWM_Environment_Start();
+    // Start PWM for SpO2 and Heartbeat control
+    PWM_SPO2_Start();
     PWM_Heartbeat_Start();
+    
+    // Set drive modes for pins
     Pin_1_SetDriveMode(Pin_1_DM_STRONG);
     Pin_2_SetDriveMode(Pin_2_DM_STRONG);
     push_button_SetDriveMode(push_button_DM_STRONG);
     push_button_Write(1);
     
-
+    //Create memory block for queues
     uint8_t EnvSensorDataPart[100][sizeof(LED_CONTROL_MESSAGE) * 8];
     uint8_t OximeterDataProcessedData[100][sizeof(DATA_SET_PACKAGE_OXIMETER) * 8];
     OSMemCreate(&EnvSensorDataProcessed, "evnironment sensor data block", &EnvSensorDataPart[0][0], 100, sizeof(LED_CONTROL_MESSAGE) * 8, &os_err);
@@ -127,43 +130,96 @@ CPU_INT16U heartratecalc(CPU_INT08U p)
   return 3000/p;
 }
 
-/*
-output of heartrate and blood oxygen per Q from data processing
-*/
-static void LedRB_Task(void *p_arg)
-{
-  (void)p_arg;
-  OS_ERR os_err;
-  CPU_TS ts;
-  DATA_SET_PACKAGE_OXIMETER *data;
-  DATA_SET_PACKAGE_OXIMETER oxi_data;
-  OS_MSG_SIZE *data_size = NULL;
-  for (OS_ERR os_err; DEF_TRUE; OSTimeDlyHMSM(0, 0, 0, 100, OS_OPT_TIME_HMSM_STRICT, &os_err))
-    if (button_variable == DEF_TRUE)
-    {
-      if (0 != (data = OSQPend(&CommQProcessedOximeterData, 0, OS_OPT_PEND_BLOCKING, data_size, &ts, &os_err)))
-      {
-        if (os_err == OS_ERR_NONE)
-        {
-          if (*data_size == sizeof(DATA_SET_PACKAGE_OXIMETER))
-          {
+///*
+//output of heartrate and blood oxygen per Q from data processing
+//*/
+//static void LedRB_Task(void *p_arg)
+//{
+//  (void)p_arg;
+//  OS_ERR os_err;
+//  CPU_TS ts;
+//  DATA_SET_PACKAGE_OXIMETER *data;
+//  DATA_SET_PACKAGE_OXIMETER oxi_data;
+//  OS_MSG_SIZE *data_size = NULL;
+//  for (OS_ERR os_err; DEF_TRUE; OSTimeDlyHMSM(0, 0, 0, 100, OS_OPT_TIME_HMSM_STRICT, &os_err))
+//    if (button_variable == DEF_TRUE)
+//    {
+//      if (0 != (data = OSQPend(&CommQProcessedOximeterData, 0, OS_OPT_PEND_BLOCKING, data_size, &ts, &os_err)))
+//      {
+//        if (os_err == OS_ERR_NONE)
+//        {
+//          if (*data_size == sizeof(DATA_SET_PACKAGE_OXIMETER))
+//          {
+//            memcpy(&oxi_data, data, sizeof(DATA_SET_PACKAGE_OXIMETER));
+//            OSMemPut(&OximeterDataProcessed, data, &os_err);
+//            if(os_err != OS_ERR_NONE){
+//              Log_Write(LOG_LEVEL_ERROR, "Error putting memory space in LED_RBTask", 0);
+//            }
+//            
+//            BSP_PWM_set_Period(PWM_hb, heartratecalc(oxi_data.average_heart_rate_in_bpm));
+//            BSP_PWM_set_Halfperiod(PWM_bo, oxi_data.blood_oxygen_level_in_percentage);
+//          }
+//          else Log_Write(LOG_LEVEL_ERROR, "LedRB_Task: msg wrong size", os_err);
+//        }
+//        else Log_Write(LOG_LEVEL_ERROR, "LedRB_Task: unknown", os_err);
+//      }
+//      else Log_Write(LOG_LEVEL_ERROR, "LedRB_Task: no Q-Nachricht", os_err);
+//    }
+//}
+
+
+static void LedRB_Task(void *p_arg) {
+    (void)p_arg; // Unused parameter
+    OS_ERR os_err;
+    CPU_TS ts;
+    DATA_SET_PACKAGE_OXIMETER *data;
+    DATA_SET_PACKAGE_OXIMETER oxi_data;
+    OS_MSG_SIZE data_size;
+
+    while (DEF_TRUE) {
+        // Calculate PWM value for SpO2
+
+        
+        if (0 != (data = OSQPend(&CommQProcessedOximeterData, 0, OS_OPT_PEND_BLOCKING, &data_size, &ts, &os_err))){
             memcpy(&oxi_data, data, sizeof(DATA_SET_PACKAGE_OXIMETER));
             OSMemPut(&OximeterDataProcessed, data, &os_err);
             if(os_err != OS_ERR_NONE){
               Log_Write(LOG_LEVEL_ERROR, "Error putting memory space in LED_RBTask", 0);
             }
-            
-            BSP_PWM_set_Period(PWM_hb, heartratecalc(oxi_data.average_heart_rate_in_bpm));
-            BSP_PWM_set_Halfperiod(PWM_bo, oxi_data.blood_oxygen_level_in_percentage);
-          }
-          else Log_Write(LOG_LEVEL_ERROR, "LedRB_Task: msg wrong size", os_err);
         }
-        else Log_Write(LOG_LEVEL_ERROR, "LedRB_Task: unknown", os_err);
-      }
-      else Log_Write(LOG_LEVEL_ERROR, "LedRB_Task: no Q-Nachricht", os_err);
+        
+
+
+        // Update the PWM compare value based on SpO2, ensuring proper scaling
+        if (oxi_data.blood_oxygen_level_in_percentage > 0) {
+            CPU_INT08U pwm_spo2 = (CPU_INT08U)((oxi_data.blood_oxygen_level_in_percentage * 255) / 100);
+            PWM_SPO2_WriteCompare(pwm_spo2);  // Set PWM for SpO2
+        } else {
+            PWM_SPO2_WriteCompare(0);  // Set PWM to 0 if SpO2 is zero
+        }
+
+        // Heartbeat effect for red LED
+        if (oxi_data.average_heart_rate_in_bpm > 0) {
+            CPU_INT16U half_beat_period_ms = (60000 / oxi_data.average_heart_rate_in_bpm) / 2;
+
+            if (half_beat_period_ms > 500) {
+                half_beat_period_ms = 500;  // Cap the delay to avoid excessive waits
+            }
+
+            PWM_Heartbeat_WriteCompare(255);  // Full brightness
+            OSTimeDlyHMSM(0, 0, 0, half_beat_period_ms, OS_OPT_TIME_HMSM_STRICT, &os_err);
+
+            PWM_Heartbeat_WriteCompare(0);  // Off
+            OSTimeDlyHMSM(0, 0, 0, half_beat_period_ms, OS_OPT_TIME_HMSM_STRICT, &os_err);
+
+        } else {
+            PWM_Heartbeat_WriteCompare(0);  // Turn off if no heart rate
+        }
+
+        // Short delay to avoid excessive CPU usage
+        OSTimeDlyHMSM(0, 0, 0, 10, OS_OPT_TIME_HMSM_NON_STRICT, &os_err);
     }
 }
-
 /*
 calculates the green led (wellbeing of the variables)
 */
@@ -202,9 +258,9 @@ static void LedG_Task(void *p_arg)
       if(env_data.mode_data == GREEN_LED_BLINK){
         //if LED is on -> turn off and vise versa
           if(gpio_read(PORT1,P1_2) == 1){
-            gpio_high(PORT1,P1_2);
+            gpio_low(PORT1,P1_2);
           }else if(gpio_read(PORT1,P1_2) == 0){
-            gpio_low(PORT1,P1_2);  
+             gpio_high(PORT1,P1_2); 
           }else{
             Log_Write(LOG_LEVEL_ERROR, "Blink Error", 0);
           }

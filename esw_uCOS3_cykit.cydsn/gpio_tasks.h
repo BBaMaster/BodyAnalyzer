@@ -16,7 +16,8 @@
 #include "bsp_pwm.h"
 #include "log_task.h"
 #include "data_processing_task.h"
-
+#include "bsp_pwm.h"                  // PWM functions
+#include "includes.h"                 // General includes for the project
 // Button-Task
 OS_TCB BUT_Task_TCB;
 CPU_STK BUT_TaskStk[APP_CFG_TASK_BUTTON_STK_SIZE];
