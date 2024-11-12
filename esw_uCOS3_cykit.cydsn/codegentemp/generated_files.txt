@@ -70,9 +70,9 @@
   <file name="C:\Users\Chronikle\Documents\GitHub\BodyAnalyzer\esw_uCOS3_cykit.cydsn\codegentemp\PWM_Heartbeat.c" value="SOURCE_C;CortexM3;;;;PWM_Heartbeat" />
   <file name="C:\Users\Chronikle\Documents\GitHub\BodyAnalyzer\esw_uCOS3_cykit.cydsn\codegentemp\PWM_Heartbeat.h" value="HEADER;;;;;PWM_Heartbeat" />
   <file name="C:\Users\Chronikle\Documents\GitHub\BodyAnalyzer\esw_uCOS3_cykit.cydsn\codegentemp\PWM_Heartbeat_PM.c" value="SOURCE_C;CortexM3;;;;PWM_Heartbeat" />
-  <file name="C:\Users\Chronikle\Documents\GitHub\BodyAnalyzer\esw_uCOS3_cykit.cydsn\codegentemp\PWM_Environment.c" value="SOURCE_C;CortexM3;;;;PWM_Environment" />
-  <file name="C:\Users\Chronikle\Documents\GitHub\BodyAnalyzer\esw_uCOS3_cykit.cydsn\codegentemp\PWM_Environment.h" value="HEADER;;;;;PWM_Environment" />
-  <file name="C:\Users\Chronikle\Documents\GitHub\BodyAnalyzer\esw_uCOS3_cykit.cydsn\codegentemp\PWM_Environment_PM.c" value="SOURCE_C;CortexM3;;;;PWM_Environment" />
+  <file name="C:\Users\Chronikle\Documents\GitHub\BodyAnalyzer\esw_uCOS3_cykit.cydsn\codegentemp\PWM_SPO2.c" value="SOURCE_C;CortexM3;;;;PWM_SPO2" />
+  <file name="C:\Users\Chronikle\Documents\GitHub\BodyAnalyzer\esw_uCOS3_cykit.cydsn\codegentemp\PWM_SPO2.h" value="HEADER;;;;;PWM_SPO2" />
+  <file name="C:\Users\Chronikle\Documents\GitHub\BodyAnalyzer\esw_uCOS3_cykit.cydsn\codegentemp\PWM_SPO2_PM.c" value="SOURCE_C;CortexM3;;;;PWM_SPO2" />
   <file name="C:\Users\Chronikle\Documents\GitHub\BodyAnalyzer\esw_uCOS3_cykit.cydsn\codegentemp\UART_1_IntClock.c" value="SOURCE_C;CortexM3;;;;UART_1_IntClock" />
   <file name="C:\Users\Chronikle\Documents\GitHub\BodyAnalyzer\esw_uCOS3_cykit.cydsn\codegentemp\UART_1_IntClock.h" value="HEADER;;;;;UART_1_IntClock" />
   <file name="C:\Users\Chronikle\Documents\GitHub\BodyAnalyzer\esw_uCOS3_cykit.cydsn\codegentemp\cm3gcc.ld" value="LINKER_SCRIPT;;;b98f980c-3bd1-4fc7-a887-c56a20a46fdd;;cy_boot" />

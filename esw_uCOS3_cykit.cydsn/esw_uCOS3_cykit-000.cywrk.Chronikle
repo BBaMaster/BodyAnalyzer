@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="esw_uCOS3_cykit-000\esw_uCOS3_cykit\TopDesign">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="esw_uCOS3_cykit-000\esw_uCOS3_cykit\Header Files\environmentSensor.h">
 <ExpandedNodeIds>
 <v>esw_uCOS3_cykit-000</v>
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit</v>
@@ -128,16 +128,9 @@
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Generated_Source</v>
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Generated_Source\PSoC5</v>
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Generated_Source\PSoC5\Pin_Blue_Led_1</v>
-<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Generated_Source\PSoC5\PWM_Environment</v>
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Generated_Source\PSoC5\PWM_Heartbeat</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
-<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\BSP\bsp_gpio.h</v>
-<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\BSP\bsp_i2c.c</v>
-<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\BSP\bsp_i2c.h</v>
-<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\BSP\bsp_psoc.h</v>
-<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\BSP\bsp_pwm.c</v>
-<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\BSP\bsp_pwm.h</v>
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\BSP\bsp_uart.c</v>
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\BSP\bsp_uart.h</v>
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\BSP\cpu_bsp.c</v>
@@ -164,6 +157,16 @@
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\SensorLibs\max30102\driver_max30102.h</v>
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\SensorLibs\max30102\max30102_interface.c</v>
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\SensorLibs\max30102\max30102_interface.h</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Source Files</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Source Files\app.c</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Source Files\data_processing_task.c</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Source Files\environmentSensor.c</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Source Files\gpio_tasks.c</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Source Files\heartbeatSensor.c</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Source Files\log_task.c</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Source Files\os_app_hooks.c</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\uC-CPU</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\uC-LIB</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -260,10 +263,10 @@
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_Green_Led_1.lst</v>
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\CortexM3\ARM_GCC_541\Debug\Listing Files\Pin_Red_Led_1.lst</v>
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\CortexM3\ARM_GCC_541\Debug\Listing Files\push_button.lst</v>
-<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\CortexM3\ARM_GCC_541\Debug\Listing Files\PWM_Environment.lst</v>
-<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\CortexM3\ARM_GCC_541\Debug\Listing Files\PWM_Environment_PM.lst</v>
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\CortexM3\ARM_GCC_541\Debug\Listing Files\PWM_Heartbeat.lst</v>
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\CortexM3\ARM_GCC_541\Debug\Listing Files\PWM_Heartbeat_PM.lst</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\CortexM3\ARM_GCC_541\Debug\Listing Files\PWM_SPO2.lst</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\CortexM3\ARM_GCC_541\Debug\Listing Files\PWM_SPO2_PM.lst</v>
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\CortexM3\ARM_GCC_541\Debug\Listing Files\SCL_1.lst</v>
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\CortexM3\ARM_GCC_541\Debug\Listing Files\SDA_1.lst</v>
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\CortexM3\ARM_GCC_541\Debug\Listing Files\Timer_1.lst</v>

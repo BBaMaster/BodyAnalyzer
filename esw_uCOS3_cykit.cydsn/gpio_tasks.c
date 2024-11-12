@@ -1,14 +1,3 @@
-/* ========================================
- *
- * Copyright YOUR COMPANY, THE YEAR
- * All Rights Reserved
- * UNPUBLISHED, LICENSED SOFTWARE.
- *
- * CONFIDENTIAL AND PROPRIETARY INFORMATION
- * WHICH IS THE PROPERTY OF your company.
- *
- * ========================================
-*/
 
 #include <gpio_tasks.h>
 
@@ -20,7 +9,7 @@ void init_gpio()
 {
     Log_Write(LOG_LEVEL_INFO,"We are in the init");
     OS_ERR os_err;
-    PWM_Environment_Start();
+    PWM_SPO2_Start();
     PWM_Heartbeat_Start();
     Pin_1_SetDriveMode(Pin_1_DM_STRONG);
     Pin_2_SetDriveMode(Pin_2_DM_STRONG);
@@ -41,10 +30,14 @@ void init_gpio()
                  (void *)0,
                  (OS_OPT)(OS_OPT_TASK_STK_CHK | OS_OPT_TASK_STK_CLR),
                  (OS_ERR *)&os_err);
-    if (os_err == OS_ERR_NONE) Log_Write(LOG_LEVEL_BUT, "(init_gpio) But-Task created", os_err);
-    else Log_Write(LOG_LEVEL_ERROR, "Knopf: (init_gpio) But-Task not created", os_err);
-    
-    /*
+                if (os_err == OS_ERR_NONE) {
+                    UART_1_PutString("(init_gpio) But-Task created\n");
+                } else {
+                    char error_msg[64];
+                    snprintf(error_msg, sizeof(error_msg), "Knopf: (init_gpio) But-Task not created. Error Code: %d\n", os_err);
+                    UART_1_PutString(error_msg);
+                }
+
     OSTaskCreate((OS_TCB *)&LedG_Task_TCB,
                  (CPU_CHAR *)"LedG Task",
                  (OS_TASK_PTR)LedG_Task,
@@ -74,10 +67,14 @@ void init_gpio()
                  (void *)0,
                  (OS_OPT)(OS_OPT_TASK_STK_CHK | OS_OPT_TASK_STK_CLR),
                  (OS_ERR *)&os_err);
-    if (os_err == OS_ERR_NONE) Log_Write(LOG_LEVEL_LED, "(init_gpio) Led-Task created", os_err);
-    else Log_Write(LOG_LEVEL_ERROR, "Led: (init_gpio) Led-Task not created", os_err);\
-    */
-}
+                if (os_err == OS_ERR_NONE) {
+                    UART_1_PutString("(init_gpio) RB-Task created\n");
+                } else {
+                    char error_msg[64];
+                    snprintf(error_msg, sizeof(error_msg), "Knopf: (init_gpio) RB-Task not created. Error Code: %d\n", os_err);
+                    UART_1_PutString(error_msg);
+                }
+ }
 
 /*
 when the button is pressed button var is true
@@ -126,30 +123,44 @@ output of heartrate and blood oxygen per Q from data processing
 */
 static void LedRB_Task(void *p_arg)
 {
-  (void)p_arg;
-  OS_ERR os_err;
-  CPU_TS ts;
-  DATA_SET_PACKAGE_OXIMETER *data;
-  OS_MSG_SIZE *data_size = NULL;
-  for (OS_ERR os_err; DEF_TRUE; OSTimeDlyHMSM(0, 0, 0, 100, OS_OPT_TIME_HMSM_STRICT, &os_err))
-    if (button_variable == DEF_TRUE)
-    {
-      if (0 != (data = OSQPend(&CommQProcessedOximeterData, 0, OS_OPT_PEND_BLOCKING, data_size, &ts, &os_err)))
-      {
-        if (os_err == OS_ERR_NONE)
-        {
-          if (*data_size == sizeof(LED_CONTROL_MESSAGE))
-          {
-            BSP_PWM_set_Period(PWM_hb, heartratecalc(data->average_heart_rate_in_bpm));
-            BSP_PWM_set_Halfperiod(PWM_bo, data->blood_oxygen_level_in_percentage);
-          }
-          else Log_Write(LOG_LEVEL_ERROR, "LedRB_Task: msg wrong size", os_err);
+    (void)p_arg;  // Unused parameter
+    OS_ERR os_err;
+
+    while (DEF_TRUE) {
+        // Calculate PWM value for SpO2
+        CPU_INT08U pwm_spo2 = (CPU_INT08U)((Global_spO2 * 255) / 100);
+
+        // Update the PWM compare value based on SpO2, ensuring proper scaling
+        if (Global_spO2 > 0) {
+            PWM_SPO2_WriteCompare(pwm_spo2);  // Set PWM for SpO2
+        } else {
+            PWM_SPO2_WriteCompare(0);  // Set PWM to 0 if SpO2 is zero
         }
-        else Log_Write(LOG_LEVEL_ERROR, "LedRB_Task: unknown", os_err);
-      }
-      else Log_Write(LOG_LEVEL_ERROR, "LedRB_Task: no Q-Nachricht", os_err);
+
+        // Heartbeat effect for red LED
+        if (Global_heart_rate > 0) {
+            // Calculate half-period time in ms based on heart rate (beats per minute)
+            CPU_INT16U half_beat_period_ms = (60000 / Global_heart_rate) / 2;  // Half of one beat period
+
+            // Turn LED on for half the beat period
+            PWM_Heartbeat_WriteCompare(255);  // Full brightness
+            OSTimeDlyHMSM(0, 0, 0, half_beat_period_ms, OS_OPT_TIME_HMSM_STRICT, &os_err);
+
+            // Turn LED off for the other half
+            PWM_Heartbeat_WriteCompare(0);  // Off
+            OSTimeDlyHMSM(0, 0, 0, half_beat_period_ms, OS_OPT_TIME_HMSM_STRICT, &os_err);
+        } else {
+            PWM_Heartbeat_WriteCompare(0);  // Turn off if no heart rate
+        }
+
+        // Short delay to avoid excessive CPU usage in the main loop
+        OSTimeDlyHMSM(0, 0, 0, 10, OS_OPT_TIME_HMSM_STRICT, &os_err);
     }
 }
+
+
+
+
 
 /*
 calculates the green led (wellbeing of the variables)
@@ -160,33 +171,38 @@ CPU_INT08U allCorrCalc(CPU_INT08U p)
   else if (p == GREEN_LED_FULL_BRIGHTNESS) return 50; // Full brightness
   else return 0; //Error -> green shutdown
 }
-
-/*
-output on the green led steert by data processing
-*/
 static void LedG_Task(void *p_arg)
 {
-  (void)p_arg;
-  OS_ERR os_err;
-  CPU_TS ts;
-  LED_CONTROL_MESSAGE *lcm;
-  OS_MSG_SIZE *lcm_size = NULL;
-  for (OS_ERR os_err; DEF_TRUE; OSTimeDlyHMSM(0, 0, 0, 100, OS_OPT_TIME_HMSM_STRICT, &os_err))
-    if (button_variable == DEF_TRUE)
-    {
-      if (0 != (lcm = OSQPend(&CommQProcessedEnvironmentData, 0, OS_OPT_PEND_BLOCKING, lcm_size, &ts, &os_err)))
-      {
-        if (os_err == OS_ERR_NONE)
-        {
-          if (*lcm_size == sizeof(LED_CONTROL_MESSAGE))
-            BSP_PWM_set_Halfperiod(PWM_ac, allCorrCalc(lcm->mode_data));
-          else
-            Log_Write(LOG_LEVEL_ERROR, "LedG_Task: msg wrong size", os_err);
+    (void)p_arg;
+    OS_ERR os_err;
+
+    while (DEF_TRUE) {
+        if (toggle_state) {
+            // Check if we are in blink mode
+            if (GlobalGreen == GREEN_LED_BLINK) {
+                // Toggle LED state
+                if (gpio_read(PORT1, P1_2) == 1) {
+                    gpio_low(PORT1, P1_2);  // Turn LED off
+                } else {
+                    gpio_high(PORT1, P1_2); // Turn LED on
+                }
+                
+                // Delay to control blink rate
+                OSTimeDlyHMSM(0, 0, 0, 250, OS_OPT_TIME_HMSM_NON_STRICT, &os_err);
+            } else {
+                // Ensure LED is on in non-blink mode
+                gpio_high(PORT1, P1_2);
+                
+                // Delay to avoid unnecessary CPU usage
+                OSTimeDlyHMSM(0, 0, 0, 100, OS_OPT_TIME_HMSM_NON_STRICT, &os_err);
+            }
+        } else {
+            // Turn off LED if toggle_state is inactive
+            gpio_low(PORT1, P1_2);
+            
+            // Delay to avoid excessive CPU usage in main loop
+            OSTimeDlyHMSM(0, 0, 0, 100, OS_OPT_TIME_HMSM_NON_STRICT, &os_err);
         }
-        else Log_Write(LOG_LEVEL_ERROR, "LedG_Task: unknown", os_err);
-      }
-      else
-        Log_Write(LOG_LEVEL_ERROR, "LedG_Task: no Q-msg", os_err);
     }
 }
-/* [] END OF FILE */
+

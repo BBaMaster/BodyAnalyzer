@@ -172,9 +172,9 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\PWM_Heartbeat.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\PWM_Heartbeat.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\PWM_Heartbeat_PM.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\PWM_Environment.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\PWM_Environment.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\PWM_Environment_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\PWM_SPO2.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\PWM_SPO2.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\PWM_SPO2_PM.c</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="C:\Users\Chronikle\Documents\GitHub\BodyAnalyzer\esw_uCOS3_cykit.cydsn">

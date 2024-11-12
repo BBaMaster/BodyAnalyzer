@@ -224,7 +224,7 @@ CPU_BOOLEAN processRawEnvironmentData(DATA_SET_PACKAGE_ENVIRONMENT *data_environ
     RAW_ENVIRONMENT_DATA *p_msg_SPI_data;
 
     // Wait for environmental data from the queue
-    p_msg_SPI_data = (RAW_ENVIRONMENT_DATA *)OSQPend(&CommQSPIData, 100, OS_OPT_PEND_BLOCKING, &msg_size, &raw_timestamp, &os_err);
+    //p_msg_SPI_data = (RAW_ENVIRONMENT_DATA *)OSQPend(&CommQSPIData, 100, OS_OPT_PEND_BLOCKING, &msg_size, &raw_timestamp, &os_err);
 
     if (os_err == OS_ERR_TIMEOUT) {
         // Queue was empty, no hints necessary

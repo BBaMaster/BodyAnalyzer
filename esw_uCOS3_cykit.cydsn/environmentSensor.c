@@ -14,7 +14,7 @@
 
 OS_TCB BME688_Task_TCB;                              // Task Control Block for BME688 task
 CPU_STK BME688_TaskStk[APP_CFG_TASK_BME688_STK_SIZE]; // Stack for BME688 task
-
+CPU_INT08U GlobalGreen;
 /* Initialize the message queue to process send the environment values to processing tasks*/
 void initializeMessageQueueEnvironment(){
   OS_ERR   os_err;
@@ -82,11 +82,14 @@ void enqueueEnvironmentData(Environment_Data env_data) {
   OS_MSG_QTY entries;
   OS_ERR os_err;
   static Environment_Data previous_env_data;
-  
-  if (memcpy(&previous_env_data, &env_data, sizeof(Environment_Data)) == DEF_FALSE){
-    Log_Write(LOG_LEVEL_ERROR, "SPI Task: Values are same as previous values. Do not send them.", 0);
-    return;
-  } else {
+  DATA_SET_PACKAGE_ENVIRONMENT forReal;
+    forReal.gas_in_ohm = env_data.gas_resistance;
+    forReal.humidity_in_percentage = env_data.humidity;
+    forReal.pressure_in_bar = env_data.pressure;
+    forReal.temperature_in_celsius = env_data.temperature;
+    GlobalGreen = 2; //processRawEnvironmentData(&forReal);
+    
+/*else {
     OSQPost(&CommQSPIData, &env_data, sizeof(env_data), OS_OPT_POST_FIFO + OS_OPT_POST_ALL, &os_err); 
     if (os_err != OS_ERR_NONE) {
       if (os_err == OS_ERR_Q_MAX) {
@@ -98,14 +101,14 @@ void enqueueEnvironmentData(Environment_Data env_data) {
         }
       } else {
         // Log any other errors that occur when posting to the queue
-        Log_Write(LOG_LEVEL_ERROR, "Error occurred at I2C Task, posting to queue failed...", 0);
+        Log_Write(LOG_LEVEL_ERROR, "Error occurred at Environment Data, posting to queue failed...", 0);
       }
     } else {
       // Log a message when the SPO2 value is successfully posted to the queue
       //Log_Write(LOG_LEVEL_SPI, "Sent raw environment value to processing task...", 0);
       previous_env_data = env_data;
     }
-  }
+  }*/
 }
 
 void sendDataViaUartForCSV(Environment_Data env_data) {
@@ -249,10 +252,6 @@ static void bme688_Task(void *p_arg){
     //uncomment if data should be recorded for a csv 
     //sendDataViaUartForCSV(env_data);
     
-    Log_Write(LOG_LEVEL_BME688,"temp: %d", data.temperature);
-    Log_Write(LOG_LEVEL_BME688,"humidity: %d", data.humidity);
-    Log_Write(LOG_LEVEL_BME688,"pressure: %d", data.pressure);
-    Log_Write(LOG_LEVEL_BME688,"gas: %d", data.gas_resistance);
     
     //wait for defined interval
     OSTimeDlyHMSM(0,0,MEASUREMENT_INTERVAL,0,OS_OPT_TIME_HMSM_NON_STRICT, &os_err);  

@@ -13,10 +13,14 @@
 #ifndef GPIO_TASKS_H
 #define GPIO_TASKS_H
 
-#include "bsp_pwm.h"
 #include "log_task.h"
 #include "data_processing_task.h"
-
+#include <heartbeatSensor.h>
+#include "bsp_pwm.h"
+#include "includes.h"
+#include <cpu.h>
+#include <environmentSensor.h>
+#define P1_2 (1<<2)
 // Button-Task
 OS_TCB BUT_Task_TCB;
 CPU_STK BUT_TaskStk[APP_CFG_TASK_BUTTON_STK_SIZE];

@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: PWM_Environment.c
+* File Name: PWM_SPO2.c
 * Version 3.30
 *
 * Description:
@@ -21,19 +21,19 @@
 * the software package with which this file was provided.
 ********************************************************************************/
 
-#include "PWM_Environment.h"
+#include "PWM_SPO2.h"
 
 /* Error message for removed <resource> through optimization */
-#ifdef PWM_Environment_PWMUDB_genblk1_ctrlreg__REMOVED
+#ifdef PWM_SPO2_PWMUDB_genblk1_ctrlreg__REMOVED
     #error PWM_v3_30 detected with a constant 0 for the enable or \
          constant 1 for reset. This will prevent the component from operating.
-#endif /* PWM_Environment_PWMUDB_genblk1_ctrlreg__REMOVED */
+#endif /* PWM_SPO2_PWMUDB_genblk1_ctrlreg__REMOVED */
 
-uint8 PWM_Environment_initVar = 0u;
+uint8 PWM_SPO2_initVar = 0u;
 
 
 /*******************************************************************************
-* Function Name: PWM_Environment_Start
+* Function Name: PWM_SPO2_Start
 ********************************************************************************
 *
 * Summary:
@@ -48,31 +48,31 @@ uint8 PWM_Environment_initVar = 0u;
 *  None
 *
 * Global variables:
-*  PWM_Environment_initVar: Is modified when this function is called for the
+*  PWM_SPO2_initVar: Is modified when this function is called for the
 *   first time. Is used to ensure that initialization happens only once.
 *
 *******************************************************************************/
-void PWM_Environment_Start(void) 
+void PWM_SPO2_Start(void) 
 {
     /* If not Initialized then initialize all required hardware and software */
-    if(PWM_Environment_initVar == 0u)
+    if(PWM_SPO2_initVar == 0u)
     {
-        PWM_Environment_Init();
-        PWM_Environment_initVar = 1u;
+        PWM_SPO2_Init();
+        PWM_SPO2_initVar = 1u;
     }
-    PWM_Environment_Enable();
+    PWM_SPO2_Enable();
 
 }
 
 
 /*******************************************************************************
-* Function Name: PWM_Environment_Init
+* Function Name: PWM_SPO2_Init
 ********************************************************************************
 *
 * Summary:
 *  Initialize component's parameters to the parameters set by user in the
 *  customizer of the component placed onto schematic. Usually called in
-*  PWM_Environment_Start().
+*  PWM_SPO2_Start().
 *
 * Parameters:
 *  None
@@ -81,106 +81,106 @@ void PWM_Environment_Start(void)
 *  None
 *
 *******************************************************************************/
-void PWM_Environment_Init(void) 
+void PWM_SPO2_Init(void) 
 {
-    #if (PWM_Environment_UsingFixedFunction || PWM_Environment_UseControl)
+    #if (PWM_SPO2_UsingFixedFunction || PWM_SPO2_UseControl)
         uint8 ctrl;
-    #endif /* (PWM_Environment_UsingFixedFunction || PWM_Environment_UseControl) */
+    #endif /* (PWM_SPO2_UsingFixedFunction || PWM_SPO2_UseControl) */
 
-    #if(!PWM_Environment_UsingFixedFunction)
-        #if(PWM_Environment_UseStatus)
+    #if(!PWM_SPO2_UsingFixedFunction)
+        #if(PWM_SPO2_UseStatus)
             /* Interrupt State Backup for Critical Region*/
-            uint8 PWM_Environment_interruptState;
-        #endif /* (PWM_Environment_UseStatus) */
-    #endif /* (!PWM_Environment_UsingFixedFunction) */
+            uint8 PWM_SPO2_interruptState;
+        #endif /* (PWM_SPO2_UseStatus) */
+    #endif /* (!PWM_SPO2_UsingFixedFunction) */
 
-    #if (PWM_Environment_UsingFixedFunction)
+    #if (PWM_SPO2_UsingFixedFunction)
         /* You are allowed to write the compare value (FF only) */
-        PWM_Environment_CONTROL |= PWM_Environment_CFG0_MODE;
-        #if (PWM_Environment_DeadBand2_4)
-            PWM_Environment_CONTROL |= PWM_Environment_CFG0_DB;
-        #endif /* (PWM_Environment_DeadBand2_4) */
+        PWM_SPO2_CONTROL |= PWM_SPO2_CFG0_MODE;
+        #if (PWM_SPO2_DeadBand2_4)
+            PWM_SPO2_CONTROL |= PWM_SPO2_CFG0_DB;
+        #endif /* (PWM_SPO2_DeadBand2_4) */
 
-        ctrl = PWM_Environment_CONTROL3 & ((uint8 )(~PWM_Environment_CTRL_CMPMODE1_MASK));
-        PWM_Environment_CONTROL3 = ctrl | PWM_Environment_DEFAULT_COMPARE1_MODE;
+        ctrl = PWM_SPO2_CONTROL3 & ((uint8 )(~PWM_SPO2_CTRL_CMPMODE1_MASK));
+        PWM_SPO2_CONTROL3 = ctrl | PWM_SPO2_DEFAULT_COMPARE1_MODE;
 
          /* Clear and Set SYNCTC and SYNCCMP bits of RT1 register */
-        PWM_Environment_RT1 &= ((uint8)(~PWM_Environment_RT1_MASK));
-        PWM_Environment_RT1 |= PWM_Environment_SYNC;
+        PWM_SPO2_RT1 &= ((uint8)(~PWM_SPO2_RT1_MASK));
+        PWM_SPO2_RT1 |= PWM_SPO2_SYNC;
 
         /*Enable DSI Sync all all inputs of the PWM*/
-        PWM_Environment_RT1 &= ((uint8)(~PWM_Environment_SYNCDSI_MASK));
-        PWM_Environment_RT1 |= PWM_Environment_SYNCDSI_EN;
+        PWM_SPO2_RT1 &= ((uint8)(~PWM_SPO2_SYNCDSI_MASK));
+        PWM_SPO2_RT1 |= PWM_SPO2_SYNCDSI_EN;
 
-    #elif (PWM_Environment_UseControl)
+    #elif (PWM_SPO2_UseControl)
         /* Set the default compare mode defined in the parameter */
-        ctrl = PWM_Environment_CONTROL & ((uint8)(~PWM_Environment_CTRL_CMPMODE2_MASK)) &
-                ((uint8)(~PWM_Environment_CTRL_CMPMODE1_MASK));
-        PWM_Environment_CONTROL = ctrl | PWM_Environment_DEFAULT_COMPARE2_MODE |
-                                   PWM_Environment_DEFAULT_COMPARE1_MODE;
-    #endif /* (PWM_Environment_UsingFixedFunction) */
+        ctrl = PWM_SPO2_CONTROL & ((uint8)(~PWM_SPO2_CTRL_CMPMODE2_MASK)) &
+                ((uint8)(~PWM_SPO2_CTRL_CMPMODE1_MASK));
+        PWM_SPO2_CONTROL = ctrl | PWM_SPO2_DEFAULT_COMPARE2_MODE |
+                                   PWM_SPO2_DEFAULT_COMPARE1_MODE;
+    #endif /* (PWM_SPO2_UsingFixedFunction) */
 
-    #if (!PWM_Environment_UsingFixedFunction)
-        #if (PWM_Environment_Resolution == 8)
+    #if (!PWM_SPO2_UsingFixedFunction)
+        #if (PWM_SPO2_Resolution == 8)
             /* Set FIFO 0 to 1 byte register for period*/
-            PWM_Environment_AUX_CONTROLDP0 |= (PWM_Environment_AUX_CTRL_FIFO0_CLR);
-        #else /* (PWM_Environment_Resolution == 16)*/
+            PWM_SPO2_AUX_CONTROLDP0 |= (PWM_SPO2_AUX_CTRL_FIFO0_CLR);
+        #else /* (PWM_SPO2_Resolution == 16)*/
             /* Set FIFO 0 to 1 byte register for period */
-            PWM_Environment_AUX_CONTROLDP0 |= (PWM_Environment_AUX_CTRL_FIFO0_CLR);
-            PWM_Environment_AUX_CONTROLDP1 |= (PWM_Environment_AUX_CTRL_FIFO0_CLR);
-        #endif /* (PWM_Environment_Resolution == 8) */
+            PWM_SPO2_AUX_CONTROLDP0 |= (PWM_SPO2_AUX_CTRL_FIFO0_CLR);
+            PWM_SPO2_AUX_CONTROLDP1 |= (PWM_SPO2_AUX_CTRL_FIFO0_CLR);
+        #endif /* (PWM_SPO2_Resolution == 8) */
 
-        PWM_Environment_WriteCounter(PWM_Environment_INIT_PERIOD_VALUE);
-    #endif /* (!PWM_Environment_UsingFixedFunction) */
+        PWM_SPO2_WriteCounter(PWM_SPO2_INIT_PERIOD_VALUE);
+    #endif /* (!PWM_SPO2_UsingFixedFunction) */
 
-    PWM_Environment_WritePeriod(PWM_Environment_INIT_PERIOD_VALUE);
+    PWM_SPO2_WritePeriod(PWM_SPO2_INIT_PERIOD_VALUE);
 
-        #if (PWM_Environment_UseOneCompareMode)
-            PWM_Environment_WriteCompare(PWM_Environment_INIT_COMPARE_VALUE1);
+        #if (PWM_SPO2_UseOneCompareMode)
+            PWM_SPO2_WriteCompare(PWM_SPO2_INIT_COMPARE_VALUE1);
         #else
-            PWM_Environment_WriteCompare1(PWM_Environment_INIT_COMPARE_VALUE1);
-            PWM_Environment_WriteCompare2(PWM_Environment_INIT_COMPARE_VALUE2);
-        #endif /* (PWM_Environment_UseOneCompareMode) */
+            PWM_SPO2_WriteCompare1(PWM_SPO2_INIT_COMPARE_VALUE1);
+            PWM_SPO2_WriteCompare2(PWM_SPO2_INIT_COMPARE_VALUE2);
+        #endif /* (PWM_SPO2_UseOneCompareMode) */
 
-        #if (PWM_Environment_KillModeMinTime)
-            PWM_Environment_WriteKillTime(PWM_Environment_MinimumKillTime);
-        #endif /* (PWM_Environment_KillModeMinTime) */
+        #if (PWM_SPO2_KillModeMinTime)
+            PWM_SPO2_WriteKillTime(PWM_SPO2_MinimumKillTime);
+        #endif /* (PWM_SPO2_KillModeMinTime) */
 
-        #if (PWM_Environment_DeadBandUsed)
-            PWM_Environment_WriteDeadTime(PWM_Environment_INIT_DEAD_TIME);
-        #endif /* (PWM_Environment_DeadBandUsed) */
+        #if (PWM_SPO2_DeadBandUsed)
+            PWM_SPO2_WriteDeadTime(PWM_SPO2_INIT_DEAD_TIME);
+        #endif /* (PWM_SPO2_DeadBandUsed) */
 
-    #if (PWM_Environment_UseStatus || PWM_Environment_UsingFixedFunction)
-        PWM_Environment_SetInterruptMode(PWM_Environment_INIT_INTERRUPTS_MODE);
-    #endif /* (PWM_Environment_UseStatus || PWM_Environment_UsingFixedFunction) */
+    #if (PWM_SPO2_UseStatus || PWM_SPO2_UsingFixedFunction)
+        PWM_SPO2_SetInterruptMode(PWM_SPO2_INIT_INTERRUPTS_MODE);
+    #endif /* (PWM_SPO2_UseStatus || PWM_SPO2_UsingFixedFunction) */
 
-    #if (PWM_Environment_UsingFixedFunction)
+    #if (PWM_SPO2_UsingFixedFunction)
         /* Globally Enable the Fixed Function Block chosen */
-        PWM_Environment_GLOBAL_ENABLE |= PWM_Environment_BLOCK_EN_MASK;
+        PWM_SPO2_GLOBAL_ENABLE |= PWM_SPO2_BLOCK_EN_MASK;
         /* Set the Interrupt source to come from the status register */
-        PWM_Environment_CONTROL2 |= PWM_Environment_CTRL2_IRQ_SEL;
+        PWM_SPO2_CONTROL2 |= PWM_SPO2_CTRL2_IRQ_SEL;
     #else
-        #if(PWM_Environment_UseStatus)
+        #if(PWM_SPO2_UseStatus)
 
             /* CyEnterCriticalRegion and CyExitCriticalRegion are used to mark following region critical*/
             /* Enter Critical Region*/
-            PWM_Environment_interruptState = CyEnterCriticalSection();
+            PWM_SPO2_interruptState = CyEnterCriticalSection();
             /* Use the interrupt output of the status register for IRQ output */
-            PWM_Environment_STATUS_AUX_CTRL |= PWM_Environment_STATUS_ACTL_INT_EN_MASK;
+            PWM_SPO2_STATUS_AUX_CTRL |= PWM_SPO2_STATUS_ACTL_INT_EN_MASK;
 
              /* Exit Critical Region*/
-            CyExitCriticalSection(PWM_Environment_interruptState);
+            CyExitCriticalSection(PWM_SPO2_interruptState);
 
-            /* Clear the FIFO to enable the PWM_Environment_STATUS_FIFOFULL
+            /* Clear the FIFO to enable the PWM_SPO2_STATUS_FIFOFULL
                    bit to be set on FIFO full. */
-            PWM_Environment_ClearFIFO();
-        #endif /* (PWM_Environment_UseStatus) */
-    #endif /* (PWM_Environment_UsingFixedFunction) */
+            PWM_SPO2_ClearFIFO();
+        #endif /* (PWM_SPO2_UseStatus) */
+    #endif /* (PWM_SPO2_UsingFixedFunction) */
 }
 
 
 /*******************************************************************************
-* Function Name: PWM_Environment_Enable
+* Function Name: PWM_SPO2_Enable
 ********************************************************************************
 *
 * Summary:
@@ -196,23 +196,23 @@ void PWM_Environment_Init(void)
 *  This works only if software enable mode is chosen
 *
 *******************************************************************************/
-void PWM_Environment_Enable(void) 
+void PWM_SPO2_Enable(void) 
 {
     /* Globally Enable the Fixed Function Block chosen */
-    #if (PWM_Environment_UsingFixedFunction)
-        PWM_Environment_GLOBAL_ENABLE |= PWM_Environment_BLOCK_EN_MASK;
-        PWM_Environment_GLOBAL_STBY_ENABLE |= PWM_Environment_BLOCK_STBY_EN_MASK;
-    #endif /* (PWM_Environment_UsingFixedFunction) */
+    #if (PWM_SPO2_UsingFixedFunction)
+        PWM_SPO2_GLOBAL_ENABLE |= PWM_SPO2_BLOCK_EN_MASK;
+        PWM_SPO2_GLOBAL_STBY_ENABLE |= PWM_SPO2_BLOCK_STBY_EN_MASK;
+    #endif /* (PWM_SPO2_UsingFixedFunction) */
 
     /* Enable the PWM from the control register  */
-    #if (PWM_Environment_UseControl || PWM_Environment_UsingFixedFunction)
-        PWM_Environment_CONTROL |= PWM_Environment_CTRL_ENABLE;
-    #endif /* (PWM_Environment_UseControl || PWM_Environment_UsingFixedFunction) */
+    #if (PWM_SPO2_UseControl || PWM_SPO2_UsingFixedFunction)
+        PWM_SPO2_CONTROL |= PWM_SPO2_CTRL_ENABLE;
+    #endif /* (PWM_SPO2_UseControl || PWM_SPO2_UsingFixedFunction) */
 }
 
 
 /*******************************************************************************
-* Function Name: PWM_Environment_Stop
+* Function Name: PWM_SPO2_Stop
 ********************************************************************************
 *
 * Summary:
@@ -230,25 +230,25 @@ void PWM_Environment_Enable(void)
 *  has no effect on the operation of the PWM
 *
 *******************************************************************************/
-void PWM_Environment_Stop(void) 
+void PWM_SPO2_Stop(void) 
 {
-    #if (PWM_Environment_UseControl || PWM_Environment_UsingFixedFunction)
-        PWM_Environment_CONTROL &= ((uint8)(~PWM_Environment_CTRL_ENABLE));
-    #endif /* (PWM_Environment_UseControl || PWM_Environment_UsingFixedFunction) */
+    #if (PWM_SPO2_UseControl || PWM_SPO2_UsingFixedFunction)
+        PWM_SPO2_CONTROL &= ((uint8)(~PWM_SPO2_CTRL_ENABLE));
+    #endif /* (PWM_SPO2_UseControl || PWM_SPO2_UsingFixedFunction) */
 
     /* Globally disable the Fixed Function Block chosen */
-    #if (PWM_Environment_UsingFixedFunction)
-        PWM_Environment_GLOBAL_ENABLE &= ((uint8)(~PWM_Environment_BLOCK_EN_MASK));
-        PWM_Environment_GLOBAL_STBY_ENABLE &= ((uint8)(~PWM_Environment_BLOCK_STBY_EN_MASK));
-    #endif /* (PWM_Environment_UsingFixedFunction) */
+    #if (PWM_SPO2_UsingFixedFunction)
+        PWM_SPO2_GLOBAL_ENABLE &= ((uint8)(~PWM_SPO2_BLOCK_EN_MASK));
+        PWM_SPO2_GLOBAL_STBY_ENABLE &= ((uint8)(~PWM_SPO2_BLOCK_STBY_EN_MASK));
+    #endif /* (PWM_SPO2_UsingFixedFunction) */
 }
 
-#if (PWM_Environment_UseOneCompareMode)
-    #if (PWM_Environment_CompareMode1SW)
+#if (PWM_SPO2_UseOneCompareMode)
+    #if (PWM_SPO2_CompareMode1SW)
 
 
         /*******************************************************************************
-        * Function Name: PWM_Environment_SetCompareMode
+        * Function Name: PWM_SPO2_SetCompareMode
         ********************************************************************************
         *
         * Summary:
@@ -263,53 +263,53 @@ void PWM_Environment_Stop(void)
         *  None
         *
         *******************************************************************************/
-        void PWM_Environment_SetCompareMode(uint8 comparemode) 
+        void PWM_SPO2_SetCompareMode(uint8 comparemode) 
         {
-            #if(PWM_Environment_UsingFixedFunction)
+            #if(PWM_SPO2_UsingFixedFunction)
 
-                #if(0 != PWM_Environment_CTRL_CMPMODE1_SHIFT)
-                    uint8 comparemodemasked = ((uint8)((uint8)comparemode << PWM_Environment_CTRL_CMPMODE1_SHIFT));
+                #if(0 != PWM_SPO2_CTRL_CMPMODE1_SHIFT)
+                    uint8 comparemodemasked = ((uint8)((uint8)comparemode << PWM_SPO2_CTRL_CMPMODE1_SHIFT));
                 #else
                     uint8 comparemodemasked = comparemode;
-                #endif /* (0 != PWM_Environment_CTRL_CMPMODE1_SHIFT) */
+                #endif /* (0 != PWM_SPO2_CTRL_CMPMODE1_SHIFT) */
 
-                PWM_Environment_CONTROL3 &= ((uint8)(~PWM_Environment_CTRL_CMPMODE1_MASK)); /*Clear Existing Data */
-                PWM_Environment_CONTROL3 |= comparemodemasked;
+                PWM_SPO2_CONTROL3 &= ((uint8)(~PWM_SPO2_CTRL_CMPMODE1_MASK)); /*Clear Existing Data */
+                PWM_SPO2_CONTROL3 |= comparemodemasked;
 
-            #elif (PWM_Environment_UseControl)
+            #elif (PWM_SPO2_UseControl)
 
-                #if(0 != PWM_Environment_CTRL_CMPMODE1_SHIFT)
-                    uint8 comparemode1masked = ((uint8)((uint8)comparemode << PWM_Environment_CTRL_CMPMODE1_SHIFT)) &
-                                                PWM_Environment_CTRL_CMPMODE1_MASK;
+                #if(0 != PWM_SPO2_CTRL_CMPMODE1_SHIFT)
+                    uint8 comparemode1masked = ((uint8)((uint8)comparemode << PWM_SPO2_CTRL_CMPMODE1_SHIFT)) &
+                                                PWM_SPO2_CTRL_CMPMODE1_MASK;
                 #else
-                    uint8 comparemode1masked = comparemode & PWM_Environment_CTRL_CMPMODE1_MASK;
-                #endif /* (0 != PWM_Environment_CTRL_CMPMODE1_SHIFT) */
+                    uint8 comparemode1masked = comparemode & PWM_SPO2_CTRL_CMPMODE1_MASK;
+                #endif /* (0 != PWM_SPO2_CTRL_CMPMODE1_SHIFT) */
 
-                #if(0 != PWM_Environment_CTRL_CMPMODE2_SHIFT)
-                    uint8 comparemode2masked = ((uint8)((uint8)comparemode << PWM_Environment_CTRL_CMPMODE2_SHIFT)) &
-                                               PWM_Environment_CTRL_CMPMODE2_MASK;
+                #if(0 != PWM_SPO2_CTRL_CMPMODE2_SHIFT)
+                    uint8 comparemode2masked = ((uint8)((uint8)comparemode << PWM_SPO2_CTRL_CMPMODE2_SHIFT)) &
+                                               PWM_SPO2_CTRL_CMPMODE2_MASK;
                 #else
-                    uint8 comparemode2masked = comparemode & PWM_Environment_CTRL_CMPMODE2_MASK;
-                #endif /* (0 != PWM_Environment_CTRL_CMPMODE2_SHIFT) */
+                    uint8 comparemode2masked = comparemode & PWM_SPO2_CTRL_CMPMODE2_MASK;
+                #endif /* (0 != PWM_SPO2_CTRL_CMPMODE2_SHIFT) */
 
                 /*Clear existing mode */
-                PWM_Environment_CONTROL &= ((uint8)(~(PWM_Environment_CTRL_CMPMODE1_MASK |
-                                            PWM_Environment_CTRL_CMPMODE2_MASK)));
-                PWM_Environment_CONTROL |= (comparemode1masked | comparemode2masked);
+                PWM_SPO2_CONTROL &= ((uint8)(~(PWM_SPO2_CTRL_CMPMODE1_MASK |
+                                            PWM_SPO2_CTRL_CMPMODE2_MASK)));
+                PWM_SPO2_CONTROL |= (comparemode1masked | comparemode2masked);
 
             #else
                 uint8 temp = comparemode;
-            #endif /* (PWM_Environment_UsingFixedFunction) */
+            #endif /* (PWM_SPO2_UsingFixedFunction) */
         }
-    #endif /* PWM_Environment_CompareMode1SW */
+    #endif /* PWM_SPO2_CompareMode1SW */
 
 #else /* UseOneCompareMode */
 
-    #if (PWM_Environment_CompareMode1SW)
+    #if (PWM_SPO2_CompareMode1SW)
 
 
         /*******************************************************************************
-        * Function Name: PWM_Environment_SetCompareMode1
+        * Function Name: PWM_SPO2_SetCompareMode1
         ********************************************************************************
         *
         * Summary:
@@ -323,27 +323,27 @@ void PWM_Environment_Stop(void)
         *  None
         *
         *******************************************************************************/
-        void PWM_Environment_SetCompareMode1(uint8 comparemode) 
+        void PWM_SPO2_SetCompareMode1(uint8 comparemode) 
         {
-            #if(0 != PWM_Environment_CTRL_CMPMODE1_SHIFT)
-                uint8 comparemodemasked = ((uint8)((uint8)comparemode << PWM_Environment_CTRL_CMPMODE1_SHIFT)) &
-                                           PWM_Environment_CTRL_CMPMODE1_MASK;
+            #if(0 != PWM_SPO2_CTRL_CMPMODE1_SHIFT)
+                uint8 comparemodemasked = ((uint8)((uint8)comparemode << PWM_SPO2_CTRL_CMPMODE1_SHIFT)) &
+                                           PWM_SPO2_CTRL_CMPMODE1_MASK;
             #else
-                uint8 comparemodemasked = comparemode & PWM_Environment_CTRL_CMPMODE1_MASK;
-            #endif /* (0 != PWM_Environment_CTRL_CMPMODE1_SHIFT) */
+                uint8 comparemodemasked = comparemode & PWM_SPO2_CTRL_CMPMODE1_MASK;
+            #endif /* (0 != PWM_SPO2_CTRL_CMPMODE1_SHIFT) */
 
-            #if (PWM_Environment_UseControl)
-                PWM_Environment_CONTROL &= ((uint8)(~PWM_Environment_CTRL_CMPMODE1_MASK)); /*Clear existing mode */
-                PWM_Environment_CONTROL |= comparemodemasked;
-            #endif /* (PWM_Environment_UseControl) */
+            #if (PWM_SPO2_UseControl)
+                PWM_SPO2_CONTROL &= ((uint8)(~PWM_SPO2_CTRL_CMPMODE1_MASK)); /*Clear existing mode */
+                PWM_SPO2_CONTROL |= comparemodemasked;
+            #endif /* (PWM_SPO2_UseControl) */
         }
-    #endif /* PWM_Environment_CompareMode1SW */
+    #endif /* PWM_SPO2_CompareMode1SW */
 
-#if (PWM_Environment_CompareMode2SW)
+#if (PWM_SPO2_CompareMode2SW)
 
 
     /*******************************************************************************
-    * Function Name: PWM_Environment_SetCompareMode2
+    * Function Name: PWM_SPO2_SetCompareMode2
     ********************************************************************************
     *
     * Summary:
@@ -357,31 +357,31 @@ void PWM_Environment_Stop(void)
     *  None
     *
     *******************************************************************************/
-    void PWM_Environment_SetCompareMode2(uint8 comparemode) 
+    void PWM_SPO2_SetCompareMode2(uint8 comparemode) 
     {
 
-        #if(0 != PWM_Environment_CTRL_CMPMODE2_SHIFT)
-            uint8 comparemodemasked = ((uint8)((uint8)comparemode << PWM_Environment_CTRL_CMPMODE2_SHIFT)) &
-                                                 PWM_Environment_CTRL_CMPMODE2_MASK;
+        #if(0 != PWM_SPO2_CTRL_CMPMODE2_SHIFT)
+            uint8 comparemodemasked = ((uint8)((uint8)comparemode << PWM_SPO2_CTRL_CMPMODE2_SHIFT)) &
+                                                 PWM_SPO2_CTRL_CMPMODE2_MASK;
         #else
-            uint8 comparemodemasked = comparemode & PWM_Environment_CTRL_CMPMODE2_MASK;
-        #endif /* (0 != PWM_Environment_CTRL_CMPMODE2_SHIFT) */
+            uint8 comparemodemasked = comparemode & PWM_SPO2_CTRL_CMPMODE2_MASK;
+        #endif /* (0 != PWM_SPO2_CTRL_CMPMODE2_SHIFT) */
 
-        #if (PWM_Environment_UseControl)
-            PWM_Environment_CONTROL &= ((uint8)(~PWM_Environment_CTRL_CMPMODE2_MASK)); /*Clear existing mode */
-            PWM_Environment_CONTROL |= comparemodemasked;
-        #endif /* (PWM_Environment_UseControl) */
+        #if (PWM_SPO2_UseControl)
+            PWM_SPO2_CONTROL &= ((uint8)(~PWM_SPO2_CTRL_CMPMODE2_MASK)); /*Clear existing mode */
+            PWM_SPO2_CONTROL |= comparemodemasked;
+        #endif /* (PWM_SPO2_UseControl) */
     }
-    #endif /*PWM_Environment_CompareMode2SW */
+    #endif /*PWM_SPO2_CompareMode2SW */
 
 #endif /* UseOneCompareMode */
 
 
-#if (!PWM_Environment_UsingFixedFunction)
+#if (!PWM_SPO2_UsingFixedFunction)
 
 
     /*******************************************************************************
-    * Function Name: PWM_Environment_WriteCounter
+    * Function Name: PWM_SPO2_WriteCounter
     ********************************************************************************
     *
     * Summary:
@@ -400,15 +400,15 @@ void PWM_Environment_Stop(void)
     *  The PWM Period will be reloaded when a counter value will be a zero
     *
     *******************************************************************************/
-    void PWM_Environment_WriteCounter(uint8 counter) \
+    void PWM_SPO2_WriteCounter(uint8 counter) \
                                        
     {
-        CY_SET_REG8(PWM_Environment_COUNTER_LSB_PTR, counter);
+        CY_SET_REG8(PWM_SPO2_COUNTER_LSB_PTR, counter);
     }
 
 
     /*******************************************************************************
-    * Function Name: PWM_Environment_ReadCounter
+    * Function Name: PWM_SPO2_ReadCounter
     ********************************************************************************
     *
     * Summary:
@@ -422,22 +422,22 @@ void PWM_Environment_Stop(void)
     *  The current value of the counter.
     *
     *******************************************************************************/
-    uint8 PWM_Environment_ReadCounter(void) 
+    uint8 PWM_SPO2_ReadCounter(void) 
     {
         /* Force capture by reading Accumulator */
         /* Must first do a software capture to be able to read the counter */
         /* It is up to the user code to make sure there isn't already captured data in the FIFO */
-          (void)CY_GET_REG8(PWM_Environment_COUNTERCAP_LSB_PTR_8BIT);
+          (void)CY_GET_REG8(PWM_SPO2_COUNTERCAP_LSB_PTR_8BIT);
 
         /* Read the data from the FIFO */
-        return (CY_GET_REG8(PWM_Environment_CAPTURE_LSB_PTR));
+        return (CY_GET_REG8(PWM_SPO2_CAPTURE_LSB_PTR));
     }
 
-    #if (PWM_Environment_UseStatus)
+    #if (PWM_SPO2_UseStatus)
 
 
         /*******************************************************************************
-        * Function Name: PWM_Environment_ClearFIFO
+        * Function Name: PWM_SPO2_ClearFIFO
         ********************************************************************************
         *
         * Summary:
@@ -450,21 +450,21 @@ void PWM_Environment_Stop(void)
         *  None
         *
         *******************************************************************************/
-        void PWM_Environment_ClearFIFO(void) 
+        void PWM_SPO2_ClearFIFO(void) 
         {
-            while(0u != (PWM_Environment_ReadStatusRegister() & PWM_Environment_STATUS_FIFONEMPTY))
+            while(0u != (PWM_SPO2_ReadStatusRegister() & PWM_SPO2_STATUS_FIFONEMPTY))
             {
-                (void)PWM_Environment_ReadCapture();
+                (void)PWM_SPO2_ReadCapture();
             }
         }
 
-    #endif /* PWM_Environment_UseStatus */
+    #endif /* PWM_SPO2_UseStatus */
 
-#endif /* !PWM_Environment_UsingFixedFunction */
+#endif /* !PWM_SPO2_UsingFixedFunction */
 
 
 /*******************************************************************************
-* Function Name: PWM_Environment_WritePeriod
+* Function Name: PWM_SPO2_WritePeriod
 ********************************************************************************
 *
 * Summary:
@@ -479,20 +479,20 @@ void PWM_Environment_Stop(void)
 *  None
 *
 *******************************************************************************/
-void PWM_Environment_WritePeriod(uint8 period) 
+void PWM_SPO2_WritePeriod(uint8 period) 
 {
-    #if(PWM_Environment_UsingFixedFunction)
-        CY_SET_REG16(PWM_Environment_PERIOD_LSB_PTR, (uint16)period);
+    #if(PWM_SPO2_UsingFixedFunction)
+        CY_SET_REG16(PWM_SPO2_PERIOD_LSB_PTR, (uint16)period);
     #else
-        CY_SET_REG8(PWM_Environment_PERIOD_LSB_PTR, period);
-    #endif /* (PWM_Environment_UsingFixedFunction) */
+        CY_SET_REG8(PWM_SPO2_PERIOD_LSB_PTR, period);
+    #endif /* (PWM_SPO2_UsingFixedFunction) */
 }
 
-#if (PWM_Environment_UseOneCompareMode)
+#if (PWM_SPO2_UseOneCompareMode)
 
 
     /*******************************************************************************
-    * Function Name: PWM_Environment_WriteCompare
+    * Function Name: PWM_SPO2_WriteCompare
     ********************************************************************************
     *
     * Summary:
@@ -513,22 +513,22 @@ void PWM_Environment_WritePeriod(uint8 period)
     *  Dither Mode, Center Aligned Mode or One Output Mode
     *
     *******************************************************************************/
-    void PWM_Environment_WriteCompare(uint8 compare) \
+    void PWM_SPO2_WriteCompare(uint8 compare) \
                                        
     {
-        #if(PWM_Environment_UsingFixedFunction)
-            CY_SET_REG16(PWM_Environment_COMPARE1_LSB_PTR, (uint16)compare);
+        #if(PWM_SPO2_UsingFixedFunction)
+            CY_SET_REG16(PWM_SPO2_COMPARE1_LSB_PTR, (uint16)compare);
         #else
-            CY_SET_REG8(PWM_Environment_COMPARE1_LSB_PTR, compare);
-        #endif /* (PWM_Environment_UsingFixedFunction) */
+            CY_SET_REG8(PWM_SPO2_COMPARE1_LSB_PTR, compare);
+        #endif /* (PWM_SPO2_UsingFixedFunction) */
 
-        #if (PWM_Environment_PWMMode == PWM_Environment__B_PWM__DITHER)
-            #if(PWM_Environment_UsingFixedFunction)
-                CY_SET_REG16(PWM_Environment_COMPARE2_LSB_PTR, (uint16)(compare + 1u));
+        #if (PWM_SPO2_PWMMode == PWM_SPO2__B_PWM__DITHER)
+            #if(PWM_SPO2_UsingFixedFunction)
+                CY_SET_REG16(PWM_SPO2_COMPARE2_LSB_PTR, (uint16)(compare + 1u));
             #else
-                CY_SET_REG8(PWM_Environment_COMPARE2_LSB_PTR, (compare + 1u));
-            #endif /* (PWM_Environment_UsingFixedFunction) */
-        #endif /* (PWM_Environment_PWMMode == PWM_Environment__B_PWM__DITHER) */
+                CY_SET_REG8(PWM_SPO2_COMPARE2_LSB_PTR, (compare + 1u));
+            #endif /* (PWM_SPO2_UsingFixedFunction) */
+        #endif /* (PWM_SPO2_PWMMode == PWM_SPO2__B_PWM__DITHER) */
     }
 
 
@@ -536,7 +536,7 @@ void PWM_Environment_WritePeriod(uint8 period)
 
 
     /*******************************************************************************
-    * Function Name: PWM_Environment_WriteCompare1
+    * Function Name: PWM_SPO2_WriteCompare1
     ********************************************************************************
     *
     * Summary:
@@ -552,19 +552,19 @@ void PWM_Environment_WritePeriod(uint8 period)
     *  None
     *
     *******************************************************************************/
-    void PWM_Environment_WriteCompare1(uint8 compare) \
+    void PWM_SPO2_WriteCompare1(uint8 compare) \
                                         
     {
-        #if(PWM_Environment_UsingFixedFunction)
-            CY_SET_REG16(PWM_Environment_COMPARE1_LSB_PTR, (uint16)compare);
+        #if(PWM_SPO2_UsingFixedFunction)
+            CY_SET_REG16(PWM_SPO2_COMPARE1_LSB_PTR, (uint16)compare);
         #else
-            CY_SET_REG8(PWM_Environment_COMPARE1_LSB_PTR, compare);
-        #endif /* (PWM_Environment_UsingFixedFunction) */
+            CY_SET_REG8(PWM_SPO2_COMPARE1_LSB_PTR, compare);
+        #endif /* (PWM_SPO2_UsingFixedFunction) */
     }
 
 
     /*******************************************************************************
-    * Function Name: PWM_Environment_WriteCompare2
+    * Function Name: PWM_SPO2_WriteCompare2
     ********************************************************************************
     *
     * Summary:
@@ -581,22 +581,22 @@ void PWM_Environment_WritePeriod(uint8 period)
     *  None
     *
     *******************************************************************************/
-    void PWM_Environment_WriteCompare2(uint8 compare) \
+    void PWM_SPO2_WriteCompare2(uint8 compare) \
                                         
     {
-        #if(PWM_Environment_UsingFixedFunction)
-            CY_SET_REG16(PWM_Environment_COMPARE2_LSB_PTR, compare);
+        #if(PWM_SPO2_UsingFixedFunction)
+            CY_SET_REG16(PWM_SPO2_COMPARE2_LSB_PTR, compare);
         #else
-            CY_SET_REG8(PWM_Environment_COMPARE2_LSB_PTR, compare);
-        #endif /* (PWM_Environment_UsingFixedFunction) */
+            CY_SET_REG8(PWM_SPO2_COMPARE2_LSB_PTR, compare);
+        #endif /* (PWM_SPO2_UsingFixedFunction) */
     }
 #endif /* UseOneCompareMode */
 
-#if (PWM_Environment_DeadBandUsed)
+#if (PWM_SPO2_DeadBandUsed)
 
 
     /*******************************************************************************
-    * Function Name: PWM_Environment_WriteDeadTime
+    * Function Name: PWM_SPO2_WriteDeadTime
     ********************************************************************************
     *
     * Summary:
@@ -609,30 +609,30 @@ void PWM_Environment_WritePeriod(uint8 period)
     *  None
     *
     *******************************************************************************/
-    void PWM_Environment_WriteDeadTime(uint8 deadtime) 
+    void PWM_SPO2_WriteDeadTime(uint8 deadtime) 
     {
         /* If using the Dead Band 1-255 mode then just write the register */
-        #if(!PWM_Environment_DeadBand2_4)
-            CY_SET_REG8(PWM_Environment_DEADBAND_COUNT_PTR, deadtime);
+        #if(!PWM_SPO2_DeadBand2_4)
+            CY_SET_REG8(PWM_SPO2_DEADBAND_COUNT_PTR, deadtime);
         #else
             /* Otherwise the data has to be masked and offset */
             /* Clear existing data */
-            PWM_Environment_DEADBAND_COUNT &= ((uint8)(~PWM_Environment_DEADBAND_COUNT_MASK));
+            PWM_SPO2_DEADBAND_COUNT &= ((uint8)(~PWM_SPO2_DEADBAND_COUNT_MASK));
 
             /* Set new dead time */
-            #if(PWM_Environment_DEADBAND_COUNT_SHIFT)
-                PWM_Environment_DEADBAND_COUNT |= ((uint8)((uint8)deadtime << PWM_Environment_DEADBAND_COUNT_SHIFT)) &
-                                                    PWM_Environment_DEADBAND_COUNT_MASK;
+            #if(PWM_SPO2_DEADBAND_COUNT_SHIFT)
+                PWM_SPO2_DEADBAND_COUNT |= ((uint8)((uint8)deadtime << PWM_SPO2_DEADBAND_COUNT_SHIFT)) &
+                                                    PWM_SPO2_DEADBAND_COUNT_MASK;
             #else
-                PWM_Environment_DEADBAND_COUNT |= deadtime & PWM_Environment_DEADBAND_COUNT_MASK;
-            #endif /* (PWM_Environment_DEADBAND_COUNT_SHIFT) */
+                PWM_SPO2_DEADBAND_COUNT |= deadtime & PWM_SPO2_DEADBAND_COUNT_MASK;
+            #endif /* (PWM_SPO2_DEADBAND_COUNT_SHIFT) */
 
-        #endif /* (!PWM_Environment_DeadBand2_4) */
+        #endif /* (!PWM_SPO2_DeadBand2_4) */
     }
 
 
     /*******************************************************************************
-    * Function Name: PWM_Environment_ReadDeadTime
+    * Function Name: PWM_SPO2_ReadDeadTime
     ********************************************************************************
     *
     * Summary:
@@ -645,29 +645,29 @@ void PWM_Environment_WritePeriod(uint8 period)
     *  Dead Band Counts
     *
     *******************************************************************************/
-    uint8 PWM_Environment_ReadDeadTime(void) 
+    uint8 PWM_SPO2_ReadDeadTime(void) 
     {
         /* If using the Dead Band 1-255 mode then just read the register */
-        #if(!PWM_Environment_DeadBand2_4)
-            return (CY_GET_REG8(PWM_Environment_DEADBAND_COUNT_PTR));
+        #if(!PWM_SPO2_DeadBand2_4)
+            return (CY_GET_REG8(PWM_SPO2_DEADBAND_COUNT_PTR));
         #else
 
             /* Otherwise the data has to be masked and offset */
-            #if(PWM_Environment_DEADBAND_COUNT_SHIFT)
-                return ((uint8)(((uint8)(PWM_Environment_DEADBAND_COUNT & PWM_Environment_DEADBAND_COUNT_MASK)) >>
-                                                                           PWM_Environment_DEADBAND_COUNT_SHIFT));
+            #if(PWM_SPO2_DEADBAND_COUNT_SHIFT)
+                return ((uint8)(((uint8)(PWM_SPO2_DEADBAND_COUNT & PWM_SPO2_DEADBAND_COUNT_MASK)) >>
+                                                                           PWM_SPO2_DEADBAND_COUNT_SHIFT));
             #else
-                return (PWM_Environment_DEADBAND_COUNT & PWM_Environment_DEADBAND_COUNT_MASK);
-            #endif /* (PWM_Environment_DEADBAND_COUNT_SHIFT) */
-        #endif /* (!PWM_Environment_DeadBand2_4) */
+                return (PWM_SPO2_DEADBAND_COUNT & PWM_SPO2_DEADBAND_COUNT_MASK);
+            #endif /* (PWM_SPO2_DEADBAND_COUNT_SHIFT) */
+        #endif /* (!PWM_SPO2_DeadBand2_4) */
     }
 #endif /* DeadBandUsed */
 
-#if (PWM_Environment_UseStatus || PWM_Environment_UsingFixedFunction)
+#if (PWM_SPO2_UseStatus || PWM_SPO2_UsingFixedFunction)
 
 
     /*******************************************************************************
-    * Function Name: PWM_Environment_SetInterruptMode
+    * Function Name: PWM_SPO2_SetInterruptMode
     ********************************************************************************
     *
     * Summary:
@@ -681,14 +681,14 @@ void PWM_Environment_WritePeriod(uint8 period)
     *  None
     *
     *******************************************************************************/
-    void PWM_Environment_SetInterruptMode(uint8 interruptMode) 
+    void PWM_SPO2_SetInterruptMode(uint8 interruptMode) 
     {
-        CY_SET_REG8(PWM_Environment_STATUS_MASK_PTR, interruptMode);
+        CY_SET_REG8(PWM_SPO2_STATUS_MASK_PTR, interruptMode);
     }
 
 
     /*******************************************************************************
-    * Function Name: PWM_Environment_ReadStatusRegister
+    * Function Name: PWM_SPO2_ReadStatusRegister
     ********************************************************************************
     *
     * Summary:
@@ -708,19 +708,19 @@ void PWM_Environment_WritePeriod(uint8 period)
     *  [0]   : Compare output 1
     *
     *******************************************************************************/
-    uint8 PWM_Environment_ReadStatusRegister(void) 
+    uint8 PWM_SPO2_ReadStatusRegister(void) 
     {
-        return (CY_GET_REG8(PWM_Environment_STATUS_PTR));
+        return (CY_GET_REG8(PWM_SPO2_STATUS_PTR));
     }
 
-#endif /* (PWM_Environment_UseStatus || PWM_Environment_UsingFixedFunction) */
+#endif /* (PWM_SPO2_UseStatus || PWM_SPO2_UsingFixedFunction) */
 
 
-#if (PWM_Environment_UseControl)
+#if (PWM_SPO2_UseControl)
 
 
     /*******************************************************************************
-    * Function Name: PWM_Environment_ReadControlRegister
+    * Function Name: PWM_SPO2_ReadControlRegister
     ********************************************************************************
     *
     * Summary:
@@ -734,17 +734,17 @@ void PWM_Environment_WritePeriod(uint8 period)
     *  uint8 : Current control register value
     *
     *******************************************************************************/
-    uint8 PWM_Environment_ReadControlRegister(void) 
+    uint8 PWM_SPO2_ReadControlRegister(void) 
     {
         uint8 result;
 
-        result = CY_GET_REG8(PWM_Environment_CONTROL_PTR);
+        result = CY_GET_REG8(PWM_SPO2_CONTROL_PTR);
         return (result);
     }
 
 
     /*******************************************************************************
-    * Function Name: PWM_Environment_WriteControlRegister
+    * Function Name: PWM_SPO2_WriteControlRegister
     ********************************************************************************
     *
     * Summary:
@@ -762,19 +762,19 @@ void PWM_Environment_WritePeriod(uint8 period)
     *  None
     *
     *******************************************************************************/
-    void PWM_Environment_WriteControlRegister(uint8 control) 
+    void PWM_SPO2_WriteControlRegister(uint8 control) 
     {
-        CY_SET_REG8(PWM_Environment_CONTROL_PTR, control);
+        CY_SET_REG8(PWM_SPO2_CONTROL_PTR, control);
     }
 
-#endif /* (PWM_Environment_UseControl) */
+#endif /* (PWM_SPO2_UseControl) */
 
 
-#if (!PWM_Environment_UsingFixedFunction)
+#if (!PWM_SPO2_UsingFixedFunction)
 
 
     /*******************************************************************************
-    * Function Name: PWM_Environment_ReadCapture
+    * Function Name: PWM_SPO2_ReadCapture
     ********************************************************************************
     *
     * Summary:
@@ -787,19 +787,19 @@ void PWM_Environment_WritePeriod(uint8 period)
     *  uint8/uint16: The current capture value
     *
     *******************************************************************************/
-    uint8 PWM_Environment_ReadCapture(void) 
+    uint8 PWM_SPO2_ReadCapture(void) 
     {
-        return (CY_GET_REG8(PWM_Environment_CAPTURE_LSB_PTR));
+        return (CY_GET_REG8(PWM_SPO2_CAPTURE_LSB_PTR));
     }
 
-#endif /* (!PWM_Environment_UsingFixedFunction) */
+#endif /* (!PWM_SPO2_UsingFixedFunction) */
 
 
-#if (PWM_Environment_UseOneCompareMode)
+#if (PWM_SPO2_UseOneCompareMode)
 
 
     /*******************************************************************************
-    * Function Name: PWM_Environment_ReadCompare
+    * Function Name: PWM_SPO2_ReadCompare
     ********************************************************************************
     *
     * Summary:
@@ -813,20 +813,20 @@ void PWM_Environment_WritePeriod(uint8 period)
     *  uint8/uint16: Current compare value
     *
     *******************************************************************************/
-    uint8 PWM_Environment_ReadCompare(void) 
+    uint8 PWM_SPO2_ReadCompare(void) 
     {
-        #if(PWM_Environment_UsingFixedFunction)
-            return ((uint8)CY_GET_REG16(PWM_Environment_COMPARE1_LSB_PTR));
+        #if(PWM_SPO2_UsingFixedFunction)
+            return ((uint8)CY_GET_REG16(PWM_SPO2_COMPARE1_LSB_PTR));
         #else
-            return (CY_GET_REG8(PWM_Environment_COMPARE1_LSB_PTR));
-        #endif /* (PWM_Environment_UsingFixedFunction) */
+            return (CY_GET_REG8(PWM_SPO2_COMPARE1_LSB_PTR));
+        #endif /* (PWM_SPO2_UsingFixedFunction) */
     }
 
 #else
 
 
     /*******************************************************************************
-    * Function Name: PWM_Environment_ReadCompare1
+    * Function Name: PWM_SPO2_ReadCompare1
     ********************************************************************************
     *
     * Summary:
@@ -839,14 +839,14 @@ void PWM_Environment_WritePeriod(uint8 period)
     *  uint8/uint16: Current compare value.
     *
     *******************************************************************************/
-    uint8 PWM_Environment_ReadCompare1(void) 
+    uint8 PWM_SPO2_ReadCompare1(void) 
     {
-        return (CY_GET_REG8(PWM_Environment_COMPARE1_LSB_PTR));
+        return (CY_GET_REG8(PWM_SPO2_COMPARE1_LSB_PTR));
     }
 
 
     /*******************************************************************************
-    * Function Name: PWM_Environment_ReadCompare2
+    * Function Name: PWM_SPO2_ReadCompare2
     ********************************************************************************
     *
     * Summary:
@@ -859,16 +859,16 @@ void PWM_Environment_WritePeriod(uint8 period)
     *  uint8/uint16: Current compare value.
     *
     *******************************************************************************/
-    uint8 PWM_Environment_ReadCompare2(void) 
+    uint8 PWM_SPO2_ReadCompare2(void) 
     {
-        return (CY_GET_REG8(PWM_Environment_COMPARE2_LSB_PTR));
+        return (CY_GET_REG8(PWM_SPO2_COMPARE2_LSB_PTR));
     }
 
-#endif /* (PWM_Environment_UseOneCompareMode) */
+#endif /* (PWM_SPO2_UseOneCompareMode) */
 
 
 /*******************************************************************************
-* Function Name: PWM_Environment_ReadPeriod
+* Function Name: PWM_SPO2_ReadPeriod
 ********************************************************************************
 *
 * Summary:
@@ -881,20 +881,20 @@ void PWM_Environment_WritePeriod(uint8 period)
 *  uint8/16: Period value
 *
 *******************************************************************************/
-uint8 PWM_Environment_ReadPeriod(void) 
+uint8 PWM_SPO2_ReadPeriod(void) 
 {
-    #if(PWM_Environment_UsingFixedFunction)
-        return ((uint8)CY_GET_REG16(PWM_Environment_PERIOD_LSB_PTR));
+    #if(PWM_SPO2_UsingFixedFunction)
+        return ((uint8)CY_GET_REG16(PWM_SPO2_PERIOD_LSB_PTR));
     #else
-        return (CY_GET_REG8(PWM_Environment_PERIOD_LSB_PTR));
-    #endif /* (PWM_Environment_UsingFixedFunction) */
+        return (CY_GET_REG8(PWM_SPO2_PERIOD_LSB_PTR));
+    #endif /* (PWM_SPO2_UsingFixedFunction) */
 }
 
-#if ( PWM_Environment_KillModeMinTime)
+#if ( PWM_SPO2_KillModeMinTime)
 
 
     /*******************************************************************************
-    * Function Name: PWM_Environment_WriteKillTime
+    * Function Name: PWM_SPO2_WriteKillTime
     ********************************************************************************
     *
     * Summary:
@@ -908,14 +908,14 @@ uint8 PWM_Environment_ReadPeriod(void)
     *  None
     *
     *******************************************************************************/
-    void PWM_Environment_WriteKillTime(uint8 killtime) 
+    void PWM_SPO2_WriteKillTime(uint8 killtime) 
     {
-        CY_SET_REG8(PWM_Environment_KILLMODEMINTIME_PTR, killtime);
+        CY_SET_REG8(PWM_SPO2_KILLMODEMINTIME_PTR, killtime);
     }
 
 
     /*******************************************************************************
-    * Function Name: PWM_Environment_ReadKillTime
+    * Function Name: PWM_SPO2_ReadKillTime
     ********************************************************************************
     *
     * Summary:
@@ -929,11 +929,11 @@ uint8 PWM_Environment_ReadPeriod(void)
     *  uint8: The current Minimum Time kill counts
     *
     *******************************************************************************/
-    uint8 PWM_Environment_ReadKillTime(void) 
+    uint8 PWM_SPO2_ReadKillTime(void) 
     {
-        return (CY_GET_REG8(PWM_Environment_KILLMODEMINTIME_PTR));
+        return (CY_GET_REG8(PWM_SPO2_KILLMODEMINTIME_PTR));
     }
 
-#endif /* ( PWM_Environment_KillModeMinTime) */
+#endif /* ( PWM_SPO2_KillModeMinTime) */
 
 /* [] END OF FILE */

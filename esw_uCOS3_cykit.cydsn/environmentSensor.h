@@ -21,7 +21,7 @@
 #include "data_processing_task.h"
   
 #define MEASUREMENT_INTERVAL 1
-  
+extern CPU_INT08U GlobalGreen;
   
 typedef struct{
   int16_t temperature; //temperature in °C * 100

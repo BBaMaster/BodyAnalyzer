@@ -17,11 +17,10 @@
 #define LOG_LEVEL_DATA_PROCESSING 0x30 /* Data processor logging*/
 #define LOG_LEVEL_MAX30102    0x40  /* MAX30102 sensor logging */
 #define LOG_LEVEL_BME688      0x80  /* BME688 sensor logging */
-#define LOG_LEVEL_LED         0x100
-#define LOG_LEVEL_BUT         0x200
+#define LOG_LEVEL_LED         0x90
 /* Default allowed logging levels (set to all levels by default) */
 #ifndef LOG_ALLOWED_LEVELS
-#define LOG_ALLOWED_LEVELS   (LOG_LEVEL_INFO | LOG_LEVEL_WARNING | LOG_LEVEL_DEBUG | LOG_LEVEL_MAX30102 | LOG_LEVEL_ERROR | LOG_LEVEL_I2C | LOG_LEVEL_DATA_PROCESSING)
+#define LOG_ALLOWED_LEVELS   (LOG_LEVEL_INFO | LOG_LEVEL_WARNING | LOG_LEVEL_DEBUG | LOG_LEVEL_MAX30102 | LOG_LEVEL_ERROR | LOG_LEVEL_I2C | LOG_LEVEL_DATA_PROCESSING | LOG_LEVEL_LED)
 #endif
 
 

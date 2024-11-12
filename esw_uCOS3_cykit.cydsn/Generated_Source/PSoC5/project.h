@@ -45,7 +45,7 @@
 #include "Pin_Green_Led_1_aliases.h"
 #include "Pin_Green_Led_1.h"
 #include "PWM_Heartbeat.h"
-#include "PWM_Environment.h"
+#include "PWM_SPO2.h"
 #include "UART_1_IntClock.h"
 #include "core_cm3_psoc5.h"
 #include "CyDmac.h"

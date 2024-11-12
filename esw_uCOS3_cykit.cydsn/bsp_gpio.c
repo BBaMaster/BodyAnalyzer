@@ -38,6 +38,8 @@ CPU_INT08U gpio_high(CPU_INT08U port, CPU_INT08U pin)
   if(port == PORT1){
     if(pin == P1_6){
       Pin_1_Write(HIGH);
+    }else if(pin == P1_2){
+      Pin_Green_Led_1_Write(HIGH); 
     }
     else{
       err++;
@@ -86,8 +88,9 @@ CPU_INT08U gpio_low(CPU_INT08U port, CPU_INT08U pin)
   if(port == PORT1){
     if(pin == P1_6){
       Pin_1_Write(LOW);
-    }
-    else{
+    }else if(pin == P1_2){
+      Pin_Green_Led_1_Write(LOW);
+    }else{
       err++;
     }
   }
@@ -135,6 +138,12 @@ CPU_INT08S gpio_read(CPU_INT08U port, CPU_INT08U pin)
       err = push_button_Read();    
     }
     else{
+      err = -1;
+    }
+  }else if(port == PORT1){
+    if(pin == P1_2){
+      err = Pin_Green_Led_1_Read();
+    }else{
       err = -1;
     }
   }
