@@ -211,7 +211,7 @@ static void LedG_Task(void *p_arg) {
             continue;  // Restart loop, continually checking `toggle_state`
         }
 
-        if (GlobalGreen == GREEN_LED_BLINK) {
+        if (GlobalGreen) {
             if (gpio_read(PORT1, P1_2) == 1) {
                 gpio_low(PORT1, P1_2);
             } else {

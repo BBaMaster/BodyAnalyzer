@@ -14,7 +14,7 @@
 
 OS_TCB BME688_Task_TCB;                              // Task Control Block for BME688 task
 CPU_STK BME688_TaskStk[APP_CFG_TASK_BME688_STK_SIZE]; // Stack for BME688 task
-CPU_INT08U GlobalGreen;
+CPU_INT08U GlobalGreen =0;
 
 void BME688_Init_Task(void) {
     OS_ERR os_err;
@@ -72,7 +72,6 @@ void enqueueEnvironmentData(Environment_Data* env_data) {
 
     DATA_SET_PACKAGE_ENVIRONMENT forReal;
     
-    memcpy(&forReal, env_data, sizeof(DATA_SET_PACKAGE_ENVIRONMENT));
     // Assign values directly to struct fields
     forReal.gas_in_ohm = env_data->gas_resistance;
     forReal.humidity_in_percentage = env_data->humidity;
@@ -81,11 +80,9 @@ void enqueueEnvironmentData(Environment_Data* env_data) {
 
     processRawEnvironmentData(&forReal);
     
-    if(!isEnvironmentDataInRange(&forReal) ){
-      GlobalGreen = GREEN_LED_BLINK;
-    }else{
-      GlobalGreen = GREEN_LED_FULL_BRIGHTNESS;
-    }
+    
+      GlobalGreen = isEnvironmentDataInRange(&forReal);
+
 
     // Format the log message as large integers
     char log_message[128];
@@ -98,7 +95,7 @@ void enqueueEnvironmentData(Environment_Data* env_data) {
     
     
 
-    UART_1_PutString(log_message);
+    //UART_1_PutString(log_message);
 }
 
 
@@ -201,7 +198,7 @@ static void bme688_Task(void *p_arg){
   struct bme68x_heatr_conf heatr_conf;
   struct bme68x_data data;
   uint8_t n_fields;
-  Environment_Data* env_data = {0};
+  Environment_Data env_data = {0};
   
   if((error = Init_BME688_Sensor(&bme688_handle, &conf, &heatr_conf)) != 0){
     Log_Write(LOG_LEVEL_ERROR,"Error initializing BME688: %d", error);
@@ -226,12 +223,12 @@ static void bme688_Task(void *p_arg){
         Log_Write(LOG_LEVEL_ERROR,"Reading BME values error: %d", rslt);
       }
       //filldata struct 
-      env_data->temperature = data.temperature;
-      env_data->humidity = data.humidity;
-      env_data->pressure = data.pressure;
-      env_data->gas_resistance = data.gas_resistance;
+      env_data.temperature = data.temperature;
+      env_data.humidity = data.humidity;
+      env_data.pressure = data.pressure;
+      env_data.gas_resistance = data.gas_resistance;
       //send Data to queue
-      enqueueEnvironmentData(env_data);
+      enqueueEnvironmentData(&env_data);
       //uncomment if data should be recorded for a csv 
       //sendDataViaUartForCSV(env_data);
       
