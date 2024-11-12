@@ -142,7 +142,6 @@ uint8_t Init_BME688_Sensor(struct bme68x_dev * bme688_handle, struct bme68x_conf
   bme688_handle->amb_temp = 22;
   int8_t rslt;
   struct bme68x_conf check_conf;
-  struct bme68x_heatr_conf check_heatr_conf;
   
   Log_Write(LOG_LEVEL_BME688, "Initializing Bme688", 0);
   
@@ -226,37 +225,37 @@ static void bme688_Task(void *p_arg){
     
   while(DEF_TRUE){
     if (toggle_state) {
-    //setting opmode to force mode to start measurement
-    rslt = bme68x_set_op_mode(BME68X_FORCED_MODE, &bme688_handle);
-    if(rslt != 0){
-      Log_Write(LOG_LEVEL_ERROR,"changing BME opmode error: %d", rslt);
+      //setting opmode to force mode to start measurement
+      rslt = bme68x_set_op_mode(BME68X_FORCED_MODE, &bme688_handle);
+      if(rslt != 0){
+        Log_Write(LOG_LEVEL_ERROR,"changing BME opmode error: %d", rslt);
+      }
+      //wait for measurment to be done
+      uint16_t del_period = bme68x_get_meas_dur(BME68X_FORCED_MODE, &conf, &bme688_handle) + (heatr_conf.heatr_dur * 1000);
+      bme688_handle.delay_us(del_period, bme688_handle.intf_ptr);
+      //read data fom sensor
+      rslt = bme68x_get_data(BME68X_FORCED_MODE, &data, &n_fields, &bme688_handle);
+      if(rslt != 0){
+        Log_Write(LOG_LEVEL_ERROR,"Reading BME values error: %d", rslt);
+      }
+      //filldata struct 
+      env_data.temperature = data.temperature;
+      env_data.humidity = data.humidity;
+      env_data.pressure = data.pressure;
+      env_data.gas_resistance = data.gas_resistance;
+      //send Data to queue
+      enqueueEnvironmentData(env_data);
+      //uncomment if data should be recorded for a csv 
+      //sendDataViaUartForCSV(env_data);
+      
+      Log_Write(LOG_LEVEL_BME688,"temp: %d", data.temperature);
+      Log_Write(LOG_LEVEL_BME688,"humidity: %d", data.humidity);
+      Log_Write(LOG_LEVEL_BME688,"pressure: %d", data.pressure);
+      Log_Write(LOG_LEVEL_BME688,"gas: %d", data.gas_resistance);
     }
-    //wait for measurment to be done
-    uint16_t del_period = bme68x_get_meas_dur(BME68X_FORCED_MODE, &conf, &bme688_handle) + (heatr_conf.heatr_dur * 1000);
-    bme688_handle.delay_us(del_period, bme688_handle.intf_ptr);
-    //read data fom sensor
-    rslt = bme68x_get_data(BME68X_FORCED_MODE, &data, &n_fields, &bme688_handle);
-    if(rslt != 0){
-      Log_Write(LOG_LEVEL_ERROR,"Reading BME values error: %d", rslt);
-    }
-    //filldata struct 
-    env_data.temperature = data.temperature;
-    env_data.humidity = data.humidity;
-    env_data.pressure = data.pressure;
-    env_data.gas_resistance = data.gas_resistance;
-    //send Data to queue
-    enqueueEnvironmentData(env_data);
-    //uncomment if data should be recorded for a csv 
-    //sendDataViaUartForCSV(env_data);
-    
-    Log_Write(LOG_LEVEL_BME688,"temp: %d", data.temperature);
-    Log_Write(LOG_LEVEL_BME688,"humidity: %d", data.humidity);
-    Log_Write(LOG_LEVEL_BME688,"pressure: %d", data.pressure);
-    Log_Write(LOG_LEVEL_BME688,"gas: %d", data.gas_resistance);
     
     //wait for defined interval
     OSTimeDlyHMSM(0,0,MEASUREMENT_INTERVAL,0,OS_OPT_TIME_HMSM_NON_STRICT, &os_err);  
-    }    
  }
 }
 

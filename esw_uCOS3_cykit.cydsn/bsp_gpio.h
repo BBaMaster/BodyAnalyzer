@@ -24,6 +24,7 @@
 #define PORT2 (1<<1)
 
 #define P1_6 (1<<6)
+#define P1_2 (1<<2)
 #define P2_0 (1<<0)
 #define P2_1 (1<<1)
 #define P2_2 (1<<2)

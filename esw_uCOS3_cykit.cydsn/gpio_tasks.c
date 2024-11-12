@@ -44,7 +44,6 @@ void init_gpio()
     if (os_err == OS_ERR_NONE) Log_Write(LOG_LEVEL_BUT, "(init_gpio) But-Task created", os_err);
     else Log_Write(LOG_LEVEL_ERROR, "Knopf: (init_gpio) But-Task not created", os_err);
     
-    /*
     OSTaskCreate((OS_TCB *)&LedG_Task_TCB,
                  (CPU_CHAR *)"LedG Task",
                  (OS_TASK_PTR)LedG_Task,
@@ -60,7 +59,7 @@ void init_gpio()
                  (OS_ERR *)&os_err);
     if (os_err == OS_ERR_NONE) Log_Write(LOG_LEVEL_LED, "(init_gpio) Led-Task created", os_err);
     else Log_Write(LOG_LEVEL_ERROR, "Led: (init_gpio) Led-Task not created", os_err);
-
+/*
     OSTaskCreate((OS_TCB *)&LedRB_Task_TCB,
                  (CPU_CHAR *)"LedRB Task",
                  (OS_TASK_PTR)LedRB_Task,
@@ -169,24 +168,41 @@ static void LedG_Task(void *p_arg)
   (void)p_arg;
   OS_ERR os_err;
   CPU_TS ts;
-  LED_CONTROL_MESSAGE *lcm;
-  OS_MSG_SIZE *lcm_size = NULL;
-  for (OS_ERR os_err; DEF_TRUE; OSTimeDlyHMSM(0, 0, 0, 100, OS_OPT_TIME_HMSM_STRICT, &os_err))
-    if (button_variable == DEF_TRUE)
-    {
-      if (0 != (lcm = OSQPend(&CommQProcessedEnvironmentData, 0, OS_OPT_PEND_BLOCKING, lcm_size, &ts, &os_err)))
-      {
-        if (os_err == OS_ERR_NONE)
-        {
-          if (*lcm_size == sizeof(LED_CONTROL_MESSAGE))
-            BSP_PWM_set_Halfperiod(PWM_ac, allCorrCalc(lcm->mode_data));
-          else
-            Log_Write(LOG_LEVEL_ERROR, "LedG_Task: msg wrong size", os_err);
-        }
-        else Log_Write(LOG_LEVEL_ERROR, "LedG_Task: unknown", os_err);
+  LED_CONTROL_MESSAGE * command_message = NULL;
+  LED_CONTROL_MESSAGE env_data;
+  env_data.led_cmd = CMD_GREEN_LED;
+  env_data.mode_data = GREEN_LED_FULL_BRIGHTNESS;
+  OS_MSG_SIZE message_size;
+  
+  while(DEF_TRUE){
+    if(toggle_state){
+      //wait if led state changes
+      if((command_message = OSQPend(&CommQProcessedEnvironmentData, 10, OS_OPT_PEND_NON_BLOCKING, &message_size, &ts, &os_err)) != NULL && os_err == 0){
+        memcpy(&env_data, command_message, sizeof(LED_CONTROL_MESSAGE));
       }
-      else
-        Log_Write(LOG_LEVEL_ERROR, "LedG_Task: no Q-msg", os_err);
+      //check LED mode to change to
+      if(env_data.mode_data == GREEN_LED_BLINK){
+        //if LED is on -> turn off and vise versa
+          if(gpio_read(PORT1,P1_2) == 1){
+            gpio_high(PORT1,P1_2);
+          }else if(gpio_read(PORT1,P1_2) == 0){
+            gpio_low(PORT1,P1_2);  
+          }else{
+            Log_Write(LOG_LEVEL_ERROR, "Blink Error", 0);
+          }
+          //OSDelay to make LED blink
+          OSTimeDlyHMSM(0,0,0,250,OS_OPT_TIME_HMSM_NON_STRICT, &os_err);
+          continue; //to skip rest of while loop
+      }else{
+        if(gpio_read(PORT1,P1_2) == 0){
+          gpio_high(PORT1,P1_2); //keep LED on
+        }
+      }
+    }else{
+      gpio_low(PORT1,P1_2);
     }
+    
+    OSTimeDlyHMSM(0,0,0,100,OS_OPT_TIME_HMSM_NON_STRICT, &os_err);
+  } 
 }
 /* [] END OF FILE */

@@ -121,25 +121,25 @@ static void max30102_Task(void *p_arg) {
     // Infinite loop for continuous sensor data reading and processing
     while (DEF_TRUE) {
         if (toggle_state) {
-        // Attempt to read raw red and IR data from the MAX30102 sensor
-        // If the read fails, log an error and continue to the next iteration
-        if (max30102_read(&max30102_handle, &raw_red, &raw_ir, &data_len) != 0) {
-            Log_Write(LOG_LEVEL_ERROR, "Failed to read from MAX30102", 0);
-            continue;
-        }
-        //Log_Write(LOG_LEVEL_ERROR, "Red: %d, IR: %d",raw_red, raw_ir);
+          // Attempt to read raw red and IR data from the MAX30102 sensor
+          // If the read fails, log an error and continue to the next iteration
+          if (max30102_read(&max30102_handle, &raw_red, &raw_ir, &data_len) != 0) {
+              Log_Write(LOG_LEVEL_ERROR, "Failed to read from MAX30102", 0);
+              continue;
+          }
+          //Log_Write(LOG_LEVEL_ERROR, "Red: %d, IR: %d",raw_red, raw_ir);
 
-        // Check if the raw IR and red values exceed the threshold (100000)
-        // If they do, process the signals for further analysis
-        if (raw_ir > INITIAL_THRESHOLD && raw_red > INITIAL_THRESHOLD) {
-            processSignals(raw_ir, raw_red);
-        }
+          // Check if the raw IR and red values exceed the threshold (100000)
+          // If they do, process the signals for further analysis
+          if (raw_ir > INITIAL_THRESHOLD && raw_red > INITIAL_THRESHOLD) {
+              processSignals(raw_ir, raw_red);
+          }
 
-        // Introduce a delay to control the sensor polling rate
-        // POLLING_DELAY_MS defines the delay duration in milliseconds
-        OSTimeDlyHMSM(0, 0, 0, POLLING_DELAY_MS, OS_OPT_TIME_HMSM_STRICT, &os_err);
+          // Introduce a delay to control the sensor polling rate
         }
-}
+          // POLLING_DELAY_MS defines the delay duration in milliseconds
+      OSTimeDlyHMSM(0, 0, 0, POLLING_DELAY_MS, OS_OPT_TIME_HMSM_STRICT, &os_err);
+    }
 }
 /**
  * @brief Processes raw IR and red signals to update DC and AC components.
