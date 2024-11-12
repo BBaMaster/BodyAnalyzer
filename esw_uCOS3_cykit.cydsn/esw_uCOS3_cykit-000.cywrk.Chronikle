@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="esw_uCOS3_cykit-000\esw_uCOS3_cykit\Header Files\environmentSensor.h">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="esw_uCOS3_cykit-000\esw_uCOS3_cykit\Header Files\app_cfg.h">
 <ExpandedNodeIds>
 <v>esw_uCOS3_cykit-000</v>
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit</v>
@@ -131,6 +131,9 @@
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Generated_Source\PSoC5\PWM_Heartbeat</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\BSP\bsp_psoc.h</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\BSP\bsp_pwm.c</v>
+<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\BSP\bsp_pwm.h</v>
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\BSP\bsp_uart.c</v>
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\BSP\bsp_uart.h</v>
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\BSP\cpu_bsp.c</v>
@@ -160,13 +163,6 @@
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Source Files</v>
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Source Files\app.c</v>
 <v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Source Files\data_processing_task.c</v>
-<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Source Files\environmentSensor.c</v>
-<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Source Files\gpio_tasks.c</v>
-<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Source Files\heartbeatSensor.c</v>
-<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Source Files\log_task.c</v>
-<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\Source Files\os_app_hooks.c</v>
-<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\uC-CPU</v>
-<v>esw_uCOS3_cykit-000\esw_uCOS3_cykit\uC-LIB</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -348,18 +344,17 @@
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
 <OpenDocs>
-<name v=".\bsp_i2c.c" />
-<name v=".\bsp_i2c.h" />
 <name v=".\heartbeatSensor.c" />
 <name v=".\heartbeatSensor.h" />
+<name v=".\gpio_tasks.h" />
+<name v=".\gpio_tasks.c" />
 <name v=".\APP\app.c" />
-<name v=".\max30102_interface.c" />
 <name v=".\TopDesign\TopDesign.cysch" />
-<name v=".\SensorLib\max30102\driver_max30102.h" />
-<name v=".\bsp_pwm.c" />
-<name v=".\bsp_pwm.h" />
-<name v=".\bsp_gpio.c" />
 <name v=".\environmentSensor.c" />
+<name v=".\bsp_gpio.c" />
+<name v=".\data_processing_task.c" />
+<name v=".\data_processing_task.h" />
+<name v=".\environmentSensor.h" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -367,7 +362,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1555, 612" SelectedTabbedMdiWindow="94f744a8-d16c-4c55-ba9d-28ed716d82c8"><DocumentWindow Key="C:\Users\Chronikle\Documents\GitHub\BodyAnalyzer\esw_uCOS3_cykit.cydsn\bsp_i2c.c" Guid="1195ea14-978d-46a4-ac41-096d1a387633" /><DocumentWindow Key="C:\Users\Chronikle\Documents\GitHub\BodyAnalyzer\esw_uCOS3_cykit.cydsn\bsp_i2c.h" Guid="68437200-3916-4214-a528-0075c10063b2" /><DocumentWindow Key="C:\Users\Chronikle\Documents\GitHub\BodyAnalyzer\esw_uCOS3_cykit.cydsn\heartbeatSensor.c" Guid="b2e776f1-29c2-405d-a9af-fd50b9da1878" /><DocumentWindow Key="C:\Users\Chronikle\Documents\GitHub\BodyAnalyzer\esw_uCOS3_cykit.cydsn\heartbeatSensor.h" Guid="a642e52a-469a-448d-b21e-603eadbff2be" /><DocumentWindow Key="C:\Users\Chronikle\Documents\GitHub\BodyAnalyzer\esw_uCOS3_cykit.cydsn\APP\app.c" Guid="8309ff70-3aad-48b8-b647-8f9aa29231d4" /><DocumentWindow Key="C:\Users\Chronikle\Documents\GitHub\BodyAnalyzer\esw_uCOS3_cykit.cydsn\max30102_interface.c" Guid="691b04a6-6d7f-4526-a3e3-7dafce577141" /><DocumentWindow Key="C:\Users\Chronikle\Documents\GitHub\BodyAnalyzer\esw_uCOS3_cykit.cydsn\TopDesign\TopDesign.cysch" Guid="d485251e-a994-4431-ba1d-402c66b46c44" /><DocumentWindow Key="C:\Users\Chronikle\Documents\GitHub\BodyAnalyzer\esw_uCOS3_cykit.cydsn\SensorLib\max30102\driver_max30102.h" Guid="7602f387-072c-4593-b6d9-decbd6ddff4d" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="cd5c3fa7-40fe-4b6d-8354-0906e5e0cb34" /><DocumentWindow Key="C:\Users\Chronikle\Documents\GitHub\BodyAnalyzer\esw_uCOS3_cykit.cydsn\bsp_pwm.c" Guid="020e5686-d869-42f1-9b59-8fa2f46ee179" /><DocumentWindow Key="C:\Users\Chronikle\Documents\GitHub\BodyAnalyzer\esw_uCOS3_cykit.cydsn\bsp_pwm.h" Guid="b97c8909-d9c4-434c-b21f-1e8a040d5ab3" /><DocumentWindow Key="C:\Users\Chronikle\Documents\GitHub\BodyAnalyzer\esw_uCOS3_cykit.cydsn\bsp_gpio.c" Guid="1944261e-aa9d-4b79-8b74-45e153b5e85c" /><DocumentWindow Key="C:\Users\Chronikle\Documents\GitHub\BodyAnalyzer\esw_uCOS3_cykit.cydsn\environmentSensor.c" Guid="94f744a8-d16c-4c55-ba9d-28ed716d82c8" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1264, 680" SelectedTabbedMdiWindow="0183d3ec-52f5-480a-bf41-9bcabf7bbd3f"><DocumentWindow Key="C:\Users\Chronikle\Documents\GitHub\BodyAnalyzer\esw_uCOS3_cykit.cydsn\heartbeatSensor.c" Guid="98afa4cd-9be8-4373-a97b-89f2be663985" /><DocumentWindow Key="C:\Users\Chronikle\Documents\GitHub\BodyAnalyzer\esw_uCOS3_cykit.cydsn\heartbeatSensor.h" Guid="e272fed9-0142-43ff-aa89-68eca895a389" /><DocumentWindow Key="C:\Users\Chronikle\Documents\GitHub\BodyAnalyzer\esw_uCOS3_cykit.cydsn\gpio_tasks.h" Guid="d57df770-b1fe-4759-b5b2-0a7fa9d27d23" /><DocumentWindow Key="C:\Users\Chronikle\Documents\GitHub\BodyAnalyzer\esw_uCOS3_cykit.cydsn\gpio_tasks.c" Guid="0183d3ec-52f5-480a-bf41-9bcabf7bbd3f" /><DocumentWindow Key="C:\Users\Chronikle\Documents\GitHub\BodyAnalyzer\esw_uCOS3_cykit.cydsn\APP\app.c" Guid="d2a678c8-bd79-413d-9a74-bf2260b82d0b" /><DocumentWindow Key="C:\Users\Chronikle\Documents\GitHub\BodyAnalyzer\esw_uCOS3_cykit.cydsn\TopDesign\TopDesign.cysch" Guid="01d19acc-28c2-4d1d-b7ac-5a1442b5a602" /><DocumentWindow Key="C:\Users\Chronikle\Documents\GitHub\BodyAnalyzer\esw_uCOS3_cykit.cydsn\environmentSensor.c" Guid="91f2cd0e-4626-4cc7-808d-28113d9cb2ff" /><DocumentWindow Key="C:\Users\Chronikle\Documents\GitHub\BodyAnalyzer\esw_uCOS3_cykit.cydsn\bsp_gpio.c" Guid="aaa49952-914c-4636-8281-1e7aa0db3c87" /><DocumentWindow Key="C:\Users\Chronikle\Documents\GitHub\BodyAnalyzer\esw_uCOS3_cykit.cydsn\data_processing_task.c" Guid="f43b0230-c591-4a52-b0b7-e10db73dd36c" /><DocumentWindow Key="C:\Users\Chronikle\Documents\GitHub\BodyAnalyzer\esw_uCOS3_cykit.cydsn\data_processing_task.h" Guid="08e1b2f5-bba6-4b0c-9197-94557c3288b2" /><DocumentWindow Key="C:\Users\Chronikle\Documents\GitHub\BodyAnalyzer\esw_uCOS3_cykit.cydsn\environmentSensor.h" Guid="7ce50f37-c5d1-4331-894b-31121fc392a6" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

@@ -1,6 +1,6 @@
 #include "heartbeatSensor.h"
-#define MSG_POOL_SIZE  1024
-#define MSG_SIZE_HEART ((sizeof(DATA_SET_PACKAGE_OXIMETER) + sizeof(void*) - 1) & ~(sizeof(void*) - 1))
+
+
 /* Function Prototypes */
 void MAX30102_Init(void);
 static void max30102_Task(void *p_arg);
@@ -17,10 +17,6 @@ CPU_INT32S mul16(CPU_INT16S x, CPU_INT16S y);
 /* I2C Buffer */
 CPU_INT08U i2c_rx_buffer[I2C_BUFFER_SIZE]; // Buffer for incoming I2C data
 
-
-OS_MEM MsgMemPoolHeart;
-CPU_INT08U MsgMemPoolStorageHeart[MSG_POOL_SIZE * MSG_SIZE_HEART];
-
 /* Heart Rate and SpO2 Variables */
 CPU_INT32U last_peak_timestamp = 0;                    // Timestamp of last detected positive crossing
 CPU_INT32S IR_AC_Max = 0;                              // Maximum AC signal value for peak detection
@@ -34,8 +30,10 @@ CPU_INT32S ir_avg_reg = 0;                             // Average DC signal valu
 CPU_INT32S red_avg_reg = 0;                            // Average DC signal value for red channel baseline
 CPU_INT32S spO2 = -1;                                  // SpO2 result
 CPU_BOOLEAN cycle_started = DEF_FALSE;                 // Track the start of a cycle
+
 CPU_INT32S Global_heart_rate;
 CPU_INT32S Global_spO2;
+
 /* Heart rate history */
 #define MAX_HEART_RATE_HISTORY 15
 CPU_INT32S heart_rate_history[MAX_HEART_RATE_HISTORY] = {0};
@@ -48,25 +46,6 @@ CPU_INT32S heart_rate_sum = 0;
 OS_TCB MAX30102_Task_TCB;                              // Task Control Block for MAX30102 task
 CPU_STK MAX30102_TaskStk[APP_CFG_TASK_MAX30102_STK_SIZE]; // Stack for MAX30102 task
 
-/* Initialize the message queue to process send the heart rate & SpO2 values to*/
-void initializeMessageQueueOximiter(){
-
-  OS_ERR   os_err;
-  
-  OSQCreate(&CommQI2CHeartRate, "Message Queue to send heart rate from I2C as Message", MESSAGE_QUEUE_SIZE, &os_err);
-  if (os_err == OS_ERR_NONE) {
-        Log_Write(LOG_LEVEL_I2C, "I2C Task: I2C Message queue created successfully", 0);
-    } else {
-        Log_Write(LOG_LEVEL_ERROR, "Error: I2C Message Queue creation failed", os_err);
-   }
-    
-  OSQCreate(&CommQI2CSPO2, "Message Queue to send SPO2 from I2C as Message", MESSAGE_QUEUE_SIZE, &os_err);
-  if (os_err == OS_ERR_NONE) {
-        Log_Write(LOG_LEVEL_I2C, "I2C Task: I2C Message queue created successfully", 0);
-    } else {
-        Log_Write(LOG_LEVEL_ERROR, "Error: I2C Message Queue creation failed", os_err);
-   }
-}
 
 /**
  * @brief Initializes the MAX30102 task and creates it in the RTOS.
@@ -95,19 +74,6 @@ void MAX30102_Init(void) {
     } else {
         Log_Write(LOG_LEVEL_ERROR, "Error: MAX30102 Task creation failed", os_err);
     }
-    
-        OSMemCreate(&MsgMemPoolHeart,                   // Pointer to memory control block
-                "Message Memory Pool",         // Name of the memory pool (for debugging)
-                MsgMemPoolStorageHeart,             // Storage array for the blocks
-                MSG_POOL_SIZE,                 // Number of blocks
-                MSG_SIZE_HEART,                      // Size of each block
-                &os_err);                      // Error variable
-
-        if (os_err != OS_ERR_NONE) {
-            char error_msg[64];
-            snprintf(error_msg, sizeof(error_msg), "COULDNT CREATE MESSAGE POOL. Error Code: %d", os_err);
-            UART_1_PutString(error_msg);
-        }
 }
 
 /**
@@ -134,8 +100,6 @@ static void max30102_Task(void *p_arg) {
         return;
     }
     
-    Log_Write(LOG_LEVEL_I2C, "Creating message queues...", 0);
-    initializeMessageQueueOximiter();
 
     // Infinite loop for continuous sensor data reading and processing
     while (DEF_TRUE) {
@@ -301,11 +265,7 @@ void enqueueHeartRate(CPU_INT32S heart_rate) {
     }
     Global_heart_rate = heart_rate;
     previous_heart_rate = heart_rate;  // Update previous heart rate
-        
-
 }
-
-
 
 /**
  * @brief Enqueues SpO2 data to the message queue.
@@ -321,62 +281,6 @@ void enqueueSpO2(CPU_INT32S spO2) {
     }
     previous_spO2_rate = spO2;
     Global_spO2 = spO2;
-    //Log_Write(LOG_LEVEL_INFO, "GLOBAL SPO2 IN TASK IS: %d", spO2);
-    /*
-    // Allocate memory for the SpO2 message
-    DATA_SET_PACKAGE_OXIMETER *spO2_msg = (DATA_SET_PACKAGE_OXIMETER *)OSMemGet(&MsgMemPoolHeart, &os_err);
-    if (os_err != OS_ERR_NONE) {
-        Log_Write(LOG_LEVEL_ERROR, "Error: Failed to allocate memory for SpO2 message. Error Code: %d", os_err);
-        return;
-    }
-    Log_Write(LOG_LEVEL_DEBUG, "Memory allocated for SpO2 message.");
-
-    spO2_msg->blood_oxygen_level_in_percentage = spO2;
-
-    // Post the message to the queue
-    OSQPost(&CommQProcessedOximeterData, spO2_msg, sizeof(DATA_SET_PACKAGE_OXIMETER), OS_OPT_POST_FIFO | OS_OPT_POST_NO_SCHED, &os_err);
-
-    if (os_err == OS_ERR_Q_MAX) {
-        Log_Write(LOG_LEVEL_DATA_PROCESSING, "Queue full. Flushing queue to free space.");
-
-        void *msg;
-        OS_MSG_SIZE msg_size;
-        CPU_TS ts;
-
-        // Flush by retrieving and releasing each item in the queue
-        while ((msg = OSQPend(&CommQProcessedOximeterData, 0, OS_OPT_PEND_NON_BLOCKING, &msg_size, &ts, &os_err)) != NULL && os_err == OS_ERR_NONE) {
-            OSMemPut(&MsgMemPoolHeart, msg, &os_err);
-            if (os_err != OS_ERR_NONE) {
-                Log_Write(LOG_LEVEL_ERROR, "Error: Failed to release memory for queue entry. Error Code: %d", os_err);
-            }
-        }
-
-        // Perform a full flush
-        OSQFlush(&CommQProcessedOximeterData, &os_err);
-        if (os_err == OS_ERR_NONE) {
-            Log_Write(LOG_LEVEL_DATA_PROCESSING, "Queue successfully flushed.");
-            OSTimeDlyHMSM(0, 0, 0, 10, OS_OPT_TIME_HMSM_STRICT, &os_err);  // Small delay before retry
-
-            // Retry posting the SpO2 message
-            OSQPost(&CommQProcessedOximeterData, spO2_msg, sizeof(DATA_SET_PACKAGE_OXIMETER), OS_OPT_POST_FIFO | OS_OPT_POST_NO_SCHED, &os_err);
-            if (os_err == OS_ERR_NONE) {
-                Log_Write(LOG_LEVEL_I2C, "Sent SpO2 value to processing task after flushing queue.");
-                previous_spO2_rate = spO2;
-            } else {
-                Log_Write(LOG_LEVEL_ERROR, "Error: Failed to post SpO2 after flush. Error Code: %d", os_err);
-                OSMemPut(&MsgMemPoolHeart, spO2_msg, &os_err);
-            }
-        } else {
-            Log_Write(LOG_LEVEL_ERROR, "Error: Queue flush failed. Error Code: %d", os_err);
-            OSMemPut(&MsgMemPoolHeart, spO2_msg, &os_err);
-        }
-    } else if (os_err == OS_ERR_NONE) {
-        previous_spO2_rate = spO2;
-    } else {
-        Log_Write(LOG_LEVEL_ERROR, "Error: Posting to queue failed. Error Code: %d", os_err);
-        OSMemPut(&MsgMemPoolHeart, spO2_msg, &os_err);
-    }
-    */
 }
 
 

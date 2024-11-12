@@ -35,14 +35,16 @@ static const CPU_INT16U FIRCoeffs[50] = {
     -721, -483, -208, 88, 401, 721, 1039, 1345, 1626, 1870,
     2069, 2211, 2288, 2295, 2226, 2077, 1847, 1535, 1144, 681
 };
+
 extern CPU_INT32S Global_heart_rate;
 extern CPU_INT32S Global_spO2;
+
+
 // Function Prototypes
 void MAX30102_Init(void);
 static void max30102_Task(void *p_arg);
 CPU_INT16S averageDCEstimator(CPU_INT32S *p, CPU_INT32U x);
 CPU_INT16S lowPassFIRFilter(CPU_INT16S din);
 CPU_INT32S mul16(CPU_INT16S x, CPU_INT16S y);
-void initializeMessageQueueOximiter(void);
 
 #endif /* HEARTBEAT_SENSOR_H */

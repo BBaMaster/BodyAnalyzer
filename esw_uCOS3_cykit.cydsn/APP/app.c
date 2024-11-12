@@ -101,7 +101,6 @@ static void App_TaskStart(void *p_arg) {
     
     MAX30102_Init();
     BME688_Init_Task();
-    //Data_Processing_Init();
     Log_Write(LOG_LEVEL_INFO, "App_TaskStart: Data Processing task initialized successfully");
     while (DEF_TRUE) {
         /* Delay before next read */

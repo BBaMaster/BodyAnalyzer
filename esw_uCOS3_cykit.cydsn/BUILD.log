@@ -1,31 +1,60 @@
---------------- Build Started: 11/12/2024 04:00:13 Project: esw_uCOS3_cykit, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+--------------- Build Started: 11/12/2024 04:51:01 Project: esw_uCOS3_cykit, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
 The code generation step is up to date.
-arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/bsp_gpio.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c bsp_gpio.c -o .\CortexM3\ARM_GCC_541\Debug\bsp_gpio.o
-In file included from ./gpio_tasks.h:18:0,
-                 from bsp_gpio.h:19,
-                 from bsp_gpio.c:13:
-./heartbeatSensor.h:42:13: warning: 'max30102_Task' declared 'static' but never defined [-Wunused-function]
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\APP -I.\BSP -I.\BSP\OS\uCOS-III -I.\uC-CPU -I.\uC-CPU\ARM-Cortex-M3\GNU -I.\uC-LIB -I.\uCOS-III\Source -I.\uCOS-III\Ports\ARM-Cortex-M3\Generic\GNU -I.\uCOS-III\Lib\ARM-Cortex-M3\PSoC_GNU -I.\SensorLib\max30102 -I.\SensorLib\bme688 -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/environmentSensor.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c environmentSensor.c -o .\CortexM3\ARM_GCC_541\Debug\environmentSensor.o
+environmentSensor.c: In function 'bsp_i2c_read_bme':
+.\SensorLib\bme688/bme68x_defs.h:124:58: warning: return makes pointer from integer without a cast [-Wint-conversion]
+ #define BME68X_E_COM_FAIL                         INT8_C(-2)
+                                                          ^
+environmentSensor.c:52:14: note: in expansion of macro 'BME68X_E_COM_FAIL'
+       return BME68X_E_COM_FAIL;
+              ^
+environmentSensor.c: In function 'bsp_i2c_write_bme':
+.\SensorLib\bme688/bme68x_defs.h:124:58: warning: return makes pointer from integer without a cast [-Wint-conversion]
+ #define BME68X_E_COM_FAIL                         INT8_C(-2)
+                                                          ^
+environmentSensor.c:61:12: note: in expansion of macro 'BME68X_E_COM_FAIL'
+     return BME68X_E_COM_FAIL;
+            ^
+environmentSensor.c: In function 'Init_BME688_Sensor':
+environmentSensor.c:118:23: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
+   bme688_handle->read = bsp_i2c_read_bme;
+                       ^
+environmentSensor.c:119:24: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
+   bme688_handle->write = bsp_i2c_write_bme;
+                        ^
+environmentSensor.c:124:28: warning: unused variable 'check_heatr_conf' [-Wunused-variable]
+   struct bme68x_heatr_conf check_heatr_conf;
+                            ^
+environmentSensor.c: In function 'bme688_Task':
+environmentSensor.c:225:28: warning: passing argument 1 of 'enqueueEnvironmentData' from incompatible pointer type [-Wincompatible-pointer-types]
+     enqueueEnvironmentData(&env_data);
+                            ^
+environmentSensor.c:71:6: note: expected 'Environment_Data * {aka struct <anonymous> *}' but argument is of type 'Environment_Data ** {aka struct <anonymous> **}'
+ void enqueueEnvironmentData(Environment_Data* env_data) {
+      ^
+In file included from ./gpio_tasks.h:6:0,
+                 from ./bsp_gpio.h:19,
+                 from .\APP/includes.h:66,
+                 from ./bsp_i2c.h:7,
+                 from ./environmentSensor.h:17,
+                 from environmentSensor.c:13:
+environmentSensor.c: At top level:
+./heartbeatSensor.h:45:13: warning: 'max30102_Task' declared 'static' but never defined [-Wunused-function]
  static void max30102_Task(void *p_arg);
              ^
-In file included from ./gpio_tasks.h:22:0,
-                 from bsp_gpio.h:19,
-                 from bsp_gpio.c:13:
-./environmentSensor.h:34:13: warning: 'bme688_Task' declared 'static' but never defined [-Wunused-function]
- static void bme688_Task(void *p_arg);
+In file included from ./bsp_gpio.h:19:0,
+                 from .\APP/includes.h:66,
+                 from ./bsp_i2c.h:7,
+                 from ./environmentSensor.h:17,
+                 from environmentSensor.c:13:
+./gpio_tasks.h:24:13: warning: 'BUT_Task' declared 'static' but never defined [-Wunused-function]
+ static void BUT_Task(void *p_arg);    // Button Task function prototype
              ^
-In file included from bsp_gpio.h:19:0,
-                 from bsp_gpio.c:13:
-./gpio_tasks.h:27:17: warning: 'BUT_Task' declared 'static' but never defined [-Wunused-function]
- static void     BUT_Task(void *p_arg);
-                 ^
-./gpio_tasks.h:28:20: warning: 'button_variable' defined but not used [-Wunused-variable]
- static CPU_BOOLEAN button_variable;
-                    ^
-./gpio_tasks.h:33:13: warning: 'LedRB_Task' declared 'static' but never defined [-Wunused-function]
- static void LedRB_Task(void *p_arg);
+./gpio_tasks.h:29:13: warning: 'LedRB_Task' declared 'static' but never defined [-Wunused-function]
+ static void LedRB_Task(void *p_arg);  // Red/Blue LED Task function prototype
              ^
-./gpio_tasks.h:36:13: warning: 'LedG_Task' declared 'static' but never defined [-Wunused-function]
- static void LedG_Task(void *p_arg);
+./gpio_tasks.h:34:13: warning: 'LedG_Task' declared 'static' but never defined [-Wunused-function]
+ static void LedG_Task(void *p_arg);   // Green LED Task function prototype
              ^
 arm-none-eabi-ar.exe -rs .\CortexM3\ARM_GCC_541\Debug\esw_uCOS3_cykit.a .\CortexM3\ARM_GCC_541\Debug\UART_1.o .\CortexM3\ARM_GCC_541\Debug\UART_1_PM.o .\CortexM3\ARM_GCC_541\Debug\UART_1_INT.o .\CortexM3\ARM_GCC_541\Debug\UART_1_BOOT.o .\CortexM3\ARM_GCC_541\Debug\Pin_1.o .\CortexM3\ARM_GCC_541\Debug\UART_1_IntClock.o .\CortexM3\ARM_GCC_541\Debug\cy_em_eeprom.o .\CortexM3\ARM_GCC_541\Debug\CyDmac.o .\CortexM3\ARM_GCC_541\Debug\CyFlash.o .\CortexM3\ARM_GCC_541\Debug\CyLib.o .\CortexM3\ARM_GCC_541\Debug\cyPm.o .\CortexM3\ARM_GCC_541\Debug\CySpc.o .\CortexM3\ARM_GCC_541\Debug\cyutils.o .\CortexM3\ARM_GCC_541\Debug\Pin_2.o .\CortexM3\ARM_GCC_541\Debug\push_button.o .\CortexM3\ARM_GCC_541\Debug\SCL_1.o .\CortexM3\ARM_GCC_541\Debug\SDA_1.o .\CortexM3\ARM_GCC_541\Debug\I2C_1.o .\CortexM3\ARM_GCC_541\Debug\I2C_1_BOOT.o .\CortexM3\ARM_GCC_541\Debug\I2C_1_INT.o .\CortexM3\ARM_GCC_541\Debug\I2C_1_PM.o .\CortexM3\ARM_GCC_541\Debug\I2C_1_SLAVE.o .\CortexM3\ARM_GCC_541\Debug\I2C_1_MASTER.o .\CortexM3\ARM_GCC_541\Debug\I2C_INTR.o .\CortexM3\ARM_GCC_541\Debug\I2C_DataReady.o .\CortexM3\ARM_GCC_541\Debug\Timer_1.o .\CortexM3\ARM_GCC_541\Debug\Timer_1_PM.o .\CortexM3\ARM_GCC_541\Debug\Timer_ISR.o .\CortexM3\ARM_GCC_541\Debug\Clock_1.o .\CortexM3\ARM_GCC_541\Debug\Pin_Red_Led_1.o .\CortexM3\ARM_GCC_541\Debug\Pin_Blue_Led_1.o .\CortexM3\ARM_GCC_541\Debug\Pin_Green_Led_1.o .\CortexM3\ARM_GCC_541\Debug\PWM_Heartbeat.o .\CortexM3\ARM_GCC_541\Debug\PWM_Heartbeat_PM.o .\CortexM3\ARM_GCC_541\Debug\PWM_SPO2.o .\CortexM3\ARM_GCC_541\Debug\PWM_SPO2_PM.o .\CortexM3\ARM_GCC_541\Debug\CyBootAsmGnu.o
 arm-none-eabi-ar.exe: creating .\CortexM3\ARM_GCC_541\Debug\esw_uCOS3_cykit.a
@@ -35,6 +64,6 @@ No ELF section .cychecksum found, creating one
 Application checksum calculated and stored in ELF section .cychecksum
 Checksum calculated and stored in ELF section .cymeta
 cyelftool.exe -S C:\Users\Chronikle\Documents\GitHub\BodyAnalyzer\esw_uCOS3_cykit.cydsn\CortexM3\ARM_GCC_541\Debug\esw_uCOS3_cykit.elf
-Flash used: 37584 of 262144 bytes (14.3%).
-SRAM used: 27625 of 65536 bytes (42.2%). Stack: 2048 bytes. Heap: 128 bytes.
---------------- Build Succeeded: 11/12/2024 04:00:14 ---------------
+Flash used: 37096 of 262144 bytes (14.2%).
+SRAM used: 25561 of 65536 bytes (39.0%). Stack: 2048 bytes. Heap: 128 bytes.
+--------------- Build Succeeded: 11/12/2024 04:51:02 ---------------
